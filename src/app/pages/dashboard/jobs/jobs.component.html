@@ -1,0 +1,8 @@
+<section class="job-container">
+  <div class="job-c-overview">
+    <ng-container *ngFor="let job of jobs | search:jobFilterTerm">
+       <!-- <p *ngIf="!job" style="color: white;">not fond</p> -->
+      <app-job-view [job]="job"></app-job-view>
+    </ng-container>
+  </div>
+</section>

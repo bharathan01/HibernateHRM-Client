@@ -1,0 +1,24 @@
+<section class="single-n-section">
+  <div class="single-n-icon">
+    <mat-icon>notifications</mat-icon>
+  </div>
+  <div class="single-n-content">
+    <div class="single-n-message">
+      <p>
+        {{ notification.message }}
+      </p>
+    </div>
+    <div class="single-n-info">
+      <div class="single-n-data">
+        <span>
+          {{ notification.user }}
+        </span>
+        <span>{{ notification.time }} </span>
+        <span>{{ notification.date }}</span>
+      </div>
+      <div class="single-n-btn">
+        <button>{{ notification.button }}</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<section class="application-table-container">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <td *ngFor="let header of applicationTableHeader">
+            {{ header | titlecase }}
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let application of applicationDetails">
+          <td *ngFor="let data of applicationTableHeader">
+            <ng-template #showData>
+              {{ application[data] }}
+            </ng-template>
+            <ng-container *ngIf="application[data] === 'new'; else showData">
+              <a class="status-new-btn" [routerLink]="['/dashboard/candidate-application', application.id]"
+                ><button mat-raised-button>New </button></a
+              >
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

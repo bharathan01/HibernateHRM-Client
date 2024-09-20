@@ -1,0 +1,39 @@
+:host {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-navbar);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.publish-job {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-white);
+  padding: 20px;
+  width: 100%;
+  gap: 20px;
+}
+
+.publish-job ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 20px;
+}
+.publish-job ul li {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: var(--light-background);
+  border-radius: 12px;
+}
+.publish-job button{
+    width: 100%;
+    height: 50px;
+    background: var( --backgound-gradient);
+}

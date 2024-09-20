@@ -1,0 +1,284 @@
+.jrf-container {
+  width: 100%;
+  padding: 20px 20px 5px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.jrf-sub-header {
+  width: 100%;
+  background-color: var(--light-background);
+  border-radius: 7px;
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.jrf-form {
+  width: 100%;
+  height: 77vh;
+  background-color: var(--bg-navbar);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+}
+.job-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--bg-white);
+}
+.job-back-btn span {
+  padding: 5px;
+  background-color: var(--input-background);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.job-back-btn span:hover {
+  background-color: var(--gold-background);
+}
+.notify-btn span {
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.notify-btn span h3 {
+  color: var(--bg-white);
+}
+.stepper {
+  background-color: var(--light-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.stepper-icon {
+  display: flex;
+  padding: 20px;
+  background-color: var(--bg-icon);
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border-radius: 50%;
+}
+.stepper-items {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.stepper-connect {
+  width: 100%;
+  height: 5px;
+  background-color: var(--bg-icon);
+  transition: all 0.5s;
+}
+.active {
+  background-color: var(--gold-background);
+  color: var(--bg-dark);
+  transition: all 0.5s;
+}
+.active-stepper {
+  background-color: var(--gold-background);
+  color: var(--bg-whatsapp);
+  transition: all 0.5s;
+}
+.last-stepper {
+  width: 50px;
+}
+.form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+.form-heading {
+  width: 100%;
+  text-align: center;
+}
+.form-selector {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+.form-container form {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.job-discription {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+.job-discription-heading {
+  width: 100%;
+}
+.job-discription-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.job-discription-input span {
+  padding: 10px 0px;
+}
+.job-discription-input textarea {
+  height: 150px;
+}
+.job-discription-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.job-discription-btn span {
+  width: 200px;
+}
+.job-discription-btn input[type="text"] {
+  width: 100px;
+  height: 60ox;
+}
+.job-btn-flex {
+  align-items: start;
+}
+.job-qualification {
+  display: flex;
+  flex-direction: column;
+}
+.preview-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.edit-btn {
+  width: 100%;
+}
+.edit-btn button {
+  background-color: var(--light-background);
+  color: var(--bg-white);
+  margin: 0px 10px;
+}
+.next-btn {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.next-btn button {
+  background-color: var(--gold-background);
+  float: left;
+}
+.error-text {
+  color: var(--danger);
+}
+.remarks-field {
+  width: 80%;
+}
+
+.form-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.preview {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jrf-confirm {
+  background-color: var(--bg-icon);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 7px;
+}
+.jrf-confirm-heading {
+}
+.jrf-confirm-form {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.jrf-form-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jrf-form-input span {
+  display: block;
+  width: 200px;
+}
+.date{
+  width: 210px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 990px) {
+  .jrf-container {
+    padding: 0px;
+  }
+  .form-selector {
+    flex-direction: column;
+  }
+  .selector-container {
+    width: 100%;
+  }
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+  .job-discription-btn {
+    flex-direction: column;
+  }
+  .job-discription {
+    align-items: start;
+  }
+  .job-discription-btn span {
+    width: 100%;
+  }
+  .notify-btn h3 {
+    font-size: var(--font-size-xxs);
+  }
+  .next-btn {
+    width: auto;
+  }
+  .form-container {
+    padding: 10px;
+  }
+  .jrf-form-input{
+    flex-direction: column;
+  }
+}

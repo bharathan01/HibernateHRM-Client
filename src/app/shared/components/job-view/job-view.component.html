@@ -1,0 +1,65 @@
+<section class="job-over-view-container">
+  <div class="job-title">
+    <div>
+      <h2>{{ job.title }}</h2>
+    </div>
+    <div class="job-title-icons">
+      <span title="view" (click)="toggleJobApplicationView()">
+        <mat-icon>visibility</mat-icon>
+      </span>
+      <span title="share" (click)="toggleShareView()"
+        ><mat-icon>share</mat-icon></span
+      >
+      <span title="more options" (click)="isOpenMoreMenu = !isOpenMoreMenu"
+        ><mat-icon>more_vert</mat-icon></span
+      >
+    </div>
+    <ng-container *ngIf="isOpenMoreMenu">
+      <div class="job-more-menu">
+        <a routerLink="hiringteam">
+          <button>Add hiring team</button>
+        </a>
+        <button>Close job</button>
+      </div>
+    </ng-container>
+  </div>
+  <div class="job-a-details">
+    <div class="job-a-count">
+      <h5>Total Candidates</h5>
+      <span
+        ><h2>{{ job.totalApplication }}</h2></span
+      >
+    </div>
+    <div class="job-a-count">
+      <h5>Active Candidates</h5>
+      <span
+        ><h2>{{ job.newApplication }}</h2></span
+      >
+    </div>
+    <div class="job-a-count">
+      <h5>New Applications</h5>
+      <span
+        ><h2>{{ job.activeApplication }}</h2></span
+      >
+    </div>
+  </div>
+  <div class="job-a-id">
+    <span> Job ID:{{ job.id }} </span>
+    <span>
+      <button mat-raised-button (click)="isOpenAddCandidate =! isOpenAddCandidate">Add Candidates</button>
+    </span>
+    <ng-container *ngIf="isOpenAddCandidate">
+      <div class="addCandidate-popup">
+        <a routerLink="add-candidate">
+          <button>Add Candidates Manually</button>
+        </a>
+        <a routerLink="import-resume">
+          <button>Import Resume(Doc/PDF)</button>
+        </a>
+        <a>
+          <button>Add from Talent Pool</button>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+</section>

@@ -1,0 +1,83 @@
+<section class="hiring-container">
+  <div class="hiring-team-select">
+    <div>
+      <h3>Name</h3>
+      <div class="custom-select-container">
+        <div class="custom-select">
+          <select
+            id="team-select"
+            class="custom-dropdown"
+            [(ngModel)]="selectedName"
+          >
+            <option value="" disabled selected>Select a member</option>
+            <option
+              value="{{ teamName.name }}"
+              *ngFor="let teamName of options"
+            >
+              {{ teamName.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Invite as</h3>
+      <div class="custom-select-container">
+        <div class="custom-select">
+          <select
+            id="team-select"
+            class="custom-dropdown"
+            [(ngModel)]="selectedRole"
+          >
+            <option value="" disabled selected>Select user access type</option>
+            <option
+              value="{{ access.role }}"
+              *ngFor="let access of accessTypes"
+            >
+              {{ access.role }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        mat-raised-button
+        (click)="addTeamMember()"
+        [disabled]="!isTeamSelected()"
+      >
+        Add me
+      </button>
+    </div>
+  </div>
+  <div class="hiring-team-list">
+    <table>
+      <thead>
+        <tr>
+          <td></td>
+          <td>Name</td>
+          <td>Access type</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of selectedTeams">
+          <ng-container *ngIf="!member.profileImage">
+            <img src="../../../../assets/images/avathar.jpg" alt="" />
+          </ng-container>
+          <ng-container *ngIf="member.profileImage">
+            <img src="../../../../assets/images/avathar.jpg" alt="" />
+          </ng-container>
+          <td>{{ member.name }}</td>
+          <td>{{ member.role }}</td>
+          <ng-container *ngIf="member.role === 'SuperAdmin'">
+            <td (click)="removeTeamMember(member?.name)">Exit</td>
+          </ng-container>
+          <ng-container *ngIf="member.role !== 'SuperAdmin'">
+            <td><mat-icon (click)="removeTeamMember(member?.name)">close</mat-icon></td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,113 @@
+<app-create-jrf-header></app-create-jrf-header>
+<section class="candidate-application">
+  <div class="application-container">
+    <div class="application-sub-header">
+      <a routerLink="/dashboard/application">
+        <div class="application-back-btn">
+          <span>
+            <mat-icon>arrow_back</mat-icon>
+          </span>
+          <h3>Applications</h3>
+        </div>
+      </a>
+    </div>
+    <div class="candidate-details">
+      <div class="candidate-profile">
+        <div class="profile-img">
+          <img src="../../../assets/images/avathar.jpg" alt="profile" />
+          <span>
+            <h3>{{applicationDetails.candidate}}</h3>
+            <h5>{{applicationDetails.jobPosition}}</h5>
+          </span>
+        </div>
+        <div class="profile-info">
+          <div class="basic-details">
+            <h5><mat-icon class="info-icon">mail</mat-icon>{{applicationDetails.email}}</h5>
+            <h5><mat-icon class="info-icon">call</mat-icon>{{applicationDetails.phone}}</h5>
+            <h5>
+              <mat-icon class="info-icon">location_on</mat-icon
+              >Kochi,Kerela,India
+            </h5>
+          </div>
+          <div class="profile-btn">
+            <button mat-raised-button>Shortlist candidate</button>
+            <button mat-flat-button>Reject</button>
+            <button
+              mat-icon-button
+              aria-label="Example icon button with a vertical three dot icon"
+              (click)="toggleMoreMenu = !toggleMoreMenu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <div class="popup-more-vert" *ngIf="toggleMoreMenu">
+              <span>Move to talent pool</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <mat-divider class="mat-divider"></mat-divider>
+      <div class="application-detailas">
+        <div class="personal-details">
+          <h5>Personal Informations</h5>
+          <div class="application-overview">
+            <span>
+              <p>Name</p>
+              :
+              <p>{{applicationDetails.candidate}}</p>
+            </span>
+            <span>
+              <p>Experience</p>
+              :
+              <p>{{applicationDetails.experience}} Years</p>
+            </span>
+            <span>
+              <p>Education</p>
+              :
+              <p>{{applicationDetails.education}}</p>
+            </span>
+            <span>
+              <p>Notice Period</p>
+              :
+              <p>{{applicationDetails.noticePeriod}} Days</p>
+            </span>
+            <span>
+              <p>Current CTC</p>
+              :
+              <p>{{applicationDetails.currentCTC}}</p>
+            </span>
+            <span>
+              <p>Gender</p>
+              :
+              <p>{{applicationDetails.gender}}</p>
+            </span>
+            <span>
+              <p>Birth of Date</p>
+              :
+              <p>{{applicationDetails.dob}}</p>
+            </span>
+            <span>
+              <p>Skills</p>
+              :
+              <p>{{applicationDetails.skills}}</p>
+            </span>
+          </div>
+        </div>
+        <div class="personal-details">
+          <h5>Resume Preview</h5>
+          <div class="application-overview application-pdf" (click)="openPdfInNewTab()">
+            <div class="pdf-container" >
+              <iframe
+                id="inlineFrameExample"
+                title="Inline Frame Example"
+                [src]="safeUrl"
+                class="resume-preview"
+                allowfullscreen
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

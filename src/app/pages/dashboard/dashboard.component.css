@@ -1,0 +1,24 @@
+.dashboard-section {
+  width: 100%;
+  position: relative;
+}
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 10px 0px 10px;
+  gap: 15px;
+  height: 98vh;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+@media (max-width: 768px) {
+  .aside-nav-bar {
+    position: absolute;
+  }
+}

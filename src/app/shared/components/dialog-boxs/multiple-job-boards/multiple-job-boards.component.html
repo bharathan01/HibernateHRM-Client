@@ -1,0 +1,26 @@
+<section class="publish-job">
+  <ul>
+    <li>
+      <mat-checkbox
+        class="example-margin"
+        [checked]="taskForm.value.completed"
+        [indeterminate]="partiallyComplete()"
+        (change)="updateParentTask($event.checked)"
+      >
+        {{ taskForm.value.name }}
+      </mat-checkbox>
+    </li>
+  </ul>
+
+  <ul>
+    <li *ngFor="let subtask of subtasks.controls; let i = index">
+      <mat-checkbox
+        [checked]="subtask.value.completed"
+        (change)="updateSubtask($event.checked, i)"
+      >
+        {{ subtask.value.name }}
+      </mat-checkbox>
+    </li>
+  </ul>
+  <button mat-raised-button>Publish</button>
+</section>

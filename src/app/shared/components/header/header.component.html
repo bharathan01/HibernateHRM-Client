@@ -1,0 +1,87 @@
+<section class="header-container border-radius border-shadow">
+  <ng-container *ngIf="displayJobButtons">
+    <div class="job-c-manu">
+      <mat-icon
+        (click)="isDisplayMenuOpen = !isDisplayMenuOpen"
+        *ngIf="!isDisplayMenuOpen"
+        >menu</mat-icon
+      >
+      <mat-icon
+        (click)="isDisplayMenuOpen = !isDisplayMenuOpen"
+        *ngIf="isDisplayMenuOpen"
+        >close</mat-icon
+      >
+    </div>
+    <div class="job-c-header" [ngClass]="{ 'open-menu': isDisplayMenuOpen }">
+      <div>
+        <div class="radio-group">
+          <label class="radio-button">
+            <input
+              type="radio"
+              name="jobs"
+              value="new"
+              [(ngModel)]="jobFilterTerm"
+              (change)="onSearchTermChanged($event)"
+            />
+            <span class="custom-radio"></span>
+            New Jobs
+          </label>
+          <label class="radio-button">
+            <input
+              type="radio"
+              name="jobs"
+              value="closed"
+              [(ngModel)]="jobFilterTerm"
+              (change)="onSearchTermChanged($event)"
+            />
+            <span class="custom-radio"></span>
+            Close Jobs
+          </label>
+        </div>
+      </div>
+      <div>
+        <a routerLink="/dashboard/creat-jrf">
+          <button mat-raised-button>Create JRF</button>
+        </a>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="displayJobhiringTeamHeader">
+    <div class="back-btn-container">
+      <a routerLink="jobs">
+        <div class="icon back-icon">
+          <mat-icon>arrow_back</mat-icon>
+        </div>
+      </a>
+      <h3>Jobs</h3>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!displayJobhiringTeamHeader">
+    <div
+      class="header-icon-container"
+      [ngClass]="{ 'header-btn-end': !displayJobButtons }"
+    >
+      <div class="search-icon icon">
+        <input
+          type="search"
+          autofocus
+          required
+          (input)="onSearchTermChanged($event)"
+        />
+        <mat-icon class="fa fa-search"> search </mat-icon>
+      </div>
+      <div
+        class="notification-icon icon"
+        [ngClass]="{ active: isDialogOpen }"
+        (click)="toggleDialog()"
+        matBadge="1"
+        matBadgeSize="small"
+        [matBadgeHidden]="hidden"
+        matBadgeColor="warn"
+      >
+        <mat-icon *ngIf="!isDialogOpen">notifications</mat-icon>
+        <mat-icon *ngIf="isDialogOpen">close</mat-icon>
+      </div>
+    </div>
+  </ng-container>
+</section>

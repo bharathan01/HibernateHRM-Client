@@ -1,0 +1,676 @@
+<app-create-jrf-header></app-create-jrf-header>
+<section class="jrf-container">
+  <div class="jrf-sub-header">
+    <a (click)="previousPage()">
+      <div class="job-back-btn">
+        <span>
+          <mat-icon>arrow_back</mat-icon>
+        </span>
+        <h3>Jobs</h3>
+      </div>
+    </a>
+    <div class="notify-btn">
+      <span>
+        <h3><mat-slide-toggle></mat-slide-toggle></h3>
+        <h3>Notify HR Manager</h3>
+      </span>
+    </div>
+  </div>
+  <div class="jrf-form">
+    <div class="stepper">
+      <div
+        class="stepper-items"
+        *ngFor="let step of steps; let i = index"
+        [ngClass]="{ 'last-stepper': i === steps.length - 1 }"
+      >
+        <mat-icon
+          class="stepper-icon"
+          [ngClass]="{ active: i == stepperCount }"
+          *ngIf="!step.isComplete"
+          >{{ step.title }}</mat-icon
+        >
+        <mat-icon
+          class="stepper-icon"
+          [ngClass]="{ 'active-stepper': step.isComplete }"
+          *ngIf="step.isComplete"
+          >check</mat-icon
+        >
+        <div
+          class="stepper-connect"
+          *ngIf="i < steps.length - 1"
+          [ngClass]="{ 'active-stepper': step.isComplete }"
+        ></div>
+      </div>
+    </div>
+    <div class="form-container">
+      <ng-container *ngIf="stepperCount === 0">
+        <div class="form-heading">
+          <h2>GENROBOTIC INNOVATIONS PRIVATE LIMITED</h2>
+        </div>
+        <form [formGroup]="JRFormData">
+          <div class="form-selector">
+            <div class="selector-container">
+              <div
+                *ngIf="
+                  JrfControls['department'].touched &&
+                  JrfControls['department'].invalid
+                "
+              >
+                <small class="error-text">Department is required.</small>
+              </div>
+              <mat-form-field>
+                <mat-label>Department</mat-label>
+                <mat-select
+                  formControlName="department"
+                  name="department"
+                  color="accent"
+                  (selectionChange)="onDepartmentChange()"
+                >
+                  <mat-option
+                    *ngFor="let department of jobOptions"
+                    [value]="department.department"
+                  >
+                    {{ department.department }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="selector-container">
+              <div
+                *ngIf="JrfControls['job'].touched && JrfControls['job'].invalid"
+              >
+                <small
+                  *ngIf="JrfControls['job'].errors?.['required']"
+                  class="error-text"
+                  >job is required.</small
+                >
+              </div>
+              <mat-form-field>
+                <mat-label>Job</mat-label>
+                <mat-select formControlName="job" color="accent">
+                  <mat-option [value]="job" *ngFor="let job of filterJob">
+                    {{ job }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="selector-container">
+              <div
+                *ngIf="
+                  JrfControls['location'].touched &&
+                  JrfControls['location'].invalid
+                "
+              >
+                <small class="error-text">location is required.</small>
+              </div>
+              <mat-form-field>
+                <mat-label>Location</mat-label>
+                <mat-select formControlName="location" color="accent">
+                  <mat-option
+                    *ngFor="let location of locations"
+                    [value]="location.city"
+                  >
+                    {{ location.city }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="selector-container">
+              <div
+                *ngIf="
+                  JrfControls['date'].touched && JrfControls['date'].invalid
+                "
+              >
+                <small class="error-text">date is required.</small>
+              </div>
+              <mat-form-field>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="date"
+                />
+                <mat-label>Date</mat-label>
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker ></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="job-discription">
+            <div class="job-discription-input">
+              <span>Responsibilities</span>
+              <mat-form-field class="example-full-width">
+                <mat-label>Responsibilities</mat-label>
+                <textarea
+                  matInput
+                  formControlName="responsibilities"
+                  placeholder="Ex. Job responsibilities"
+                ></textarea>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  JrfControls['responsibilities'].touched &&
+                  JrfControls['responsibilities'].invalid
+                "
+              >
+                <small
+                  *ngIf="JrfControls['responsibilities'].errors?.['required']"
+                  class="error-text"
+                  >responsibilities is required.</small
+                >
+              </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="job-discription-input">
+              <span>Skills Required</span>
+              <mat-form-field class="example-full-width">
+                <mat-label>Skills Required</mat-label>
+                <textarea
+                  matInput
+                  formControlName="skills"
+                  placeholder="Ex. Required skills"
+                ></textarea>
+              </mat-form-field>
+              <div
+                *ngIf="
+                  JrfControls['skills'].touched && JrfControls['skills'].invalid
+                "
+              >
+                <small
+                  *ngIf="JrfControls['skills'].errors?.['required']"
+                  class="error-text"
+                  >skills is required.</small
+                >
+              </div>
+            </div>
+
+            <!-- No of Vacancies -->
+            <div class="job-discription-btn">
+              <span>No. of vacancies</span>
+              <mat-form-field color="accent">
+                <input matInput formControlName="vacancies" />
+                <div
+                  *ngIf="
+                    JrfControls['vacancies'].touched &&
+                    JrfControls['vacancies'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="JrfControls['vacancies'].errors?.['required']"
+                    class="error-text"
+                    >vacancies is required.</small
+                  >
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="job-discription-btn job-btn-flex">
+              <span>Educational Qualification</span>
+              <div class="job-qualification">
+                <mat-radio-group formControlName="qualification">
+                  <mat-radio-button value="10th Grade"
+                    >10th Grade</mat-radio-button
+                  >
+                  <mat-radio-button value="12th Grade / High School Diploma"
+                    >12th Grade / High School Diploma</mat-radio-button
+                  >
+                  <mat-radio-button value="Bachelor's Degree"
+                    >Bachelor's Degree</mat-radio-button
+                  >
+                  <mat-radio-button value="Master's Degree"
+                    >Master's Degree</mat-radio-button
+                  >
+                  <div
+                    *ngIf="
+                      JrfControls['qualification'].touched &&
+                      JrfControls['qualification'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="JrfControls['qualification'].errors?.['required']"
+                      class="error-text"
+                      >qualification is required.</small
+                    >
+                  </div>
+                </mat-radio-group>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Additional Informations</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="qualificationExInfo"
+                    placeholder="Ex. Job responsibilities"
+                  ></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="job-discription-btn job-btn-flex">
+              <span>Experience</span>
+              <mat-form-field color="accent">
+                <input
+                  matInput
+                  placeholder="From"
+                  formControlName="experienceFrom"
+                />
+                <div
+                  *ngIf="
+                    JrfControls['experienceFrom'].touched &&
+                    JrfControls['experienceFrom'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="JrfControls['experienceFrom'].errors?.['required']"
+                    class="error-text"
+                    >experienceFrom is required.</small
+                  >
+                </div>
+              </mat-form-field>
+              <mat-form-field color="accent">
+                <input
+                  matInput
+                  placeholder="To"
+                  formControlName="experienceTo"
+                />
+                <div
+                  *ngIf="
+                    JrfControls['experienceTo'].touched &&
+                    JrfControls['experienceTo'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="JrfControls['experienceTo'].errors?.['required']"
+                    class="error-text"
+                    >qualification is required.</small
+                  >
+                </div>
+              </mat-form-field>
+            </div>
+
+            <!-- Job Location -->
+            <div class="job-discription-btn job-btn-flex">
+              <span>Job Location</span>
+              <div class="job-qualification">
+                <mat-radio-group formControlName="jobLocation">
+                  <mat-radio-button value="On site">On site</mat-radio-button>
+                  <mat-radio-button value="Remote">Remote</mat-radio-button>
+                  <mat-radio-button value="Hybrid">Hybrid</mat-radio-button>
+                  <div
+                    *ngIf="
+                      JrfControls['jobLocation'].touched &&
+                      JrfControls['jobLocation'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="JrfControls['jobLocation'].errors?.['required']"
+                      class="error-text"
+                      >jobLocation is required.</small
+                    >
+                  </div>
+                </mat-radio-group>
+              </div>
+            </div>
+
+            <!-- Travel Required -->
+            <div class="job-discription-btn">
+              <span>Travel Required</span>
+              <div class="job-qualification">
+                <mat-radio-group formControlName="travel">
+                  <mat-radio-button value="Yes">Yes</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
+                  <div
+                    *ngIf="
+                      JrfControls['travel'].touched &&
+                      JrfControls['travel'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="JrfControls['travel'].errors?.['required']"
+                      class="error-text"
+                      >travel is required.</small
+                    >
+                  </div>
+                </mat-radio-group>
+              </div>
+            </div>
+
+            <!-- Gender -->
+            <div class="job-discription-btn">
+              <span>Gender</span>
+              <div class="job-qualification">
+                <mat-radio-group formControlName="gender">
+                  <mat-radio-button value="Male">Male</mat-radio-button>
+                  <mat-radio-button value="Female">Female</mat-radio-button>
+                  <mat-radio-button value="Both">Both</mat-radio-button>
+                  <div
+                    *ngIf="
+                      JrfControls['gender'].touched &&
+                      JrfControls['gender'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="JrfControls['gender'].errors?.['required']"
+                      class="error-text"
+                      >gender is required.</small
+                    >
+                  </div>
+                </mat-radio-group>
+              </div>
+            </div>
+
+            <!-- Marital Status -->
+            <div class="job-discription-btn">
+              <span>Marital Status</span>
+              <div class="job-qualification">
+                <mat-radio-group formControlName="maritalStatus">
+                  <mat-radio-button value="Married">Married</mat-radio-button>
+                  <mat-radio-button value="Unmarried"
+                    >Unmarried</mat-radio-button
+                  >
+                </mat-radio-group>
+              </div>
+            </div>
+
+            <!-- Locality Preferences -->
+            <div class="job-discription-btn">
+              <span>Locality Preferences</span>
+              <div class="job-qualification">
+                <mat-radio-group formControlName="locality">
+                  <mat-radio-button value="Urban">Urban</mat-radio-button>
+                  <mat-radio-button value="Rural">Rural</mat-radio-button>
+                  <mat-radio-button value="Remote">Remote</mat-radio-button>
+                  <mat-radio-button value="Any">Any</mat-radio-button>
+                  <div
+                    *ngIf="
+                      JrfControls['locality'].touched &&
+                      JrfControls['locality'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="JrfControls['locality'].errors?.['required']"
+                      class="error-text"
+                      >locality is required.</small
+                    >
+                  </div>
+                </mat-radio-group>
+              </div>
+            </div>
+
+            <!-- Industrial Preferences -->
+            <div class="job-discription-btn">
+              <span>Industrial Preferences</span>
+              <div class="job-qualification">
+                <mat-radio-group formControlName="industry">
+                  <mat-radio-button value="Technology"
+                    >Technology</mat-radio-button
+                  >
+                  <mat-radio-button value="Manufacturing"
+                    >Manufacturing</mat-radio-button
+                  >
+                  <mat-radio-button value="Finance">Finance</mat-radio-button>
+                  <mat-radio-button value="Media">Media</mat-radio-button>
+                  <div
+                    *ngIf="
+                      JrfControls['industry'].touched &&
+                      JrfControls['industry'].invalid
+                    "
+                  >
+                    <small
+                      *ngIf="JrfControls['industry'].errors?.['required']"
+                      class="error-text"
+                      >industry is required.</small
+                    >
+                  </div>
+                </mat-radio-group>
+              </div>
+            </div>
+
+            <!-- Approximate Salary -->
+            <div class="job-discription-btn">
+              <span>Approximate Salary</span>
+              <mat-form-field color="accent">
+                <input matInput formControlName="salary" />
+              </mat-form-field>
+            </div>
+
+            <!-- Remarks -->
+            <div class="job-discription-btn">
+              <span>Remarks</span>
+              <mat-form-field class="remarks-field">
+                <mat-label>Leave a comment</mat-label>
+                <textarea
+                  matInput
+                  formControlName="remarks"
+                  placeholder="Ex. Remarks"
+                ></textarea>
+              </mat-form-field>
+            </div>
+
+            <!-- Job ID -->
+            <div class="job-discription-btn">
+              <span>Job ID</span>
+              <mat-form-field color="accent">
+                <input matInput formControlName="jobId" />
+                <div
+                  *ngIf="
+                    JrfControls['jobId'].touched && JrfControls['jobId'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="JrfControls['jobId'].errors?.['required']"
+                    class="error-text"
+                    >jobId is required.</small
+                  >
+                </div>
+              </mat-form-field>
+            </div>
+
+            <!-- Name -->
+            <div class="job-discription-btn">
+              <span>Name</span>
+              <mat-form-field color="accent">
+                <input matInput formControlName="name" />
+                <div
+                  *ngIf="
+                    JrfControls['name'].touched && JrfControls['name'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="JrfControls['name'].errors?.['required']"
+                    class="error-text"
+                    >name is required.</small
+                  >
+                </div>
+              </mat-form-field>
+            </div>
+
+            <!-- Designation -->
+            <div class="job-discription-btn">
+              <span>Designation</span>
+              <mat-form-field color="accent">
+                <input matInput formControlName="designation" />
+                <div
+                  *ngIf="
+                    JrfControls['designation'].touched &&
+                    JrfControls['designation'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="JrfControls['designation'].errors?.['required']"
+                    class="error-text"
+                    >designation is required.</small
+                  >
+                </div>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </ng-container>
+      <ng-container *ngIf="stepperCount === 1">
+        <div class="preview" id="print-section">
+          <app-jrf-preview [JRFormData] = 'JRFormData.value'></app-jrf-preview>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="stepperCount === 2">
+        <div class="jrf-confirm">
+          <div class="jrf-confirm-heading">
+            <h4>For office use only</h4>
+          </div>
+          <div class="jrf-confirm-form">
+            <form [formGroup]="JRFormPulishDetails">
+              <div class="jrf-form-input">
+                <span>Action Taken</span>
+                <mat-form-field>
+                  <mat-label>Action Taken</mat-label>
+                  <mat-select
+                    name="action"
+                    color="accent"
+                    formControlName="actionTaken"
+                  >
+                    <mat-option value="Approved"> Approved </mat-option>
+                    <mat-option value="On-hold"> On-hold </mat-option>
+                    <mat-option value="Reject"> Reject </mat-option>
+                  </mat-select>
+                  <div
+                    *ngIf="
+                      JRFormPulishDetailsControls['actionTaken'].touched &&
+                      JRFormPulishDetailsControls['actionTaken'].invalid
+                    "
+                  >
+                    <small class="error-text">Action Taken is required.</small>
+                  </div>
+                </mat-form-field>
+              </div>
+              <div class="jrf-form-input">
+                <span>Status of Request</span>
+                <mat-form-field color="accent">
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="statusofRequest"
+                  />
+                  <div
+                    *ngIf="
+                      JRFormPulishDetailsControls['statusofRequest'].touched &&
+                      JRFormPulishDetailsControls['statusofRequest'].invalid
+                    "
+                  >
+                    <small class="error-text"
+                      >Status of Request is required.</small
+                    >
+                  </div>
+                </mat-form-field>
+              </div>
+              <div class="jrf-form-input">
+                <span>Name</span>
+                <mat-form-field color="accent">
+                  <input matInput placeholder="" formControlName="name" />
+                  <div
+                    *ngIf="
+                      JRFormPulishDetailsControls['name'].touched &&
+                      JRFormPulishDetailsControls['name'].invalid
+                    "
+                  >
+                    <small class="error-text">Name is required.</small>
+                  </div>
+                </mat-form-field>
+              </div>
+              <div class="jrf-form-input">
+                <span>Signature</span>
+                <mat-form-field color="accent">
+                  <input matInput placeholder="" formControlName="signature" />
+                  <div
+                    *ngIf="
+                      JRFormPulishDetailsControls['signature'].touched &&
+                      JRFormPulishDetailsControls['signature'].invalid
+                    "
+                  >
+                    <small class="error-text">signature is required.</small>
+                  </div>
+                </mat-form-field>
+              </div>
+              <div class="jrf-form-input">
+                <span>Date</span>
+                <mat-form-field class="date">
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    formControlName="date"
+                  />
+                  <mat-label>Date</mat-label>
+                  <mat-datepicker-toggle
+                    matIconSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <div
+                    *ngIf="
+                      JRFormPulishDetailsControls['date'].touched &&
+                      JRFormPulishDetailsControls['date'].invalid
+                    "
+                  >
+                    <small class="error-text">Date is required.</small>
+                  </div>
+                </mat-form-field>
+              </div>
+            </form>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="stepperCount === 3">
+        <div class="preview" #contentToCopy>
+          <app-publish-jrf [JRFormOverviewData]="JRFormData.value"></app-publish-jrf>
+        </div>
+      </ng-container>
+      <div class="preview-btn">
+        <ng-container *ngIf="stepperCount === 1">
+          <div class="edit-btn">
+            <button mat-raised-button (click)="previousPage()">Edit</button>
+            <button
+              mat-raised-button
+              printSectionId="print-section"
+              printTitle="Job Form"
+              ngxPrint
+            >
+              Print
+            </button>
+          </div>
+        </ng-container>
+        <div class="next-btn">
+          <button
+            mat-raised-button
+            (click)="nextPage()"
+            *ngIf="stepperCount === 1"
+          >
+            Procced
+          </button>
+          <button
+            mat-raised-button
+            (click)="submitPreviewJrfFormData()"
+            *ngIf="stepperCount === 0"
+          >
+            Preview
+          </button>
+          <button
+            mat-raised-button
+            (click)="submitJRFormPulishDetails()"
+            *ngIf="stepperCount === 2"
+          >
+            Post Job
+          </button>
+
+          <ng-container *ngIf="stepperCount === 3">
+            <button mat-raised-button (click)="copyJRFContent()">Copied</button>
+            <button mat-raised-button (click)="togglePublishJob()">
+              Publish
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

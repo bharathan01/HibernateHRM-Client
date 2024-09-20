@@ -1,0 +1,14 @@
+<section class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <td *ngFor="let header of tableHeaders">{{ header | titlecase }}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let interview of upcomingInterviews">
+          <td *ngFor="let header of tableHeaders">{{ interview[header] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>

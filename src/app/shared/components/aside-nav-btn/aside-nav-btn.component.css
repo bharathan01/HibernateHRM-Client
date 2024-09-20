@@ -1,0 +1,13 @@
+.menu-bar-btn {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: start;
+  background-color:var(--light-background) !important;
+  color: var(--bg-white) !important;
+  font-size: var(--font-size-md);
+}
+a.active .menu-bar-btn {
+  background: var(--backgound-gradient);
+  color: var(--bg-dark) !important;
+}

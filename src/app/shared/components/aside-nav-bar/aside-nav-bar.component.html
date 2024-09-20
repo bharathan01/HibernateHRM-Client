@@ -1,0 +1,40 @@
+<section class="aside-container flex">
+  <mat-drawer-container class="example-container drawer-container" autosize>
+    <mat-drawer #drawer class="example-sidenav drawer-mat" mode="side">
+      <div class="manu-list-container">
+        <div class="profile-container">
+          <div>
+            <img src="../../../../assets/images/Genrobotics.png" alt="log" />
+          </div>
+          <div class="user-info">
+            <div class="avathar">
+              <img src="../../../../assets/images/avathar.jpg" alt="avatar" />
+            </div>
+            <div class="username">
+              <h4>Vikram</h4>
+              <span>Admin</span>
+            </div>
+          </div>
+        </div>
+        <mat-divider class="mat-divider"></mat-divider>
+        <div class="menu-bar">
+          <div class="menu-bar-btn-container">
+            <ng-container *ngFor="let item of menuItemsTop">
+              <app-aside-nav-btn [buttonAction]="item"></app-aside-nav-btn>
+            </ng-container>
+          </div>
+          <div class="menu-bar-btn-container">
+            <ng-container *ngFor="let item of menuItemsBottom">
+              <app-aside-nav-btn [buttonAction]="item"></app-aside-nav-btn>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </mat-drawer>
+  </mat-drawer-container>
+  <div class="menu-driver flex-center" (click)="toggleDrawer()">
+    <div class="menu-driver-icon flex-center">
+      <mat-icon>chevron_right</mat-icon>
+    </div>
+  </div>
+</section>

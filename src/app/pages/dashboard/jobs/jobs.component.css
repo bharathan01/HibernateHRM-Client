@@ -1,0 +1,31 @@
+.job-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.job-c-overview {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.job-c-overview app-job-view {
+  flex: 0 0 32.70%;
+  min-width: 350px;
+}
+@media(max-width:720px){
+  .job-c-overview app-job-view {
+    flex: 0 0 100%;
+  }
+}
+@media(max-width:400px){
+  .job-c-overview app-job-view {
+    min-width: 0px;
+  }
+}
+
+
+

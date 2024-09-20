@@ -1,0 +1,25 @@
+<section class="status-container">
+  <div class="s-heading">
+    <h2>Status</h2>
+  </div>
+  <mat-divider class="mat-divider"></mat-divider>
+  <div class="s-content">
+    <ol *ngFor="let timelineEvent of timelineEvents">
+      <li>
+        <div class="s-time-line">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="s-time-line-msg">
+          <span>{{timelineEvent.datetime}}</span>
+          <span>
+            <p>{{timelineEvent.description}}</p>
+          </span>
+          <span>
+            <button>{{timelineEvent.buttonLabel}}</button>
+          </span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>

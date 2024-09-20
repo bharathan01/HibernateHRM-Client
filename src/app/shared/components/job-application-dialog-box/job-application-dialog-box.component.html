@@ -1,0 +1,27 @@
+<section class="job-a-view-container">
+  <div class="job-a-title">
+    <h2>{{ jobApplicationDetail.title }}</h2>
+  </div>
+  <div class="job-a-discription">
+    <h3>Responsibilities</h3>
+    <ul>
+      <li *ngFor="let Responsibilitie of jobApplicationDetail.responsibilities">
+        {{ Responsibilitie }}
+      </li>
+    </ul>
+    <h3>Skills</h3>
+    <ul>
+      <li *ngFor="let skill of jobApplicationDetail.skills">{{ skill }}</li>
+    </ul>
+    <div class="job-a-experience">
+      <h3>Experience : </h3>
+      <span>{{ jobApplicationDetail.experience }}</span>
+    </div>
+    <div>
+      <h3>Qualification</h3>
+      <ul>
+        <li>{{ jobApplicationDetail.qualification }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

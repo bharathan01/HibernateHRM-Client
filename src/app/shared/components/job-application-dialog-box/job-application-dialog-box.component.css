@@ -1,0 +1,51 @@
+.job-a-view-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-navbar);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  gap: 20px;
+  overflow-y: auto;
+}
+.job-a-title {
+}
+.job-a-discription {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.job-a-experience {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.job-a-discription ul {
+  margin: 0px 20px;
+}
+@media (max-width: 900px) {
+  .job-a-view-container {
+    padding: 10px;
+    height: 500px;
+    justify-content: start;
+    
+  }
+}
+.s-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

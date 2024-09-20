@@ -1,0 +1,121 @@
+.job-over-view-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 20px;
+  background-color: var(--bg-navbar);
+  border-radius: 7px;
+  gap: 25px;
+  position: relative;
+}
+.job-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.job-title-icons {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  justify-content: center;
+}
+.job-a-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.job-a-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.job-a-count span {
+  padding: 10px;
+  border-radius: 7px;
+  color: var(--bg-white);
+  background-color: var(--light-background);
+}
+.job-title-icons span {
+  padding: 4px;
+  background-color: var(--light-background);
+  display: flex;
+  border-radius: 7px;
+  transition: all 0.5s;
+}
+.job-title-icons span:hover,
+.job-title-icons span:focus,
+.job-title-icons span:active {
+    background-color: var(--gold-background);
+    color: var(--text-dark);
+    cursor: pointer;
+}
+.job-a-id {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.job-a-id span button {
+  border-radius: 30px;
+  color: var(--bg-dark);
+  background: var(--backgound-gradient);
+}
+.job-over-view-container:hover .job-a-id span button {
+  background-color: var(--text-light);
+}
+.job-more-menu {
+  width: 140px;
+  position: absolute;
+  top: 45px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.job-more-menu a{
+  width: 100%;
+}
+.job-more-menu button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--light-background);
+  border: none;
+  color: var(--bg-white);
+}
+.job-more-menu button:hover {
+  background: var(--backgound-gradient);
+  color: var(--bg-dark);
+}
+.addCandidate-popup{
+  background-color: var(--light-background);
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+}
+.addCandidate-popup a{
+  width: 100%;
+}
+.addCandidate-popup a button{
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: var(--bg-white);
+  cursor: pointer;
+}
+.addCandidate-popup a button:hover {
+  background: var(--gold-background);
+}

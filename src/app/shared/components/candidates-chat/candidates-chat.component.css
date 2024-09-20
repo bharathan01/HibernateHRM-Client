@@ -1,0 +1,39 @@
+:host {
+  width: 100%;
+}
+
+.chart-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+  position: relative;
+}
+.chart-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chart-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.chart-dropdown{
+  background-color: var(--light-background);
+  padding: 10px 10px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--bg-white);
+}
+option:hover{
+  background-color: red;
+}
+@media(max-width:430px){
+  .chart-dropdown{
+    padding: 5px;
+    font-size: var(--font-size-xs);
+  }
+}
