@@ -163,14 +163,9 @@
   padding: 5px;
   align-items: center;
 }
-.table-container table tbody tr{
-  
-}
-.table-container table thead tr{
-  
-}
 .table-container table tr a {
   color: var(--bg-white);
+  display: contents;
 }
 .table-container table thead td {
   width: 210px;

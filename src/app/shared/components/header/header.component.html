@@ -61,15 +61,17 @@
       class="header-icon-container"
       [ngClass]="{ 'header-btn-end': !displayJobButtons }"
     >
-      <div class="search-icon icon">
-        <input
-          type="search"
-          autofocus
-          required
-          (input)="onSearchTermChanged($event)"
-        />
-        <mat-icon class="fa fa-search"> search </mat-icon>
+      <ng-container *ngIf="isDisplaySearchBar">
+        <div class="search-icon icon">
+          <input
+            type="search"
+            autofocus
+            required
+            (input)="onSearchTermChanged($event)"
+          />
+          <mat-icon class="fa fa-search"> search </mat-icon>
       </div>
+      </ng-container>
       <div
         class="notification-icon icon"
         [ngClass]="{ active: isDialogOpen }"

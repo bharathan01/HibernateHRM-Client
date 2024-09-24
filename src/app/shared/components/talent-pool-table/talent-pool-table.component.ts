@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { jobApplicants } from 'src/app/utils/demoData';
 import { ApplicationDetail } from '../../intserfaces/users.intserfaces';
+import { MatDialog } from '@angular/material/dialog';
+import { SelectJobTalentpoolComponent } from '../dialog-boxs/select-job-talentpool/select-job-talentpool.component';
 
 @Component({
   selector: 'app-talent-pool-table',
@@ -8,9 +10,14 @@ import { ApplicationDetail } from '../../intserfaces/users.intserfaces';
   styleUrls: ['./talent-pool-table.component.css'],
 })
 export class TalentPoolTableComponent implements OnInit {
+  constructor(private dialog: MatDialog,){}
+
+
   ngOnInit(): void {
     this.getTheFillteredTalentPoolDetails();
   }
+
+
   talentPoolDetails: any[] = [];
   applicationTableHeader: any[] = [];
   isChecked: boolean = false;
@@ -51,4 +58,13 @@ export class TalentPoolTableComponent implements OnInit {
     this.selectedCandidateApplication =  this.talentPoolDetails.filter((item) => item.checked == true)
     console.log(this.selectedCandidateApplication)
   }
+
+  addApplicationPopUp(){
+    this.dialog
+    .open(SelectJobTalentpoolComponent, {
+      width: 'auto',
+      height: 'auto',
+    })
+  }
+
 }

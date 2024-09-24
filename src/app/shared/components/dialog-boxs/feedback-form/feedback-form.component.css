@@ -43,3 +43,8 @@
 .rating:hover{
   cursor: pointer;
 }
+@media(max-width:550px) {
+  .remarks mat-form-field {
+    width: 100%;
+  }
+}

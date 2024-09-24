@@ -22,27 +22,36 @@
   border-radius: 50%;
 }
 .user-details {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.user-details mat-form-field{
-    width: 500px;
+.user-details mat-form-field {
+  width: 400px;
 }
-.user-details form span{
-    display: block;
+.user-details form span {
+  display: block;
 }
 .user-control-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.user-control-btn button:first-child {
+  background-color: var(--gold-background);
+}
+.user-control-btn button:last-child {
+  background-color: var(--danger);
+}
+
+@media (max-width: 460px) {
+  .user-details mat-form-field {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-.user-control-btn button:first-child{
-    background-color: var(--gold-background);
-}
-.user-control-btn button:last-child{
-    background-color: var(--danger);
+  }
+  .user-details form{
+    width: 100%;
+  }
 }

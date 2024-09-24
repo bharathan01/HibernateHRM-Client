@@ -37,7 +37,7 @@
       class="add-candidate-btn"
       *ngIf="selectedCandidateApplication.length > 0"
     >
-      <button mat-raised-button>Add To Applications</button>
+      <button mat-raised-button (click)="addApplicationPopUp()">Add To Applications</button>
     </div>
   </div>
   <div class="table-container">

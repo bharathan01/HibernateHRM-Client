@@ -2,6 +2,7 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FileHandle, FilePreview } from '../../intserfaces/layout.interfaces';
 import { SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 
 
@@ -11,7 +12,7 @@ import { SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./add-candidate-manually.component.css'],
 })
 export class AddCandidateManuallyComponent {
-  constructor(private fb: FormBuilder, private renderer: Renderer2) {}
+  constructor(private fb: FormBuilder, private renderer: Renderer2,private router:Router) {}
   filePreviews: FilePreview[] = [];
   @ViewChild('InputImageFiled') InputImageFiled!: ElementRef;
 
@@ -33,6 +34,7 @@ export class AddCandidateManuallyComponent {
   addCandidte() {
     if (this.candidateDetailsForm.valid) {
       console.log(this.candidateDetailsForm.value);
+      this.router.navigateByUrl('dashboard/jobs')
     }
     this.candidateDetailsForm.markAllAsTouched();
   }

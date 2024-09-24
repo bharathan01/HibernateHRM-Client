@@ -8,6 +8,9 @@
   gap: 10px;
   position: relative;
 }
+.open-menu{
+  z-index: 2;
+}
 .job-c-header {
   width: 100%;
   display: flex;

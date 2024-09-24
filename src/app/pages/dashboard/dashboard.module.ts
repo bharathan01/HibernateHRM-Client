@@ -6,7 +6,6 @@ import { DashboardComponent } from './dashboard.component';
 import { OverviewComponent } from './overview/overview.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { MaterialModule } from 'src/app/material/material.module';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { ApplicationsComponent } from './applications/applications.component';
 import { InsterviewComponent } from './insterview/insterview.component';
 import { ReportsComponent } from './reports/reports.component';
@@ -18,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersControllesComponent } from './users-controlles/users-controlles.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -38,10 +38,10 @@ import { UsersControllesComponent } from './users-controlles/users-controlles.co
     CommonModule,
     DashboardRoutingModule,
     MaterialModule,
-    SharedModule,
     CoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

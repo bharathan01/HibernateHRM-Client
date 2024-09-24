@@ -39,7 +39,7 @@ export const MY_FORMATS = {
   styleUrls: ['./create-jrf.component.css'],
   providers: [DatePipe],
 })
-export class CreateJrfComponent {
+export class CreateJrfComponent implements AfterViewInit {
   @ViewChild('contentToCopy', { static: false }) contentToCopy!: ElementRef;
   constructor(
     private fb: FormBuilder,
@@ -47,6 +47,7 @@ export class CreateJrfComponent {
     private datePipe: DatePipe
   ) {}
 
+  ngAfterViewInit(): void {}
 
   stepperCount = 0;
   filterJob: string[] = [];
@@ -127,9 +128,9 @@ export class CreateJrfComponent {
         },
         { emitEvent: false }
       );
-      this.nextPage();
     }
-    this.JRFormData.markAllAsTouched();
+    this.nextPage();
+    // this.JRFormData.markAllAsTouched();
   }
   submitJRFormPulishDetails() {
     if (this.JRFormPulishDetails.valid) {
@@ -144,8 +145,12 @@ export class CreateJrfComponent {
   get JRFormPulishDetailsControls() {
     return this.JRFormPulishDetails.controls;
   }
-
+  scrollToTop() {
+    const element = document.getElementById('scroll-top');
+    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
   nextPage() {
+    this.scrollToTop();
     if (this.stepperCount < this.steps.length) {
       this.steps[this.stepperCount].isComplete = true;
       this.stepperCount++;
@@ -153,6 +158,7 @@ export class CreateJrfComponent {
   }
 
   previousPage() {
+    this.scrollToTop();
     if (this.stepperCount > 0) {
       this.stepperCount--;
       this.steps[this.stepperCount].isComplete = false;
@@ -192,9 +198,8 @@ export class CreateJrfComponent {
       </html>
       `;
       window.print();
-      document.body.innerHTML = originalContents; 
+      document.body.innerHTML = originalContents;
       window.location.reload();
     }
   }
-  
 }

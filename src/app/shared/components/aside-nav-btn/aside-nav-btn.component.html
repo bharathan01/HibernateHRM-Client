@@ -1,10 +1,24 @@
-<a [routerLink]="['/' + buttonAction.route]"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-<button mat-raised-button class="menu-bar-btn ">
-  <mat-icon
-    aria-hidden="false"
-    aria-label="Example home icon"
-    fontIcon="{{buttonAction.logo}}"
-    
-  ></mat-icon>
-  {{ buttonAction.label }}
-</button></a>
+<a *ngIf="buttonAction.route !== '/logout'; else logoutAction" 
+   [routerLink]="['/' + buttonAction.route]"  
+   routerLinkActive="active" 
+   [routerLinkActiveOptions]="{ exact: true }">
+  <button mat-raised-button class="menu-bar-btn">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="{{buttonAction.logo}}"
+    ></mat-icon>
+    {{ buttonAction.label }}
+  </button>
+</a>
+
+<ng-template #logoutAction>
+  <button mat-raised-button class="menu-bar-btn" (click)="openLogoutDialog()">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="{{buttonAction.logo}}"
+    ></mat-icon>
+    {{ buttonAction.label }}
+  </button>
+</ng-template>

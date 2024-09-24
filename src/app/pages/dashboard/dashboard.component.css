@@ -12,6 +12,9 @@
   height: 98vh;
   overflow-y: scroll;
 }
+.aside-nav-bar{
+  z-index: 20;
+}
 
 ::-webkit-scrollbar {
   width: 0px;

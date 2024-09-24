@@ -3,7 +3,7 @@
     <div>
       <h2>{{ job.title }}</h2>
     </div>
-    <div class="job-title-icons">
+    <div class="job-title-icons" (click)="onMenuClick($event)">
       <span title="view" (click)="toggleJobApplicationView()">
         <mat-icon>visibility</mat-icon>
       </span>
@@ -48,7 +48,7 @@
   </div>
   <div class="job-a-id">
     <span> Job ID:{{ job.id }} </span>
-    <span>
+    <span (click)="onMenuClick($event)">
       <button mat-raised-button (click)="isOpenAddCandidate =! isOpenAddCandidate">Add Candidates</button>
     </span>
     <ng-container *ngIf="isOpenAddCandidate">

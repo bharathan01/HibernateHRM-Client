@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-multiple-job-boards',
@@ -9,7 +11,11 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 export class MultipleJobBoardsComponent {
   taskForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private dialog: MatDialog
+  ) {
     // Initialize the task form with the parent task and its subtasks
     this.taskForm = this.fb.group({
       name: ['Select All'],
@@ -18,26 +24,30 @@ export class MultipleJobBoardsComponent {
         this.fb.group({ name: 'Careers Page', completed: [false] }),
         this.fb.group({ name: 'Linkdln', completed: [false] }),
         this.fb.group({ name: 'Naukari', completed: [false] }),
-        this.fb.group({ name: 'Indeed', completed: [false] })
-      ])
+        this.fb.group({ name: 'Indeed', completed: [false] }),
+      ]),
     });
   }
 
   ngOnInit(): void {}
 
-  get subtasks() {
+  get subtasks() {  
     return this.taskForm.get('subtasks') as FormArray;
   }
   partiallyComplete(): boolean {
     const subtasks = this.subtasks.controls;
-    const someComplete = subtasks.some((subtask:any) => subtask.value.completed);
-    const allComplete = subtasks.every((subtask:any) => subtask.value.completed);
+    const someComplete = subtasks.some(
+      (subtask: any) => subtask.value.completed
+    );
+    const allComplete = subtasks.every(
+      (subtask: any) => subtask.value.completed
+    );
     return someComplete && !allComplete;
   }
 
   updateParentTask(checked: boolean) {
     this.taskForm.patchValue({ completed: checked });
-    this.subtasks.controls.forEach((subtask:any) => {
+    this.subtasks.controls.forEach((subtask: any) => {
       subtask.patchValue({ completed: checked });
     });
   }
@@ -47,7 +57,13 @@ export class MultipleJobBoardsComponent {
     this.subtasks.at(index).patchValue({ completed: checked });
 
     // Update parent task completed status if all subtasks are completed
-    const allComplete = this.subtasks.controls.every((subtask:any) => subtask.value.completed);
+    const allComplete = this.subtasks.controls.every(
+      (subtask: any) => subtask.value.completed
+    );
     this.taskForm.patchValue({ completed: allComplete });
+  }
+  onHandlePublish() {
+    this.router.navigateByUrl('/dashboard/jobs');
+    this.dialog.closeAll();
   }
 }

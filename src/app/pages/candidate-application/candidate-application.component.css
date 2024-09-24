@@ -106,6 +106,17 @@
   color: var(--bg-white);
   border-radius: 30px;
 }
+.profile-btn .more-btn{
+  color: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 30px;
+}
+.more-btn:hover{
+  background-color: var(--input-background);
+}
 
 .popup-more-vert {
   background-color: black;
@@ -115,6 +126,7 @@
   padding: 10px 15px;
   border-radius: 30px;
   border: 1px solid var(--gold-background);
+  width: 160px;
 }
 .popup-more-vert:hover {
   color: var(--gold-background);

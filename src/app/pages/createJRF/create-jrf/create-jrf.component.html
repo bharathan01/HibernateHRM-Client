@@ -1,14 +1,12 @@
 <app-create-jrf-header></app-create-jrf-header>
 <section class="jrf-container">
   <div class="jrf-sub-header">
-    <a (click)="previousPage()">
-      <div class="job-back-btn">
+      <div class="job-back-btn" (click)="previousPage()">
         <span>
           <mat-icon>arrow_back</mat-icon>
         </span>
         <h3>Jobs</h3>
       </div>
-    </a>
     <div class="notify-btn">
       <span>
         <h3><mat-slide-toggle></mat-slide-toggle></h3>
@@ -16,8 +14,8 @@
       </span>
     </div>
   </div>
-  <div class="jrf-form">
-    <div class="stepper">
+  <div class="jrf-form" >
+    <div class="stepper" >
       <div
         class="stepper-items"
         *ngFor="let step of steps; let i = index"
@@ -42,12 +40,13 @@
         ></div>
       </div>
     </div>
-    <div class="form-container">
-      <ng-container *ngIf="stepperCount === 0">
-        <div class="form-heading">
+    <div class="form-container" >
+      <div id="scroll-top"></div>
+      <ng-container *ngIf="stepperCount === 0" >
+        <div class="form-heading" >
           <h2>GENROBOTIC INNOVATIONS PRIVATE LIMITED</h2>
         </div>
-        <form [formGroup]="JRFormData">
+        <form [formGroup]="JRFormData"  >
           <div class="form-selector">
             <div class="selector-container">
               <div
@@ -511,7 +510,7 @@
         </form>
       </ng-container>
       <ng-container *ngIf="stepperCount === 1">
-        <div class="preview" id="print-section">
+        <div class="preview" id="print-section" >
           <app-jrf-preview [JRFormData] = 'JRFormData.value'></app-jrf-preview>
         </div>
       </ng-container>

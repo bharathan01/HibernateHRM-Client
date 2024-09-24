@@ -40,7 +40,7 @@
               <button mat-raised-button>Shortlist candidate</button>
             </ng-container>
             <ng-container *ngIf="applicationDetails?.status === 'shortlisted'">
-              <button mat-raised-button>Inital Screening</button>
+              <button mat-raised-button (click)="initalScreening()">Inital Screening</button>
             </ng-container>
             <ng-container *ngIf="applicationDetails?.status === 'on hold'">
               <button mat-raised-button (click)="openScheduleInterview()">
@@ -48,9 +48,7 @@
               </button>
             </ng-container>
             <ng-container *ngIf="applicationDetails?.status === 'feedback'">
-              <button mat-raised-button>
-                Hire
-              </button>
+              <button mat-raised-button (click)="handleHire()">Hire</button>
             </ng-container>
             <ng-container
               *ngIf="applicationDetails?.status === 'upCommingInterview'"
@@ -59,14 +57,14 @@
                 Feedback
               </button>
             </ng-container>
-            <button mat-flat-button>Reject</button>
-            <button
-              mat-icon-button
-              aria-label="Example icon button with a vertical three dot icon"
+            <ng-container *ngIf="applicationDetails?.status !== 'reject'">
+              <button mat-flat-button (click)="handleReject()">Reject</button>
+            </ng-container>
+            <span class="more-btn"
               (click)="toggleMoreMenu = !toggleMoreMenu"
             >
               <mat-icon>more_vert</mat-icon>
-            </button>
+            </span>
             <div class="popup-more-vert" *ngIf="toggleMoreMenu">
               <span>Move to talent pool</span>
             </div>
@@ -343,7 +341,8 @@
                   <p>John Honai</p>
                 </span>
                 <span>
-                  <p>Rating</p>: 
+                  <p>Rating</p>
+                  :
                   <ng-container *ngFor="let star of ratingStar">
                     <mat-icon
                       [ngClass]="{ filled: star <= currentSelectedStar }"

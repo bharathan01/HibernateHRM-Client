@@ -1,44 +1,64 @@
-.registration-container{
-    width: 100%;
-    height: 100%;
-    background-color:var(--bg-navbar) ;
-    display: flex;
+.registration-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-navbar);
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  height: 82vh;
+  overflow: auto;
+}
+.registration-title {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--light-background);
+}
+.form-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.steps {
+  width: 100%;
+  padding: 15px;
+}
+.steps form {
+  width: 100%;
+  /* background-color:var(--bg-dark); */
+  margin-top: 10px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.submit-btn {
+  background: var(--gold-background) !important;
+}
+.form-tiltle {
+  width: 100%;
+  padding: 10px 0px;
+  text-align: center;
+  background-color: var(--light-background);
+}
+.disabledForm{
+    opacity: 0.5;
+}
+@media (max-width: 840px) {
+  .form-container {
     flex-direction: column;
-    border-radius: 7px;
+  }
 }
-.registration-title{
-    width: 100%;
-    padding: 10px;
-    background-color:var(--light-background) ;
-}
-.form-container{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap:10px;
-    padding: 10px;
-}  
-.steps{
-    width: 100%;
-    padding:20px;
-}
-.steps form{
-    width: 100%;
-    /* background-color:var(--bg-dark); */
-    margin-top: 10px;
-    
-}  
-.input-container{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.submit-btn{
-    background: var(--gold-background);
-}
-.form-tiltle{
-    width: 100%;
-    padding: 10px 0px;
-    text-align: center;
-    background-color: var(--light-background);
-}
+::-webkit-scrollbar-track {
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

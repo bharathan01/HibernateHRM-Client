@@ -1,19 +1,27 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feedback-form',
   templateUrl: './feedback-form.component.html',
-  styleUrls: ['./feedback-form.component.css']
+  styleUrls: ['./feedback-form.component.css'],
 })
 export class FeedbackFormComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: string) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: string,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
   interviewDetails: any = this.data;
-  ratingStar:number[] = [1, 2, 3, 4, 5];;
-  currentSelectedStar:number = 0
-  
+  ratingStar: number[] = [1, 2, 3, 4, 5];
+  currentSelectedStar: number = 0;
 
-  setRating(star:number){
-    this.currentSelectedStar = star
+  setRating(star: number) {
+    this.currentSelectedStar = star;
+  }
+  onSubmitFeedback(){
+    this.router.navigateByUrl('dashboard/interview')
+    this.dialog.closeAll()
   }
 }

@@ -5,8 +5,10 @@
   padding: 10px 20px;
   background-color: var(--bg-navbar);
   border-radius: 7px;
-  gap: 25px;
+  gap: 15px;
   position: relative;
+  height: 250px;
+  justify-content: space-between;
 }
 .job-title {
   width: 100%;

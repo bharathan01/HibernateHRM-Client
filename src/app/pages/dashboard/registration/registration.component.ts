@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit{
-
+  disabledForm:boolean = true
   constructor(private fb:FormBuilder){}
    
   ngOnInit(): void {
@@ -45,6 +45,7 @@ export class RegistrationComponent implements OnInit{
   OnFormOneSubmit(){
     if (this.registrationFormPhaseOne.valid) {
       console.log(this.registrationFormPhaseOne.value);
+      this.disabledForm = false
       this.registrationFormPhaseTwo.enable()
     }
     this.registrationFormPhaseOne.markAllAsTouched();

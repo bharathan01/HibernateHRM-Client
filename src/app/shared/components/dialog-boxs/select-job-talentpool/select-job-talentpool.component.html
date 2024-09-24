@@ -1,0 +1,36 @@
+<section class="job-details">
+    <h3>Select Interview Details</h3>
+    <div class="job-details-form">
+      <form >
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Enter Job ID</mat-label>
+            <input matInput />
+            <!-- <div
+              *ngIf="
+                scheduledInterviewDetailsControl['time'].touched &&
+                scheduledInterviewDetailsControl['time'].invalid
+              "
+            >
+              <small class="error-text">time is required.</small>
+            </div> -->
+          </mat-form-field>
+        </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Select Job Name</mat-label>
+              <mat-select>
+                <mat-option value="food.value">food.viewValue</mat-option>
+                <mat-option value="food.value">food.viewValue</mat-option>
+                <mat-option value="food.value">food.viewValue</mat-option>
+                <mat-option value="food.value">food.viewValue</mat-option>
+                <mat-option value="food.value">food.viewValue</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        <div class="add-application-btn">
+          <button mat-raised-button (click)="addApplication()">Add Application</button>
+        </div>
+      </form>
+    </div>
+</section>

@@ -31,6 +31,8 @@ import { InviteMembersComponent } from './components/dialog-boxs/invite-members/
 import { TalentPoolTableComponent } from './components/talent-pool-table/talent-pool-table.component';
 import { ScheduleInterviewComponent } from './components/dialog-boxs/schedule-interview/schedule-interview.component';
 import { FeedbackFormComponent } from './components/dialog-boxs/feedback-form/feedback-form.component';
+import { SelectJobTalentpoolComponent } from './components/dialog-boxs/select-job-talentpool/select-job-talentpool.component';
+import { LogoutComponent } from './components/dialog-boxs/logout/logout.component';
 
 
 const components = [
@@ -50,7 +52,8 @@ const components = [
   ApplicationTableComponent,
   TalentPoolTableComponent,
   ScheduleInterviewComponent,
-  FeedbackFormComponent
+  FeedbackFormComponent,
+  SelectJobTalentpoolComponent
 ];
 
 @NgModule({
@@ -74,6 +77,8 @@ const components = [
     TalentPoolTableComponent,
     ScheduleInterviewComponent,
     FeedbackFormComponent,
+    SelectJobTalentpoolComponent,
+    LogoutComponent,
   ],
   imports: [
     CommonModule,

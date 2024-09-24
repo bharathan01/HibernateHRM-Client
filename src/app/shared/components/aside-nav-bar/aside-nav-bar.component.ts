@@ -23,7 +23,7 @@ export class AsideNavBarComponent {
   ngAfterViewInit() {
     this.toggleDrawer();
     this.breakpointObserver
-      .observe(['(max-width: 750px)'])
+      .observe(['(max-width: 900px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
           this.drawer.close(); 

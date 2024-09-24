@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   jobFilterTerm: string = 'new';
   isDisplayMenuOpen: boolean = false;
   displayJobhiringTeamHeader: boolean = false;
+  isDisplaySearchBar: boolean = true;
 
   constructor(
     private dialog: MatDialog,
@@ -54,9 +55,16 @@ export class HeaderComponent implements OnInit {
         this.displayJobhiringTeamHeader = true;
         this.displayJobButtons = false;
         break;
+      case '/dashboard/report':
+      case '/dashboard/registration':
+      case '/dashboard/settings':
+      case '/dashboard':
+        this.isDisplaySearchBar = false;
+        break;
       default:
         this.displayJobButtons = false;
         this.displayJobhiringTeamHeader = false;
+        this.isDisplaySearchBar = true;
     }
   }
   toggleDialog() {

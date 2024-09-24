@@ -22,6 +22,7 @@ export class CandidateApplicationComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router:Router,
     private candidateApplicationService: CandidateApplicationService,
     private sanitizer: DomSanitizer,
     private dialog: MatDialog,
@@ -82,5 +83,14 @@ export class CandidateApplicationComponent implements OnInit {
       width: 'auto',
       height: 'auto',
     })
+  }
+  initalScreening(){
+    this.router.navigateByUrl('dashboard/interview')
+  }
+  handleHire(){
+    this.router.navigateByUrl('dashboard/interview')
+  }
+  handleReject(){
+    this.router.navigateByUrl('dashboard/application')
   }
 }

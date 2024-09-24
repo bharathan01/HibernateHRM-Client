@@ -1,9 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { Job } from '../../intserfaces/users.intserfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ShareJobDialogComponent } from '../dialog-boxs/share-job-dialog/share-job-dialog.component';
 import { JobApplicationDialogBoxComponent } from '../job-application-dialog-box/job-application-dialog-box.component';
-
 
 @Component({
   selector: 'app-job-view',
@@ -12,20 +11,33 @@ import { JobApplicationDialogBoxComponent } from '../job-application-dialog-box/
 })
 export class JobViewComponent {
   @Input() job!: Job;
-  isOpenMoreMenu:boolean = false
-  isOpenAddCandidate:boolean = false
-  constructor(private dialog: MatDialog) {}
+  isOpenMoreMenu: boolean = false;
+  isOpenAddCandidate: boolean = false;
+  constructor(private dialog: MatDialog, private eRef: ElementRef) {}
+ 
+  /*@@ close the menu when clicks outside */
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    this.isOpenMoreMenu = false;
+    this.isOpenAddCandidate = false;
+  }
+  /*@@ Inside the menu, stop the click event from bubbling up to the document click 
+  listener, which would otherwise immediately close the menu when clicking on it. */
+  onMenuClick(event: Event) {
+    event.stopPropagation();
+  }
+
 
   toggleJobApplicationView() {
     this.dialog.open(JobApplicationDialogBoxComponent, {
-      data:this.job,
+      data: this.job,
       width: 'auto',
       height: 'auto',
     });
   }
-  toggleShareView(){
+  toggleShareView() {
     this.dialog.open(ShareJobDialogComponent, {
-      data:this.job['jobLink'],
+      data: this.job['jobLink'],
       width: 'auto',
       height: 'auto',
     });
