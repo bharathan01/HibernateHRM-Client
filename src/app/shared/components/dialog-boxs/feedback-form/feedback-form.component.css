@@ -1,0 +1,45 @@
+.feedback-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--bg-dark);
+}
+.interview-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.interview-info {
+  display: flex;
+}
+.interview-info span {
+  display: flex;
+  width: 130px;
+}
+.remarks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.remarks mat-form-field {
+  width: 400px;
+}
+.Submit-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Submit-btn button{
+    background-color: var(--gold-background);
+}
+.filled{
+   color: var(--gold-background);
+}
+.rating:hover{
+  cursor: pointer;
+}

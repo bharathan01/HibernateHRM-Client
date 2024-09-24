@@ -1,1 +1,56 @@
-<p>reports works!</p>
+<section class="report-container">
+  <div class="dashboard-container">
+    <div class="dashboard-top">
+      <div class="grid-item-1 grid-item">
+        <ng-container *ngIf="selectedJob === 'All'; else showJobTitle">
+          <div class="dashboard-item item-1">Jobs Posted <span>10</span></div>
+          <div class="dashboard-item item-2">Active Jobs <span>8</span></div>
+        </ng-container>
+        <ng-template #showJobTitle>
+          <div class="dashboard-item item-1">
+            <div class="job-info">
+              <div class="back-btn">
+                <a>
+                  <span><mat-icon>arrow_back</mat-icon></span>
+                  <h3>{{ selectedJob }}</h3>
+                </a>
+              </div>
+              <div class="job-status">
+                <span>Activitly Hiring</span>
+                <h5>Published on:12/12/2012</h5>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+      <div class="grid-item grid-item-2">
+        <div class="dashboard-item item-3">
+          Candidates Hired
+          <h3>40%</h3>
+          <canvas id="hiredChart" class="pie-chart"></canvas>
+        </div>
+      </div>
+      <div class="grid-item-3 grid-item">
+        <div class="dashboard-item item-4">
+          Candidates Sourced <span>120</span>
+        </div>
+        <div class="dashboard-item item-5">
+          Candidates in Pipeline <span>40</span>
+        </div>
+        <div class="dashboard-item item-6">
+          Interview Scheduled <span>60</span>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-bottom">
+      <div class="dashboard-item large-chart">
+        <h3>Candidates In Pipeline</h3>
+        <canvas id="pipelineChart" class="bar-chart"></canvas>
+      </div>
+      <div class="dashboard-item large-chart">
+        <h3>Application Sources</h3>
+        <canvas id="sourceChart" class="horizontal-chart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+:host{
+    background-color: var(--bg-dark);
+    width: 100%;
+    height: 100%;
+}
+.inivite-container{
+    background-color: var(--bg-dark);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.members-details{
+    width: 100%;
+    padding: 20px;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+.inivite-container button{
+    background-color: var( --gold-background);
+}

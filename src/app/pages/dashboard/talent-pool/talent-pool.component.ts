@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./talent-pool.component.css']
 })
 export class TalentPoolComponent {
-
+  selectedTable:string = 'onHold'
 }

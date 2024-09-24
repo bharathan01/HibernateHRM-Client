@@ -1,0 +1,73 @@
+<section class="users-details-container">
+  <div class="user-profile">
+    <img [src]="userInfo?.profileImage" alt="avathar" />
+    <span>
+      <h3>{{userInfo?.userName}}</h3>
+      <p>{{userInfo?.role}}</p>
+    </span>
+  </div>
+  <div class="user-details">
+    <form [formGroup]="usersDetails">
+      <div>
+        <span>Name</span>
+        <mat-form-field color="accent">
+          <input matInput  formControlName="userName"/>
+          <div
+            *ngIf="
+            usersDetailController['userName'].touched &&
+            usersDetailController['userName'].invalid
+            "
+          >
+            <small class="error-text">Name is required.</small>
+          </div>
+        </mat-form-field>
+      </div>
+      <div>
+        <span>Email ID</span>
+        <mat-form-field color="accent">
+          <input matInput   formControlName="emailId"/>
+          <div
+            *ngIf="
+            usersDetailController['emailId'].touched &&
+            usersDetailController['emailId'].invalid
+            "
+          >
+            <small class="error-text">Email ID is required.</small>
+          </div>
+        </mat-form-field>
+      </div>
+      <div>
+        <span>Designation</span>
+        <mat-form-field color="accent">
+          <input matInput   formControlName="designation"/>
+          <div
+            *ngIf="
+              usersDetailController['designation'].touched &&
+              usersDetailController['designation'].invalid
+            "
+          >
+            <small class="error-text">Designation is required.</small>
+          </div>
+        </mat-form-field>
+      </div>
+      <div>
+        <span>Phone Number</span>
+        <mat-form-field color="accent">
+          <input matInput  formControlName="phoneNumber" />
+          <div
+            *ngIf="
+              usersDetailController['phoneNumber'].touched &&
+              usersDetailController['phoneNumber'].invalid
+            "
+          >
+            <small class="error-text">Phone Number is required.</small>
+          </div>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div class="user-control-btn">
+    <button mat-raised-button>Save Changes</button>
+    <button mat-raised-button>Remove User</button>
+  </div>
+</section>

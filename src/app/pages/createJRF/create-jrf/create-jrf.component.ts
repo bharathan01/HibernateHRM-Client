@@ -47,7 +47,6 @@ export class CreateJrfComponent {
     private datePipe: DatePipe
   ) {}
 
-  printJFForm() {}
 
   stepperCount = 0;
   filterJob: string[] = [];
@@ -134,7 +133,6 @@ export class CreateJrfComponent {
   }
   submitJRFormPulishDetails() {
     if (this.JRFormPulishDetails.valid) {
-      console.log(this.JRFormPulishDetails.value);
       this.nextPage();
     }
     this.JRFormPulishDetails.markAllAsTouched();
@@ -172,4 +170,31 @@ export class CreateJrfComponent {
     const content = this.contentToCopy.nativeElement.innerHTML;
     navigator.clipboard.writeText(content);
   }
+  print(): void {
+    const printContents = document.getElementById('print-section')?.innerHTML;
+    if (printContents) {
+      const originalContents = document.body.innerHTML;
+      document.body.innerHTML = `
+        <html>
+        <head>
+          <title>Print</title>
+          <style>
+            @media print {
+              body, * {
+                color: black !important; 
+                background-color: white !important;  
+            }
+          </style>
+        </head>
+        <body>
+          ${printContents}
+        </body>
+      </html>
+      `;
+      window.print();
+      document.body.innerHTML = originalContents; 
+      window.location.reload();
+    }
+  }
+  
 }

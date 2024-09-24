@@ -1,0 +1,145 @@
+.talent-pool-container {
+  width: 100%;
+  height: 82vh;
+  border-radius: 7px;
+  display: flex;
+  background-color: var(--bg-navbar);
+  gap: 5px;
+  padding: 5px;
+  height: 72vh;
+}
+.filter-container {
+  width: 185px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.filter-heading {
+  width: 100%;
+  padding: 16px 0px;
+  background-color: var(--light-background);
+  border-radius: 7px;
+  text-align: center;
+}
+.filter-by {
+  width: 100%;
+}
+.filter-by mat-form-field {
+  width: 100%;
+}
+.add-candidate-btn{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: end;
+}
+.add-candidate-btn button{
+  background-color: var(--gold-background);
+}
+
+.table-container {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: auto;
+}
+.table-container table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  width: 100%;
+}
+.table-container table tbody {
+  overflow: auto;
+  min-width: 66rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+}
+.table-container table thead {
+  min-width: 66rem;
+  background-color: var(--light-background);
+  padding: 5px;
+  border-radius: 5px;
+}
+.table-container table tr {
+  background-color: var(--light-background);
+  display: flex;
+  border-radius: 5px;
+  padding: 5px;
+  align-items: center;
+}
+.table-container table tr a{
+  width: 80%;
+  color: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.table-container table td {
+  padding: 10px;
+  text-align: center;
+  width: 140px;
+}
+
+.table-container table tbody::-webkit-scrollbar {
+  width: 5px;
+}
+.status-btn button {
+  color: var(--bg-white);
+  border-radius: 20px;
+}
+.status-new-btn button {
+  background-color: var(--bg-btn-status);
+}
+.status-reject-btn button {
+  background-color: var(--danger);
+}
+.status-onhold-btn button {
+  background-color: var(--bg-whatsapp);
+}
+
+@media (max-width: 900px) {
+  .talent-pool-container {
+    flex-direction: column;
+  }
+  .table-container {
+    width: 100%;
+  }
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 860px) {
+  .table-container table {
+    overflow: scroll;
+  }
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

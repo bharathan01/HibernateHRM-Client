@@ -1,0 +1,160 @@
+<section class="registration-container">
+  <div class="registration-title">
+    <h3>Register New Account</h3>
+  </div>
+  <div class="form-container">
+    <div class="steps">
+      <div class="form-tiltle">Step - 1</div>
+      <form [formGroup]="registrationFormPhaseOne" (submit)="OnFormOneSubmit()">
+        <div class="input-container">
+          <span>Name of Employee</span>
+          <mat-form-field color="accent">
+            <input
+              matInput
+              formControlName="nameOfEmployee"
+            />
+            <div
+              *ngIf="
+                registrationFormOneController['nameOfEmployee'].touched &&
+                registrationFormOneController['nameOfEmployee'].invalid
+              "
+            >
+              <small class="error-text">Name of Employee is required.</small>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <span>Employee ID</span>
+          <mat-form-field color="accent">
+            <input matInput formControlName="employeeId" />
+            <div
+              *ngIf="
+                registrationFormOneController['employeeId'].touched &&
+                registrationFormOneController['employeeId'].invalid
+              "
+            >
+              <small class="error-text">Employee ID is required.</small>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <span>Designation</span>
+          <mat-form-field color="accent">
+            <input matInput  formControlName="designation" />
+            <div
+              *ngIf="
+                registrationFormOneController['designation'].touched &&
+                registrationFormOneController['designation'].invalid
+              "
+            >
+              <small
+                *ngIf="registrationFormOneController['designation'].errors?.['required']"
+                class="error-text"
+                >experienceFrom is required.</small
+              >
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <span>Department</span>
+          <mat-form-field color="accent">
+            <input matInput  formControlName="department" />
+            <div
+              *ngIf="
+                registrationFormOneController['department'].touched &&
+                registrationFormOneController['department'].invalid
+              "
+            >
+              <small class="error-text">Department is required.</small>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <button mat-raised-button class="submit-btn">Next</button>
+        </div>
+      </form>
+    </div>
+    <div class="steps">
+      <div class="form-tiltle">Steps - 2</div>
+      <form [formGroup]="registrationFormPhaseTwo">
+        <div class="input-container">
+          <span>Phone Number</span>
+          <mat-form-field color="accent">
+            <input matInput  formControlName="phoneNumber" />
+            <div
+              *ngIf="
+                registrationFormTwoController['phoneNumber'].touched &&
+                registrationFormTwoController['phoneNumber'].invalid
+              "
+            >
+              <small class="error-text">Phone Number is required.</small>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <span>Email ID</span>
+          <mat-form-field color="accent">
+            <input matInput  formControlName="emailId" />
+            <div
+              *ngIf="
+                registrationFormTwoController['emailId'].touched &&
+                registrationFormTwoController['emailId'].invalid
+              "
+            >
+              <small class="error-text">Email ID is required.</small>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <span>Password</span>
+          <mat-form-field>
+            <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password" />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <div
+            *ngIf="
+              registrationFormTwoController['password'].touched &&
+              registrationFormTwoController['password'].invalid
+            "
+          >
+            <small class="error-text">Confirm Password is required.</small>
+          </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <span>Confirm Password</span>
+          <mat-form-field>
+            <input matInput [type]="hide() ? 'password' : 'text'" formControlName="confirmPassword"/>
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <div
+            *ngIf="
+              registrationFormTwoController['confirmPassword'].touched &&
+              registrationFormTwoController['confirmPassword'].invalid
+            "
+          >
+            <small class="error-text">Confirm Password is required.</small>
+          </div>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <button mat-raised-button class="submit-btn">Finish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

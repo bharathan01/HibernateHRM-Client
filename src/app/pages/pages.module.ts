@@ -13,7 +13,11 @@ import { NgxPrintModule } from 'ngx-print';
 import { CandidateApplicationComponent } from './candidate-application/candidate-application.component';
 
 @NgModule({
-  declarations: [LoginComponent, CreateJrfComponent, CandidateApplicationComponent],
+  declarations: [
+    LoginComponent,
+    CreateJrfComponent,
+    CandidateApplicationComponent,
+  ],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -23,7 +27,7 @@ import { CandidateApplicationComponent } from './candidate-application/candidate
     MaterialModule,
     FormsModule,
     PortalModule,
-    NgxPrintModule
+    NgxPrintModule,
   ],
 })
 export class PagesModule {}

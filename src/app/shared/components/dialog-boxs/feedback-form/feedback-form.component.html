@@ -1,0 +1,38 @@
+<section class="feedback-form">
+  <div class="interview-details">
+    <div class="interview-info">
+      <span>Interview Date :</span>
+      <span>{{ interviewDetails?.date }}</span>
+    </div>
+    <div class="interview-info">
+      <span>Interview Time :</span>
+      <span>{{ interviewDetails?.time }}</span>
+    </div>
+    <div class="interview-info">
+      <span>Interview Type :</span>
+      <span>{{ interviewDetails?.interviewType }}</span>
+    </div>
+    <div class="interview-info">
+      <span>Interviewer :</span>
+      <span>{{ interviewDetails?.interviewer }}</span>
+    </div>
+    <div class="interview-info">
+      <span>Rate:</span>
+      <span>
+        <ng-container *ngFor="let star of ratingStar">
+          <mat-icon (click)="setRating(star)" [ngClass]="{ 'filled': star <= currentSelectedStar  }" class="rating">star</mat-icon>
+        </ng-container>
+      </span>
+    </div>
+    <div class="remarks">
+      <span>Remarks</span>
+      <mat-form-field>
+        <mat-label>Feedback</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+    <div class="Submit-btn">
+      <button mat-raised-button>Submit</button>
+    </div>
+  </div>
+</section>

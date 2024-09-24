@@ -27,6 +27,10 @@ import { DragAndDropDirective } from '../core/directive/dragNDrop/drag-and-drop.
 import { ImportResumeComponent } from './components/import-resume/import-resume.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { ApplicationTableComponent } from './components/application-table/application-table.component';
+import { InviteMembersComponent } from './components/dialog-boxs/invite-members/invite-members.component';
+import { TalentPoolTableComponent } from './components/talent-pool-table/talent-pool-table.component';
+import { ScheduleInterviewComponent } from './components/dialog-boxs/schedule-interview/schedule-interview.component';
+import { FeedbackFormComponent } from './components/dialog-boxs/feedback-form/feedback-form.component';
 
 
 const components = [
@@ -43,7 +47,10 @@ const components = [
   AddCandidateManuallyComponent,
   ImportResumeComponent,
   FileUploaderComponent,
-  ApplicationTableComponent
+  ApplicationTableComponent,
+  TalentPoolTableComponent,
+  ScheduleInterviewComponent,
+  FeedbackFormComponent
 ];
 
 @NgModule({
@@ -63,6 +70,10 @@ const components = [
     ImportResumeComponent,
     FileUploaderComponent,
     ApplicationTableComponent,
+    InviteMembersComponent,
+    TalentPoolTableComponent,
+    ScheduleInterviewComponent,
+    FeedbackFormComponent,
   ],
   imports: [
     CommonModule,

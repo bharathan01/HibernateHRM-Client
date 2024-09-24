@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.searchService.updateSearchTerm(this.jobFilterTerm);
     this.updateHeader(this.router.url);
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))

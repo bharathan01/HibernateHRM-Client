@@ -1,1 +1,11 @@
-<p>talent-pool works!</p>
+<section class="talent-pool-container">
+  <div class="talent-btn-container">
+    <div class="talent-btn" [ngClass]="{'active-btn': selectedTable === 'onHold'}" (click)="selectedTable = 'onHold'">
+      <h3>On Hold</h3>
+    </div>
+    <div class="talent-btn"[ngClass]="{'active-btn': selectedTable === 'referal'}" (click)="selectedTable = 'referal'"><h3>Employee Referral</h3></div>
+  </div>
+  <div class="table">
+    <app-talent-pool-table></app-talent-pool-table>
+  </div>
+</section>

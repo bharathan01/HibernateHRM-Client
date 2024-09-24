@@ -60,10 +60,11 @@ export interface ApplicationDetail {
   dob:string,
   education:string,
   skills:string,
-  gender:string
+  gender:string,
+  profileCreatedOn?:string
 }
 
-interface ScreeningDetails {
+export interface ScreeningDetails {
   currentlyWorking: string;
   experience: string;
   companyName: string;
@@ -75,4 +76,17 @@ interface ScreeningDetails {
 interface InterviewDetails{
   date:string,
   time:string
+  interviewer:string,
+  interviewType:string
+}
+
+
+export interface UsersInfo {
+  id:string
+  userName: string;
+  role: string;
+  designation: string;
+  phoneNumber: string;
+  emailId: string;
+  profileImage: string; 
 }

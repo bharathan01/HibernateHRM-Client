@@ -632,9 +632,9 @@
             <button mat-raised-button (click)="previousPage()">Edit</button>
             <button
               mat-raised-button
-              printSectionId="print-section"
               printTitle="Job Form"
               ngxPrint
+              (click)="print()"
             >
               Print
             </button>
@@ -646,7 +646,7 @@
             (click)="nextPage()"
             *ngIf="stepperCount === 1"
           >
-            Procced
+            Proceed
           </button>
           <button
             mat-raised-button

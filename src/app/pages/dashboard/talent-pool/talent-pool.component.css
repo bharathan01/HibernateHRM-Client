@@ -1,0 +1,25 @@
+.talent-pool-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.talent-btn-container{
+    width: 100%;
+    display: flex;
+}
+.talent-btn{
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: var(--light-background);
+}
+.talent-btn:hover{
+    cursor: pointer;
+}
+.active-btn{
+    background: var(--backgound-gradient);
+}
+.table{
+    width: 100%;
+}

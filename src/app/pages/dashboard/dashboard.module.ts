@@ -11,12 +11,13 @@ import { ApplicationsComponent } from './applications/applications.component';
 import { InsterviewComponent } from './insterview/insterview.component';
 import { ReportsComponent } from './reports/reports.component';
 import { TalentPoolComponent } from './talent-pool/talent-pool.component';
-import { ResignationComponent } from './resignation/resignation.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { SearchPipe } from 'src/app/core/pipe/searchpipe/search.pipe';
 import { ManageHiringTeamComponent } from './manage-hiring-team/manage-hiring-team.component';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
+import { SettingsComponent } from './settings/settings.component';
+import { UsersControllesComponent } from './users-controlles/users-controlles.component';
 
 
 @NgModule({
@@ -28,8 +29,10 @@ import { FormsModule } from '@angular/forms';
     InsterviewComponent,
     ReportsComponent,
     TalentPoolComponent,
-    ResignationComponent,
-    ManageHiringTeamComponent
+    ManageHiringTeamComponent,
+    RegistrationComponent,
+    SettingsComponent,
+    UsersControllesComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     SharedModule,
     CoreModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

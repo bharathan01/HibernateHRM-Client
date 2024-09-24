@@ -4,13 +4,15 @@ import { OverviewComponent } from './overview/overview.component';
 import { DashboardComponent } from './dashboard.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { ApplicationsComponent } from './applications/applications.component';
-import { ResignationComponent } from './resignation/resignation.component';
 import { ReportsComponent } from './reports/reports.component';
 import { InsterviewComponent } from './insterview/insterview.component';
 import { TalentPoolComponent } from './talent-pool/talent-pool.component';
 import { ManageHiringTeamComponent } from './manage-hiring-team/manage-hiring-team.component';
 import { AddCandidateManuallyComponent } from 'src/app/shared/components/add-candidate-manually/add-candidate-manually.component';
 import { ImportResumeComponent } from 'src/app/shared/components/import-resume/import-resume.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { SettingsComponent } from './settings/settings.component';
+import { UsersControllesComponent } from './users-controlles/users-controlles.component';
 
 const routes: Routes = [
   {
@@ -50,12 +52,20 @@ const routes: Routes = [
         component: ReportsComponent,
       },
       {
-        path: 'resignation',
-        component: ResignationComponent,
+        path: 'registration',
+        component: RegistrationComponent,
       },
       {
         path: 'talent-pool',
         component: TalentPoolComponent,
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+      },
+      {
+        path: 'users-controlles/:id',
+        component: UsersControllesComponent,
       },
     ],
   },

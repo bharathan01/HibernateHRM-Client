@@ -1,0 +1,59 @@
+<section class="inivite-container">
+  <div class="members-details">
+    <form [formGroup]="iniviteMemberDetails">
+      <div class="input-container">
+        <span>Employee ID</span>
+        <mat-form-field color="accent">
+          <input matInput formControlName="empolyeeId" />
+          <div
+            *ngIf="
+              inviteMemberController['empolyeeId'].touched &&
+              inviteMemberController['empolyeeId'].invalid
+            "
+          >
+            <small class="error-text">Employee ID is required.</small>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="input-container">
+        <span>Name</span>
+        <mat-form-field color="accent">
+          <input matInput formControlName="name"/>
+          <div
+            *ngIf="
+              inviteMemberController['name'].touched &&
+              inviteMemberController['name'].invalid
+            "
+          >
+            <small class="error-text">Name is required.</small>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="input-container">
+        <span>Invite As</span>
+        <mat-form-field>
+          <mat-label>select access type</mat-label>
+          <mat-select formControlName="accessType">
+            <mat-option value="">Super Admin</mat-option>
+            <mat-option value="">HR Manager</mat-option>
+            <mat-option value="">Recruiter</mat-option>
+            <mat-option value="">Interviwer</mat-option>
+            <mat-option value="">others</mat-option>
+          </mat-select>
+          <div
+            *ngIf="
+              inviteMemberController['accessType'].touched &&
+              inviteMemberController['accessType'].invalid
+            "
+          >
+            <small class="error-text">Access Type is required.</small>
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div class="input-container">
+        <button mat-raised-button>ADD Member</button>
+      </div>
+    </form>
+  </div>
+</section>

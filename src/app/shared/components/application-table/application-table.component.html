@@ -1,27 +1,107 @@
-<section class="application-table-container">
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <td *ngFor="let header of applicationTableHeader">
-            {{ header | titlecase }}
-          </td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let application of applicationDetails">
-          <td *ngFor="let data of applicationTableHeader">
-            <ng-template #showData>
-              {{ application[data] }}
-            </ng-template>
-            <ng-container *ngIf="application[data] === 'new'; else showData">
-              <a class="status-new-btn" [routerLink]="['/dashboard/candidate-application', application.id]"
-                ><button mat-raised-button>New </button></a
+<section class="application-container">
+  <div class="application-header">
+    <div class="application-sub-header">
+      <a>
+        <div class="application-tiltle">
+          <h3>All Applications</h3>
+        </div>
+      </a>
+      <div class="notify-btn">
+        <span>
+          <h3><mat-slide-toggle></mat-slide-toggle></h3>
+          <h3>Notify HR Manager</h3>
+        </span>
+        <div class="filter" (click)="openFilterTab = !openFilterTab">
+          <span>Filter By</span>
+          <mat-icon *ngIf="openFilterTab">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="!openFilterTab">keyboard_arrow_up</mat-icon>
+        </div>
+        <ng-container *ngIf="openFilterTab">
+          <div class="filter-drop-down">
+            <div *ngFor="let filter of filterKeys">
+              <mat-checkbox
+                class="example-margin"
+                (click)="toggleFilterMenu(filter)"
               >
-            </ng-container>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                {{ filter }}
+              </mat-checkbox>
+              <ul>
+                <li *ngFor="let option of filterMenu[filter]">
+                  <mat-radio-button value="">{{
+                    getOptionValue(option)
+                  }}</mat-radio-button>
+                </li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="filter-by-status">
+      <div>
+        <h3>Filter By Status</h3>
+      </div>
+      <div class="filter-btn-container">
+        <div class="filter-status-btn" (click)="getFilterTerm('Shortlisted')">
+          Shortlisted
+        </div>
+        <div class="filter-status-btn" (click)="getFilterTerm('On Hold')">On Hold</div>
+        <div class="filter-status-btn" (click)="getFilterTerm('upCommingInterview')">Upcomming Interview</div>
+        <div class="filter-status-btn" (click)="getFilterTerm('feedback')">Feedbacks</div>
+        <div class="filter-status-btn" (click)="getFilterTerm('reject')">Rejected</div>
+      </div>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <td *ngFor="let header of applicationTableHeader">
+              {{ header | titlecase }}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let application of applicationDetails ">
+            <a
+              class="status-onhold-btn status-btn"
+              [routerLink]="[
+                '/dashboard/candidate-application',
+                application.id
+              ]"
+            >
+              <td *ngFor="let data of applicationTableHeader">
+                <ng-template #showData>
+                  {{ application[data] }}
+                </ng-template>
+                <ng-container *ngIf="data === 'status'; else showData">
+                  <ng-container *ngIf="application[data] === 'new'">
+                    <button mat-raised-button class="status-new-btn">
+                      New
+                    </button>
+                  </ng-container>
+                  <ng-container *ngIf="application[data] === 'reject'">
+                    <h3 class="status-reject-btn">Rejected</h3>
+                  </ng-container>
+                  <ng-container *ngIf="application[data] === 'on hold'">
+                    <h3 class="status-onhold-btn">On Hold</h3>
+                  </ng-container>
+                  <ng-container
+                    *ngIf="application[data] === 'upCommingInterview'"
+                    ><h3 class="status-shortlist-btn">Interview</h3>
+                  </ng-container>
+                  <ng-container *ngIf="application[data] === 'shortlisted'">
+                    <h3 class="status-shortlist-btn">Shortlisted</h3>
+                  </ng-container>
+                  <ng-container *ngIf="application[data] === 'feedback'">
+                    <h3 class="status-feedback-btn">Feedback</h3>
+                  </ng-container>
+                </ng-container>
+              </td>
+            </a>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>

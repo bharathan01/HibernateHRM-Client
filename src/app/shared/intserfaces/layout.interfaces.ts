@@ -16,3 +16,10 @@ export interface FilePreview {
     type: string;
     name: string;
   }
+
+ export interface FilterOptions {
+    jobRole: { role: string }[];
+    experience: { level: string }[];
+    skills: { skill: string }[];
+    noticePeriod: { period: string }[];
+  }

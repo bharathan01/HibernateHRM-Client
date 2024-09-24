@@ -127,12 +127,15 @@
 }
 .application-overview {
   width: 100%;
-  height: 100%;
+  height: 95%;
   background-color: var(--bg-navbar);
   display: flex;
   flex-direction: column;
   padding: 20px;
-  justify-content: center;
+  gap: 10px;
+}
+.application-overview p:first-child{
+  width: 150px;
 }
 .application-pdf{
   align-items: center;
@@ -152,7 +155,56 @@
   width: 100%;
   height: 100%;
 }
+.application-overview form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.inital-screening-form{
+  width: 100%;
+  display: flex;
+  align-items: center;
+ 
+}
+.inital-screening-form span{
+  width: 150px;
+}
+.inital-screening-form input[type="text"]{
+  width: 70%;
+  padding: 10px;
+  background-color: var(--light-background);
+  border: none;
+  border-radius: 7px;
+  color: var(--bg-white);
+}
 
+.form-textarea{
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+.form-textarea textarea{
+  width: 100%;
+  background-color: var(--light-background);
+  border: none;
+  border-radius: 7px;
+  height: 100px;
+  color: var(--bg-white);
+}
+.interview-btn{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.interview-btn button:first-child{
+  background-color: var(--gold-background);
+}
+.filled{
+  color: var(--gold-background);
+}
 @media (max-width: 850px){
   .application-detailas{
     flex-direction: column;

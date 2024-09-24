@@ -4,6 +4,7 @@
 .menu-driver-icon {
   height: 40px;
   background: var(--backgound-gradient);
+  z-index: 20;
 }
 .drawer-container {
   height: 100vh;

@@ -26,7 +26,7 @@ h5 {
   margin: 0 !important;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 /* Color Variables */
 :root {
@@ -64,6 +64,10 @@ a {
   --font-size-xxl: 2rem; /* Extra Extra Large - 32px */
   --font-size-xxxl: 3rem; /* Triple Extra Large - 48px */
 }
+
+.mdc-text-field--disabled.mdc-text-field--filled{
+  background-color: var(--light-background);
+}
 /*angular meterial select custom style */
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: var(--light-background) !important;
@@ -78,7 +82,7 @@ a {
 }
 .cdk-overlay-pane:not(.mat-mdc-select-panel-above)
   .mdc-menu-surface.mat-mdc-select-panel {
-  background-color: var(--bg-icon) !important;
+  background-color: var(--bg-dark) !important;
 }
 .mdc-list-item__primary-text {
   color: var(--bg-white) !important;
@@ -150,7 +154,7 @@ h4 {
 }
 
 p {
-  margin: 0px;
+  margin: 0px !important;
   font-size: var(--font-size-md);
 }
 

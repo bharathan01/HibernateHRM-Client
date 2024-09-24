@@ -32,20 +32,6 @@ export class AsideNavBarComponent {
         }
       });
   }
-  // menuItems:menuBar[] = [
-  //   [
-  //     { label: 'Dashboard', route: 'dashboard', logo: 'dashboard' },
-  //     { label: 'Jobs', route: 'dashboard/jobs', logo: 'work' },
-  //     { label: 'Application', route: 'dashboard/application', logo: 'article' },
-  //     { label: 'Interview', route: 'dashboard/interview', logo: 'groups' },
-  //     { label: 'Reports', route: 'dashboard/report', logo: 'summarize' },
-  //     { label: 'Tallent Pool', route: 'dashboard/talent-pool', logo: 'data_thresholding' },
-  //     { label: 'Resignation', route: 'dashboard/resignation', logo: 'how_to_reg' },
-  //   ],[
-  //     { label: 'Settings', route: '/settings', logo: 'settings' },
-  //     { label: 'Log Out', route: '/settings', logo: 'logout' },
-  //   ]
-  // ];
   menuItemsTop: MenuBar[] = [
     { label: 'Dashboard', route: 'dashboard', logo: 'dashboard' },
     { label: 'Jobs', route: 'dashboard/jobs', logo: 'work' },
@@ -53,11 +39,11 @@ export class AsideNavBarComponent {
     { label: 'Interview', route: 'dashboard/interview', logo: 'groups' },
     { label: 'Reports', route: 'dashboard/report', logo: 'summarize' },
     { label: 'Talent Pool', route: 'dashboard/talent-pool', logo: 'data_thresholding' },
-    { label: 'Resignation', route: 'dashboard/resignation', logo: 'how_to_reg' },
+    { label: 'Registration', route: 'dashboard/registration', logo: 'how_to_reg' },
   ];
   
 menuItemsBottom: MenuBar[] = [
-    { label: 'Settings', route: '/settings', logo: 'settings' },
+    { label: 'Settings', route: 'dashboard/settings', logo: 'settings' },
     { label: 'Log Out', route: '/logout', logo: 'logout' },
   ];
 }

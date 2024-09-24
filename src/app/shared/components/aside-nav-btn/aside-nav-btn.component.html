@@ -1,4 +1,4 @@
-<a routerLink="/{{buttonAction.route}}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+<a [routerLink]="['/' + buttonAction.route]"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
 <button mat-raised-button class="menu-bar-btn ">
   <mat-icon
     aria-hidden="false"
