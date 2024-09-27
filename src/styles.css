@@ -137,6 +137,19 @@ a {
   color: var(--bg-white) !important;
 }
 
+/* material slider style*/
+.mat-mdc-slider.mat-primary{
+    --mdc-slider-handle-color:var(--bg-white);
+    --mdc-slider-focus-handle-color: var(--bg-white);
+    --mdc-slider-hover-handle-color: var(--bg-white);
+    --mdc-slider-active-track-color: var(--bg-white);
+    --mdc-slider-inactive-track-color: var(--bg-white);
+    --mdc-slider-with-tick-marks-active-container-color: var(--bg-white);
+    --mdc-slider-with-tick-marks-inactive-container-color:var(--bg-white);
+    --mat-mdc-slider-hover-ripple-color: var(--bg-white);
+    --mat-mdc-slider-focus-ripple-color: var(--bg-icon);
+}
+
 h1 {
   font-size: var(--font-size-xxxl);
 }

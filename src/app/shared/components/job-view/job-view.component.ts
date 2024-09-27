@@ -3,6 +3,7 @@ import { Job } from '../../intserfaces/users.intserfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ShareJobDialogComponent } from '../dialog-boxs/share-job-dialog/share-job-dialog.component';
 import { JobApplicationDialogBoxComponent } from '../job-application-dialog-box/job-application-dialog-box.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-view',
@@ -13,7 +14,7 @@ export class JobViewComponent {
   @Input() job!: Job;
   isOpenMoreMenu: boolean = false;
   isOpenAddCandidate: boolean = false;
-  constructor(private dialog: MatDialog, private eRef: ElementRef) {}
+  constructor(private dialog: MatDialog, private eRef: ElementRef,private router:Router) {}
  
   /*@@ close the menu when clicks outside */
   @HostListener('document:click', ['$event'])
@@ -41,5 +42,8 @@ export class JobViewComponent {
       width: 'auto',
       height: 'auto',
     });
+  }
+  openApplicationView(){
+    this.router.navigateByUrl(`/dashboard/application-stage/${this.job?.id}`)
   }
 }

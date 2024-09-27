@@ -1,0 +1,42 @@
+<section class="candidate-info">
+  <div class="candidate-profile">
+    <div class="profile">
+      <div class="profile-img">JD</div>
+      <div class="profile-info">
+        <span>
+          <h2>John Doe</h2>
+        </span>
+        <div class="contact-info">
+          <span >
+            <mat-icon>alternate_email</mat-icon>
+            <h5>Johndoe@gmail.com</h5>
+          </span>
+          <span>
+            <mat-icon>call</mat-icon>
+            <h5>+91 12234566</h5>
+          </span>
+        </div>
+        <span> Source:Indeed </span>
+      </div>
+    </div>
+    <div class="profile-btn">
+        <div class="status">
+            <h5>Current Stage:Applied</h5>
+        </div>
+        <div class="feedback-btn">
+            <span title="Send mail"><mat-icon>mail</mat-icon></span>
+            <button mat-raised-button>Add Feedback</button>
+        </div>
+        <div class="control-btn">
+            <button>Schedule Interview</button>
+            <button (click)="isOpenMoveCandidateMenu =! isOpenMoveCandidateMenu">Move Candidate</button>
+            <button>Reject</button>
+            <div class="move-candidate" *ngIf="isOpenMoveCandidateMenu">
+                <span>Move to talent poll</span>
+                <span>Move Stage</span>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="candidate-details"></div>
+</section>

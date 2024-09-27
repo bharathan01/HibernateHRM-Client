@@ -11,12 +11,14 @@ import { MaterialModule } from '../material/material.module';
 import { PortalModule } from '@angular/cdk/portal';
 import { NgxPrintModule } from 'ngx-print';
 import { CandidateApplicationComponent } from './candidate-application/candidate-application.component';
+import { ApplicationStagesComponent } from './application-stages/application-stages.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     CreateJrfComponent,
     CandidateApplicationComponent,
+    ApplicationStagesComponent,
   ],
   imports: [
     CommonModule,

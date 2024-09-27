@@ -33,6 +33,7 @@ import { ScheduleInterviewComponent } from './components/dialog-boxs/schedule-in
 import { FeedbackFormComponent } from './components/dialog-boxs/feedback-form/feedback-form.component';
 import { SelectJobTalentpoolComponent } from './components/dialog-boxs/select-job-talentpool/select-job-talentpool.component';
 import { LogoutComponent } from './components/dialog-boxs/logout/logout.component';
+import { CandidateProfileComponent } from './components/dialog-boxs/candidate-profile/candidate-profile.component';
 
 
 const components = [
@@ -53,7 +54,8 @@ const components = [
   TalentPoolTableComponent,
   ScheduleInterviewComponent,
   FeedbackFormComponent,
-  SelectJobTalentpoolComponent
+  SelectJobTalentpoolComponent,
+  CandidateProfileComponent
 ];
 
 @NgModule({
@@ -65,19 +67,7 @@ const components = [
     StatusBarComponent,
     JobApplicationDialogBoxComponent,
     ShareJobDialogComponent,
-    CreateJrfHeaderComponent,
-    JrfPreviewComponent,
-    PublishJrfComponent,
-    MultipleJobBoardsComponent,
-    AddCandidateManuallyComponent,
-    ImportResumeComponent,
-    FileUploaderComponent,
-    ApplicationTableComponent,
     InviteMembersComponent,
-    TalentPoolTableComponent,
-    ScheduleInterviewComponent,
-    FeedbackFormComponent,
-    SelectJobTalentpoolComponent,
     LogoutComponent,
   ],
   imports: [
