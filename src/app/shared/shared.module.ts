@@ -34,6 +34,7 @@ import { FeedbackFormComponent } from './components/dialog-boxs/feedback-form/fe
 import { SelectJobTalentpoolComponent } from './components/dialog-boxs/select-job-talentpool/select-job-talentpool.component';
 import { LogoutComponent } from './components/dialog-boxs/logout/logout.component';
 import { CandidateProfileComponent } from './components/dialog-boxs/candidate-profile/candidate-profile.component';
+import { InputComponent } from './components/Inputs/input/input.component';
 
 
 const components = [
@@ -69,6 +70,7 @@ const components = [
     ShareJobDialogComponent,
     InviteMembersComponent,
     LogoutComponent,
+    InputComponent,
   ],
   imports: [
     CommonModule,

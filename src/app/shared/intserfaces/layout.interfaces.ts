@@ -23,3 +23,6 @@ export interface FilePreview {
     skills: { skill: string }[];
     noticePeriod: { period: string }[];
   }
+export interface applicationMenu{
+    name:string
+}  

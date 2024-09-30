@@ -7,7 +7,7 @@
           <h2>John Doe</h2>
         </span>
         <div class="contact-info">
-          <span >
+          <span>
             <mat-icon>alternate_email</mat-icon>
             <h5>Johndoe@gmail.com</h5>
           </span>
@@ -20,23 +20,202 @@
       </div>
     </div>
     <div class="profile-btn">
-        <div class="status">
-            <h5>Current Stage:Applied</h5>
+      <div class="status">
+        <h5>Current Stage:Applied</h5>
+      </div>
+      <div class="feedback-btn">
+        <span title="Send mail"><mat-icon>mail</mat-icon></span>
+        <button mat-raised-button>Add Feedback</button>
+      </div>
+      <div class="control-btn">
+        <button>Schedule Interview</button>
+        <button (click)="isOpenMoveCandidateMenu = !isOpenMoveCandidateMenu">
+          Move Candidate
+        </button>
+        <button>Reject</button>
+        <div class="move-candidate" *ngIf="isOpenMoveCandidateMenu">
+          <span>Move to talent poll</span>
+          <span>Move Stage</span>
         </div>
-        <div class="feedback-btn">
-            <span title="Send mail"><mat-icon>mail</mat-icon></span>
-            <button mat-raised-button>Add Feedback</button>
-        </div>
-        <div class="control-btn">
-            <button>Schedule Interview</button>
-            <button (click)="isOpenMoveCandidateMenu =! isOpenMoveCandidateMenu">Move Candidate</button>
-            <button>Reject</button>
-            <div class="move-candidate" *ngIf="isOpenMoveCandidateMenu">
-                <span>Move to talent poll</span>
-                <span>Move Stage</span>
-            </div>
-        </div>
+      </div>
     </div>
   </div>
-  <div class="candidate-details"></div>
+  <div class="candidate-details">
+    <div class="candidate-header">
+      <ul>
+        <li
+          *ngFor="let menu of applicationFromMenu"
+          (click)="onSelectMenu(menu.name)"
+          [class.active]="selectedTab === menu.name"
+        >
+          {{ menu?.name }}
+        </li>
+      </ul>
+    </div>
+    <ng-container *ngIf="selectedTab === 'Application Form'">
+      <div class="candidate-form">
+        <div class="personal-info">
+          <h3>Personal Information</h3>
+          <button>Edit Candidate Details</button>
+        </div>
+        <form>
+          <div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+          </div>
+          <div class="personal-info divider">
+            <h3>Background</h3>
+            <span>
+              <mat-divider></mat-divider>
+            </span>
+          </div>
+          <div>
+            <p>Education Details</p>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+          </div>
+          <div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+          </div>
+          <div>
+            <p>Work Experience</p>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+          </div>
+          <div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+          </div>
+          <div>
+            <p>Current Status</p>
+            <div class="form-field-f">
+              <app-input></app-input>
+              <app-input></app-input>
+            </div>
+          </div>
+          <div>
+            <p>Skills</p>
+            <div class="form-field-f">
+              <app-input></app-input>
+            </div>
+          </div>
+          <div>
+            <p>Works Links/Portfolio</p>
+            <div class="form-field-f">
+              <app-input></app-input>
+            </div>
+          </div>
+        </form>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="selectedTab === 'Resume'">
+      <div>
+        <div class="resume-preview-btn">
+          <a
+            href="https://pdfobject.com/pdf/sample.pdf"
+            download="https://pdfobject.com/pdf/sample.pdf"
+            ><button><mat-icon>download</mat-icon></button></a
+          >
+          <a
+            href="https://pdfobject.com/pdf/sample.pdf"
+            download="https://pdfobject.com/pdf/sample.pdf"
+            target="_blank"
+          >
+            <button><mat-icon>fullscreen</mat-icon></button></a
+          >
+        </div>
+        <div class="resume-preview">
+          <embed
+            src="https://pdfobject.com/pdf/sample.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            frameborder="0"
+          />
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="selectedTab === 'Inital Screening'">
+      <form>
+        <div class="inital-screening-form">
+          <div class="form-field-f">
+            <app-input></app-input>
+            <app-input></app-input>
+          </div>
+          <div class="form-field-f">
+            <app-input></app-input>
+            <app-input></app-input>
+          </div>
+          <div class="form-field-f">
+            <app-input></app-input>
+            <app-input></app-input>
+          </div>
+          <div class="form-field-f">
+            <app-input></app-input>
+            <app-input></app-input>
+          </div>
+          <div class="form-field-f">
+            <app-input></app-input>
+            <app-input></app-input>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="selectedTab === 'Interviews'">
+      <div>Interviews</div>
+    </ng-container>
+    <ng-container *ngIf="selectedTab === 'Feedback'">
+      <div>Feedback</div>
+    </ng-container>
+  </div>
 </section>

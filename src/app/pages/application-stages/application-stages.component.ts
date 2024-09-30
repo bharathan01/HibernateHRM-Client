@@ -16,7 +16,7 @@ export class ApplicationStagesComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private cdr: ChangeDetectorRef,
-    private dialog:MatDialog
+    private dialog: MatDialog
   ) {
     console.log(singleApplicationData[0].stages[0].stageName);
   }
@@ -49,16 +49,16 @@ export class ApplicationStagesComponent {
     });
   }
   closeStage(index: number) {
-    confirm('Do you want to remove Stage')
-    singleApplicationData[0].stages.splice(index, 1);
+    if (confirm('Do you want to remove Stage')) {
+      singleApplicationData[0].stages.splice(index, 1);
+    }
   }
-  selectAllApplication(){
-    console.log('hai')
+  selectAllApplication() {
+    console.log('hai');
   }
-  openCandidatefrom(applicationId:number){
-    this.dialog
-    .open(CandidateProfileComponent, {
-      data:applicationId,
-    })
+  openCandidatefrom(applicationId: number) {
+    this.dialog.open(CandidateProfileComponent, {
+      data: applicationId,
+    });
   }
 }

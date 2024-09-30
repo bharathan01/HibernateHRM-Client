@@ -1,0 +1,13 @@
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.input-container input{
+    background-color: var(--light-background);
+    border: 1px solid var(--bg-icon);
+    padding: 10px;
+    outline: none;
+    color: var(--bg-white);
+}
+
