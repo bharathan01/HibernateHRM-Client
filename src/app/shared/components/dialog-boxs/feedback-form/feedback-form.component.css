@@ -16,17 +16,19 @@
 }
 .interview-info {
   display: flex;
+  width: 100%;
+  gap: 10px;
 }
 .interview-info span {
   display: flex;
-  width: 130px;
+  align-items: center;
 }
 .remarks {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.remarks mat-form-field {
+mat-form-field {
   width: 400px;
 }
 .Submit-btn {
@@ -35,6 +37,7 @@
   justify-content: center;
 }
 .Submit-btn button{
+  width: 100%;
     background-color: var(--gold-background);
 }
 .filled{

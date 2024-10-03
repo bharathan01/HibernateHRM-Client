@@ -25,10 +25,10 @@
       </div>
       <div class="feedback-btn">
         <span title="Send mail"><mat-icon>mail</mat-icon></span>
-        <button mat-raised-button>Add Feedback</button>
+        <button mat-raised-button (click)="addFeedback()">Add Feedback</button>
       </div>
       <div class="control-btn">
-        <button>Schedule Interview</button>
+        <button (click)="scheduleInterview()">Schedule Interview</button>
         <button (click)="isOpenMoveCandidateMenu = !isOpenMoveCandidateMenu">
           Move Candidate
         </button>
@@ -61,26 +61,76 @@
         <form>
           <div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" name="firstName" />
+              </div>
+              <div class="input-container">
+                <label>Last Name</label>
+                <input type="text" placeholder="last Name" name="lastName" />
+              </div>
             </div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Contact Number</label>
+                <input
+                  type="text"
+                  placeholder="Contact Number"
+                  name="contactNumber"
+                />
+              </div>
+              <div class="input-container">
+                <label>E-mail ID</label>
+                <input type="text" placeholder="E-mail ID" name="emaiId" />
+              </div>
             </div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Address</label>
+                <input type="text" placeholder="Address" name="address" />
+              </div>
+              <div class="input-container">
+                <label>Post Code</label>
+                <input type="number" placeholder="Post Code" />
+              </div>
             </div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>City</label>
+                <input type="text" placeholder="City" />
+              </div>
+              <div class="input-container">
+                <label>State</label>
+                <input type="text" placeholder="state" />
+              </div>
+              <div class="input-container">
+                <label>Country</label>
+                <input type="text" placeholder="Country" />
+              </div>
             </div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Date of Birth</label>
+                <input type="date" placeholder="Date of Birth" />
+              </div>
+              <div class="input-container">
+                <label>Gender</label>
+                <mat-radio-group>
+                  <mat-radio-button value="auto">Male</mat-radio-button>
+                  <mat-radio-button value="always">Female</mat-radio-button>
+                  <mat-radio-button value="always">Other</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="input-container">
+                <label>Marital Status</label>
+                <mat-radio-group>
+                  <mat-radio-button value="auto">Single</mat-radio-button>
+                  <mat-radio-button value="always">Married</mat-radio-button>
+                  <mat-radio-button value="always"
+                    >Prefer no to say</mat-radio-button
+                  >
+                </mat-radio-group>
+              </div>
             </div>
           </div>
           <div class="personal-info divider">
@@ -92,70 +142,134 @@
           <div>
             <p>Education Details</p>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Qulificaition</label>
+                <input type="text" placeholder="Qulificaition" />
+              </div>
+              <div class="input-container">
+                <label>Course</label>
+                <input type="text" placeholder="Course Name" />
+              </div>
+              <div class="input-container">
+                <label>specialization</label>
+                <input type="text" placeholder="specialization" />
+              </div>
             </div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>institute Name</label>
+                <input type="text" placeholder="institute Name" />
+              </div>
+              <div class="input-container input-duration">
+                <label>Duration</label>
+                <div class="duration-field">
+                  <input type="number" placeholder="Form" />
+                  <input type="number" placeholder="To" />
+                </div>
+              </div>
             </div>
           </div>
           <div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Qulificaition</label>
+                <input type="text" placeholder="Qulificaition" />
+              </div>
+              <div class="input-container">
+                <label>Course</label>
+                <input type="text" placeholder="Course Name" />
+              </div>
+              <div class="input-container">
+                <label>specialization</label>
+                <input type="text" placeholder="specialization" />
+              </div>
             </div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>institute Name</label>
+                <input type="text" placeholder="institute Name" />
+              </div>
+              <div class="input-container input-duration">
+                <label>Duration</label>
+                <div class="duration-field">
+                  <input type="number" placeholder="Form" />
+                  <input type="number" placeholder="To" />
+                </div>
+              </div>
             </div>
           </div>
           <div>
             <p>Work Experience</p>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Company Name</label>
+                <input type="text" placeholder="Company Name" />
+              </div>
+              <div class="input-container">
+                <label>Designation</label>
+                <input type="text" placeholder="Designation" />
+              </div>
+              <div class="input-container input-duration">
+                <label>Duration</label>
+                <div class="duration-field">
+                  <input type="number" placeholder="Form" />
+                  <input type="number" placeholder="To" />
+                </div>
+              </div>
             </div>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
-            </div>
-          </div>
-          <div>
-            <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
-            </div>
-            <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Company Name</label>
+                <input type="text" placeholder="Company Name" />
+              </div>
+              <div class="input-container">
+                <label>Designation</label>
+                <input type="text" placeholder="Designation" />
+              </div>
+              <div class="input-container input-duration">
+                <label>Duration</label>
+                <div class="duration-field">
+                  <input type="number" placeholder="Form" />
+                  <input type="number" placeholder="To" />
+                </div>
+              </div>
             </div>
           </div>
           <div>
             <p>Current Status</p>
             <div class="form-field-f">
-              <app-input></app-input>
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Working</label>
+                <input type="text" placeholder="Yes/No" />
+              </div>
+              <div class="input-container">
+                <label>Notice Period</label>
+                <input type="text" placeholder="Notice Period" />
+              </div>
             </div>
           </div>
           <div>
             <p>Skills</p>
             <div class="form-field-f">
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Select Skills</label>
+                <div class="skills">
+                  <span>Python</span>
+                  <span>C++</span>
+                  <span>JavaScript</span>
+                  <span>Embedded Systems</span>
+                  <span>Andrino</span>
+                </div>
+              </div>
             </div>
           </div>
           <div>
             <p>Works Links/Portfolio</p>
             <div class="form-field-f">
-              <app-input></app-input>
+              <div class="input-container">
+                <label>Link</label>
+                <input type="text" placeholder="URL" />
+              </div>
             </div>
           </div>
         </form>
@@ -189,33 +303,170 @@
       <form>
         <div class="inital-screening-form">
           <div class="form-field-f">
-            <app-input></app-input>
-            <app-input></app-input>
+            <div class="input-container">
+              <label for="currentyWorking">Currently Working</label>
+              <input type="text" id="currentyWorking" placeholder="institute Name" />
+            </div>
+            <div class="input-container">
+              <label for="noticePeriod">Notice Period</label>
+              <input type="text" id="notice-Period" placeholder="institute Name" />
+            </div>
           </div>
           <div class="form-field-f">
-            <app-input></app-input>
-            <app-input></app-input>
+            <div class="input-container">
+              <label for="experience">Experience in Year</label>
+              <input type="text" id="experience" placeholder="Experience" />
+            </div>
+            <div class="input-container">
+              <label for="Company"> Current Company Name</label>
+              <input type="text" id="Company" placeholder="Current Company Name" />
+            </div>
           </div>
           <div class="form-field-f">
-            <app-input></app-input>
-            <app-input></app-input>
+            <div class="input-container">
+              <label for="currentSalary">Current Salary</label>
+              <input type="text" id="currentSalary" placeholder="Current Salary" />
+            </div>
+            <div class="input-container">
+              <label for="expectedSalary">Expected Salary</label>
+              <input type="text" id="expectedSalary" placeholder="Expected Salary" />
+            </div>
           </div>
           <div class="form-field-f">
-            <app-input></app-input>
-            <app-input></app-input>
+            <div class="input-container">
+              <label for="educational">highest educational qualification</label>
+              <input type="text" itemref="educational" placeholder="highest educational qualification" />
+            </div>
+            <div class="input-container">
+              <label for="passout">Pass Out</label>
+              <input type="text" id="passout" placeholder="Pass out" />
+            </div>
           </div>
           <div class="form-field-f">
-            <app-input></app-input>
-            <app-input></app-input>
+            <div class="input-container">
+              <label for="remarks">Remarks</label>
+              <textarea name="remarks" id="remarks"></textarea>
+            </div>
           </div>
         </div>
       </form>
     </ng-container>
     <ng-container *ngIf="selectedTab === 'Interviews'">
-      <div>Interviews</div>
+      <div>
+        <div class="details-card">
+          <h3>Upcomming Interviews</h3>
+          <mat-accordion>
+            <mat-expansion-panel
+              (opened)="panelOpenState.set(true)"
+              (closed)="panelOpenState.set(false)"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title> Face To Face Interview</mat-panel-title>
+                <mat-panel-description>
+                  12/12/2024 at 3:00 PM
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div>
+                <h3>Interview Type : Face To Face</h3>
+                <h3>Date : 12/12/2024</h3>
+                <h3>Time : 3:00 PM</h3>
+                <h3>Interviewer : Someone</h3>
+                <div class="interview-btn">
+                  <button>Update</button>
+                  <button>Cancel</button>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+          <mat-accordion>
+            <mat-expansion-panel
+              (opened)="panelOpenState.set(true)"
+              (closed)="panelOpenState.set(false)"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title> Task Interview</mat-panel-title>
+                <mat-panel-description>
+                  12/12/2024 at 3:00 PM
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div>
+                <h3>Interview Type : Task Interview</h3>
+                <h3>Date : 12/12/2024</h3>
+                <h3>Time : 3:00 PM</h3>
+                <h3>Interviewer : Someone</h3>
+                <div class="interview-btn">
+                  <button>Update</button>
+                  <button>Cancel</button>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="details-card">
+          <h3>Previous Interviews</h3>
+          <mat-accordion>
+            <mat-expansion-panel
+              (opened)="panelOpenState.set(true)"
+              (closed)="panelOpenState.set(false)"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title> Task Interview</mat-panel-title>
+                <mat-panel-description>
+                  12/12/2024 at 3:00 PM
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div>
+                <h3>Interview Type : Task Interview</h3>
+                <h3>Date : 12/12/2024</h3>
+                <h3>Time : 3:00 PM</h3>
+                <h3>Interviewer : Someone</h3>
+                <div class="interview-btn">
+                  <button>Update</button>
+                  <button>Cancel</button>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
     </ng-container>
     <ng-container *ngIf="selectedTab === 'Feedback'">
-      <div>Feedback</div>
+      <div class="details-card">
+        <div class="feedback-card">
+          <h3>Feedback Of: Face To Face Interview</h3>
+          <h3>Date : 12/12/2024</h3>
+          <h3>Time : 3:00 PM</h3>
+          <h3>Interviewer : Someone</h3>
+          <span>
+            <h3>Rating:</h3>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+          </span>
+          <h3>Remarks</h3>
+          <textarea name="" id=""> </textarea>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="feedback-card">
+          <h3>Feedback Of: Assessment</h3>
+          <h3>Date : 12/12/2024</h3>
+          <h3>Time : 3:00 PM</h3>
+          <h3>Interviewer : Someone</h3>
+          <span>
+            <h3>Rating:</h3>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+          </span>
+          <h3>Remarks</h3>
+          <textarea name="" id=""> </textarea>
+        </div>
+      </div>
     </ng-container>
   </div>
 </section>

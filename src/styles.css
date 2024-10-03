@@ -52,7 +52,7 @@ a {
   --bg-whatsapp: #25d366;
   --bg-facebook: #1877f2;
   --bg-linkdln: #0077b5;
-  --bg-btn-status:#530744;
+  --bg-btn-status: #530744;
 
   /*font sizes*/
   --font-size-xxs: 0.75rem; /* Extra Extra Small - 12px */
@@ -64,8 +64,18 @@ a {
   --font-size-xxl: 2rem; /* Extra Extra Large - 32px */
   --font-size-xxxl: 3rem; /* Triple Extra Large - 48px */
 }
+/*Removing input background colour for Chrome autocomplete*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--light-background) inset !important;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--bg-white) !important;
+}
 
-.mdc-text-field--disabled.mdc-text-field--filled{
+.mdc-text-field--disabled.mdc-text-field--filled {
   background-color: var(--light-background);
 }
 /*angular meterial select custom style */
@@ -93,10 +103,10 @@ a {
 .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
   color: var(--gold-background) !important;
 }
-.mat-mdc-select-value{
+.mat-mdc-select-value {
   color: var(--bg-white);
 }
-.mdc-menu-surface{
+.mdc-menu-surface {
   background-color: var(--bg-navbar) !important;
 }
 /* material date custom style */
@@ -111,12 +121,31 @@ a {
 }
 
 .mat-mdc-checkbox.mat-accent {
-  --mdc-checkbox-unselected-icon-color:var(--bg-white) !important;
+  --mdc-checkbox-unselected-icon-color: var(--bg-white) !important;
 }
 
+/* angular material accordian custom style */
+.mat-expansion-panel {
+  background-color: var(--light-background) !important;
+  color: var(--bg-white) !important;
+}
+.mat-expansion-panel-header-title {
+  color: var(--bg-white) !important;
+}
+.mat-expansion-panel-header-description {
+  color: var(--bg-white) !important;
+}
+.mat-expansion-panel-header-description,
+.mat-expansion-indicator::after {
+  color: var(--bg-white) !important;
+}
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"])
+  .mat-expansion-panel-header:hover {
+  background-color: var(--light-background) !important;
+}
 
 /*angular material redio btn */
-.mat-mdc-radio-button .mdc-form-field{
+.mat-mdc-radio-button .mdc-form-field {
   color: var(--bg-white) !important;
 }
 .mat-mdc-radio-button.mat-accent {
@@ -138,16 +167,16 @@ a {
 }
 
 /* material slider style*/
-.mat-mdc-slider.mat-primary{
-    --mdc-slider-handle-color:var(--bg-white);
-    --mdc-slider-focus-handle-color: var(--bg-white);
-    --mdc-slider-hover-handle-color: var(--bg-white);
-    --mdc-slider-active-track-color: var(--bg-white);
-    --mdc-slider-inactive-track-color: var(--bg-white);
-    --mdc-slider-with-tick-marks-active-container-color: var(--bg-white);
-    --mdc-slider-with-tick-marks-inactive-container-color:var(--bg-white);
-    --mat-mdc-slider-hover-ripple-color: var(--bg-white);
-    --mat-mdc-slider-focus-ripple-color: var(--bg-icon);
+.mat-mdc-slider.mat-primary {
+  --mdc-slider-handle-color: var(--bg-white);
+  --mdc-slider-focus-handle-color: var(--bg-white);
+  --mdc-slider-hover-handle-color: var(--bg-white);
+  --mdc-slider-active-track-color: var(--bg-white);
+  --mdc-slider-inactive-track-color: var(--bg-white);
+  --mdc-slider-with-tick-marks-active-container-color: var(--bg-white);
+  --mdc-slider-with-tick-marks-inactive-container-color: var(--bg-white);
+  --mat-mdc-slider-hover-ripple-color: var(--bg-white);
+  --mat-mdc-slider-focus-ripple-color: var(--bg-icon);
 }
 
 h1 {
@@ -206,7 +235,7 @@ p {
     font-size: var(--font-size-xxs);
   }
 }
-.error-text{
+.error-text {
   color: var(--danger);
 }
 

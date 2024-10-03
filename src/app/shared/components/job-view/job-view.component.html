@@ -48,21 +48,5 @@
   </div>
   <div class="job-a-id">
     <span> Job ID:{{ job.id }} </span>
-    <span (click)="onMenuClick($event)">
-      <button mat-raised-button (click)="isOpenAddCandidate =! isOpenAddCandidate">Add Candidates</button>
-    </span>
-    <ng-container *ngIf="isOpenAddCandidate">
-      <div class="addCandidate-popup">
-        <a routerLink="add-candidate">
-          <button>Add Candidates Manually</button>
-        </a>
-        <a routerLink="import-resume">
-          <button>Import Resume(Doc/PDF)</button>
-        </a>
-        <a>
-          <button>Add from Talent Pool</button>
-        </a>
-      </div>
-    </ng-container>
   </div>
 </section>

@@ -13,14 +13,12 @@ import { Router } from '@angular/router';
 export class JobViewComponent {
   @Input() job!: Job;
   isOpenMoreMenu: boolean = false;
-  isOpenAddCandidate: boolean = false;
   constructor(private dialog: MatDialog, private eRef: ElementRef,private router:Router) {}
  
   /*@@ close the menu when clicks outside */
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
     this.isOpenMoreMenu = false;
-    this.isOpenAddCandidate = false;
   }
   /*@@ Inside the menu, stop the click event from bubbling up to the document click 
   listener, which would otherwise immediately close the menu when clicking on it. */
