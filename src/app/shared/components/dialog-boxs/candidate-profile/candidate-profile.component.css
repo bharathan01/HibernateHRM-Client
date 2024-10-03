@@ -149,18 +149,31 @@
   flex-direction: column;
   gap: 30px;
 }
-.personal-info button {
+.form-btn {
   padding: 5px;
   background-color: transparent;
   border: 1px solid var(--bg-icon);
   color: var(--bg-white);
   cursor: pointer;
 }
+.remove-btn{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.update-btn{
+  background-color: var(--gold-background) !important;
+}
 .form-field-f {
   width: 100%;
   display: flex;
   gap: 10px;
   margin: 10px 0px;
+}
+.education-details{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 .resume-preview-btn {
   width: 100%;

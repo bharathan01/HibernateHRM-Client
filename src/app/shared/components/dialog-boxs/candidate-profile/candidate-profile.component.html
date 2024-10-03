@@ -56,76 +56,115 @@
       <div class="candidate-form">
         <div class="personal-info">
           <h3>Personal Information</h3>
-          <button>Edit Candidate Details</button>
+          <button class="form-btn" (click)="editCandidateDetail()">
+            Edit Candidate Details
+          </button>
         </div>
-        <form>
+        <form [formGroup]="personalDetails">
           <div>
             <div class="form-field-f">
               <div class="input-container">
-                <label>First Name</label>
-                <input type="text" placeholder="First Name" name="firstName" />
+                <label>First Name<span class="error-text">*</span></label>
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  name="firstName"
+                  formControlName="firstName"
+                />
               </div>
               <div class="input-container">
-                <label>Last Name</label>
-                <input type="text" placeholder="last Name" name="lastName" />
+                <label>Last Name<span class="error-text">*</span></label>
+                <input
+                  type="text"
+                  placeholder="last Name"
+                  name="lastName"
+                  formControlName="lastName"
+                />
               </div>
             </div>
             <div class="form-field-f">
               <div class="input-container">
-                <label>Contact Number</label>
+                <label>Contact Number<span class="error-text">*</span></label>
                 <input
                   type="text"
                   placeholder="Contact Number"
                   name="contactNumber"
+                  formControlName="contactNo"
                 />
               </div>
               <div class="input-container">
-                <label>E-mail ID</label>
-                <input type="text" placeholder="E-mail ID" name="emaiId" />
+                <label>E-mail ID<span class="error-text">*</span></label>
+                <input
+                  type="text"
+                  placeholder="E-mail ID"
+                  name="emaiId"
+                  formControlName="email"
+                />
               </div>
             </div>
             <div class="form-field-f">
               <div class="input-container">
-                <label>Address</label>
-                <input type="text" placeholder="Address" name="address" />
+                <label>Address<span class="error-text">*</span></label>
+                <input
+                  type="text"
+                  placeholder="Address"
+                  name="address"
+                  formControlName="address"
+                />
               </div>
               <div class="input-container">
-                <label>Post Code</label>
-                <input type="number" placeholder="Post Code" />
+                <label>Post Code<span class="error-text">*</span></label>
+                <input
+                  type="number"
+                  placeholder="Post Code"
+                  formControlName="postcode"
+                />
               </div>
             </div>
             <div class="form-field-f">
               <div class="input-container">
                 <label>City</label>
-                <input type="text" placeholder="City" />
+                <input type="text" placeholder="City" formControlName="city" />
               </div>
               <div class="input-container">
                 <label>State</label>
-                <input type="text" placeholder="state" />
+                <input
+                  type="text"
+                  placeholder="state"
+                  formControlName="state"
+                />
               </div>
               <div class="input-container">
-                <label>Country</label>
-                <input type="text" placeholder="Country" />
+                <label>Country<span class="error-text">*</span></label>
+                <input
+                  type="text"
+                  placeholder="Country"
+                  formControlName="country"
+                />
               </div>
             </div>
             <div class="form-field-f">
               <div class="input-container">
-                <label>Date of Birth</label>
-                <input type="date" placeholder="Date of Birth" />
+                <label>Date of Birth<span class="error-text">*</span></label>
+                <input
+                  type="text"
+                  placeholder="Date of Birth"
+                  formControlName="dob"
+                />
               </div>
               <div class="input-container">
-                <label>Gender</label>
-                <mat-radio-group>
-                  <mat-radio-button value="auto">Male</mat-radio-button>
-                  <mat-radio-button value="always">Female</mat-radio-button>
-                  <mat-radio-button value="always">Other</mat-radio-button>
+                <label>Gender<span class="error-text">*</span></label>
+                <mat-radio-group formControlName="gender">
+                  <mat-radio-button value="male">Male</mat-radio-button>
+                  <mat-radio-button value="female">Female</mat-radio-button>
+                  <mat-radio-button value="other">Other</mat-radio-button>
                 </mat-radio-group>
               </div>
               <div class="input-container">
                 <label>Marital Status</label>
-                <mat-radio-group>
-                  <mat-radio-button value="auto">Single</mat-radio-button>
-                  <mat-radio-button value="always">Married</mat-radio-button>
+                <mat-radio-group formControlName="maritalStatus">
+                  <mat-radio-button value="Single">Single</mat-radio-button>
+                  <mat-radio-button value="Married">Married</mat-radio-button>
                   <mat-radio-button value="always"
                     >Prefer no to say</mat-radio-button
                   >
@@ -140,99 +179,148 @@
             </span>
           </div>
           <div>
-            <p>Education Details</p>
-            <div class="form-field-f">
-              <div class="input-container">
-                <label>Qulificaition</label>
-                <input type="text" placeholder="Qulificaition" />
-              </div>
-              <div class="input-container">
-                <label>Course</label>
-                <input type="text" placeholder="Course Name" />
-              </div>
-              <div class="input-container">
-                <label>specialization</label>
-                <input type="text" placeholder="specialization" />
-              </div>
+            <div class="education-details">
+              <p>Education Details</p>
+              <button
+                class="form-btn"
+                (click)="addNewEducationField()"
+                *ngIf="isFormEnabled"
+              >
+                Add +
+              </button>
             </div>
-            <div class="form-field-f">
-              <div class="input-container">
-                <label>institute Name</label>
-                <input type="text" placeholder="institute Name" />
-              </div>
-              <div class="input-container input-duration">
-                <label>Duration</label>
-                <div class="duration-field">
-                  <input type="number" placeholder="Form" />
-                  <input type="number" placeholder="To" />
+            <div formArrayName="education">
+              <ng-container
+                *ngFor="let address of education.controls; let i = index"
+                [formGroupName]="i"
+              >
+                <div class="form-field-f">
+                  <div class="input-container">
+                    <label
+                      >Qualification<span class="error-text">*</span></label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Qualification"
+                      formControlName="qualification"
+                    />
+                  </div>
+                  <div class="input-container">
+                    <label>Course<span class="error-text">*</span></label>
+                    <input
+                      type="text"
+                      placeholder="Course Name"
+                      formControlName="course"
+                    />
+                  </div>
+                  <div class="input-container">
+                    <label>specialization</label>
+                    <input
+                      type="text"
+                      placeholder="specialization"
+                      formControlName="specialization"
+                    />
+                  </div>
                 </div>
-              </div>
+                <div class="form-field-f">
+                  <div class="input-container">
+                    <label
+                      >institute Name<span class="error-text">*</span></label
+                    >
+                    <input
+                      type="text"
+                      placeholder="institute Name"
+                      formControlName="instituteName"
+                    />
+                  </div>
+                  <div class="input-container input-duration">
+                    <label>Duration<span class="error-text">*</span></label>
+                    <div class="duration-field">
+                      <input
+                        type="text"
+                        placeholder="Form"
+                        formControlName="durationFrom"
+                      />
+                      <input
+                        type="text"
+                        placeholder="To"
+                        formControlName="durationTo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="remove-btn" *ngIf="i > 0">
+                  <button
+                    class="form-btn error-text"
+                    (click)="removeInputField(i, 'education')"
+                    *ngIf="isFormEnabled"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </ng-container>
             </div>
           </div>
           <div>
-            <div class="form-field-f">
-              <div class="input-container">
-                <label>Qulificaition</label>
-                <input type="text" placeholder="Qulificaition" />
-              </div>
-              <div class="input-container">
-                <label>Course</label>
-                <input type="text" placeholder="Course Name" />
-              </div>
-              <div class="input-container">
-                <label>specialization</label>
-                <input type="text" placeholder="specialization" />
-              </div>
+            <div class="education-details">
+              <p>Work Experience</p>
+              <button
+                class="form-btn"
+                (click)="addNewworkExperience()"
+                *ngIf="isFormEnabled"
+              >
+                Add +
+              </button>
             </div>
-            <div class="form-field-f">
-              <div class="input-container">
-                <label>institute Name</label>
-                <input type="text" placeholder="institute Name" />
-              </div>
-              <div class="input-container input-duration">
-                <label>Duration</label>
-                <div class="duration-field">
-                  <input type="number" placeholder="Form" />
-                  <input type="number" placeholder="To" />
+            <div formArrayName="workExperience">
+              <ng-container
+                *ngFor="let address of workExperience.controls; let i = index"
+                [formGroupName]="i"
+              >
+                <div class="form-field-f">
+                  <div class="input-container">
+                    <label>Company Name<span class="error-text">*</span></label>
+                    <input
+                      type="text"
+                      placeholder="Company Name"
+                      formControlName="companyName"
+                    />
+                  </div>
+                  <div class="input-container">
+                    <label>Designation<span class="error-text">*</span></label>
+                    <input
+                      type="text"
+                      placeholder="Designation"
+                      formControlName="designation"
+                    />
+                  </div>
+                  <div class="input-container input-duration">
+                    <label>Duration<span class="error-text">*</span></label>
+                    <div class="duration-field">
+                      <input
+                        type="text"
+                        placeholder="Form"
+                        formControlName="workFrom"
+                      />
+                      <input
+                        type="text"
+                        placeholder="To"
+                        formControlName="workTo"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p>Work Experience</p>
-            <div class="form-field-f">
-              <div class="input-container">
-                <label>Company Name</label>
-                <input type="text" placeholder="Company Name" />
-              </div>
-              <div class="input-container">
-                <label>Designation</label>
-                <input type="text" placeholder="Designation" />
-              </div>
-              <div class="input-container input-duration">
-                <label>Duration</label>
-                <div class="duration-field">
-                  <input type="number" placeholder="Form" />
-                  <input type="number" placeholder="To" />
+
+                <div class="remove-btn" *ngIf="i > 0">
+                  <button
+                    class="form-btn error-text"
+                    (click)="removeInputField(i, 'workExperience')"
+                    *ngIf="isFormEnabled"
+                  >
+                    Remove
+                  </button>
                 </div>
-              </div>
-            </div>
-            <div class="form-field-f">
-              <div class="input-container">
-                <label>Company Name</label>
-                <input type="text" placeholder="Company Name" />
-              </div>
-              <div class="input-container">
-                <label>Designation</label>
-                <input type="text" placeholder="Designation" />
-              </div>
-              <div class="input-container input-duration">
-                <label>Duration</label>
-                <div class="duration-field">
-                  <input type="number" placeholder="Form" />
-                  <input type="number" placeholder="To" />
-                </div>
-              </div>
+              </ng-container>
             </div>
           </div>
           <div>
@@ -240,25 +328,31 @@
             <div class="form-field-f">
               <div class="input-container">
                 <label>Working</label>
-                <input type="text" placeholder="Yes/No" />
+                <input
+                  type="text"
+                  placeholder="Yes/No"
+                  formControlName="currentlyWorking"
+                />
               </div>
               <div class="input-container">
                 <label>Notice Period</label>
-                <input type="text" placeholder="Notice Period" />
+                <input
+                  type="text"
+                  placeholder="Notice Period"
+                  formControlName="noticePeriod"
+                />
               </div>
             </div>
           </div>
           <div>
-            <p>Skills</p>
+            <p>Skills<span class="error-text">*</span></p>
             <div class="form-field-f">
               <div class="input-container">
                 <label>Select Skills</label>
                 <div class="skills">
-                  <span>Python</span>
-                  <span>C++</span>
-                  <span>JavaScript</span>
-                  <span>Embedded Systems</span>
-                  <span>Andrino</span>
+                  <span *ngFor="let skill of candidateAppliationfrom?.skills">{{
+                    skill
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -268,10 +362,15 @@
             <div class="form-field-f">
               <div class="input-container">
                 <label>Link</label>
-                <input type="text" placeholder="URL" />
+                <input
+                  type="text"
+                  placeholder="URL"
+                  formControlName="PortfolioLink"
+                />
               </div>
             </div>
           </div>
+          <button mat-raised-button class="update-btn" *ngIf="isFormEnabled">Update</button>
         </form>
       </div>
     </ng-container>
@@ -300,52 +399,82 @@
       </div>
     </ng-container>
     <ng-container *ngIf="selectedTab === 'Inital Screening'">
-      <form>
+      <form [formGroup]="initalScreeningDetails">
         <div class="inital-screening-form">
           <div class="form-field-f">
             <div class="input-container">
               <label for="currentyWorking">Currently Working</label>
-              <input type="text" id="currentyWorking" placeholder="institute Name" />
+              <input
+                type="text"
+                id="currentyWorking"
+                placeholder="institute Name"
+                formControlName="currentlyWorking"
+              />
             </div>
             <div class="input-container">
               <label for="noticePeriod">Notice Period</label>
-              <input type="text" id="notice-Period" placeholder="institute Name" />
+              <input
+                type="text"
+                id="notice-Period"
+                placeholder="institute Name"
+                formControlName="noticePeriod"
+              />
             </div>
           </div>
           <div class="form-field-f">
             <div class="input-container">
               <label for="experience">Experience in Year</label>
-              <input type="text" id="experience" placeholder="Experience" />
+              <input type="text" id="experience" placeholder="Experience" formControlName="experience"/>
             </div>
             <div class="input-container">
               <label for="Company"> Current Company Name</label>
-              <input type="text" id="Company" placeholder="Current Company Name" />
+              <input
+                type="text"
+                id="Company"
+                placeholder="Current Company Name"
+                formControlName="currentlyWorking"
+              />
             </div>
           </div>
           <div class="form-field-f">
             <div class="input-container">
               <label for="currentSalary">Current Salary</label>
-              <input type="text" id="currentSalary" placeholder="Current Salary" />
+              <input
+                type="text"
+                id="currentSalary"
+                placeholder="Current Salary"
+                formControlName="currentCtc"
+              />
             </div>
             <div class="input-container">
               <label for="expectedSalary">Expected Salary</label>
-              <input type="text" id="expectedSalary" placeholder="Expected Salary" />
+              <input
+                type="text"
+                id="expectedSalary"
+                placeholder="Expected Salary"
+                formControlName="expectedCtc"
+              />
             </div>
           </div>
           <div class="form-field-f">
             <div class="input-container">
               <label for="educational">highest educational qualification</label>
-              <input type="text" itemref="educational" placeholder="highest educational qualification" />
+              <input
+                type="text"
+                itemref="educational"
+                placeholder="highest educational qualification"
+                formControlName="qualification"
+              />
             </div>
             <div class="input-container">
               <label for="passout">Pass Out</label>
-              <input type="text" id="passout" placeholder="Pass out" />
+              <input type="text" id="passout" placeholder="Pass out"formControlName="remarks" />
             </div>
           </div>
           <div class="form-field-f">
             <div class="input-container">
               <label for="remarks">Remarks</label>
-              <textarea name="remarks" id="remarks"></textarea>
+              <textarea name="remarks" id="remarks" formControlName="remarks"></textarea>
             </div>
           </div>
         </div>
@@ -372,8 +501,8 @@
                 <h3>Time : 3:00 PM</h3>
                 <h3>Interviewer : Someone</h3>
                 <div class="interview-btn">
-                  <button>Update</button>
-                  <button>Cancel</button>
+                  <button (click)="scheduleInterview()">Update</button>
+                  <button (click)="cancelInterview()">Cancel</button>
                 </div>
               </div>
             </mat-expansion-panel>

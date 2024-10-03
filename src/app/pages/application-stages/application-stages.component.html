@@ -73,11 +73,7 @@
       </div>
       <div class="stage-btn">
         <button mat-raised-button>Manage Hiring Team</button>
-        <button
-          mat-raised-button
-          
-          (click)="onMenuClick($event)"
-        >
+        <button mat-raised-button (click)="onMenuClick($event)">
           Add Candidate
         </button>
         <ng-container *ngIf="isOpenAddCandidate">
@@ -110,12 +106,14 @@
           </div>
           <div class="application-container">
             <ng-container *ngFor="let application of data?.applications">
-              <div
-                class="single-application"
-                (click)="openCandidatefrom(application?.applicationId)"
-              >
+              <div class="single-application">
                 <mat-checkbox class="example-margin"></mat-checkbox>
-                <h3>{{ application.cadidateName }}</h3>
+                <div
+                  class="candidate-name"
+                  (click)="openCandidatefrom(application?.applicationId)"
+                >
+                  <h3>{{ application.cadidateName }}</h3>
+                </div>
               </div>
             </ng-container>
           </div>
