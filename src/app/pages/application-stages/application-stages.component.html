@@ -104,9 +104,17 @@
             <input type="text" [value]="data.stageName" />
             <mat-icon (click)="closeStage(idx)">close</mat-icon>
           </div>
-          <div class="application-container">
+          <div class=""
+            cdkDropList
+            [id]="'stageDropList-' + idx"
+            #stageDropList="cdkDropList"
+            [cdkDropListData]="data.applications"
+            [cdkDropListConnectedTo]="connectedDropLists"
+            class="example-list application-container"
+            (cdkDropListDropped)="drop($event)"
+          >
             <ng-container *ngFor="let application of data?.applications">
-              <div class="single-application">
+              <div class="single-application" cdkDrag>
                 <mat-checkbox class="example-margin"></mat-checkbox>
                 <div
                   class="candidate-name"

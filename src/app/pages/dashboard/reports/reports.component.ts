@@ -100,6 +100,7 @@ export class ReportsComponent implements OnInit, AfterViewInit {
   }
   candidateHiredChart(): void {
     const ctx = document.getElementById('hiredChart') as HTMLCanvasElement;
+    
     new Chart(ctx, {
       type: 'doughnut',
       data: {

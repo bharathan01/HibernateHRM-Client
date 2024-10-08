@@ -6,22 +6,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatDialogModule } from '@angular/material/dialog'; 
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatSelectModule} from '@angular/material/select';
-import {MatTableModule} from '@angular/material/table';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatCardModule} from '@angular/material/card';
-
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
+import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 
 const material = [
   MatSlideToggleModule,
@@ -30,7 +29,7 @@ const material = [
   MatToolbarModule,
   MatSidenavModule,
   MatDividerModule,
-  MatDialogModule, 
+  MatDialogModule,
   MatBadgeModule,
   MatSelectModule,
   MatTableModule,
@@ -43,12 +42,14 @@ const material = [
   MatCheckboxModule,
   MatSliderModule,
   MatExpansionModule,
-  MatCardModule
+  MatCardModule,
+  CdkDrag,
+  CdkDropList,
 ];
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, ...material], 
-  exports: [...material], 
+  imports: [CommonModule, ...material],
+  exports: [...material],
 })
 export class MaterialModule {}

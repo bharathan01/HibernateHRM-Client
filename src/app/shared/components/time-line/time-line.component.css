@@ -1,0 +1,23 @@
+.track-container li {
+  list-style: none;
+  gap: 10px;
+}
+.bullet {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.track {
+  width: 1px;
+  height: 80px;
+}
+
+.time-content {
+  max-width: 500px;
+}
+.time-content h5 {
+  color: var(--bg-icon);
+}
+time h5 {
+  color: var(--bg-icon);
+}

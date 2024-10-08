@@ -1,19 +1,27 @@
 <section class="candidate-info">
   <div class="candidate-profile">
+    <span (click)="gotToApplications('previous')">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </span>
     <div class="profile">
       <div class="profile-img">JD</div>
       <div class="profile-info">
         <span>
-          <h2>John Doe</h2>
+          <h2>
+            {{
+              this.candidateAppliationfrom?.personalInfo.firstName +
+                this.candidateAppliationfrom?.personalInfo.lastName
+            }}
+          </h2>
         </span>
         <div class="contact-info">
           <span>
             <mat-icon>alternate_email</mat-icon>
-            <h5>Johndoe@gmail.com</h5>
+            <h5>{{ this.candidateAppliationfrom?.personalInfo.email }}</h5>
           </span>
           <span>
             <mat-icon>call</mat-icon>
-            <h5>+91 12234566</h5>
+            <h5>{{ this.candidateAppliationfrom?.personalInfo.phone }}</h5>
           </span>
         </div>
         <span> Source:Indeed </span>
@@ -24,7 +32,9 @@
         <h5>Current Stage:Applied</h5>
       </div>
       <div class="feedback-btn">
-        <span title="Send mail"><mat-icon>mail</mat-icon></span>
+        <span title="Send mail" (click)="openMailBox()"
+          ><mat-icon>mail</mat-icon></span
+        >
         <button mat-raised-button (click)="addFeedback()">Add Feedback</button>
       </div>
       <div class="control-btn">
@@ -39,6 +49,9 @@
         </div>
       </div>
     </div>
+    <span (click)="gotToApplications('next')">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </span>
   </div>
   <div class="candidate-details">
     <div class="candidate-header">
@@ -370,7 +383,9 @@
               </div>
             </div>
           </div>
-          <button mat-raised-button class="update-btn" *ngIf="isFormEnabled">Update</button>
+          <button mat-raised-button class="update-btn" *ngIf="isFormEnabled">
+            Update
+          </button>
         </form>
       </div>
     </ng-container>
@@ -424,7 +439,12 @@
           <div class="form-field-f">
             <div class="input-container">
               <label for="experience">Experience in Year</label>
-              <input type="text" id="experience" placeholder="Experience" formControlName="experience"/>
+              <input
+                type="text"
+                id="experience"
+                placeholder="Experience"
+                formControlName="experience"
+              />
             </div>
             <div class="input-container">
               <label for="Company"> Current Company Name</label>
@@ -468,15 +488,34 @@
             </div>
             <div class="input-container">
               <label for="passout">Pass Out</label>
-              <input type="text" id="passout" placeholder="Pass out"formControlName="remarks" />
+              <input
+                type="text"
+                id="passout"
+                placeholder="Pass out"
+                formControlName="remarks"
+              />
             </div>
           </div>
           <div class="form-field-f">
             <div class="input-container">
               <label for="remarks">Remarks</label>
-              <textarea name="remarks" id="remarks" formControlName="remarks"></textarea>
+              <textarea
+                name="remarks"
+                id="remarks"
+                formControlName="remarks"
+                class="remarks-text"
+              ></textarea>
             </div>
           </div>
+        </div>
+        <div class="remove-btn">
+          <button
+            class="update-btn"
+            mat-raised-button
+            *ngIf="initalScreeningDetails.dirty"
+          >
+            Update
+          </button>
         </div>
       </form>
     </ng-container>
@@ -484,118 +523,75 @@
       <div>
         <div class="details-card">
           <h3>Upcomming Interviews</h3>
-          <mat-accordion>
-            <mat-expansion-panel
-              (opened)="panelOpenState.set(true)"
-              (closed)="panelOpenState.set(false)"
+          <ng-container *ngIf="interviewDetails.length > 0">
+            <mat-accordion
+              *ngFor="let interview of interviewDetails[0]?.upcommingInterview"
             >
-              <mat-expansion-panel-header>
-                <mat-panel-title> Face To Face Interview</mat-panel-title>
-                <mat-panel-description>
-                  12/12/2024 at 3:00 PM
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div>
-                <h3>Interview Type : Face To Face</h3>
-                <h3>Date : 12/12/2024</h3>
-                <h3>Time : 3:00 PM</h3>
-                <h3>Interviewer : Someone</h3>
-                <div class="interview-btn">
-                  <button (click)="scheduleInterview()">Update</button>
-                  <button (click)="cancelInterview()">Cancel</button>
+              <mat-expansion-panel
+                (opened)="panelOpenState.set(true)"
+                (closed)="panelOpenState.set(false)"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ interview.interviewType }}</mat-panel-title
+                  >
+                  <mat-panel-description>
+                    {{ interview.date }} at {{ interview.time }}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div>
+                  <h3>Interview Type : {{ interview.interviewType }}</h3>
+                  <h3>Date : {{ interview.date }}</h3>
+                  <h3>Time : {{ interview.time }}</h3>
+                  <h3>Interviewer : {{ interview.interviewer }}</h3>
+                  <div class="interview-btn">
+                    <button (click)="scheduleInterview()">Update</button>
+                    <button (click)="cancelInterview()">Cancel</button>
+                  </div>
                 </div>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
-          <mat-accordion>
-            <mat-expansion-panel
-              (opened)="panelOpenState.set(true)"
-              (closed)="panelOpenState.set(false)"
-            >
-              <mat-expansion-panel-header>
-                <mat-panel-title> Task Interview</mat-panel-title>
-                <mat-panel-description>
-                  12/12/2024 at 3:00 PM
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div>
-                <h3>Interview Type : Task Interview</h3>
-                <h3>Date : 12/12/2024</h3>
-                <h3>Time : 3:00 PM</h3>
-                <h3>Interviewer : Someone</h3>
-                <div class="interview-btn">
-                  <button>Update</button>
-                  <button>Cancel</button>
-                </div>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </ng-container>
         </div>
         <div class="details-card">
           <h3>Previous Interviews</h3>
-          <mat-accordion>
-            <mat-expansion-panel
-              (opened)="panelOpenState.set(true)"
-              (closed)="panelOpenState.set(false)"
+          <ng-container *ngIf="interviewDetails[0].previousInterviews">
+            <mat-accordion
+              *ngFor="let interview of interviewDetails[0]?.previousInterviews"
             >
-              <mat-expansion-panel-header>
-                <mat-panel-title> Task Interview</mat-panel-title>
-                <mat-panel-description>
-                  12/12/2024 at 3:00 PM
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div>
-                <h3>Interview Type : Task Interview</h3>
-                <h3>Date : 12/12/2024</h3>
-                <h3>Time : 3:00 PM</h3>
-                <h3>Interviewer : Someone</h3>
-                <div class="interview-btn">
-                  <button>Update</button>
-                  <button>Cancel</button>
+              <mat-expansion-panel
+                (opened)="panelOpenState.set(true)"
+                (closed)="panelOpenState.set(false)"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ interview.interviewType }}</mat-panel-title
+                  >
+                  <mat-panel-description>
+                    {{ interview.date }} at {{ interview.time }}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div>
+                  <h3>Interview Type : {{ interview.interviewType }}</h3>
+                  <h3>Date : {{ interview.date }}</h3>
+                  <h3>Time : {{ interview.time }}</h3>
+                  <h3>Interviewer : {{ interview.interviewer }}</h3>
                 </div>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </ng-container>
         </div>
       </div>
     </ng-container>
     <ng-container *ngIf="selectedTab === 'Feedback'">
-      <div class="details-card">
-        <div class="feedback-card">
-          <h3>Feedback Of: Face To Face Interview</h3>
-          <h3>Date : 12/12/2024</h3>
-          <h3>Time : 3:00 PM</h3>
-          <h3>Interviewer : Someone</h3>
-          <span>
-            <h3>Rating:</h3>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-          </span>
-          <h3>Remarks</h3>
-          <textarea name="" id=""> </textarea>
-        </div>
-      </div>
-      <div class="details-card">
-        <div class="feedback-card">
-          <h3>Feedback Of: Assessment</h3>
-          <h3>Date : 12/12/2024</h3>
-          <h3>Time : 3:00 PM</h3>
-          <h3>Interviewer : Someone</h3>
-          <span>
-            <h3>Rating:</h3>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-            <mat-icon>star</mat-icon>
-          </span>
-          <h3>Remarks</h3>
-          <textarea name="" id=""> </textarea>
-        </div>
-      </div>
+      <app-feedback></app-feedback>
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab === 'Mail'">
+      <app-mail-history-view></app-mail-history-view>
+    </ng-container>
+    <ng-container *ngIf="selectedTab === 'Time Line'">
+      <app-time-line></app-time-line>
     </ng-container>
   </div>
 </section>

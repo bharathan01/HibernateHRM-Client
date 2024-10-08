@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AsideNavBarComponent } from './components/aside-nav-bar/aside-nav-bar.component';
 import { MaterialModule } from '../material/material.module';
 import { AsideNavBtnComponent } from './components/aside-nav-btn/aside-nav-btn.component';
@@ -35,6 +35,11 @@ import { SelectJobTalentpoolComponent } from './components/dialog-boxs/select-jo
 import { LogoutComponent } from './components/dialog-boxs/logout/logout.component';
 import { CandidateProfileComponent } from './components/dialog-boxs/candidate-profile/candidate-profile.component';
 import { InputComponent } from './components/Inputs/input/input.component';
+import { SendMailComponent } from './components/dialog-boxs/send-mail/send-mail.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MailHistoryViewComponent } from './components/mail-history-view/mail-history-view.component';
+import { TimeLineComponent } from './components/time-line/time-line.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 
 const components = [
@@ -56,7 +61,10 @@ const components = [
   ScheduleInterviewComponent,
   FeedbackFormComponent,
   SelectJobTalentpoolComponent,
-  CandidateProfileComponent
+  CandidateProfileComponent,
+  MailHistoryViewComponent,
+  TimeLineComponent,
+  FeedbackComponent,
 ];
 
 @NgModule({
@@ -71,6 +79,9 @@ const components = [
     InviteMembersComponent,
     LogoutComponent,
     InputComponent,
+    SendMailComponent,
+   
+
   ],
   imports: [
     CommonModule,
@@ -80,6 +91,7 @@ const components = [
     CoreModule,
     ClipboardModule,
     ReactiveFormsModule,
+    CKEditorModule
   ],
   exports: [components, ],
 })

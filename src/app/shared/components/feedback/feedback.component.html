@@ -1,0 +1,179 @@
+<section class="full-width flex pt-10 g-10">
+  <div class="">
+    <div
+      class="feedback-chart bg-light border-radius flex justify-start flex-col align-center"
+    >
+      <canvas id="feedbackChart"></canvas>
+      <div class="total-score">
+        <h3>Total Score</h3>
+        <h2>75%</h2>
+      </div>
+    </div>
+  </div>
+  <div class="flex g-10 flex-col full-width">
+    <div class="container p-10 g-10 full-width bg-light border-radius">
+      <div class="top-left border-radius">
+        <ul class="flex flex-col">
+          <li class="flex justify-sb p-10">
+            <span>Feedback :</span>
+            <span>Face to Face Interview</span>
+          </li>
+          <li class="flex justify-sb p-10">
+            <span>Interviewer :</span>
+            <span>Face to Face Interview</span>
+          </li>
+          <li class="flex justify-sb p-10">
+            <span>Date :</span>
+            <span>08 Oct 2022</span>
+          </li>
+          <li class="flex justify-sb p-10">
+            <span>Time :</span>
+            <span>12:00 PM - 3:00 PM</span>
+          </li>
+        </ul>
+      </div>
+      <div class="top-middle border-radius">
+        <ul class="flex flex-col g-10">
+          <li class="flex justify-sb b-1 p-10">
+            <span>Skills</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+          <li class="flex justify-sb b-1 p-10">
+            <span>Cummunication</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+          <li class="flex justify-sb b-1 p-10">
+            <span>Attitude</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+          <li class="flex justify-sb b-1 p-10">
+            <span>Cultural fit</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="top-right border-radius flex-center flex-col">
+        <h1>75%</h1>
+        <h3>GOOD</h3>
+      </div>
+      <div class="bottom border-radius full-width">
+        <span>Remarks</span>
+        <textarea name="" id="" class="full-width p-10"></textarea>
+      </div>
+    </div>
+    <div class="container p-10 g-10 full-width bg-light border-radius">
+      <div class="top-left border-radius">
+        <ul class="flex flex-col">
+          <li class="flex justify-sb p-10">
+            <span>Feedback :</span>
+            <span>Face to Face Interview</span>
+          </li>
+          <li class="flex justify-sb p-10">
+            <span>Interviewer :</span>
+            <span>Face to Face Interview</span>
+          </li>
+          <li class="flex justify-sb p-10">
+            <span>Date :</span>
+            <span>08 Oct 2022</span>
+          </li>
+          <li class="flex justify-sb p-10">
+            <span>Time :</span>
+            <span>12:00 PM - 3:00 PM</span>
+          </li>
+        </ul>
+      </div>
+      <div class="top-middle border-radius">
+        <ul class="flex flex-col g-10">
+          <li class="flex justify-sb b-1 p-10">
+            <span>Skills</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+          <li class="flex justify-sb b-1 p-10">
+            <span>Cummunication</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+          <li class="flex justify-sb b-1 p-10">
+            <span>Attitude</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+          <li class="flex justify-sb b-1 p-10">
+            <span>Cultural fit</span>
+            <span>
+              <ng-container *ngFor="let star of ratingStar">
+                <mat-icon
+                  [ngClass]="{ filled: star <= currentSelectedStar }"
+                  class="rating"
+                  >star</mat-icon
+                >
+              </ng-container>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="top-right border-radius flex-center flex-col">
+        <h1>75%</h1>
+        <h3>GOOD</h3>
+      </div>
+      <div class="bottom border-radius full-width">
+        <span>Remarks</span>
+        <textarea name="" id="" class="full-width p-10"></textarea>
+      </div>
+    </div>
+  </div>
+</section>

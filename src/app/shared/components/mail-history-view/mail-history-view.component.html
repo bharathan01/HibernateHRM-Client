@@ -1,0 +1,73 @@
+<section class="mail-container">
+  <ng-container *ngIf="!isMailDetsilsOpen; else mailDetail">
+    <div class="mail-preview" (click)="openMailDetails()">
+      <span>
+        <mat-icon>mail</mat-icon>
+        <h3>Reject mail</h3>
+      </span>
+      <h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis ex
+        nesciunt, beatae
+      </h3>
+      <h3>Oct 03</h3>
+    </div>
+    <div class="mail-preview" (click)="openMailDetails()">
+      <span>
+        <mat-icon>mail</mat-icon>
+        <h3>Reject mail</h3>
+      </span>
+      <h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quis ex
+        nesciunt, beatae
+      </h3>
+      <h3>Oct 03</h3>
+    </div>
+  </ng-container>
+  <ng-template #mailDetail>
+    <div class="mail-details">
+      <div class="back-btn">
+        <mat-icon (click)="isMailDetsilsOpen = false">arrow_back_ios</mat-icon>
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </div>
+      <div class="mail-content">
+        <div class="mail-header">
+          <div class="mail-profile">
+            <img src="../../../../assets/images/avathar.jpg" alt="" />
+            <span>
+              <h3>John doe</h3>
+              <h5>Johndoe@gmail.com</h5>
+            </span>
+          </div>
+          <span>
+            <h5>
+              Sun,12 Oct 2024 <br />
+              12:13PM
+            </h5>
+          </span>
+        </div>
+        <div class="mail-body">
+          <h2>Offer Letter from company_name</h2>
+          <h3>
+            Dear candidate_name,<br /><br />
+            We are excited to inform you that you have been selected for the
+            position of job_title at company_name. This decision reflects our
+            confidence in your skills and experience, and we are eager to
+            welcome you to our team.<br />
+            Attached to this email, you will find your official offer letter
+            detailing the terms of employment, including your starting salary,
+            benefits package, and other important information. Please review
+            this document carefully.<br />
+            To accept the offer, please sign and return the offer letter by
+            acceptance_deadline. Should you have any questions or require
+            further clarification regarding any part of the offer, feel free to
+            reach out to me directly.<br />
+            We look forward to your positive response and are excited about the
+            potential of having you on board!<br /><br />
+            Best regards,<br />
+            company_name
+          </h3>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>

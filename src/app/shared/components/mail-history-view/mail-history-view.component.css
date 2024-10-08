@@ -1,0 +1,75 @@
+.mail-container,
+.mail-preview,
+.mail-details,
+.back-btn,
+.mail-header,
+.mail-content,
+.mail-body,
+.mail-profile,
+.mail-preview span {
+  display: flex;
+}
+.mail-container,
+.mail-preview,
+.mail-details,
+.back-btn,
+.mail-header,
+.mail-content {
+  width: 100%;
+}
+.mail-container,
+.mail-details,
+.mail-content,
+.mail-body {
+  flex-direction: column;
+}
+.mail-preview,
+.mail-header {
+  justify-content: space-between;
+}
+.mail-preview,
+.mail-preview span,
+.mail-header,
+.mail-profile {
+  align-items: center;
+}
+.mail-container {
+  padding: 10px;
+  height: 100%;
+  gap: 5px;
+}
+.mail-preview {
+  background-color: var(--light-background);
+  padding: 15px;
+  border-radius: 7px;
+
+  transition: all 0.1s;
+}
+.mail-preview span {
+  gap: 5px;
+}
+.mail-preview:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+.mail-details,
+.mail-content {
+  gap: 30px;
+}
+.back-btn {
+  justify-content: end;
+  gap: 10px;
+  cursor: pointer;
+}
+.mail-header img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.mail-body {
+  gap: 15px;
+}
+.mail-profile {
+  gap: 5px;
+}

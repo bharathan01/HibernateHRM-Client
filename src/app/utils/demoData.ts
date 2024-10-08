@@ -1169,7 +1169,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '30 days',
     skills: ['Python', 'C', 'C++', 'Java', 'Linux'],
     links: 'https://www.google.com',
@@ -1182,9 +1182,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1239,7 +1239,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'No',
+    currentlyWorking: 'No',
     skills: ['Python', 'R', 'SQL', ' Machine Learning'],
     links: 'https://www.linkedin.com/janesmith',
     resumeURL: 'https://pdfobject.com/pdf/sample2.pdf',
@@ -1251,9 +1251,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1310,7 +1310,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '45 days',
     skills: ['Java', 'Spring Boot', ' Angular', 'SQL'],
     links: 'https://github.com/michaeljohnson',
@@ -1323,9 +1323,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1374,7 +1374,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '15 days',
     skills: ['Python', 'C', 'C++', 'Java', 'Linux'],
     links: 'https://portfolio.emilywilliams.com',
@@ -1387,9 +1387,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1438,7 +1438,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '90 days',
     skills: ['Python', 'TensorFlow', 'Keras', 'PyTorch'],
     links: 'https://researchgate.net/robertbrown',
@@ -1451,9 +1451,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1502,7 +1502,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '30 days',
     skills: ['Python', 'C', 'C++', 'Java', 'Linux'],
     links: 'https://sophiagarcia.com',
@@ -1515,9 +1515,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1566,7 +1566,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'No',
+    currentlyWorking: 'No',
     skills: ['Python', 'C', 'C++', 'Java', 'Linux'],
     links: 'https://davidmartinez.hr',
     resumeURL: 'https://pdfobject.com/pdf/sample7.pdf',
@@ -1578,9 +1578,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1637,7 +1637,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'No',
+    currentlyWorking: 'No',
     skills: ['Python', 'C', 'C++', 'Java', 'Linux'],
     links: 'https://emmafinance.com',
     resumeURL: 'https://pdfobject.com/pdf/sample8.pdf',
@@ -1649,9 +1649,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1708,7 +1708,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '30 days',
     skills: ['Python', 'C', 'C++', 'Java', 'Linux'],
     links: 'https://lucascyber.com',
@@ -1721,9 +1721,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1772,7 +1772,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'No',
+    currentlyWorking: 'No',
     skills: ['SEO', 'PPC', 'Content Strategy', 'Analytics'],
     links: 'https://sophiadigital.com',
     resumeURL: 'https://pdfobject.com/pdf/sample10.pdf',
@@ -1784,9 +1784,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1843,7 +1843,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '60 days',
     skills: ['CAD', 'CAM', 'FEA', 'Manufacturing Processes'],
     links: 'https://noahmec.com',
@@ -1856,9 +1856,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1907,7 +1907,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '30 days',
     skills: ['Machine Learning', 'Python', 'SQL', 'Data Visualization'],
     links: 'https://liamdata.com',
@@ -1920,9 +1920,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -1971,7 +1971,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'Yes',
+    currentlyWorking: 'Yes',
     noticePeriod: '90 days',
     skills: ['Financial Analysis', 'Mergers & Acquisitions', 'Risk Management'],
     links: 'https://avafintech.com',
@@ -1984,9 +1984,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -2035,7 +2035,7 @@ export const applicationFormDetails: any[] = [
         workTo: '12/12/2012',
       },
     ],
-    currentlyWorking:'No',   
+    currentlyWorking: 'No',
     skills: ['Python', 'C', 'C++', 'Java', 'Linux'],
     links: 'https://oliviabizops.com',
     resumeURL: 'https://pdfobject.com/pdf/sample14.pdf',
@@ -2047,9 +2047,9 @@ export const applicationFormDetails: any[] = [
         expectedCtc: '950000',
         currentlyWorking: 'yes',
         companyName: 'MarketMasters',
-        qualification:'B-tech',
-        remarks:'Any Importent note about the candidate etc',
-        passout:'2022'
+        qualification: 'B-tech',
+        remarks: 'Any Importent note about the candidate etc',
+        passout: '2022',
       },
     ],
     feedbacks: [
@@ -2066,3 +2066,101 @@ export const applicationFormDetails: any[] = [
     ],
   },
 ];
+export const interviewDetails: any[] = [
+  {
+    upcommingInterview: [
+      {
+        interviewType: 'Face to Face',
+        interviewer: 'Daniel Joseph',
+        date: '12/03/2024',
+        time: '3:00 PM - 4:00 PM',
+      },
+      {
+        interviewType: 'Face to Face',
+        interviewer: 'Daniel Joseph',
+        date: '12/03/2024',
+        time: '3:00 PM - 4:00 PM',
+      },
+    ],
+    previousInterviews: [
+      {
+        interviewType: 'Face to Face',
+        interviewer: 'Daniel Joseph',
+        date: '12/03/2024',
+        time: '3:00 PM - 4:00 PM',
+      },
+    ],
+  },
+];
+export const mailTemplates:any = {
+  reject: {
+    subject: 'Rejection Notice - {company_name}',
+    body: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`
+  },
+  offerLetter: {
+    subject: 'Offer Letter from {company_name}',
+    body: `Dear {candidate_name},<br><br>
+    We are excited to inform you that you have been selected for the position of {job_title} at {company_name}. This decision reflects our confidence in your skills and experience, and we are eager to welcome you to our team.<br><br>
+    Attached to this email, you will find your official offer letter detailing the terms of employment, including your starting salary, benefits package, and other important information. Please review this document carefully.<br><br>
+    To accept the offer, please sign and return the offer letter by {acceptance_deadline}. Should you have any questions or require further clarification regarding any part of the offer, feel free to reach out to me directly.<br><br>
+    We look forward to your positive response and are excited about the potential of having you on board!<br><br>
+    Best regards,<br>
+    {company_name}`
+  },
+  hire: {
+    subject: 'Hiring Confirmation - {company_name}',
+    body: `Dear {candidate_name},<br><br>
+    We are thrilled to confirm your hiring for the position of {job_title} at {company_name}. Your skills and qualifications stood out during the interview process, and we believe you will be a valuable addition to our team.<br><br>
+    In preparation for your first day, we would like to provide you with some essential information:<br>
+    - **Start Date:** {start_date}<br>
+    - **Location:** {office_address}<br>
+    - **Onboarding:** You will receive further details regarding the onboarding process and training schedule soon.<br><br>
+    We encourage you to reach out with any questions you may have as you prepare to join us. Welcome aboard, and we are excited to start this journey together!<br><br>
+    Best regards,<br>
+    {company_name}`
+  },
+  faceToFaceInterview: {
+    subject: 'Face-to-Face Interview Invitation - {company_name}',
+    body: `Dear {candidate_name},<br><br>
+    We are pleased to invite you for a face-to-face interview for the position of {job_title} at {company_name}. Your application and qualifications have impressed us, and we would like to learn more about you in person.<br><br>
+    **Interview Details:**<br>
+    - **Date:** {date}<br>
+    - **Time:** {time}<br>
+    - **Location:** {office_address}<br><br>
+    Please bring along your updated resume and any other documents you think might be relevant. If you have any specific questions or topics you would like to discuss, feel free to let us know in advance.<br><br>
+    We look forward to meeting you and wish you the best of luck with your preparations!<br><br>
+    Best regards,<br>
+    {company_name}`
+  },
+  assessment: {
+    subject: 'Assessment Invitation - {company_name}',
+    body: `Dear {candidate_name},<br><br>
+    We are excited to invite you to participate in an assessment as part of the recruitment process for the position of {job_title} at {company_name}. This assessment is designed to evaluate your skills and qualifications, allowing us to gain deeper insights into your potential fit within our organization.<br><br>
+    **Assessment Details:**<br>
+    - **Format:** {assessment_format}<br>
+    - **Duration:** {duration}<br>
+    - **Date and Time:** {date}<br><br>
+    You will receive a link to access the assessment on the specified date. If you have any questions or require further assistance, please do not hesitate to reach out.<br><br>
+    We wish you the best of luck and look forward to your participation!<br><br>
+    Best regards,<br>
+    {company_name}`
+  },
+  acknowledgement: {
+    subject: 'Acknowledgement of Application - {company_name}',
+    body: `Dear {candidate_name},<br><br>
+    Thank you for submitting your application for the position of {job_title} at {company_name}. We appreciate your interest in our company and the time you took to apply.<br><br>
+    We have received your application and will review it thoroughly. Our team will get back to you shortly regarding the next steps in the hiring process. Please be assured that we take every application seriously and aim to find the best fit for our organization.<br><br>
+    Should you have any questions in the meantime, feel free to reach out to us. Thank you once again for your interest in joining {company_name}.<br><br>
+    Best regards,<br>
+    {company_name}`
+  }
+};
+
+
+

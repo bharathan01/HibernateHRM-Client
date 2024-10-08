@@ -130,7 +130,7 @@ export class CreateJrfComponent implements AfterViewInit {
       );
     }
     this.nextPage();
-    // this.JRFormData.markAllAsTouched();
+    this.JRFormData.markAllAsTouched();
   }
   submitJRFormPulishDetails() {
     if (this.JRFormPulishDetails.valid) {

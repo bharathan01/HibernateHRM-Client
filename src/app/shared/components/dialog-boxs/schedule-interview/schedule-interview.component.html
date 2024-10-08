@@ -23,15 +23,27 @@
       </div>
       <div>
         <mat-form-field class="example-full-width">
-          <mat-label>Choose Time</mat-label>
-          <input matInput formControlName="time" />
+          <mat-label>Choose Time From</mat-label>
+          <input matInput formControlName="timeFrom" type="time"/>
           <div
             *ngIf="
-              scheduledInterviewDetailsControl['time'].touched &&
-              scheduledInterviewDetailsControl['time'].invalid
+              scheduledInterviewDetailsControl['timeFrom'].touched &&
+              scheduledInterviewDetailsControl['timeFrom'].invalid
             "
           >
-            <small class="error-text">time is required.</small>
+            <small class="error-text">time from is required.</small>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose Time To</mat-label>
+          <input matInput formControlName="timeTo" type="time"/>
+          <div
+            *ngIf="
+              scheduledInterviewDetailsControl['timeTo'].touched &&
+              scheduledInterviewDetailsControl['timeTo'].invalid
+            "
+          >
+            <small class="error-text">time to is required.</small>
           </div>
         </mat-form-field>
       </div>

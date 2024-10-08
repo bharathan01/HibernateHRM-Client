@@ -1,10 +1,20 @@
-import { Component, Inject, OnInit, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { applicationMenu } from 'src/app/shared/intserfaces/layout.interfaces';
-import { applicationFormDetails } from 'src/app/utils/demoData';
+import {
+  applicationFormDetails,
+  interviewDetails,
+} from 'src/app/utils/demoData';
 import { ScheduleInterviewComponent } from '../schedule-interview/schedule-interview.component';
 import { FeedbackFormComponent } from '../feedback-form/feedback-form.component';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { SendMailComponent } from '../send-mail/send-mail.component';
 
 @Component({
   selector: 'app-candidate-profile',
@@ -16,12 +26,16 @@ export class CandidateProfileComponent implements OnInit {
   selectedTab: string = 'Application Form';
   candidateAppliationfrom: any;
   isFormEnabled: boolean = false;
+  // create an interface for actual data
+  interviewDetails: any = interviewDetails;
   applicationFromMenu: applicationMenu[] = [
     { name: 'Application Form' },
     { name: 'Resume' },
     { name: 'Inital Screening' },
     { name: 'Interviews' },
     { name: 'Feedback' },
+    { name: 'Mail' },
+    { name: 'Time Line' },
   ];
   constructor(
     @Inject(MAT_DIALOG_DATA) public applicationId: number,
@@ -38,7 +52,6 @@ export class CandidateProfileComponent implements OnInit {
     this.getAppliationDetails(this.applicationId);
     this.getInitalScreeningData();
   }
-
   personalDetails = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -98,7 +111,6 @@ export class CandidateProfileComponent implements OnInit {
     });
     this.workExperience.push(workExperience);
   }
-
   // Method to remove a specific form field
   removeInputField(index: number, fields: string) {
     fields === 'education'
@@ -106,13 +118,13 @@ export class CandidateProfileComponent implements OnInit {
       : this.workExperience.removeAt(index);
   }
 
-  /*@@c get demo profile data */
+  /*@@c get demo profile data changes needed*/
   getAppliationDetails(applicationId: number) {
     this.candidateAppliationfrom = applicationFormDetails.filter(
       (application) => applicationId == application.applicationId
     )[0];
     this.personalDetails.patchValue({
-      firstName: this.candidateAppliationfrom.personalInfo.firstName,
+      firstName: this.candidateAppliationfrom?.personalInfo.firstName,
       lastName: this.candidateAppliationfrom?.personalInfo.lastName,
       contactNo: this.candidateAppliationfrom?.personalInfo.phone,
       email: this.candidateAppliationfrom?.personalInfo.email,
@@ -134,7 +146,8 @@ export class CandidateProfileComponent implements OnInit {
       this.addNewworkExperience(data);
     });
   }
-  /*@@c get demo inital screening  data */
+  /*@@c get demo inital screening  data 
+   @@ just for demo purpous may be change in backend intergration */
   getInitalScreeningData() {
     console.log(this.candidateAppliationfrom.initalScreeningDetails);
     this.initalScreeningDetails.patchValue({
@@ -156,7 +169,6 @@ export class CandidateProfileComponent implements OnInit {
       passout: this.candidateAppliationfrom.initalScreeningDetails[0].passout,
     });
   }
-
   //editCandidateDetail
   editCandidateDetail() {
     this.personalDetails.enable();
@@ -184,5 +196,20 @@ export class CandidateProfileComponent implements OnInit {
       width: 'auto',
       height: 'auto',
     });
+  }
+  openMailBox() {
+    this.dialog.open(SendMailComponent, {
+      data: this.candidateAppliationfrom?.personalInfo.email,
+      width: 'auto',
+      height: 'auto',
+    });
+  }
+
+  gotToApplications(action: string) {
+    //using  for demo purpous change when integration
+    action == 'next' ? this.applicationId++ : this.applicationId--;
+    this.education.clear();
+    this.workExperience.clear();
+    this.ngOnInit();
   }
 }
