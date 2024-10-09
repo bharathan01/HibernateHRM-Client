@@ -1,11 +1,30 @@
-<section class="talent-pool-container">
-  <div class="talent-btn-container">
-    <div class="talent-btn" [ngClass]="{'active-btn': selectedTable === 'onHold'}" (click)="selectedTable = 'onHold'">
-      <h3>On Hold</h3>
-    </div>
-    <div class="talent-btn"[ngClass]="{'active-btn': selectedTable === 'referal'}" (click)="selectedTable = 'referal'"><h3>Employee Referral</h3></div>
-  </div>
-  <div class="table">
-    <app-talent-pool-table></app-talent-pool-table>
+<section class="full-width p-10 flex g-10 flex-wrap">
+  <ng-container *ngFor="let folder of folders">
+    <a
+      [routerLink]="['talent-folder']"
+      [queryParams]="{ folderName: folder.folderName }"
+    >
+      <div
+        class="p-10 talent-folder b-1 bg-nav border-radius flex justify-ar flex-col g-10"
+      >
+        <input
+          type="text"
+          value="Default Folder"
+          (click)="addText($event)"
+          [value]="folder.folderName"
+        />
+        <textarea
+          value=""
+          [value]="folder.folderDiscription"
+          (click)="addText($event)"
+        ></textarea>
+        <mat-divider></mat-divider>
+        <h3>{{ folder.candidateCount }}</h3>
+      </div>
+    </a>
+  </ng-container>
+  <div class="p-10 talent-folder add-folder b-1 border-radius flex-center g-10">
+    <mat-icon (click)="addNewFolder()">add</mat-icon>
   </div>
 </section>
+

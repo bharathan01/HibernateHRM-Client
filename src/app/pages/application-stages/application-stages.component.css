@@ -129,6 +129,7 @@ input[type=number] {
   right: 0px;
   display: flex;
   flex-direction: column;
+  z-index: 10;
 }
 .add-candidate a{
   text-decoration: none;
@@ -169,6 +170,8 @@ input[type=number] {
 .add-new-stage:hover {
   width: 100px;
   min-width: 100px;
+}
+.add-new-stage .mat-icon:hover{
   cursor: pointer;
 }
 .add-new-stage:hover .mat-icon {

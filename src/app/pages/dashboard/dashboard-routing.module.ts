@@ -13,6 +13,7 @@ import { ImportResumeComponent } from 'src/app/shared/components/import-resume/i
 import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersControllesComponent } from './users-controlles/users-controlles.component';
+import { TalentPoolTableComponent } from 'src/app/shared/components/talent-pool-table/talent-pool-table.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
       {
         path: 'users-controlles/:id',
         component: UsersControllesComponent,
+      },
+      {
+        path: 'talent-pool/talent-folder',
+        component: TalentPoolTableComponent,
       },
     ],
   },

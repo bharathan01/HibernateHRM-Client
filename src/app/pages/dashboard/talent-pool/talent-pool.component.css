@@ -1,25 +1,47 @@
-.talent-pool-container{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+a {
+  width: 32%;
+  min-width: 280px;
+  color: var(--bg-white);
 }
-.talent-btn-container{
-    width: 100%;
-    display: flex;
+.talent-folder {
+  width: 100%;
+  height: 170px;
+  min-width: 280px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.talent-btn{
-    width: 100%;
-    padding: 10px 0px;
-    text-align: center;
-    background-color: var(--light-background);
+.talent-folder input,
+textarea {
+  background-color: transparent;
+  border: none;
+  font-size: var(--font-size-lg);
+  color: var(--bg-white);
+  outline: none;
 }
-.talent-btn:hover{
-    cursor: pointer;
+.talent-folder textarea {
+  font-size: var(--font-size-xxs);
+  font-family: var(--mail-font-family);
 }
-.active-btn{
-    background: var(--backgound-gradient);
+.talent-folder:hover {
+  transform: scale(1.02);
 }
-.table{
-    width: 100%;
+.add-folder {
+  width: 150px;
+  height: 170px;
+}
+.mat-icon {
+  font-size: 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.talent-folder p {
+  color: rgba(112, 112, 112, 0.818);
+}
+@media (max-width: 600px) {
+  section {
+    justify-content: center;
+  }
 }

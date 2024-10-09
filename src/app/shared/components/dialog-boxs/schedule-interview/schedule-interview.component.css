@@ -1,20 +1,18 @@
-.interview-container {
+section {
+  width: 60vw;
+  height: 300px;
+}
+.input-fields {
   width: 100%;
-  height: 100%;
-  background-color: var(--bg-dark);
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
 }
-.interview-form{
-    width: 100%;
+.input-fields input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--bg-icon);
+  background-color: var(--light-background);
 }
-.interview-form form mat-form-field{
-    width: 100%;
-}
-.schedule-btn button{
-    width: 100%;
-    background-color: var(--gold-background);
+datalist{
+    width: 100% !important;
+    background-color: antiquewhite;
+    
 }

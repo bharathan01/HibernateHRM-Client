@@ -1,0 +1,14 @@
+section {
+  height: 82vh;
+}
+.controller {
+  width: 20%;
+  border-right: 1px solid var(--bg-icon);
+}
+.controller span:hover {
+  background-color: var(--gold-background);
+  cursor: pointer;
+}
+.controller-view {
+  width: 70%;
+}

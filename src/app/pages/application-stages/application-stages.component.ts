@@ -12,7 +12,10 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CandidateProfileComponent } from 'src/app/shared/components/dialog-boxs/candidate-profile/candidate-profile.component';
-import { singleApplicationData } from 'src/app/utils/demoData';
+import {
+  applicationFormDetails,
+  singleApplicationData,
+} from 'src/app/utils/demoData';
 
 @Component({
   selector: 'app-application-stages',
@@ -21,11 +24,13 @@ import { singleApplicationData } from 'src/app/utils/demoData';
 })
 export class ApplicationStagesComponent implements OnInit {
   isFilterManuOpen: boolean = true;
-  singleApplicationData: any = singleApplicationData;
-  stages = [1, 2, 3, 5, 6];
+  singleApplicationData: any = singleApplicationData; // avoid any when intergration
   isOpenAddCandidate: boolean = false;
   //container where the stages name stored for drage and drop
   connectedDropLists: string[] = [];
+  isSelectCandidate: boolean = false;
+  // storing the applications that selected ,avoid any
+  selctedCandidateDetails = new Set<any>();
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -90,9 +95,43 @@ export class ApplicationStagesComponent implements OnInit {
       singleApplicationData[0].stages.splice(index, 1);
     }
   }
-  selectAllApplication() {
-    console.log('hai');
+
+  /*@@ methode for select all application in a stage
+    **just for the demo purpose not optimal way 
+      if no:appliaction > o(n^2) will be the time
+      change according to the json data  
+      ------------------------------------------------------------------------------------------------------- */
+  selectAllApplication(selected: boolean, stageName: string) {
+    let applicationStage;
+    if (selected) {
+      applicationStage = singleApplicationData[0].stages.find((data) => {
+        return data.stageName === stageName;
+      });
+
+      applicationStage?.applications.map((app) => {
+        this.selctedCandidateDetails.add(app ? app.applicationId : null);
+      });
+    } else {
+      this.selctedCandidateDetails.clear();
+    }
   }
+  /* add single selcted application to the  selctedCandidateDetails sets*/
+  toggleSelection(selected: boolean, applicationId: any) {
+    selected
+      ? this.selctedCandidateDetails.add(applicationId)
+      : this.selctedCandidateDetails.delete(applicationId);
+  }
+  // Check if a candidate is selected
+  isSelected(applicationId: number): boolean {
+    return this.selctedCandidateDetails.has(applicationId);
+  }
+  /*---------------------------------------------------------------------------------------------------------------------- */
+
+  
+
+
+
+
   openCandidatefrom(applicationId: number) {
     this.dialog.open(CandidateProfileComponent, {
       data: applicationId,

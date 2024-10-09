@@ -308,6 +308,9 @@ p {
 .full-height{
   height: 100%;
 }
+.flex-wrap{
+  flex-wrap: wrap;
+}
 
 
 @media (max-width: 430px) {
