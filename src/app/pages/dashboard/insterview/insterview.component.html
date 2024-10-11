@@ -1,15 +1,42 @@
 <section class="full-width flex bg-nav">
   <div class="controller flex flex-col p-10">
-    <span class="flex align-center p-10 bg-icon g-10"
-    (click)="scheduleInterview()"
-      ><mat-icon> calendar_month </mat-icon> Schedule Interview
+    <span
+      class="flex align-center p-10 bg-icon g-10"
+      (click)="scheduleInterview()"
+      ><mat-icon> calendar_month </mat-icon>
+      <h3>Schedule Interview</h3>
     </span>
-    <span class="flex align-center p-10 g-10">
-      <mat-icon> event_upcoming </mat-icon> Upcomming Interviews</span
+    <span
+      class="flex align-center p-10 g-10"
+      (click)="selectedPage = 'upcommingInterview'"
     >
-    <span class="flex align-center p-10 g-10">
-      <mat-icon> history </mat-icon> Past Interviews</span
+      <mat-icon> event_upcoming </mat-icon>
+      <h3>Upcomming Interviews</h3></span
+    >
+    <span
+      class="flex align-center p-10 g-10"
+      (click)="selectedPage = 'history'"
+    >
+      <mat-icon> history </mat-icon>
+      <h3>Past Interviews</h3></span
     >
   </div>
-  <div class="controller-view">fxc</div>
+  <div class="controller-view flex flex-col align-center p-10 full-width">
+    <ng-container *ngIf="selectedPage == 'upcommingInterview'">
+      <h2 class="m-10">Upcomming Interviews</h2>
+      <div class="full-width flex flex-col g-10">
+        <app-interview-history class="full-width"></app-interview-history>
+        <app-interview-history class="full-width"></app-interview-history>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="selectedPage == 'history'">
+      <h2 class="m-10">Past Interviews</h2>
+      <div class="full-width flex flex-col g-10">
+        <app-interview-history class="full-width"></app-interview-history>
+        <app-interview-history class="full-width"></app-interview-history>
+        <app-interview-history class="full-width"></app-interview-history>
+        <app-interview-history class="full-width"></app-interview-history>
+      </div>
+    </ng-container>
+  </div>
 </section>

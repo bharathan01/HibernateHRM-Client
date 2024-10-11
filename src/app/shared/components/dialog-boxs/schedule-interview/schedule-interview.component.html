@@ -1,33 +1,94 @@
-<section class="flex flex-col bg-nav g-10 p-10">
+<section class="flex flex-col align-center bg-nav g-10 ">
   <h2>Schedule New Interview</h2>
   <div class="full-width">
-    <form>
+    <form [formGroup]="interviewDetailsForm" class="flex flex-col g-10">
       <div class="input-fields flex full-width g-10">
-        <div class="flex  flex-col full-width">
-          <label for="">Job Title</label>
-          <input type="text" list="browsers" placeholder="email" />
-          <datalist id="browsers" >
-            <option value="Edge">
-            <option value="Firefox">
-            <option value="Chrome">
-            <option value="Opera">
-            <option value="Safari">
-          </datalist>
+        <div class="flex flex-col full-width field-container g-10">
+          <label for="">Job Tiltle</label>
+          <input
+            type="text"
+            placeholder="Job Tiltle"
+            formControlName="jobTitle"
+            [matAutocomplete]="auto"
+            class="example-input"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filteredJob | async"
+              [value]="value"
+            >
+              {{ value }}
+            </mat-option>
+          </mat-autocomplete>
         </div>
-        <div class="flex flex-col full-width">
+        <div class="flex flex-col full-width g-10">
           <label for="">Candidate Mail ID</label>
           <input type="text" placeholder="email" />
         </div>
       </div>
       <div class="input-fields flex full-width g-10">
-        <div class="flex  flex-col full-width">
-          <label for="">Job Title</label>
-          <input type="text" placeholder="email" />
+        <div class="flex flex-col full-width field-container g-10">
+          <label for="">Interview Type</label>
+          <input
+            type="text"
+            placeholder="Interview Type"
+            formControlName="interviewer"
+            [matAutocomplete]="auto"
+            class="example-input"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filteredInterview | async"
+              [value]="value"
+            >
+              {{ value }}
+            </mat-option>
+          </mat-autocomplete>
         </div>
-        <div class="flex flex-col full-width">
-          <label for="">Candidate Mail ID</label>
-          <input type="text" placeholder="email" />
+        <div class="flex flex-col full-width field-container g-10">
+          <label for="">Interview Type</label>
+          <input
+            type="text"
+            placeholder="Interview Type"
+            formControlName="interviewType"
+            [matAutocomplete]="auto"
+            class="example-input"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let value of filteredInterviewType | async"
+              [value]="value"
+            >
+              {{ value }}
+            </mat-option>
+          </mat-autocomplete>
         </div>
+      </div>
+      <div class="input-fields flex flex-col  full-width g-10">
+        <h3>Time Duration</h3>
+        <div class="flex full-width g-10">
+          <div class="flex flex-col full-width field-container g-10">
+            <label for="">Form</label>
+            <input type="time"  formControlName="" />
+          </div>
+          <div class="flex flex-col full-width field-container g-10">
+            <label for="">To</label>
+            <input type="time"  formControlName="" />
+          </div>
+        </div>
+      </div>
+      <div class="input-fields flex full-width g-10">
+        <div class="flex flex-col full-width field-container g-10">
+          <label for="">Date</label>
+          <input type="date" formControlName="" />
+        </div>
+        <div class="flex flex-col full-width field-container g-10">
+          <label for="">Time</label>
+          <input type="time" formControlName="" />
+        </div>
+      </div>
+      <div class="input-fields flex justify-end full-width g-10">
+        <button mat-raised-button class="bg-gold" (click)="scheduleInterview()">Schedule & Notify</button>
       </div>
     </form>
   </div>

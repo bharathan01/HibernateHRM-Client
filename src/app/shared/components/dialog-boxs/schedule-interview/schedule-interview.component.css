@@ -1,6 +1,6 @@
 section {
   width: 60vw;
-  height: 300px;
+  padding: 30px;
 }
 .input-fields {
   width: 100%;
@@ -10,9 +10,34 @@ section {
   padding: 10px;
   border: 1px solid var(--bg-icon);
   background-color: var(--light-background);
+  color: var(--bg-white);
 }
-datalist{
-    width: 100% !important;
-    background-color: antiquewhite;
-    
+.field-container {
+  position: relative;
+}
+.job-options {
+  max-height: 200px;
+  position: absolute;
+  top: 60px;
+  overflow-y: scroll;
+  z-index: 10;
+}
+.job-options span:hover {
+  background-color: var(--bg-dark);
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  section {
+    width: 80vw;
+    padding: 10px;
+    overflow-y: auto;
+    height: 100vh;
+  }
+  .input-fields {
+    flex-direction: column;
+  }
+}
+
+section::-webkit-scrollbar{
+  display: none;
 }

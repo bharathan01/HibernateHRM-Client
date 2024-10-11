@@ -523,63 +523,11 @@
       <div>
         <div class="details-card">
           <h3>Upcomming Interviews</h3>
-          <ng-container *ngIf="interviewDetails.length > 0">
-            <mat-accordion
-              *ngFor="let interview of interviewDetails[0]?.upcommingInterview"
-            >
-              <mat-expansion-panel
-                (opened)="panelOpenState.set(true)"
-                (closed)="panelOpenState.set(false)"
-              >
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{ interview.interviewType }}</mat-panel-title
-                  >
-                  <mat-panel-description>
-                    {{ interview.date }} at {{ interview.time }}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div>
-                  <h3>Interview Type : {{ interview.interviewType }}</h3>
-                  <h3>Date : {{ interview.date }}</h3>
-                  <h3>Time : {{ interview.time }}</h3>
-                  <h3>Interviewer : {{ interview.interviewer }}</h3>
-                  <div class="interview-btn">
-                    <button (click)="scheduleInterview()">Update</button>
-                    <button (click)="cancelInterview()">Cancel</button>
-                  </div>
-                </div>
-              </mat-expansion-panel>
-            </mat-accordion>
-          </ng-container>
+          <app-interview-history class="full-width"></app-interview-history>
         </div>
         <div class="details-card">
           <h3>Previous Interviews</h3>
-          <ng-container *ngIf="interviewDetails[0].previousInterviews">
-            <mat-accordion
-              *ngFor="let interview of interviewDetails[0]?.previousInterviews"
-            >
-              <mat-expansion-panel
-                (opened)="panelOpenState.set(true)"
-                (closed)="panelOpenState.set(false)"
-              >
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{ interview.interviewType }}</mat-panel-title
-                  >
-                  <mat-panel-description>
-                    {{ interview.date }} at {{ interview.time }}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div>
-                  <h3>Interview Type : {{ interview.interviewType }}</h3>
-                  <h3>Date : {{ interview.date }}</h3>
-                  <h3>Time : {{ interview.time }}</h3>
-                  <h3>Interviewer : {{ interview.interviewer }}</h3>
-                </div>
-              </mat-expansion-panel>
-            </mat-accordion>
-          </ng-container>
+          <app-interview-history class="full-width"></app-interview-history>
         </div>
       </div>
     </ng-container>

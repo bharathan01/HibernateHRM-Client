@@ -2092,7 +2092,7 @@ export const interviewDetails: any[] = [
     ],
   },
 ];
-export const mailTemplates:any = {
+export const mailTemplates: any = {
   reject: {
     subject: 'Rejection Notice - {company_name}',
     body: `Dear {candidate_name},<br><br>
@@ -2101,7 +2101,7 @@ export const mailTemplates:any = {
     We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
     Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
     Best regards,<br>
-    {company_name}`
+    {company_name}`,
   },
   offerLetter: {
     subject: 'Offer Letter from {company_name}',
@@ -2111,7 +2111,7 @@ export const mailTemplates:any = {
     To accept the offer, please sign and return the offer letter by {acceptance_deadline}. Should you have any questions or require further clarification regarding any part of the offer, feel free to reach out to me directly.<br><br>
     We look forward to your positive response and are excited about the potential of having you on board!<br><br>
     Best regards,<br>
-    {company_name}`
+    {company_name}`,
   },
   hire: {
     subject: 'Hiring Confirmation - {company_name}',
@@ -2123,7 +2123,7 @@ export const mailTemplates:any = {
     - **Onboarding:** You will receive further details regarding the onboarding process and training schedule soon.<br><br>
     We encourage you to reach out with any questions you may have as you prepare to join us. Welcome aboard, and we are excited to start this journey together!<br><br>
     Best regards,<br>
-    {company_name}`
+    {company_name}`,
   },
   faceToFaceInterview: {
     subject: 'Face-to-Face Interview Invitation - {company_name}',
@@ -2136,7 +2136,7 @@ export const mailTemplates:any = {
     Please bring along your updated resume and any other documents you think might be relevant. If you have any specific questions or topics you would like to discuss, feel free to let us know in advance.<br><br>
     We look forward to meeting you and wish you the best of luck with your preparations!<br><br>
     Best regards,<br>
-    {company_name}`
+    {company_name}`,
   },
   assessment: {
     subject: 'Assessment Invitation - {company_name}',
@@ -2149,7 +2149,7 @@ export const mailTemplates:any = {
     You will receive a link to access the assessment on the specified date. If you have any questions or require further assistance, please do not hesitate to reach out.<br><br>
     We wish you the best of luck and look forward to your participation!<br><br>
     Best regards,<br>
-    {company_name}`
+    {company_name}`,
   },
   acknowledgement: {
     subject: 'Acknowledgement of Application - {company_name}',
@@ -2158,9 +2158,123 @@ export const mailTemplates:any = {
     We have received your application and will review it thoroughly. Our team will get back to you shortly regarding the next steps in the hiring process. Please be assured that we take every application seriously and aim to find the best fit for our organization.<br><br>
     Should you have any questions in the meantime, feel free to reach out to us. Thank you once again for your interest in joining {company_name}.<br><br>
     Best regards,<br>
-    {company_name}`
-  }
+    {company_name}`,
+  },
 };
 
+export const demoInboxMail = [
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    subject:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque aspernatur hic voluptates animi, nihil quam enim quis laudantium consectetur ipsam nam repudiandae impedit illum, nobis voluptate recusandae blanditiis et dicta!',
+    message: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`,
+    starred: true,
+    date: '05 Oct 2024',
+  },
+  {
+    id: 2,
+    name: 'Jane Smith',
+    email: 'jane.smith@example.com',
+    subject:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque aspernatur hic voluptates animi, nihil quam enim quis laudantium consectetur ipsam nam repudiandae impedit illum, nobis voluptate recusandae blanditiis et dicta!',
+    message: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`,
+    starred: false,
+    date: '04 Oct 2024',
+  },
+  {
+    id: 3,
+    name: 'Michael Johnson',
+    email: 'michael.johnson@example.com',
+    subject:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque aspernatur hic voluptates animi, nihil quam enim quis laudantium consectetur ipsam nam repudiandae impedit illum, nobis voluptate recusandae blanditiis et dicta!',
+    message: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`,
+    starred: true,
+    date: '03 Oct 2024',
+  },
+  {
+    id: 4,
+    name: 'Emily Clark',
+    email: 'emily.clark@example.com',
+    subject:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque aspernatur hic voluptates animi, nihil quam enim quis laudantium consectetur ipsam nam repudiandae impedit illum, nobis voluptate recusandae blanditiis et dicta!',
 
+    message: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`,
+    starred: false,
+    date: '02 Oct 2024',
+  },
+  {
+    id: 5,
+    name: 'David Brown',
+    email: 'david.brown@example.com',
+    subject:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque aspernatur hic voluptates animi, nihil quam enim quis laudantium consectetur ipsam nam repudiandae impedit illum, nobis voluptate recusandae blanditiis et dicta!',
 
+    message: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`,
+    starred: false,
+    date: '30 Sep 2024',
+  },
+  {
+    id: 6,
+    name: 'Sarah Wilson',
+    email: 'sarah.wilson@example.com',
+    subject:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque aspernatur hic voluptates animi, nihil quam enim quis laudantium consectetur ipsam nam repudiandae impedit illum, nobis voluptate recusandae blanditiis et dicta!',
+
+    message: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`,
+    starred: true,
+    date: '28 Sep 2024',
+  },
+  {
+    id: 7,
+    name: 'Chris Evans',
+    email: 'chris.evans@example.com',
+    subject: 'Collaboration Inquiry',
+    message: `Dear {candidate_name},<br><br>
+    Thank you for taking the time to apply for the position of {job_title} at {company_name}. We appreciate the effort and enthusiasm you have demonstrated throughout the application process.<br><br>
+    After careful consideration, we regret to inform you that we will not be moving forward with your application at this time. This decision was difficult due to the high volume of qualified applicants, and we genuinely value the time you invested in interviewing with us.<br><br>
+    We encourage you to apply for future openings that match your skills and experience, as we are always looking for talented individuals to join our team.<br><br>
+    Thank you once again for your interest in {company_name}, and we wish you all the best in your job search and future endeavors.<br><br>
+    Best regards,<br>
+    {company_name}`,
+    starred: false,
+    date: '26 Sep 2024',
+  },
+];

@@ -1,0 +1,27 @@
+<section class="full-width flex bg-nav">
+  <div class="controller flex flex-col p-10">
+    <span class="flex align-center p-10 bg-icon g-10" (click)="openMailBox()"
+      ><mat-icon> draw </mat-icon>
+      <h3>Compose</h3>
+    </span>
+    <span
+      class="flex align-center p-10 g-10"
+      [ngClass]="{ active: selectedMailPage === 'inbox' }"
+      (click)="changeMailPage('inbox')"
+    >
+      <mat-icon> all_inbox </mat-icon>
+      <h3>Inbox</h3></span
+    >
+    <span
+      class="flex align-center p-10 g-10"
+      [ngClass]="{ active: selectedMailPage === 'starred' }"
+      (click)="changeMailPage('starred')"
+    >
+      <mat-icon> star </mat-icon>
+      <h3>Starred</h3></span
+    >
+  </div>
+  <div class="flex flex-col align-center full-width">
+    <router-outlet></router-outlet>
+  </div>
+</section>

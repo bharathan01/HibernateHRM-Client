@@ -8,8 +8,12 @@ import { ScheduleInterviewComponent } from 'src/app/shared/components/dialog-box
   styleUrls: ['./insterview.component.css'],
 })
 export class InsterviewComponent {
+  selectedPage:string = 'upcommingInterview'
   constructor(private dialog: MatDialog) {}
-
+  
+  changePage(pageName:string){
+     this.selectedPage = pageName
+  }
   scheduleInterview() {
     this.dialog.open(ScheduleInterviewComponent, {
       width: 'auto',

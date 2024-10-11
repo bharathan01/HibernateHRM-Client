@@ -2,13 +2,24 @@ section {
   height: 82vh;
 }
 .controller {
-  width: 20%;
+  width: 250px;
+  min-width: 250px;
   border-right: 1px solid var(--bg-icon);
 }
 .controller span:hover {
   background-color: var(--gold-background);
   cursor: pointer;
 }
-.controller-view {
-  width: 70%;
+@media (max-width: 600px) {
+  .controller {
+    min-width: 50px;
+    align-items: center;
+  }
+  .controller span {
+    align-items: center;
+    width: 50px;
+  }
+  .controller h3 {
+    display: none;
+  }
 }

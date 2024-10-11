@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from './overview/overview.component';
 import { DashboardComponent } from './dashboard.component';
 import { JobsComponent } from './jobs/jobs.component';
-import { ApplicationsComponent } from './applications/applications.component';
 import { ReportsComponent } from './reports/reports.component';
 import { InsterviewComponent } from './insterview/insterview.component';
 import { TalentPoolComponent } from './talent-pool/talent-pool.component';
@@ -14,6 +13,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersControllesComponent } from './users-controlles/users-controlles.component';
 import { TalentPoolTableComponent } from 'src/app/shared/components/talent-pool-table/talent-pool-table.component';
+import { MailsComponent } from './mails/mails.component';
+import { SingleMailComponent } from 'src/app/shared/components/single-mail/single-mail.component';
+import { MailListComponent } from 'src/app/shared/components/mail-list/mail-list.component';
 
 const routes: Routes = [
   {
@@ -38,11 +40,21 @@ const routes: Routes = [
       },
       {
         path: 'jobs/import-resume',
-        component:ImportResumeComponent ,
+        component: ImportResumeComponent,
       },
       {
-        path: 'application',
-        component: ApplicationsComponent,
+        path: 'mails-box',
+        component: MailsComponent,
+        children: [
+          {
+            path: '',
+            component: MailListComponent,
+          },
+          {
+            path: 'view-mail/:id',
+            component: SingleMailComponent,
+          },
+        ],
       },
       {
         path: 'interview',

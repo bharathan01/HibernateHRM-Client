@@ -18,6 +18,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersControllesComponent } from './users-controlles/users-controlles.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MailsComponent } from './mails/mails.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RegistrationComponent,
     SettingsComponent,
     UsersControllesComponent,
+    MailsComponent,
   ],
   imports: [
     CommonModule,

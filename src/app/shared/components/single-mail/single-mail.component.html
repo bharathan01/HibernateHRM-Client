@@ -1,0 +1,42 @@
+<section class="full-width p-10">
+  <div class="full-width g-10">
+    <div class="back-btn full-width flex align-center justify-sb">
+      <span>
+        <a routerLink="/dashboard/mails-box">
+          <mat-icon>arrow_back</mat-icon>
+        </a>
+      </span>
+      <span>
+        <mat-icon (click)="getMailContent(mailContent[0].id - 1)"
+          >arrow_back_ios</mat-icon
+        >
+        <mat-icon (click)="getMailContent(mailContent[0].id + 1)"
+          >arrow_forward_ios</mat-icon
+        >
+      </span>
+    </div>
+    <div class="mail-content full-width flex-col flex g-10">
+      <div class="full-width flex align-center justify-sb">
+        <div class="mail-profile flex align-center g-10">
+          <img src="../../../../assets/images/avathar.jpg" alt="" />
+          <span>
+            <h3>{{ mailContent[0]?.name }}</h3>
+            <h5>{{ mailContent[0].email }}</h5>
+          </span>
+        </div>
+        <span>
+          <h5>
+            {{ mailContent[0]?.date }} <br />
+            12:13PM
+          </h5>
+        </span>
+      </div>
+      <div class="flex flex-col g-10">
+        <h2>{{ mailContent[0].subject }}</h2>
+        <h3>
+          {{ mailContent[0]?.message }}
+        </h3>
+      </div>
+    </div>
+  </div>
+</section>

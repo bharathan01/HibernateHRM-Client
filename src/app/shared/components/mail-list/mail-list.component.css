@@ -1,0 +1,22 @@
+:host{
+    width: 100%;
+}
+.mail-view {
+  border-bottom: 1px solid var(--bg-icon);
+  transition: all 0.2s;
+}
+.mail-view:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+.mail-name {
+    width: 200px;
+}
+a{
+  color: var(--bg-white);
+}
+@media(max-width:850px){
+    .mail-subject{
+        display: none;
+    }
+}

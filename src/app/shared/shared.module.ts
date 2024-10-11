@@ -40,6 +40,10 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MailHistoryViewComponent } from './components/mail-history-view/mail-history-view.component';
 import { TimeLineComponent } from './components/time-line/time-line.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { InterviewHistoryComponent } from './components/interview-history/interview-history.component';
+import { MailListComponent } from './components/mail-list/mail-list.component';
+import { SingleMailComponent } from './components/single-mail/single-mail.component';
+
 
 
 const components = [
@@ -65,6 +69,8 @@ const components = [
   MailHistoryViewComponent,
   TimeLineComponent,
   FeedbackComponent,
+  InterviewHistoryComponent,
+  SingleMailComponent
 ];
 
 @NgModule({
@@ -80,7 +86,7 @@ const components = [
     LogoutComponent,
     InputComponent,
     SendMailComponent,
-   
+    MailListComponent,
 
   ],
   imports: [
