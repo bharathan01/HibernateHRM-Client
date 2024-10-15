@@ -1,0 +1,295 @@
+<section class="flex justify-center flex-col align-center">
+  <div class="flex full-width align-center g-10 justify-center  p-10 flex-direction">
+    <div
+      class="fill-jd bg-light border-radius flex align-center justify-center p-10 g-10"
+    >
+      <span>
+        <h3>Auto Fill JD</h3>
+        <h5>Import the job description from the available files.</h5>
+      </span>
+      <button mat-raised-button class="bg-gold">Import</button>
+    </div>
+    <h3>(OR)</h3>
+    <div
+      class="fill-jd bg-light border-radius flex  align-center justify-center p-10 g-10"
+    >
+      <span>
+        <h3>Auto Fill JD</h3>
+        <h5>Select a job description template from the available saved templates.</h5>
+      </span>
+      <button mat-raised-button class="bg-gold" (click)="openJDTemplates()">Select Template</button>
+    </div>
+  </div>
+  <div class="form-container">
+    <h4>Begin creating your job description.</h4>
+    <form class="full-width flex flex-col g-10" [formGroup]="jobDescriptionFrom">
+      <div class="form-fields flex flex-col full-width">
+        <span class="flex">
+          <label for="job-title">Job Title </label>
+          <p class="error-text">*</p>
+        </span>
+        <input
+          type="text"
+          id="job-title"
+          placeholder="Enter Job Title"
+          class="p-10 b-1 bg-light"
+          formControlName="jobTitle"
+        />
+        <div
+          *ngIf="
+            jobDescriptionFromControllers['jobTitle'].touched &&
+            jobDescriptionFromControllers['jobTitle'].invalid
+          "
+        >
+          <small
+            *ngIf=" jobDescriptionFromControllers['jobTitle'].errors?.['required']"
+            class="error-text"
+            >Job Title is required.</small
+          >
+        </div>
+      </div>
+      <div class="flex g-10 full-width input-column">
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="department">Departmant</label>
+            <p class="error-text">*</p>
+          </span>
+          <input
+            type="text"
+            id="department"
+            placeholder="Enter department"
+            class="p-10 b-1 bg-light"
+            formControlName="department"
+            [matAutocomplete]="department"
+          />
+          <div
+            *ngIf="
+              jobDescriptionFromControllers['department'].touched &&
+              jobDescriptionFromControllers['department'].invalid
+            "
+          >
+            <small
+              *ngIf=" jobDescriptionFromControllers['department'].errors?.['required']"
+              class="error-text"
+              >Department is required.</small
+            >
+          </div>
+          <mat-autocomplete #department="matAutocomplete">
+            <ng-container *ngFor="let departmant of filterdDepartmant">
+              <mat-option [value]="departmant"> {{ departmant }}</mat-option>
+            </ng-container>
+          </mat-autocomplete>
+        </div>
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="location">Location </label>
+            <p class="error-text">*</p>
+          </span>
+          <input
+            type="text"
+            id="location"
+            placeholder="Enter Job Title"
+            class="p-10 b-1 bg-light"
+            formControlName="location"
+            [matAutocomplete]="location"
+          />
+          <div
+            *ngIf="
+              jobDescriptionFromControllers['location'].touched &&
+              jobDescriptionFromControllers['location'].invalid
+            "
+          >
+            <small
+              *ngIf=" jobDescriptionFromControllers['location'].errors?.['required']"
+              class="error-text"
+              >Location is required.</small
+            >
+          </div>
+          <mat-autocomplete #location="matAutocomplete">
+            <ng-container *ngFor="let location of filteredLocation">
+              <mat-option [value]="location"> {{ location }}</mat-option>
+            </ng-container>
+          </mat-autocomplete>
+        </div>
+      </div>
+      <div class="flex flex-col g-10 full-width">
+        <span class="flex">
+          <label for="job-Description">Job Description</label>
+          <p class="error-text">*</p>
+        </span>
+        <ckeditor
+          id="job-Description"
+          data=""
+          [editor]="Editor"
+          formControlName="jobDescription"
+
+        ></ckeditor>
+      </div>
+      <div class="flex g-10 full-width input-column">
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="emp-type">Employment Type</label>
+          </span>
+          <input
+            type="text"
+            id="emp-type"
+            placeholder="Full time"
+            class="p-10 b-1 bg-light"
+            formControlName="employementType"
+            [matAutocomplete]="employementType"
+          />
+          <mat-autocomplete #employementType="matAutocomplete">
+            <mat-option value="Full Time">Full Time</mat-option>
+            <mat-option value="Part Time">Part Time</mat-option>
+            <mat-option value="Remote">Remote</mat-option>
+          </mat-autocomplete>
+        </div>
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="seniority-level">Seniority Level </label>
+          </span>
+          <input
+            type="text"
+            id="seniority-level"
+            placeholder="Enter Job seniority"
+            class="p-10 b-1 bg-light"
+            formControlName="seniorityLevel"
+            [matAutocomplete]="seniority"
+          />
+          <mat-autocomplete #seniority="matAutocomplete">
+            <ng-container *ngFor="let seniority of filteredSeniorityLevels">
+              <mat-option [value]="seniority"> {{ seniority }}</mat-option>
+            </ng-container>
+          </mat-autocomplete>
+        </div>
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="industry-type">Industry Type </label>
+          </span>
+          <input
+            type="text"
+            id="industry-type"
+            placeholder="It Software"
+            class="p-10 b-1 bg-light"
+            formControlName="industryType"
+          />
+        </div>
+      </div>
+      <div class="flex full-width g-50 input-column">
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="emp-type">Salary Range(CTC)</label>
+          </span>
+          <div class="flex g-10 align-center">
+            <input
+              type="text"
+              id="emp-type"
+              placeholder="From"
+              class="p-10 b-1 bg-light"
+              formControlName="salaryRangeIn"
+              [matAutocomplete]="salaryRangeIn"
+            />
+            <mat-autocomplete #salaryRangeIn="matAutocomplete">
+              <mat-option value="In Year">In Year</mat-option>
+              <mat-option value="In Month">In Month</mat-option>
+            </mat-autocomplete>
+            <input
+              type="text"
+              id="emp-type"
+              placeholder="Enter department"
+              class="p-10 b-1 bg-light"
+              formControlName="salaryRangeFrom"
+            />
+            <label>To</label>
+            <input
+              type="text"
+              id="emp-type"
+              placeholder="To"
+              class="p-10 b-1 bg-light"
+              formControlName="salaryRangeTo"
+            />
+          </div>
+        </div>
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="emp-type">Work Experience(In Year)</label>
+          </span>
+          <div class="flex g-10 align-center">
+            <input
+              type="text"
+              id="emp-type"
+              placeholder="To"
+              class="p-10 b-1 bg-light"
+              formControlName="workExperienceFrom"
+            />
+            <label>-</label>
+            <input
+              type="text"
+              id="emp-type"
+              placeholder="To"
+              class="p-10 b-1 bg-light"
+              formControlName="workExperienceTo"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="flex align-center">
+        <mat-checkbox type="checkbox" formControlName="jobTitle" /><label
+          >Hide Salary Details From Candidate</label
+        >
+      </div>
+      <div class="flex g-10">
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="emp-type">skills</label>
+          </span>
+          <input
+            type="text"
+            id="emp-type"
+            placeholder="Enter department"
+            class="p-10 b-1 bg-light"
+            formControlName="skills"
+            [matAutocomplete]="skills"
+            (keydown.enter)="getSkillValue()"
+          />
+          <mat-autocomplete #skills="matAutocomplete">
+            <ng-container *ngFor="let skill of filteredSkills">
+              <mat-option [value]="skill"> {{ skill }}</mat-option>
+            </ng-container>
+          </mat-autocomplete>
+          <div class="flex b-1 skill-container g-10 p-10" *ngIf="skillsControls && skillsControls.length > 0">
+            <ng-container
+              *ngFor="let skillCtrl of skillsControls; let i = index"
+            >
+              <span class="p-10 b-1 border-radius flex bg-light align-center g-10"
+                >{{ skillCtrl.value }} <mat-icon (click)="removeSkill(i)">cancel</mat-icon></span
+              >
+            </ng-container>
+          </div>
+        </div>
+        <div class="form-fields flex flex-col full-width">
+          <span class="flex">
+            <label for="emp-type">Education</label>
+          </span>
+          <input
+            type="text"
+            id="emp-type"
+            placeholder="Enter Education"
+            class="p-10 b-1 bg-light"
+            formControlName="education"
+            [matAutocomplete]="education"
+          />
+          <mat-autocomplete #education="matAutocomplete">
+            <ng-container *ngFor="let education of filteredEducation">
+              <mat-option [value]="education"> {{ education }}</mat-option>
+            </ng-container>
+          </mat-autocomplete>
+        </div>
+      </div>
+      <div class="full-width flex justify-sb">
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button class="bg-gold" (click)="showJobDecriptionPreview()">Preview & Proceed</button>
+      </div>
+    </form>
+  </div>
+</section>

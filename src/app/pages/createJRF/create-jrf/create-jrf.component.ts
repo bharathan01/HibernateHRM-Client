@@ -15,6 +15,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { JdTemplateComponent } from 'src/app/shared/components/dialog-boxs/jd-template/jd-template.component';
 import { MultipleJobBoardsComponent } from 'src/app/shared/components/dialog-boxs/multiple-job-boards/multiple-job-boards.component';
 import {
   JobOption,
@@ -41,10 +42,12 @@ export const MY_FORMATS = {
 })
 export class CreateJrfComponent implements AfterViewInit {
   @ViewChild('contentToCopy', { static: false }) contentToCopy!: ElementRef;
+  applicationStep: string = 'aboutForm';
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private dialogBox: MatDialog
   ) {}
 
   ngAfterViewInit(): void {}
@@ -201,5 +204,20 @@ export class CreateJrfComponent implements AfterViewInit {
       document.body.innerHTML = originalContents;
       window.location.reload();
     }
+  }
+
+  moveApplicationStage(stepName: string) {
+    this.applicationStep = stepName;
+  }
+
+  openJDTemplates() {
+    const dialogRef = this.dialogBox.open(JdTemplateComponent, {
+      width: 'auto',
+      height: 'auto',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+      }
+    });
   }
 }

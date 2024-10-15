@@ -1,0 +1,71 @@
+<section class="flex bg-nav full-width flex-col g-10">
+  <div class="flex full-width">
+    <div class="jd-options bg-dark p-10">
+      <h2>Job Templates Preview</h2>
+      <mat-radio-group class="flex flex-col" [(ngModel)]="selectedJobTitle">
+        <ng-container>
+          <mat-radio-button
+            [value]="jobTitle"
+            (click)="onSelectJobTitle(jobTitle)"
+            *ngFor="let jobTitle of jobTiltles"
+            >{{ jobTitle }}</mat-radio-button
+          >
+        </ng-container>
+      </mat-radio-group>
+    </div>
+    <div class="full-width p-10 job-description flex flex-col g-10">
+      <h1>Description</h1>
+      <div class="full-width flex flex-col g-10">
+        <div>
+          <h3>About the Company</h3>
+          <p>
+            {{ selectedJobDescription[0].aboutCompany }}
+          </p>
+        </div>
+        <div>
+          <h3>About the Company</h3>
+          <p>
+            {{ selectedJobDescription[0].aboutRole }}
+          </p>
+        </div>
+        <div>
+          <h3>Responsibilities</h3>
+          <ul>
+            <li
+              *ngFor="
+                let responsibilitie of selectedJobDescription[0]
+                  .responsibilities
+              "
+            >
+              {{ responsibilitie }}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Qualifications</h3>
+          <ul>
+            <li
+              *ngFor="
+                let qualification of selectedJobDescription[0].qualifications
+              "
+            >
+              {{ qualification }}
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>skill Sets</h3>
+          <span class="flex g-10 flex-wrap">
+            <p *ngFor="let keySkill of selectedJobDescription[0].keySkills">
+              {{ keySkill }},
+            </p>
+          </span>
+        </div>
+      </div>
+      <div class="full-width flex justify-sb p-10">
+        <button mat-raised-button (click)="closeJobDescriptionBox()">Cancel</button>
+        <button mat-raised-button class="bg-gold" (click)="sendJobIdToParentAndClose(selectedJobDescription[0].jobId)">Select</button>
+      </div>
+    </div>
+  </div>
+</section>

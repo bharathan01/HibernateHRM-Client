@@ -46,7 +46,7 @@ const material = [
   MatCardModule,
   CdkDrag,
   CdkDropList,
-  MatAutocompleteModule
+  MatAutocompleteModule,
 ];
 
 @NgModule({

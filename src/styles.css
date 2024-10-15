@@ -205,6 +205,10 @@ input:-webkit-autofill {
 .ck.ck-editor__main>.ck-editor__editable {
   background: var(--light-background) !important;
 }
+.ck-rounded-corners .ck.ck-editor__editable:not(.ck-editor__nested-editable), 
+.ck.ck-editor__editable.ck-rounded-corners:not(.ck-editor__nested-editable){
+  padding: 20px !important;
+}
 
 h2 {
   font-size: var(--font-size-xxl);
@@ -296,11 +300,17 @@ p {
 .bg-icon{
   background-color: var(--bg-icon);
 }
+.bg-none{
+  background-color: transparent !important;
+}
 .pt-10{
   padding: 10px;
 }
 .b-1{
   border:1px solid var(--bg-icon);
+}
+.b-bottom-1{
+  border-bottom:1px solid var(--bg-icon) ;
 }
 .filled{
   color: var(--gold-background);
@@ -314,7 +324,15 @@ p {
 .m-10{
   margin: 10px;
 }
-
+.g-20{
+  gap: 20px;
+}
+.g-15{
+  gap: 15px;
+}
+.g-50{
+  gap: 50px;
+}
 
 @media (max-width: 430px) {
   h1 {

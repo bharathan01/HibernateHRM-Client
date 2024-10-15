@@ -83,7 +83,8 @@ export class ScheduleInterviewComponent implements OnInit {
       interviewer: [''],
     });
 
-    // Setting up filtering for each field
+    // Setting up filtering for each field 
+    // **Issue - everytime all the methodes are calling(bug)
     this.filteredInterviewType = this.createFilteredObservable('interviewType');
     this.filteredInterview = this.createFilteredObservable('interviewer');
     this.filteredJob = this.createFilteredObservable('jobTitle');

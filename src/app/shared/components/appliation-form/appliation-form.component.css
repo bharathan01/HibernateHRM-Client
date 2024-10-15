@@ -1,0 +1,47 @@
+.form-container {
+  width: 60%;
+  margin-bottom: 50px;
+}
+.form-container h4 {
+  padding: 10px 0px 10px 0px;
+}
+.form-fields input {
+  width: 100%;
+  color: var(--bg-white);
+}
+.skill-container {
+  height: 100px;
+  overflow-y: scroll;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.skill-container span {
+  height: 30px;
+}
+.fill-jd {
+  width: 450px;
+  height: 100px;
+}
+.flex-direction{
+    flex-direction: row;
+}
+@media (max-width: 750px) {
+  .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .form-fields {
+    flex-direction: column;
+  }
+  .input-column {
+    flex-direction: column;
+  }
+  .fill-jd {
+    width: 100%;
+  }
+  .flex-direction {
+    flex-direction: column;
+  }
+}

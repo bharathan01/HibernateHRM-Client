@@ -18,7 +18,7 @@ import { JobApplicationDialogBoxComponent } from './components/job-application-d
 import { ShareJobDialogComponent } from './components/dialog-boxs/share-job-dialog/share-job-dialog.component';
 import { NotificationDialogComponent } from './components/dialog-boxs/notification-dialog/notification-dialog.component';
 import { CreateJrfHeaderComponent } from './components/create-jrf-header/create-jrf-header.component';
-import { JrfPreviewComponent } from './components/jrf-preview/jrf-preview.component';
+import { JrfPreviewComponent } from './components/dialog-boxs/jrf-preview/jrf-preview.component';
 import { PublishJrfComponent } from './components/publish-jrf/publish-jrf.component';
 import { MultipleJobBoardsComponent } from './components/dialog-boxs/multiple-job-boards/multiple-job-boards.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +34,6 @@ import { FeedbackFormComponent } from './components/dialog-boxs/feedback-form/fe
 import { SelectJobTalentpoolComponent } from './components/dialog-boxs/select-job-talentpool/select-job-talentpool.component';
 import { LogoutComponent } from './components/dialog-boxs/logout/logout.component';
 import { CandidateProfileComponent } from './components/dialog-boxs/candidate-profile/candidate-profile.component';
-import { InputComponent } from './components/Inputs/input/input.component';
 import { SendMailComponent } from './components/dialog-boxs/send-mail/send-mail.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MailHistoryViewComponent } from './components/mail-history-view/mail-history-view.component';
@@ -43,6 +42,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { InterviewHistoryComponent } from './components/interview-history/interview-history.component';
 import { MailListComponent } from './components/mail-list/mail-list.component';
 import { SingleMailComponent } from './components/single-mail/single-mail.component';
+import { AppliationFormComponent } from './components/appliation-form/appliation-form.component';
+import { JdTemplateComponent } from './components/dialog-boxs/jd-template/jd-template.component';
 
 
 
@@ -70,7 +71,9 @@ const components = [
   TimeLineComponent,
   FeedbackComponent,
   InterviewHistoryComponent,
-  SingleMailComponent
+  SingleMailComponent,
+  AppliationFormComponent,
+  JdTemplateComponent,
 ];
 
 @NgModule({
@@ -84,10 +87,8 @@ const components = [
     ShareJobDialogComponent,
     InviteMembersComponent,
     LogoutComponent,
-    InputComponent,
     SendMailComponent,
     MailListComponent,
-
   ],
   imports: [
     CommonModule,
