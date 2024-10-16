@@ -3,12 +3,13 @@
   <div class="full-width flex justify-ar bg-nav b-bottom-1">
     <div
       class="flex g-10 p-10 justify-center jd-stage"
+      [ngClass]="{ complete: applicationStep === 'aboutForm' }"
       (click)="moveApplicationStage('aboutForm')"
     >
       <span>
         <span class="flex align-center jd-stage-name">
           <h3>About Job</h3>
-          <mat-icon>check_circle</mat-icon>
+          <mat-icon class="check">check_circle</mat-icon>
         </span>
         <h5>Create your job description based</h5>
       </span>
@@ -49,10 +50,12 @@
   </div>
   <div class="application-from full-width bg-nav">
     <ng-container *ngIf="applicationStep == 'aboutForm'">
-      <app-appliation-form></app-appliation-form>
+      <app-appliation-form
+        (proceed)="moveApplicationStage('applicationForm')"
+      ></app-appliation-form>
     </ng-container>
     <ng-container *ngIf="applicationStep == 'applicationForm'">
-      <h2>application job</h2>
+      <app-create-appliation-form></app-create-appliation-form>
     </ng-container>
     <ng-container *ngIf="applicationStep == 'hiringStages'">
       <h2>hiring job</h2>

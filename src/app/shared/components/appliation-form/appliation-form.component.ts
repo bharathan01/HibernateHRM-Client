@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -87,6 +87,7 @@ export class AppliationFormComponent implements OnInit {
 
   public Editor = ClassicEditor;
   jobDescriptionFrom!: FormGroup;
+  @Output() proceed: EventEmitter<boolean> = new EventEmitter();
   constructor(private fb: FormBuilder, private dialogBox: MatDialog) {}
   ngOnInit(): void {
     this.jobDescriptionFrom = this.fb.group({
@@ -235,10 +236,20 @@ export class AppliationFormComponent implements OnInit {
     });
   }
 
-  showJobDecriptionPreview(){
-    this.dialogBox.open(JrfPreviewComponent,{
-      width:'auto',
-      height:'auto'
-    })
+  showJobDecriptionPreview() {
+    if (this.jobDescriptionFrom.valid) {
+    }
+    this.jobDescriptionFrom.markAllAsTouched();
+    const dialogRef = this.dialogBox.open(JrfPreviewComponent, {
+      data: this.jobDescriptionFrom.value,
+      width: 'auto',
+      height: 'auto',
+    });
+
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        this.proceed.emit(true);
+      }
+    });
   }
 }

@@ -8,27 +8,33 @@ section {
 .jd-stage:hover {
   color: var(--gold-background);
 }
+.complete {
+  color: var(--gold-background);
+}
+.complete .check{
+  color: var(--bg-whatsapp) !important;
+}
 .jd-stage-name mat-icon {
   font-size: 15px;
 }
-.flex-direction{
+.flex-direction {
   flex-direction: row;
 }
-@media(max-width:600px){
-  .flex-direction{
+@media (max-width: 600px) {
+  .flex-direction {
     flex-direction: column;
   }
-  .jd-stage{
+  .jd-stage {
     gap: 0px;
     padding: 10px 0px;
   }
-  .jd-stage h5{
+  .jd-stage h5 {
     display: none;
   }
-  .jd-stage span h3{
+  .jd-stage span h3 {
     font-size: 10px;
   }
-  .jd-stage .mat-icon{
+  .jd-stage .mat-icon {
     font-size: 15px;
   }
 }

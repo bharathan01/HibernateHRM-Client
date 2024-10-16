@@ -1,14 +1,130 @@
-<section class="flex full-width bg-nav flex-col">
-  <div>
+<section class="flex full-width bg-nav flex-col p-10" id="print">
+  <div class="flex-center full-width jd-heading">
     <h2>GENROBOTIC INNOVATIONS PRIVATE LIMITED</h2>
   </div>
-  <div class="flex full-width">
+  <div class="flex full-width" id="print-section">
     <div class="job-description full-width">
-      <h1>Software Engineer</h1>
-      <h3>Bangaluru</h3>
+      <div class="p-10">
+        <h1>Software Engineer</h1>
+        <h3>Bangaluru</h3>
+      </div>
+      <div class="full-width p-10 job-description flex g-10">
+        <div class="full-width flex flex-col g-10">
+          <div #descreptionContainer #id>
+            <h3>About the Company</h3>
+            <p>
+              {{ jobDescription.jobDescription }}
+            </p>
+          </div>
+          <!-- <div>
+            <h3>About the Job</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Praesentium reprehenderit natus iure accusantium asperiores!
+              Cumque, corrupti maiores cupiditate harum placeat ut nisi quia
+              unde impedit! Laudantium quo quisquam dolore iusto dolorem nihil
+              magnam molestiae, commodi quod cum cumque deleniti rerum veniam
+              facilis illum! Fugiat ratione at voluptates nihil debitis minus.
+              Voluptates facere quis soluta fuga odit pariatur modi unde eum,
+              adipisci, facilis aliquid vitae non temporibus, architecto ipsam
+              tenetur reprehenderit beatae quisquam quod dicta possimus. Labore
+              eius sunt mollitia itaque dolorem accusamus repellat repudiandae
+              facilis adipisci suscipit? Sequi, adipisci aliquam facilis quis
+              praesentium id architecto, totam ex impedit fugit repellat!
+            </p>
+          </div>
+          <div>
+            <h3>Responsibilities</h3>
+            <ul class="p-10">
+              <li class="">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Qualifications</h3>
+            <ul>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
+                odio.
+              </li>
+            </ul>
+          </div> -->
+        </div>
+        <div class="job-contraines flex flex-col">
+          <div class="flex flex-col g-10">
+            <h3>Employment Type</h3>
+            <span>
+              <p>Full Time</p>
+            </span>
+          </div>
+          <div class="flex flex-col g-10">
+            <h3>Industry Type</h3>
+            <span>
+              <p>IT Software / Software Service</p>
+            </span>
+          </div>
+          <div class="flex flex-col g-10">
+            <h3>Seniority Level</h3>
+            <span>
+              <p>Associate</p>
+            </span>
+          </div>
+          <div class="flex flex-col g-10">
+            <h3>Annual CTC</h3>
+            <span>
+              <p>10L - 20L</p>
+            </span>
+          </div>
+          <div class="flex flex-col g-10">
+            <h3>Skills</h3>
+            <span class="flex g-10 flex-wrap">
+              <p>Associate</p>
+              <p>Associate</p>
+              <p>Associate</p>
+              <p>Associate</p>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="job-contraines">
-      
+  </div>
+  <div class="full-width flex justify-sb p-10">
+    <button mat-raised-button class="bg-nav b-1 text-white">Edit</button>
+    <div class="flex g-10">
+      <button mat-raised-button class="bg-nav b-1 text-white" (click)="print()">
+        Print
+      </button>
+      <button mat-raised-button class="bg-gold" (click)="onProceedJob()">Proceed</button>
     </div>
   </div>
 </section>

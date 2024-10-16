@@ -23,7 +23,7 @@
           </p>
         </div>
         <div>
-          <h3>About the Company</h3>
+          <h3>About the Job</h3>
           <p>
             {{ selectedJobDescription[0].aboutRole }}
           </p>
@@ -63,8 +63,16 @@
         </div>
       </div>
       <div class="full-width flex justify-sb p-10">
-        <button mat-raised-button (click)="closeJobDescriptionBox()">Cancel</button>
-        <button mat-raised-button class="bg-gold" (click)="sendJobIdToParentAndClose(selectedJobDescription[0].jobId)">Select</button>
+        <button mat-raised-button (click)="closeJobDescriptionBox()">
+          Cancel
+        </button>
+        <button
+          mat-raised-button
+          class="bg-gold"
+          (click)="sendJobIdToParentAndClose(selectedJobDescription[0].jobId)"
+        >
+          Select
+        </button>
       </div>
     </div>
   </div>

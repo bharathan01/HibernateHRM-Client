@@ -1,0 +1,12 @@
+section{
+    min-height: 100vh;
+}
+
+.application-container{
+    width: 90%;
+    gap: 20px;
+
+}
+ul{
+    padding-left: 30px;
+}

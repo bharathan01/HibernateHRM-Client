@@ -289,7 +289,7 @@ p {
   background-color: var(--bg-dark);
 }
 .bg-nav{
-  background-color: var(--bg-navbar);
+  background-color: var(--bg-navbar) !important;
 }
 .bg-light{
   background-color: var(--light-background);
@@ -303,11 +303,14 @@ p {
 .bg-none{
   background-color: transparent !important;
 }
+.text-white{
+  color: white !important;
+}
 .pt-10{
   padding: 10px;
 }
 .b-1{
-  border:1px solid var(--bg-icon);
+  border:1px solid var(--bg-icon) !important;
 }
 .b-bottom-1{
   border-bottom:1px solid var(--bg-icon) ;
