@@ -11,7 +11,7 @@ section {
 .complete {
   color: var(--gold-background);
 }
-.complete .check{
+.check{
   color: var(--bg-whatsapp) !important;
 }
 .jd-stage-name mat-icon {

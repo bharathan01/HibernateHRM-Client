@@ -45,6 +45,8 @@ import { SingleMailComponent } from './components/single-mail/single-mail.compon
 import { AppliationFormComponent } from './components/appliation-form/appliation-form.component';
 import { JdTemplateComponent } from './components/dialog-boxs/jd-template/jd-template.component';
 import { CreateAppliationFormComponent } from './components/create-appliation-form/create-appliation-form.component';
+import { CreateQuestionComponent } from './components/dialog-boxs/create-question/create-question.component';
+import { HiringFlowComponent } from './components/hiring-flow/hiring-flow.component';
 
 
 
@@ -76,6 +78,8 @@ const components = [
   AppliationFormComponent,
   JdTemplateComponent,
   CreateAppliationFormComponent,
+  CreateQuestionComponent,
+  HiringFlowComponent,
 ];
 
 @NgModule({
@@ -91,7 +95,7 @@ const components = [
     LogoutComponent,
     SendMailComponent,
     MailListComponent,
-   
+    
   ],
   imports: [
     CommonModule,

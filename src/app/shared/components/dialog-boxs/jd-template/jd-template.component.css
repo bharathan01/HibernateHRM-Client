@@ -4,9 +4,8 @@
   background-color: var(--bg-navbar);
 }
 section {
-    height: 80vh;
-    width: 60vw;
-    overflow-y: auto;
+  height: 80vh;
+  overflow-y: auto;
 }
 .jd-options {
   width: 250px;
@@ -16,10 +15,43 @@ section {
 p {
   font-size: 14px;
 }
-ul{
+ul {
   padding-left: 30px;
 }
-.job-description{
-    height: 80vh;
-    overflow-y: auto;
+.job-description {
+  height: 80vh;
+  overflow-y: auto;
+}
+.more_options {
+  color: var(--gold-background);
+}
+.more_options:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.more_options .mat-icon {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.active_job_options {
+  transform: translateX(0);
+}
+
+.jd-options:not(.active_job_options) {
+  transform: translateX(-100%); 
+}
+
+@media (max-width: 950px) {
+  .jd-options {
+    width: 250px;
+    position: absolute;
+    transform: translateX(-100%); 
+  }
+
+  .active_job_options {
+    transform: translateX(0); 
+  }
+  
 }

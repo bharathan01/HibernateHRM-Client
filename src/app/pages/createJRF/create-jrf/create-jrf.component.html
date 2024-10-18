@@ -3,13 +3,14 @@
   <div class="full-width flex justify-ar bg-nav b-bottom-1">
     <div
       class="flex g-10 p-10 justify-center jd-stage"
-      [ngClass]="{ complete: applicationStep === 'aboutForm' }"
-      (click)="moveApplicationStage('aboutForm')"
+      [ngClass]="{ complete: stateForTheTracker.aboutJob.active }"
     >
       <span>
         <span class="flex align-center jd-stage-name">
           <h3>About Job</h3>
-          <mat-icon class="check">check_circle</mat-icon>
+          <mat-icon [ngClass]="{ check: stateForTheTracker.aboutJob.completed }"
+            >check_circle</mat-icon
+          >
         </span>
         <h5>Create your job description based</h5>
       </span>
@@ -19,12 +20,12 @@
     </div>
     <div
       class="flex g-10 p-10 justify-center jd-stage"
-      (click)="moveApplicationStage('applicationForm')"
+      [ngClass]="{ complete: stateForTheTracker.applicationForm.active }"
     >
       <span>
         <span class="flex align-center jd-stage-name">
           <h3>Application Form</h3>
-          <mat-icon>check_circle</mat-icon>
+          <mat-icon [ngClass]="{ check: stateForTheTracker.applicationForm.completed }">check_circle</mat-icon>
         </span>
         <h5>
           Customize job application base on job<br />
@@ -32,17 +33,17 @@
         </h5>
       </span>
       <span class="flex align-center">
-        <mat-icon>arrow_forward_ios</mat-icon>
+        <mat-icon >arrow_forward_ios</mat-icon>
       </span>
     </div>
     <div
       class="flex g-10 p-10 justify-center jd-stage"
-      (click)="moveApplicationStage('hiringStages')"
+      [ngClass]="{ complete: stateForTheTracker.hiringStages.active }"
     >
       <span>
         <span class="flex align-center jd-stage-name">
           <h3>Hiring Flow</h3>
-          <mat-icon>check_circle</mat-icon>
+          <mat-icon [ngClass]="{ check: stateForTheTracker.hiringStages.completed }">check_circle</mat-icon>
         </span>
         <h5>Configure your hiring pipeline flow</h5>
       </span>
@@ -55,10 +56,12 @@
       ></app-appliation-form>
     </ng-container>
     <ng-container *ngIf="applicationStep == 'applicationForm'">
-      <app-create-appliation-form></app-create-appliation-form>
+      <app-create-appliation-form
+        (proceed)="moveApplicationStage('hiringStages')" 
+      ></app-create-appliation-form>
     </ng-container>
     <ng-container *ngIf="applicationStep == 'hiringStages'">
-      <h2>hiring job</h2>
+      <app-hiring-flow></app-hiring-flow>
     </ng-container>
   </div>
 </section>

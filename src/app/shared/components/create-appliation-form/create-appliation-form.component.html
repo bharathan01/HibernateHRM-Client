@@ -1,103 +1,67 @@
-<section class="flex p-10 justify-center full-width">
+<section class="flex flex-col p-10 full-width">
   <div class="application-container flex justify-center">
     <div class="full-width flex g-10 flex-col">
       <h2>Suggested Fields</h2>
-      <div class="flex-col full-width">
-        <h2>Personal Info</h2>
-        <div class="flex flex-col g-10">
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
+      <ng-container *ngFor="let question of jobQuestions">
+        <div class="flex-col full-width g-10">
+          <div class="flex flex-col g-10 p-10">
+            <h2>{{ question.fieldName }}</h2>
+            <div
+              class="flex justify-sb full-width flex-center choose-btn"
+              *ngFor="let options of question.questions"
+            >
+              <p>{{ options.question }}</p>
+              <span class="flex g-10 option-btn">
+                <button
+                  mat-raised-button
+                  class="b-1 text-white"
+                  [ngClass]="{
+                    'selected-btn': options.selected === 'mandatory'
+                  }"
+                  (click)="selectOption(options, 'mandatory')"
+                >
+                  Mandatary
+                </button>
+                <button
+                  mat-raised-button
+                  class="b-1 text-white"
+                  [ngClass]="{
+                    'selected-btn': options.selected === 'optional'
+                  }"
+                  (click)="selectOption(options, 'optional')"
+                >
+                  Optional
+                </button>
+                <button
+                  mat-raised-button
+                  class="b-1 text-white"
+                  [ngClass]="{ 'selected-btn': options.selected === 'off' }"
+                  (click)="selectOption(options, 'off')"
+                >
+                  Off
+                </button>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="flex-col full-width">
-        <h2>Personal Info</h2>
-        <div class="flex flex-col g-10">
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-          <div class="flex justify-sb full-width flex-center">
-            <p>Marital Status</p>
-            <span class="flex g-10">
-              <button mat-raised-button>Mandatary</button>
-              <button mat-raised-button>Optional</button>
-              <button mat-raised-button>Off</button>
-            </span>
-          </div>
-        </div>
+      </ng-container>
+      <div class="flex flex-col g-10 align-center">
+        <h2>Screening Questions</h2>
+        <h5>Create custom questions based on the job requirements</h5>
+        <button
+          class="p-10 b-1 bg-light text-white flex-center g-10"
+          (click)="createNewQuestion()"
+        >
+          <mat-icon>add</mat-icon>
+          Create Questions
+        </button>
       </div>
     </div>
     <div class="full-width flex flex-col g-10">
       <h2>Application From Preview</h2>
       <div>
         <span>
-          <h2>GENROBORTICES</h2>
+          <h2>GENROBOTICS</h2>
           <div class="flex full-width justify-sb">
             <h3>Software Engineer</h3>
             <span class="flex g-10">
@@ -244,6 +208,43 @@
           </mat-expansion-panel>
         </div>
       </div>
+      <h3>Personal Information</h3>
+      <form>
+        <div class="flex full-width g-10 flex-col">
+          <ng-container
+            *ngFor="let input of applicationRequiredQuestion.personalInfo"
+          >
+            <div class="flex flex-col full-width input-container">
+              <label [for]="input.fieldName"
+                >{{ input.fieldName }}
+                <span class="error-text" *ngIf="input.required; else required"
+                  >*</span
+                >
+                <ng-template #required>(Optional)</ng-template>
+              </label>
+              <mat-radio-group
+                aria-label="Select an option"
+                *ngIf="input.fieldName === 'Marital Status'; else inputText"
+              >
+                <mat-radio-button value="1">Single</mat-radio-button>
+                <mat-radio-button value="2">Married</mat-radio-button>
+              </mat-radio-group>
+              <ng-template #inputText>
+                <input
+                  [type]="input.type"
+                  [id]="input.fieldName"
+                  [placeholder]="input.fieldName"
+                  class="p-10 b-1 bg-light"
+                />
+              </ng-template>
+            </div>
+          </ng-container>
+        </div>
+      </form>
     </div>
+  </div>
+  <div class="flex full-width justify-end g-10">
+    <button mat-raised-button class="bg-none b-1 text-white">Cancel</button>
+    <button mat-raised-button class="bg-gold" (click)="proceedToNextPage()">Next</button>
   </div>
 </section>

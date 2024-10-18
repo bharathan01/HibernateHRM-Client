@@ -1,6 +1,10 @@
 <section class="flex bg-nav full-width flex-col g-10">
   <div class="flex full-width">
-    <div class="jd-options bg-dark p-10">
+    <div
+      class="jd-options bg-dark p-10"
+      [ngClass]="{ active_job_options: isTemplateOpen }"
+    >  
+      <span class="full-width flex justify-end"><mat-icon (click)="toggleTemplate()">close</mat-icon></span>
       <h2>Job Templates Preview</h2>
       <mat-radio-group class="flex flex-col" [(ngModel)]="selectedJobTitle">
         <ng-container>
@@ -14,7 +18,15 @@
       </mat-radio-group>
     </div>
     <div class="full-width p-10 job-description flex flex-col g-10">
+      <span
+        class="flex align-center more_options"
+        (click)="toggleTemplate()"
+      >
+        <h3>Select Templates</h3>
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </span>
       <h1>Description</h1>
+
       <div class="full-width flex flex-col g-10">
         <div>
           <h3>About the Company</h3>

@@ -1,0 +1,62 @@
+<section class="flex full-width flex-col bg-nav">
+  <h2>Add Questions</h2>
+  <form [formGroup]="customQuestionFrom" class="full-width flex flex-col">
+    <div class="full-width">
+      <label for="type">Choose the type of Question</label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Number"
+        class="p-10 b-1 bg-light text-white full-width"
+        [matAutocomplete]="auto"
+        formControlName="questionType"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option value="singleLine">Single Line</mat-option>
+        <mat-option value="multipleLine">Multiple Line</mat-option>
+        <mat-option value="Yes/No">Yes/No</mat-option>
+        <mat-option value="file">File</mat-option>
+        <mat-option value="multipleChoose">Multiple Choose</mat-option>
+      </mat-autocomplete>
+      <div
+        *ngIf="
+          customQuestionFromControlles['questionType'].touched &&
+          customQuestionFromControlles['questionType'].invalid
+        "
+      >
+        <small
+          *ngIf="customQuestionFromControlles['questionType'].errors?.['required']"
+          class="error-text"
+          >Question Type is required.</small
+        >
+      </div>
+    </div>
+    <div class="full-width">
+      <label for="question">Question</label>
+      <input
+        type="text"
+        placeholder="Enter the Questions"
+        class="p-10 b-1 bg-light text-white full-width"
+        formControlName="question"
+      />
+      <div
+        *ngIf="
+          customQuestionFromControlles['question'].touched &&
+          customQuestionFromControlles['question'].invalid
+        "
+      >
+        <small
+          *ngIf="customQuestionFromControlles['question'].errors?.['required']"
+          class="error-text"
+          >Question is required.</small
+        >
+      </div>
+    </div>
+    <div class="full-width flex justify-end g-10">
+      <button mat-raised-button class="bg-none b-1 text-white" (click)="closeOpenBox()">Cancel</button>
+      <button mat-raised-button class="bg-gold" (click)="addQuestion()">
+        Add Question
+      </button>
+    </div>
+  </form>
+</section>

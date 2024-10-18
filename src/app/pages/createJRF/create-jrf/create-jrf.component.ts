@@ -43,6 +43,22 @@ import {
 export class CreateJrfComponent implements AfterViewInit {
   @ViewChild('contentToCopy', { static: false }) contentToCopy!: ElementRef;
   applicationStep: string = 'applicationForm';
+  // trak the state/progress of the form steps
+  stateForTheTracker: any = {
+    aboutJob: {
+      active: true,
+      completed: false,
+    },
+    applicationForm: {
+      state: false,
+      completed: false,
+    },
+    hiringStages: {
+      state: false,
+      completed: false,
+    },
+  };
+
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialog,
@@ -52,116 +68,11 @@ export class CreateJrfComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {}
 
-  // stepperCount = 0;
-  // filterJob: string[] = [];
-  // steps = [
-  //   { title: 'receipt_long', isComplete: false, page: 'JRF_form' },
-  //   { title: 'plagiarism', isComplete: false, page: 'preview' },
-  //   { title: 'task', isComplete: false, page: 'form_approval' },
-  //   { title: 'upload_file', isComplete: false, page: 'JRF_uplaod' },
-  // ];
 
-  // jobOptions: JobOption[] = [
-  //   {
-  //     department: 'R&D Mechanical Department',
-  //     jobs: ['Senior Mechanical Engineer', 'Production Engineer'],
-  //   },
-  //   {
-  //     department: 'R&D Software Department',
-  //     jobs: ['Flutter Developer', 'Android Developer'],
-  //   },
-  //   {
-  //     department: 'Financial Department',
-  //     jobs: ['Accountant', 'Financial Analyst'],
-  //   },
-  //   {
-  //     department: 'Marketings',
-  //     jobs: ['Marketing Manager', 'Content Strategist'],
-  //   },
-  // ];
-  // locations: Location[] = [{ city: 'Trivandrum' }, { city: 'Kochi' }];
-
-  // JRFormData: FormGroup = this.fb.group({
-  //   department: ['', Validators.required],
-  //   job: ['', Validators.required],
-  //   location: ['', Validators.required],
-  //   date: ['', Validators.required],
-  //   responsibilities: ['', Validators.required],
-  //   skills: ['', Validators.required],
-  //   vacancies: ['', Validators.required],
-  //   qualification: ['', Validators.required],
-  //   qualificationExInfo: [''],
-  //   experienceFrom: ['', Validators.required],
-  //   experienceTo: ['', Validators.required],
-  //   jobLocation: ['', Validators.required],
-  //   travel: ['', Validators.required],
-  //   gender: ['', Validators.required],
-  //   maritalStatus: [''],
-  //   locality: ['', Validators.required],
-  //   industry: ['', Validators.required],
-  //   salary: [''],
-  //   jobId: ['', Validators.required],
-  //   remarks: [''],
-  //   name: ['', Validators.required],
-  //   designation: ['', Validators.required],
-  // });
-  // JRFormPulishDetails: FormGroup = this.fb.group({
-  //   actionTaken: ['', Validators.required],
-  //   statusofRequest: ['', Validators.required],
-  //   name: ['', Validators.required],
-  //   signature: ['', Validators.required],
-  //   date: ['', Validators.required],
-  // });
-
-  // onDepartmentChange() {
-  //   const selectedDepartmat = this.jobOptions.find(
-  //     (option) => option.department == this.JRFormData.get('department')?.value
-  //   );
-  //   this.filterJob = selectedDepartmat ? selectedDepartmat.jobs : [];
-  //   this.JRFormData.get('job')?.setValue('');
-  // }
-
-
-  // togglePublishJob() {
-  //   this.dialog.open(MultipleJobBoardsComponent, {
-  //     width: '400px',
-  //     height: 'auto',
-  //   });
-  // }
-
-  // copyJRFContent() {
-  //   const content = this.contentToCopy.nativeElement.innerHTML;
-  //   navigator.clipboard.writeText(content);
-  // }
-  // print(): void {
-  //   const printContents = document.getElementById('print-section')?.innerHTML;
-  //   if (printContents) {
-  //     const originalContents = document.body.innerHTML;
-  //     document.body.innerHTML = `
-  //       <html>
-  //       <head>
-  //         <title>Print</title>
-  //         <style>
-  //           @media print {
-  //             body, * {
-  //               color: black !important; 
-  //               background-color: white !important;  
-  //           }
-  //         </style>
-  //       </head>
-  //       <body>
-  //         ${printContents}
-  //       </body>
-  //     </html>
-  //     `;
-  //     window.print();
-  //     document.body.innerHTML = originalContents;
-  //     window.location.reload();
-  //   }
-  // }
 
   moveApplicationStage(stepName: string) {
+    this.stateForTheTracker[stepName].completed = true;
+    this.stateForTheTracker[stepName].active = true;
     this.applicationStep = stepName;
   }
-
 }

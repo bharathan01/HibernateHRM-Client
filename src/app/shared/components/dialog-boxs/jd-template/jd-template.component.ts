@@ -11,6 +11,7 @@ export class JdTemplateComponent implements OnInit {
   jobTiltles: string[] = [];
   selectedJobTitle: string = '';
   selectedJobDescription: any; // avoid any
+  isTemplateOpen:boolean = true
   constructor(public dialogRef: MatDialogRef<JdTemplateComponent>) {}
   ngOnInit(): void {
     this.getJdTiltle();
@@ -28,11 +29,15 @@ export class JdTemplateComponent implements OnInit {
     this.selectedJobDescription = jobDescriptions.filter((jd) => {
       return jd.jobTitle == jobTitle;
     });
+    this.toggleTemplate()
   }
   closeJobDescriptionBox() {
     this.dialogRef.close();
   }
   sendJobIdToParentAndClose(jobId: number) {
     this.dialogRef.close(jobId);
+  }
+  toggleTemplate() {
+    this.isTemplateOpen = !this.isTemplateOpen;
   }
 }
