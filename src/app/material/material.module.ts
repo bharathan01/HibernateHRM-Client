@@ -22,6 +22,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 const material = [
   MatSlideToggleModule,
@@ -47,6 +48,7 @@ const material = [
   CdkDrag,
   CdkDropList,
   MatAutocompleteModule,
+  MatButtonToggleModule
 ];
 
 @NgModule({

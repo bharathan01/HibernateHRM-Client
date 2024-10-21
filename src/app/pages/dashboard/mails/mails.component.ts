@@ -9,16 +9,19 @@ import { demoInboxMail } from 'src/app/utils/demoData';
   templateUrl: './mails.component.html',
   styleUrls: ['./mails.component.css'],
 })
-export class MailsComponent {
+export class MailsComponent implements OnInit {
   selectedMailPage: string = 'inbox';
-  
-  constructor(private dialog: MatDialog, private router:Router) {}
-  
+
+  constructor(private dialog: MatDialog, private router: Router) {}
+
+  ngOnInit(): void {
+    this.changeMailPage(this.selectedMailPage);
+  }
 
   changeMailPage(pageName: string) {
     this.selectedMailPage = pageName;
     this.router.navigate(['dashboard/mails-box'], {
-      queryParams: { value: pageName }
+      queryParams: { value: pageName },
     });
   }
 

@@ -1,0 +1,115 @@
+<section class="full-width p-10 g-10 flex align-center flex-col">
+  <div class="full-width flex justify-start">
+    <h2>Team Member</h2>
+  </div>
+  <div class="members-container">
+    <div class="full-width flex g-10">
+      <div class="member-input b-1">
+        <input
+          type="email"
+          placeholder="enter member mail id"
+          class="bg-light text-white"
+        />
+        <select
+          type="text"
+          placeholder="enter member mail id"
+          class="bg-light text-white"
+        >
+          <option value="">Access Type</option>
+          <option value="super Admin">Super Admin</option>
+          <option value="Department Head">Department Head</option>
+          <option value="Interviewer">Interviewer</option>
+          <option value="Hiring manager">Hiring manager</option>
+          <option value="Recruiter">Recruiter</option>
+          <option value="HR Manager">HR Manager</option>
+        </select>
+      </div>
+      <button class="b-1 bg-gold Invite-btn text-white">Invite</button>
+    </div>
+    <div>
+      <h4>My Team</h4>
+      <div class="flex g-10 flex-col">
+        <div class="flex g-10 p-10 b-bottom-1">
+          <span
+            (click)="selectMemberTable('currentMembers')"
+            class="table-name"
+            [ngClass]="{ active: selectedMemberTable === 'currentMembers' }"
+          >
+            <h3>Current Members</h3>
+          </span>
+          <span
+            (click)="selectMemberTable('invitedMembers')"
+            class="table-name"
+            [ngClass]="{ active: selectedMemberTable === 'invitedMembers' }"
+          >
+            <h3>Invited/Approvals</h3>
+          </span>
+        </div>
+        <ng-container *ngIf="selectedMemberTable === 'currentMembers'">
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Email ID</td>
+                <td>Access Type</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>johnDoe</td>
+                <td>johnDoe@gmail.com</td>
+                <td>Super Admin</td>
+                <td class="flex g-10">
+                  <span> <mat-icon> edit_square </mat-icon></span>
+                  <span><mat-icon> cancel </mat-icon> </span>
+                </td>
+              </tr>
+              <tr>
+                <td>johnDoe</td>
+                <td>johnDoe@gmail.com</td>
+                <td>Super Admin</td>
+                <td class="flex g-10">
+                  <span> <mat-icon> edit_square </mat-icon></span>
+                  <span><mat-icon> cancel </mat-icon> </span>
+                </td>
+              </tr>
+              <tr>
+                <td>johnDoe</td>
+                <td>johnDoe@gmail.com</td>
+                <td>Super Admin</td>
+                <td class="flex g-10">
+                  <span> <mat-icon> edit_square </mat-icon></span>
+                  <span><mat-icon> cancel </mat-icon> </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+        <ng-container *ngIf="selectedMemberTable === 'invitedMembers'">
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Email ID</td>
+                <td>Access Type</td>
+                <td>Action</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>johnDoe</td>
+                <td>johnDoe@gmail.com</td>
+                <td>Super Admin</td>
+                <td class="flex g-10">
+                  <span> <mat-icon> edit_square </mat-icon></span>
+                  <span><mat-icon> cancel </mat-icon> </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

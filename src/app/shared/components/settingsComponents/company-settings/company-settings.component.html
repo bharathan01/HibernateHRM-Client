@@ -1,0 +1,65 @@
+<section class="full-width p-10 flex-col flex justify-center align-center">
+  <div class="full-width flex justify-start">
+    <h2>Personal Informations</h2>
+  </div>
+  <div class="flex flex-col align-center profile-info">
+    <form class="full-width flex flex-col">
+      <div class="full-width">
+        <div class="profile-image b-1">
+          <div class="select-img">
+            <mat-icon>add_a_photo</mat-icon>
+          </div>
+          <img src="../../../../../assets/images/favicon-32x32.png" alt="" />
+        </div>
+        <input type="file" #profileImge hidden />
+      </div>
+      <div class="flex flex-col full-width input-container">
+        <div class="flex g-10 full-width">
+          <div class="full-width">
+            <label for="companyName">Company Name</label>
+            <input
+              type="text"
+              id="companyName"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="Company Name"
+            />
+          </div>
+          <div class="full-width">
+            <label for="url">Company Url</label>
+            <input
+              type="text"
+              id="url"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="Company Url"
+            />
+          </div>
+        </div>
+        <div class="flex g-10 full-width flex-col">
+          <label for="position">Company Description</label>
+          <ckeditor
+            data=""
+            formControlName="subject"
+            [editor]="Editor"
+          ></ckeditor>
+        </div>
+        <div class="flex g-10 full-width">
+          <div class="full-width">
+            <label for="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="address"
+            />
+          </div>
+        </div>
+        <div class="full-width flex justify-end g-10">
+          <button mat-raised-button class="b-1 bg-none text-white">
+            Cancel
+          </button>
+          <button mat-raised-button class="bg-gold">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

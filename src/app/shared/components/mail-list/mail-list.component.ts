@@ -9,7 +9,7 @@ import { demoInboxMail } from 'src/app/utils/demoData';
 })
 export class MailListComponent implements OnInit {
   selectedMailPage: string = '';
-  mailDetails:any[] = [];
+  mailDetails: any[] = [];
   starredMails: any = []; // avoid any on original data
   constructor(private route: ActivatedRoute) {}
   ngOnInit(): void {
@@ -17,9 +17,8 @@ export class MailListComponent implements OnInit {
       this.selectedMailPage = params['value'];
       if (params['value'] === 'starred') {
         this.starredMail(params['value']);
-      }
-      else{
-        this.mailDetails = demoInboxMail
+      } else {
+        this.mailDetails = demoInboxMail;
       }
     });
   }

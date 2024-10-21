@@ -276,6 +276,9 @@ p {
 .align-top{
   align-items: start;
 }
+.align-end{
+  align-items: end;
+}
 .justify-start{
   justify-content: start;
 }
@@ -304,7 +307,10 @@ p {
   background-color: transparent !important;
 }
 .text-white{
-  color: white !important;
+  color:  var(--bg-white)!important;
+}
+.text-gold{
+  color: var(--gold-background);
 }
 .pt-10{
   padding: 10px;

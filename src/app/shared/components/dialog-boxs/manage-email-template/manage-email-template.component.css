@@ -1,0 +1,7 @@
+section {
+  width: 60vw;
+  height: 90vh;
+  overflow: scroll;
+  padding: 10px 50px;
+  gap: 20px;
+}

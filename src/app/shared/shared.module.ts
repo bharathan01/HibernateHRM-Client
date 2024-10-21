@@ -47,8 +47,12 @@ import { JdTemplateComponent } from './components/dialog-boxs/jd-template/jd-tem
 import { CreateAppliationFormComponent } from './components/create-appliation-form/create-appliation-form.component';
 import { CreateQuestionComponent } from './components/dialog-boxs/create-question/create-question.component';
 import { HiringFlowComponent } from './components/hiring-flow/hiring-flow.component';
-
-
+import { ProfileInfoComponent } from './components/settingsComponents/profile-info/profile-info.component';
+import { InviteTeamComponent } from './components/settingsComponents/invite-team/invite-team.component';
+import { NotificationSettingsComponent } from './components/settingsComponents/notification-settings/notification-settings.component';
+import { TemplateSettingsComponent } from './components/settingsComponents/template-settings/template-settings.component';
+import { CompanySettingsComponent } from './components/settingsComponents/company-settings/company-settings.component';
+import { ManageEmailTemplateComponent } from './components/dialog-boxs/manage-email-template/manage-email-template.component';
 
 const components = [
   AsideNavBarComponent,
@@ -80,6 +84,12 @@ const components = [
   CreateAppliationFormComponent,
   CreateQuestionComponent,
   HiringFlowComponent,
+  ProfileInfoComponent,
+  InviteTeamComponent,
+  NotificationSettingsComponent,
+  TemplateSettingsComponent,
+  CompanySettingsComponent,
+  ManageEmailTemplateComponent,
 ];
 
 @NgModule({
@@ -95,7 +105,6 @@ const components = [
     LogoutComponent,
     SendMailComponent,
     MailListComponent,
-    
   ],
   imports: [
     CommonModule,
@@ -105,8 +114,8 @@ const components = [
     CoreModule,
     ClipboardModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
   ],
-  exports: [components, ],
+  exports: [components],
 })
 export class SharedModule {}

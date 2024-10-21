@@ -1,0 +1,45 @@
+<section class="bg-nav flex-col flex">
+  <div class="full-width">
+    <h2>Create Template</h2>
+  </div>
+  <div class="full-height">
+    <form class="full-width flex g-10 flex-col">
+      <div class="flex flex-col g-10">
+        <label for="name">Template Name</label>
+        <input
+          type="text"
+          class="b-1 p-10 bg-light text-white"
+          placeholder="Enter a name that can identify the template "
+        />
+      </div>
+      <div class="flex flex-col g-10">
+        <label for="name">Template Type</label>
+        <input
+          type="text"
+          class="b-1 p-10 bg-light text-white"
+          placeholder="Enter a name that can identify the template "
+        />
+      </div>
+      <div class="flex flex-col g-10">
+        <label for="name">Subject</label>
+        <input
+          type="text"
+          class="b-1 p-10 bg-light text-white"
+          placeholder="Enter a name that can identify the template "
+        />
+      </div>
+      <div class="flex flex-col g-10">
+        <label for="name">Body</label>
+        <ckeditor
+          data="selectedMailBody?.body"
+          formControlName="subject"
+          [editor]="Editor"
+        ></ckeditor>
+      </div>
+      <div class="flex g-10 justify-end">
+        <button mat-raised-button class="b-1 bg-none text-white" (click)="onCancelTemplate()">Cancel</button>
+        <button mat-raised-button class="bg-gold" (click)="onSaveTemplate()">Save</button>
+      </div>
+    </form>
+  </div>
+</section>

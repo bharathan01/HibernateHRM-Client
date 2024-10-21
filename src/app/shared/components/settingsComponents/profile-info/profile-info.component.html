@@ -1,0 +1,82 @@
+<section class="full-width p-10 flex-col flex justify-center align-center">
+  <div class="full-width flex justify-start">
+    <h2>Personal Informations</h2>
+  </div>
+  <div class="flex flex-col justify-center align-center profile-info">
+    <form class="full-width flex flex-col">
+      <div class="full-width">
+        <div class="profile-image b-1" (click)="selectProfileImage()">
+          <div class="select-img">
+            <mat-icon>add_a_photo</mat-icon>
+          </div>
+          <img src="../../../../../assets/images/avathar.jpg" alt="" />
+        </div>
+        <input type="file" #profileImge hidden />
+      </div>
+      <div class="flex flex-col full-width input-container">
+        <div class="flex g-10 full-width">
+          <div class="full-width">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="Full Name"
+            />
+          </div>
+          <div class="full-width">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+        <div class="flex g-10 full-width">
+          <div class="full-width">
+            <label for="email">E-mail</label>
+            <input
+              type="text"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="email"
+            />
+          </div>
+          <div class="full-width">
+            <label for="contact">Contact Number</label>
+            <input
+              type="text"
+              id="contact"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="Contact Number"
+            />
+          </div>
+        </div>
+        <div class="flex g-10 full-width">
+          <div class="full-width">
+            <label for="position">Position</label>
+            <input
+              type="text"
+              id="position"
+              class="b-1 p-10 bg-light full-width text-white"
+              placeholder="Position"
+            />
+          </div>
+        </div>
+        <div class="full-width flex justify-end g-10">
+          <button mat-raised-button class="b-1 bg-none text-white">
+            Cancel
+          </button>
+          <button mat-raised-button class="bg-gold">Save</button>
+        </div>
+        <div>
+          <p>
+            Change your password ?
+            <span class="text-gold forgot-password">Click Here</span>
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

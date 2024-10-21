@@ -16,6 +16,11 @@ import { TalentPoolTableComponent } from 'src/app/shared/components/talent-pool-
 import { MailsComponent } from './mails/mails.component';
 import { SingleMailComponent } from 'src/app/shared/components/single-mail/single-mail.component';
 import { MailListComponent } from 'src/app/shared/components/mail-list/mail-list.component';
+import { InviteTeamComponent } from 'src/app/shared/components/settingsComponents/invite-team/invite-team.component';
+import { ProfileInfoComponent } from 'src/app/shared/components/settingsComponents/profile-info/profile-info.component';
+import { NotificationSettingsComponent } from 'src/app/shared/components/settingsComponents/notification-settings/notification-settings.component';
+import { CompanySettingsComponent } from 'src/app/shared/components/settingsComponents/company-settings/company-settings.component';
+import { TemplateSettingsComponent } from 'src/app/shared/components/settingsComponents/template-settings/template-settings.component';
 
 const routes: Routes = [
   {
@@ -75,6 +80,29 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SettingsComponent,
+        children: [
+          {
+            path: '',
+            component: ProfileInfoComponent,
+          },
+
+          {
+            path: 'notificatons',
+            component: NotificationSettingsComponent,
+          },
+          {
+            path: 'about_company',
+            component: CompanySettingsComponent,
+          },
+          {
+            path: 'invite_team',
+            component: InviteTeamComponent,
+          },
+          {
+            path: 'email_template',
+            component: TemplateSettingsComponent,
+          },
+        ],
       },
       {
         path: 'users-controlles/:id',

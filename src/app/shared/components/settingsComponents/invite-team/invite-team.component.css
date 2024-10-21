@@ -1,0 +1,58 @@
+section {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.members-container {
+  width: 80%;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.member-input {
+  display: flex;
+  width: 100%;
+}
+.member-input input {
+  padding: 15px;
+}
+.member-input input {
+  width: 100%;
+}
+.member-input select {
+  width: 140px;
+  border: none;
+  padding: 5px;
+}
+.member-input input {
+  border: none;
+}
+.Invite-btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+table tr td {
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+table tr {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-icon);
+}
+.mat-icon {
+  cursor: pointer;
+}
+.table-name {
+  cursor: pointer;
+}
+.active{
+    border-bottom:1px solid var(--gold-background) ;
+    color: var(--gold-background) ;
+}

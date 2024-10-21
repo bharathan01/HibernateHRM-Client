@@ -1,4 +1,24 @@
-.settings-container{
+section {
+  height: 83vh;
+}
+.settings-nav-bar {
+  width: 250px;
+  min-width: 250px;
+  border-right: 1px solid var(--bg-icon);
+}
+
+.manu-icons {
+  padding: 10px 20px;
+
+}
+.manu-icons:hover{
+  background-color: var(--gold-background);
+  cursor: pointer;
+}
+a{
+  color: var(--bg-white);
+}
+/* .settings-container{
   width: 100%;
   background-color: var( --bg-navbar);
   padding: 10px;
@@ -45,4 +65,4 @@
 }
 .user-add-btn button{
     background-color: var(--gold-background);
-}
+} */

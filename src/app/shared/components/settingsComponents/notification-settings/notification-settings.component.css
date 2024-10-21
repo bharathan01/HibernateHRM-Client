@@ -1,0 +1,11 @@
+.notifiaction-container{
+    width: 80%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.notifiaction-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

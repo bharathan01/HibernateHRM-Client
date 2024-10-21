@@ -25,22 +25,22 @@ export class ManageHiringTeamComponent {
   ];
   accessTypes: Option[] = [
     {
-      role: 'SuperAdmin',
-    },
-    {
-      role: 'Department Head',
-    },
-    {
-      role: 'Interviewer',
-    },
-    {
-      role: 'Hiring manager',
-    },
-    {
-      role: 'Recruiter',
-    },
-    {
-      role: 'HR Manager',
+        role: 'SuperAdmin',
+      },
+      {
+        role: 'Department Head',
+      },
+      {
+        role: 'Interviewer',
+      },
+      {
+        role: 'Hiring manager',
+      },
+      {
+        role: 'Recruiter',
+      },
+      {
+        role: 'HR Manager',
     },
   ];
 
