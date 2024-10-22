@@ -4,6 +4,7 @@ section{
 .profile-info {
     width: 80%;
     height: 75vh;
+    scrollbar-width: none;
   }
   .profile-image {
     width: 100px;
@@ -45,4 +46,23 @@ section{
     align-items: center;
     justify-content: center;
   }
-  
+  @media(max-width:600px){
+    .profile-info{
+      width: 100%;
+      overflow-y: auto;
+      justify-content: start;
+    }
+     .profile-center{
+       display: flex;
+       justify-content: center;
+     }
+     .profile-input-col{
+      flex-direction: column;
+     }
+     .text-editor{
+      width: 99%;
+     }
+  }
+.profile-info::-webkit-scrollbar{
+  display: none;
+}  

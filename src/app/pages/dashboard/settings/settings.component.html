@@ -1,7 +1,11 @@
 <section class="full-width flex bg-nav">
   <div class="settings-nav-bar flex flex-col p-10">
     <ng-container *ngFor="let manuBar of settingsManuBar">
-      <a [routerLink]="manuBar.route">
+      <a
+        [routerLink]="manuBar.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <div class="full-width flex g-10 align-center manu-icons">
           <mat-icon>{{ manuBar.icon }}</mat-icon>
           <h3>{{ manuBar.manuBarName }}</h3>

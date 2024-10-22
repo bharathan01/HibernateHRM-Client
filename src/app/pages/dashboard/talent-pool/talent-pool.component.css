@@ -40,6 +40,11 @@ textarea {
 .talent-folder p {
   color: rgba(112, 112, 112, 0.818);
 }
+@media(max-width:1200px){
+  section{
+    justify-content: center;
+  }
+}
 @media (max-width: 600px) {
   section {
     justify-content: center;

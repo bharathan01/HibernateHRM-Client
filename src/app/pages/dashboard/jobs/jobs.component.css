@@ -11,19 +11,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  
 }
 .job-c-overview app-job-view {
-  flex: 0 0 32.70%;
+  flex: 0 0 32.7%;
   min-width: 350px;
   justify-content: center;
 }
-@media(max-width:720px){
-  .job-c-overview app-job-view {
-    flex: 0 0 100%;
+@media (max-width: 1320px) {
+  .job-c-overview {
+    justify-content: center;
   }
 }
-@media(max-width:400px){
+@media (max-width: 720px) {
+  .job-c-overview app-job-view {
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 400px) {
   .job-c-overview app-job-view {
     min-width: 0px;
   }
@@ -40,5 +45,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-

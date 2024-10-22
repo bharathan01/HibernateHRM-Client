@@ -34,25 +34,63 @@ section {
   font-size: 15px;
   cursor: pointer;
 }
-table tr td {
-  width: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-table tr {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid var(--bg-icon);
-}
 .mat-icon {
   cursor: pointer;
 }
+
 .table-name {
   cursor: pointer;
 }
-.active{
-    border-bottom:1px solid var(--gold-background) ;
-    color: var(--gold-background) ;
+.active {
+  border-bottom: 1px solid var(--gold-background);
+  color: var(--gold-background);
+}
+.table-container::-webkit-scrollbar {
+  display: none;
+}
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+.table-container table {
+}
+.table-center table thead {
+  min-width: 450px;
+}
+.table-container table tr td {
+  width: 150px;
+}
+.table-container table tr {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-icon);
+}
+
+@media (max-width: 1400px) {
+  .members-container {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .member-input {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .table-header-col {
+    flex-direction: column;
+  }
+  .member-input select {
+    width: 100%;
+  }
+  .member-control {
+    flex-direction: column;
+  }
+  .table-center {
+    align-items: center;
+  }
+  .members-container {
+    padding: 0px;
+  }
+}
+@media (max-width: 400px) {
 }

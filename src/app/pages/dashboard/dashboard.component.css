@@ -9,7 +9,6 @@
   align-items: center;
   margin: 10px 10px 0px 10px;
   gap: 15px;
-  height: 98vh;
   overflow-y: scroll;
 }
 .aside-nav-bar{

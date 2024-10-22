@@ -3,42 +3,109 @@
     <h2>Create Template</h2>
   </div>
   <div class="full-height">
-    <form class="full-width flex g-10 flex-col">
+    <form class="full-width flex g-10 flex-col" [formGroup]="emailTemplateForm">
       <div class="flex flex-col g-10">
-        <label for="name">Template Name</label>
+        <label for="name"
+          >Template Name <span class="error-text">*</span></label
+        >
         <input
           type="text"
           class="b-1 p-10 bg-light text-white"
           placeholder="Enter a name that can identify the template "
+          formControlName="templateName"
+          tabindex="-1"
         />
+        <div
+          *ngIf="
+            tempalteFormController['templateName'].touched &&
+            tempalteFormController['templateName'].invalid
+          "
+        >
+          <small
+            *ngIf=" tempalteFormController['templateName'].errors?.['required']"
+            class="error-text"
+            >required.</small
+          >
+        </div>
       </div>
       <div class="flex flex-col g-10">
-        <label for="name">Template Type</label>
+        <label for="name"
+          >Template Type <span class="error-text">*</span></label
+        >
         <input
           type="text"
           class="b-1 p-10 bg-light text-white"
           placeholder="Enter a name that can identify the template "
+          formControlName="templateType"
+          tabindex="-1"
         />
+        <div
+          *ngIf="
+            tempalteFormController['templateType'].touched &&
+            tempalteFormController['templateType'].invalid
+          "
+        >
+          <small
+            *ngIf=" tempalteFormController['templateType'].errors?.['required']"
+            class="error-text"
+            >required.</small
+          >
+        </div>
       </div>
       <div class="flex flex-col g-10">
-        <label for="name">Subject</label>
+        <label for="name">Subject<span class="error-text">*</span></label>
         <input
           type="text"
           class="b-1 p-10 bg-light text-white"
           placeholder="Enter a name that can identify the template "
-        />
-      </div>
-      <div class="flex flex-col g-10">
-        <label for="name">Body</label>
-        <ckeditor
-          data="selectedMailBody?.body"
           formControlName="subject"
+          tabindex="-1"
+        />
+        <div
+          *ngIf="
+            tempalteFormController['subject'].touched &&
+            tempalteFormController['subject'].invalid
+          "
+        >
+          <small
+            *ngIf=" tempalteFormController['subject'].errors?.['required']"
+            class="error-text"
+            >required.</small
+          >
+        </div>
+      </div>
+      <div class="flex flex-col g-10">
+        <label for="name">Body <span class="error-text">*</span></label>
+        <ckeditor
+          data=""
           [editor]="Editor"
+          formControlName="body"
+          tabindex="-1"
         ></ckeditor>
+        <div
+          *ngIf="
+            tempalteFormController['body'].touched &&
+            tempalteFormController['body'].invalid
+          "
+        >
+          <small
+            *ngIf=" tempalteFormController['body'].errors?.['required']"
+            class="error-text"
+            >required.</small
+          >
+        </div>
       </div>
       <div class="flex g-10 justify-end">
-        <button mat-raised-button class="b-1 bg-none text-white" (click)="onCancelTemplate()">Cancel</button>
-        <button mat-raised-button class="bg-gold" (click)="onSaveTemplate()">Save</button>
+        <button
+          mat-raised-button
+          class="b-1 bg-none text-white"
+          (click)="onCancelTemplate()"
+        >
+          Cancel
+        </button>
+        <button mat-raised-button class="bg-gold" (click)="onSaveTemplate()">
+          Save
+        </button>
       </div>
     </form>
   </div>

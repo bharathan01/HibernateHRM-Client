@@ -10,6 +10,7 @@
         class="p-10 b-1 bg-light text-white full-width"
         [matAutocomplete]="auto"
         formControlName="questionType"
+        tabindex="-1"
       />
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option value="singleLine">Single Line</mat-option>
@@ -38,6 +39,7 @@
         placeholder="Enter the Questions"
         class="p-10 b-1 bg-light text-white full-width"
         formControlName="question"
+        tabindex="-1"
       />
       <div
         *ngIf="
@@ -52,8 +54,43 @@
         >
       </div>
     </div>
+    <div>
+      <label>Enter Options</label>
+      <div class="flex g-10 flex-col">
+        <div
+          class="flex g-10"
+          *ngFor="let option of options.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <span>
+            <label for="option{{ i }}">Option {{ i + 1 }}:</label>
+            <input
+              formControlName="optionText"
+              type="text"
+              id="option{{ i }}"
+              placeholder="Enter option"
+              class="p-10 b-1 bg-light text-white full-width"
+            />
+          </span>
+          <span class="b-1 bg-none text-white p-10" (click)="removeOption(i)">
+            close
+          </span>
+        </div>
+        <div class="flex full-width justify-end">
+          <button class="bg-gold flex flex-center p-10 b-1">
+            <mat-icon (click)="addMulipleOptionField()"> add </mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="full-width flex justify-end g-10">
-      <button mat-raised-button class="bg-none b-1 text-white" (click)="closeOpenBox()">Cancel</button>
+      <button
+        mat-raised-button
+        class="bg-none b-1 text-white"
+        (click)="closeOpenBox()"
+      >
+        Cancel
+      </button>
       <button mat-raised-button class="bg-gold" (click)="addQuestion()">
         Add Question
       </button>

@@ -64,6 +64,12 @@ export class CreateAppliationFormComponent implements OnInit {
         type: 'file',
         required: true,
       },
+      {
+        fieldName: 'Marital Status',
+        type: 'option',
+        required: true,
+        options: ['Single', 'Married'],
+      },
     ],
   };
 
@@ -79,40 +85,51 @@ export class CreateAppliationFormComponent implements OnInit {
     });
   }
 
+  //funtion for check the question already present
+  isQuestionPresent(option: any) {
+    return this.applicationRequiredQuestion.personalInfo.findIndex(
+      (value: any) => value.fieldName === option.question
+    );
+  }
+
   // Function to update the selected option
   selectOption(option: any, selectedOption: string) {
     option.selected = selectedOption;
-
-    const index = this.applicationRequiredQuestion.personalInfo.findIndex(
-      (value: any) => value.fieldName === option.question
-    );
-
+    const isPresentIndex = this.isQuestionPresent(option);
     if (selectedOption === 'off') {
-      if (index !== -1) {
-        this.applicationRequiredQuestion.personalInfo.splice(index, 1);
+      if (isPresentIndex !== -1) {
+        this.applicationRequiredQuestion.personalInfo.splice(isPresentIndex, 1);
       }
     } else {
-      // issue - if the required change the func not call fix
-      if (index === -1) {
-        this.addNewFormField(option, selectedOption);
-      }
+      // if question not there add the questions
+      this.addNewFormField(option, selectedOption);
     }
   }
-  //add new custom questions 
-  addNewQutions(questionDetails:FormData){
-      
-  }
+  //add new custom questions
+  addNewQutions(questionDetails: FormData) {}
 
   // Function to add a new form field
-  addNewFormField(option: any, selectedOption: string, type: string = '') {
+  addNewFormField(option: any, selectedOption: string, type: string = 'text') {
+    const isPresentIndex = this.isQuestionPresent(option);
     const field = {
       fieldName: option.question,
       type: type,
       required: selectedOption === 'mandatory',
     };
-    this.applicationRequiredQuestion.personalInfo.push(field);
+    if (
+      (selectedOption == 'mandatory' || selectedOption == 'optional') &&
+      isPresentIndex != -1
+    ) {
+      this.applicationRequiredQuestion.personalInfo.splice(
+        isPresentIndex,
+        1,
+        field
+      );
+    } else {
+      this.applicationRequiredQuestion.personalInfo.push(field);
+    }
   }
-  proceedToNextPage(){
-    this.proceed.emit(true)
+  proceedToNextPage() {
+    this.proceed.emit(true);
   }
 }

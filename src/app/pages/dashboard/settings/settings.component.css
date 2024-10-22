@@ -9,15 +9,34 @@ section {
 
 .manu-icons {
   padding: 10px 20px;
-
 }
-.manu-icons:hover{
+.manu-icons:hover {
   background-color: var(--gold-background);
   cursor: pointer;
 }
-a{
+a {
   color: var(--bg-white);
 }
+a.active .manu-icons {
+  background-color: var(--gold-background);
+}
+
+@media (max-width: 1245px) {
+  .settings-nav-bar {
+    min-width: 216px;
+  }
+}
+@media (max-width: 900px) {
+  .settings-nav-bar {
+    min-width: 80px;
+    width: 80px;
+    align-items: center;
+  }
+  .manu-icons h3 {
+    display: none;
+  }
+}
+
 /* .settings-container{
   width: 100%;
   background-color: var( --bg-navbar);

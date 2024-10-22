@@ -1,0 +1,33 @@
+section {
+  gap: 20px;
+}
+.template-container {
+  width: 80%;
+  cursor: pointer;
+  height: 70vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+@media (max-width: 500px) {
+  .template-container {
+    width: 100%;
+  }
+  button {
+    font-size: 10px;
+  }
+  /* .templates button {
+    font-size: 10px;
+  } */
+}
+@media (max-width: 350px) {
+  .templates {
+    flex-direction: column;
+  }
+  .template-container{
+    height: 67vh;
+  }
+}
+.template-container::-webkit-scrollbar {
+  display: none;
+}

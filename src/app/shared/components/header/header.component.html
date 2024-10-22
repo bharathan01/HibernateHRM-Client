@@ -30,6 +30,17 @@
             <input
               type="radio"
               name="jobs"
+              value="publishedJobs"
+              [(ngModel)]="jobFilterTerm"
+              (change)="onSearchTermChanged($event)"
+            />
+            <span class="custom-radio"></span>
+            Published jobs
+          </label>
+          <label class="radio-button">
+            <input
+              type="radio"
+              name="jobs"
               value="closed"
               [(ngModel)]="jobFilterTerm"
               (change)="onSearchTermChanged($event)"
@@ -70,7 +81,7 @@
             (input)="onSearchTermChanged($event)"
           />
           <mat-icon class="fa fa-search"> search </mat-icon>
-      </div>
+        </div>
       </ng-container>
       <div
         class="notification-icon icon"

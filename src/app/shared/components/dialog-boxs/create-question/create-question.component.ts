@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -13,11 +13,18 @@ export class CreateQuestionComponent implements OnInit {
     private fb: FormBuilder
   ) {}
   customQuestionFrom!: FormGroup;
+  isSelectedMultipleQuestion: boolean = false;
   ngOnInit(): void {
     this.customQuestionFrom = this.fb.group({
       questionType: ['', Validators.required],
       question: ['', Validators.required],
+      options: this.fb.array([]),
     });
+    this.customQuestionFrom.controls['questionType'].valueChanges.subscribe(
+      (selectedvalue) => {
+        if (selectedvalue == 'multipleChoose') this.addMulipleOptionField();
+      }
+    );
   }
   isPanelOpen = false;
 
@@ -27,6 +34,19 @@ export class CreateQuestionComponent implements OnInit {
 
   get customQuestionFromControlles() {
     return this.customQuestionFrom.controls;
+  }
+  get options(): FormArray {
+    return this.customQuestionFrom.get('options') as FormArray;
+  }
+  addMulipleOptionField() {
+    this.options.push(
+      this.fb.group({
+        optionText: ['', Validators.required],
+      })
+    );
+  }
+  removeOption(optionIndex:number){
+    
   }
 
   addQuestion() {

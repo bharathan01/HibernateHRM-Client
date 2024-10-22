@@ -41,11 +41,6 @@ export class AsideNavBarComponent {
     { label: 'Interview', route: 'dashboard/interview', logo: 'groups' },
     { label: 'Reports', route: 'dashboard/report', logo: 'summarize' },
     { label: 'Mails', route: 'dashboard/mails-box', logo: 'mail' },
-    {
-      label: 'Registration',
-      route: 'dashboard/registration',
-      logo: 'how_to_reg',
-    },
   ];
 
   menuItemsBottom: MenuBar[] = [

@@ -1,9 +1,12 @@
 <section class="full-width p-10 g-10 flex align-center flex-col">
-  <div class="full-width flex justify-start">
+  <div class="full-width flex justify-sb">
     <h2>Team Member</h2>
+    <a routerLink="/dashboard/registration">
+      <button mat-raised-button class="bg-gold">Add Manually</button>
+    </a>
   </div>
   <div class="members-container">
-    <div class="full-width flex g-10">
+    <div class="full-width flex g-10 member-control">
       <div class="member-input b-1">
         <input
           type="email"
@@ -29,7 +32,7 @@
     <div>
       <h4>My Team</h4>
       <div class="flex g-10 flex-col">
-        <div class="flex g-10 p-10 b-bottom-1">
+        <div class="flex g-10 p-10 table-header-col">
           <span
             (click)="selectMemberTable('currentMembers')"
             class="table-name"
@@ -46,45 +49,47 @@
           </span>
         </div>
         <ng-container *ngIf="selectedMemberTable === 'currentMembers'">
-          <table>
-            <thead>
-              <tr>
-                <td>Name</td>
-                <td>Email ID</td>
-                <td>Access Type</td>
-                <td>Action</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>johnDoe</td>
-                <td>johnDoe@gmail.com</td>
-                <td>Super Admin</td>
-                <td class="flex g-10">
-                  <span> <mat-icon> edit_square </mat-icon></span>
-                  <span><mat-icon> cancel </mat-icon> </span>
-                </td>
-              </tr>
-              <tr>
-                <td>johnDoe</td>
-                <td>johnDoe@gmail.com</td>
-                <td>Super Admin</td>
-                <td class="flex g-10">
-                  <span> <mat-icon> edit_square </mat-icon></span>
-                  <span><mat-icon> cancel </mat-icon> </span>
-                </td>
-              </tr>
-              <tr>
-                <td>johnDoe</td>
-                <td>johnDoe@gmail.com</td>
-                <td>Super Admin</td>
-                <td class="flex g-10">
-                  <span> <mat-icon> edit_square </mat-icon></span>
-                  <span><mat-icon> cancel </mat-icon> </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <td>Name</td>
+                  <td>Email ID</td>
+                  <td>Access Type</td>
+                  <td>Action</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>johnDoe</td>
+                  <td>johnDoe@gmail.com</td>
+                  <td>Super Admin</td>
+                  <td class="flex g-10">
+                    <span> <mat-icon> edit_square </mat-icon></span>
+                    <span><mat-icon> cancel </mat-icon> </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>johnDoe</td>
+                  <td>johnDoe@gmail.com</td>
+                  <td>Super Admin</td>
+                  <td class="flex g-10">
+                    <span> <mat-icon> edit_square </mat-icon></span>
+                    <span><mat-icon> cancel </mat-icon> </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>johnDoe</td>
+                  <td>johnDoe@gmail.com</td>
+                  <td>Super Admin</td>
+                  <td class="flex g-10">
+                    <span> <mat-icon> edit_square </mat-icon></span>
+                    <span><mat-icon> cancel </mat-icon> </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </ng-container>
         <ng-container *ngIf="selectedMemberTable === 'invitedMembers'">
           <table>

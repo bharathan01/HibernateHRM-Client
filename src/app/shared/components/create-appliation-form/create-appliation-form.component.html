@@ -224,19 +224,18 @@
               </label>
               <mat-radio-group
                 aria-label="Select an option"
-                *ngIf="input.fieldName === 'Marital Status'; else inputText"
+                *ngIf="input.type === 'option'"
               >
                 <mat-radio-button value="1">Single</mat-radio-button>
                 <mat-radio-button value="2">Married</mat-radio-button>
               </mat-radio-group>
-              <ng-template #inputText>
-                <input
-                  [type]="input.type"
-                  [id]="input.fieldName"
-                  [placeholder]="input.fieldName"
-                  class="p-10 b-1 bg-light"
-                />
-              </ng-template>
+              <input
+                *ngIf="input.type == 'text' || input.type == 'file'"
+                [type]="input.type"
+                [id]="input.fieldName"
+                [placeholder]="input.fieldName"
+                class="p-10 b-1 bg-light"
+              />
             </div>
           </ng-container>
         </div>
@@ -245,6 +244,8 @@
   </div>
   <div class="flex full-width justify-end g-10">
     <button mat-raised-button class="bg-none b-1 text-white">Cancel</button>
-    <button mat-raised-button class="bg-gold" (click)="proceedToNextPage()">Next</button>
+    <button mat-raised-button class="bg-gold" (click)="proceedToNextPage()">
+      Next
+    </button>
   </div>
 </section>

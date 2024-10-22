@@ -1,7 +1,24 @@
-<section class="full-width p-10 flex flex-col">
+<section class="full-width p-10 flex flex-col justify-center align-center">
   <div class="full-width flex justify-sb">
     <h2>Email Templates</h2>
-    <button class="bg-gold" mat-raised-button (click)="createOrManageEmailTempleate()">Create Templates</button>
+    <button
+      class="bg-gold"
+      mat-raised-button
+      (click)="createOrManageEmailTempleate()"
+    >
+      Create Templates
+    </button>
   </div>
-  <div></div>
+  <div class="full-width flex flex-col template-container g-10">
+    <ng-container *ngFor="let mailName of emailTemplatName">
+      <div class="p-10 flex full-width justify-sb b-1 align-center templates">
+        <h3>{{ mailName }}</h3>
+        <button mat-raised-button class="bg-gold" (click)="createOrManageEmailTempleate(mailName)">View & Edit</button>
+      </div>
+      <div class="p-10 flex full-width justify-sb b-1 align-center templates">
+        <h3>{{ mailName }}</h3>
+        <button mat-raised-button class="bg-gold" (click)="createOrManageEmailTempleate(mailName)">View & Edit</button>
+      </div>
+    </ng-container>
+  </div>
 </section>
