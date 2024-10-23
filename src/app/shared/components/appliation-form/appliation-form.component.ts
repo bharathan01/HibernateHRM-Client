@@ -11,6 +11,7 @@ import { JdTemplateComponent } from '../dialog-boxs/jd-template/jd-template.comp
 import { MatDialog } from '@angular/material/dialog';
 import { jobDescriptions } from 'src/app/utils/demoData';
 import { JrfPreviewComponent } from '../dialog-boxs/jrf-preview/jrf-preview.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appliation-form',
@@ -88,7 +89,11 @@ export class AppliationFormComponent implements OnInit {
   public Editor = ClassicEditor;
   jobDescriptionFrom!: FormGroup;
   @Output() proceed: EventEmitter<boolean> = new EventEmitter();
-  constructor(private fb: FormBuilder, private dialogBox: MatDialog) {}
+  constructor(
+    private fb: FormBuilder,
+    private dialogBox: MatDialog,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.jobDescriptionFrom = this.fb.group({
       jobTitle: ['', Validators.required],
@@ -251,5 +256,8 @@ export class AppliationFormComponent implements OnInit {
         this.proceed.emit(true);
       }
     });
+  }
+  onCancelJobAppcation() {
+    this.router.navigateByUrl('/dashboard/jobs');
   }
 }

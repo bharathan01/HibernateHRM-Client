@@ -16,8 +16,8 @@
     </div>
     <ng-container *ngIf="isOpenMoreMenu">
       <div class="job-more-menu">
-        <a routerLink="hiringteam">
-          <button>Add hiring team</button>
+        <a>
+          <button (click)="addHiringTeam()">Add hiring team</button>
         </a>
         <a routerLink="/dashboard/report"  [queryParams]="{ job: job.title }" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <button>View Report</button>

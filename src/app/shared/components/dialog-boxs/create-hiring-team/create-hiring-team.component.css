@@ -1,0 +1,23 @@
+section{
+    width: 50vw;
+    height: 80vh;
+    padding: 20px;
+    gap: 20px;
+}
+.add-input{
+    width: 80%;
+}
+.profileImg{
+    width: 50px;
+    height: 50px;
+    background-color: var(--light-background);
+    border-radius: 50%;
+}
+.team-list{
+    height: 320px;
+    overflow-y:scroll ;
+    scrollbar-width: none;
+}
+.team-list::-webkit-scrollbar{
+    display: none;
+}

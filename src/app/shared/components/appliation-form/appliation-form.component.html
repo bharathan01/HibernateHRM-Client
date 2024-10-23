@@ -1,5 +1,7 @@
 <section class="flex justify-center flex-col align-center">
-  <div class="flex full-width align-center g-10 justify-center  p-10 flex-direction">
+  <div
+    class="flex full-width align-center g-10 justify-center p-10 flex-direction"
+  >
     <div
       class="fill-jd bg-light border-radius flex align-center justify-center p-10 g-10"
     >
@@ -11,18 +13,25 @@
     </div>
     <h3>(OR)</h3>
     <div
-      class="fill-jd bg-light border-radius flex  align-center justify-center p-10 g-10"
+      class="fill-jd bg-light border-radius flex align-center justify-center p-10 g-10"
     >
       <span>
         <h3>Auto Fill JD</h3>
-        <h5>Select a job description template from the available saved templates.</h5>
+        <h5>
+          Select a job description template from the available saved templates.
+        </h5>
       </span>
-      <button mat-raised-button class="bg-gold" (click)="openJDTemplates()">Select Template</button>
+      <button mat-raised-button class="bg-gold" (click)="openJDTemplates()">
+        Select Template
+      </button>
     </div>
   </div>
   <div class="form-container">
     <h4>Begin creating your job description.</h4>
-    <form class="full-width flex flex-col g-10" [formGroup]="jobDescriptionFrom">
+    <form
+      class="full-width flex flex-col g-10"
+      [formGroup]="jobDescriptionFrom"
+    >
       <div class="form-fields flex flex-col full-width">
         <span class="flex">
           <label for="job-title">Job Title </label>
@@ -122,7 +131,6 @@
           data=""
           [editor]="Editor"
           formControlName="jobDescription"
-
         ></ckeditor>
       </div>
       <div class="flex g-10 full-width input-column">
@@ -257,12 +265,17 @@
               <mat-option [value]="skill"> {{ skill }}</mat-option>
             </ng-container>
           </mat-autocomplete>
-          <div class="flex b-1 skill-container g-10 p-10" *ngIf="skillsControls && skillsControls.length > 0">
+          <div
+            class="flex b-1 skill-container g-10 p-10"
+            *ngIf="skillsControls && skillsControls.length > 0"
+          >
             <ng-container
               *ngFor="let skillCtrl of skillsControls; let i = index"
             >
-              <span class="p-10 b-1 border-radius flex bg-light align-center g-10"
-                >{{ skillCtrl.value }} <mat-icon (click)="removeSkill(i)">cancel</mat-icon></span
+              <span
+                class="p-10 b-1 border-radius flex bg-light align-center g-10"
+                >{{ skillCtrl.value }}
+                <mat-icon (click)="removeSkill(i)">cancel</mat-icon></span
               >
             </ng-container>
           </div>
@@ -287,8 +300,14 @@
         </div>
       </div>
       <div class="full-width flex justify-sb">
-        <button mat-raised-button>Cancel</button>
-        <button mat-raised-button class="bg-gold" (click)="showJobDecriptionPreview()">Preview & Proceed</button>
+        <button mat-raised-button class="bg-none text-white b-1" (click)="onCancelJobAppcation()">Cancel</button>
+        <button
+          mat-raised-button
+          class="bg-gold"
+          (click)="showJobDecriptionPreview()"
+        >
+          Preview & Proceed
+        </button>
       </div>
     </form>
   </div>

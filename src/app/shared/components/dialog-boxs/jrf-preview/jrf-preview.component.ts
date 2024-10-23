@@ -1,6 +1,18 @@
-import { Component, ElementRef, Inject, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-jrf-preview',
@@ -9,12 +21,14 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 })
 export class JrfPreviewComponent implements OnInit {
   @ViewChild('descreptionContainer') descreptionContainer!: ElementRef;
-  constructor(@Inject(MAT_DIALOG_DATA) public jobDescription: any, private renderer:Renderer2, public dialogRef: MatDialogRef<JrfPreviewComponent>) {
-  }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public jobDescription: any,
+    private renderer: Renderer2,
+    public dialogRef: MatDialogRef<JrfPreviewComponent>
+  ) {}
   ngOnInit(): void {
     this.descreptionContainer.nativeElement.innerHTML += `${this.jobDescription.jobDescription}`;
   }
-  
 
   print(): void {
     const printContents = document.getElementById('print-section')?.innerHTML;
@@ -65,7 +79,10 @@ export class JrfPreviewComponent implements OnInit {
       }
     }
   }
-  onProceedJob(){
-    this.dialogRef.close(true)
+  onProceedJob() {
+    this.dialogRef.close(true);
+  }
+  onEdit() {
+    this.dialogRef.close();
   }
 }

@@ -54,7 +54,7 @@ a {
   --bg-linkdln: #0077b5;
   --bg-btn-status: #530744;
 
-  --mail-font-family:'Arial, Helvetica, sans-serif '
+  --mail-font-family: "Arial, Helvetica, sans-serif ";
 
   /*font sizes*/
   --font-size-xxs: 0.75rem; /* Extra Extra Small - 12px */
@@ -180,6 +180,15 @@ input:-webkit-autofill {
   --mat-mdc-slider-hover-ripple-color: var(--bg-white);
   --mat-mdc-slider-focus-ripple-color: var(--bg-icon);
 }
+.mat-mdc-option:hover:not(.mdc-list-item--disabled){
+  background-color: var(--gold-background);
+} */
+.mat-mdc-option:hover:not(.mdc-list-item--disabled), 
+.mat-mdc-option:focus:not(.mdc-list-item--disabled), 
+.mat-mdc-option.mat-mdc-option-active, 
+.mat-mdc-option.mdc-list-item--selected:not(.mat-mdc-option-multiple):not(.mdc-list-item--disabled){
+  background-color: var(--gold-background) !important;
+}
 
 /*text editor  */
 .ck-editor__editable_inline {
@@ -189,24 +198,29 @@ input:-webkit-autofill {
   min-width: 100% !important;
   background-color: var(--bg-dark);
 }
-.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset, .ck.ck-reset_all { h1 {
-  font-size: var(--font-size-xxxl);
-  color: #000 !important;
-}
+.ck-reset_all :not(.ck-reset_all-excluded *),
+.ck.ck-reset,
+.ck.ck-reset_all {
+  h1 {
+    font-size: var(--font-size-xxxl);
+    color: #000 !important;
+  }
 }
 
-.ck.ck-editor__editable_inline>:last-child {
-  font-family:var(--mail-font-family) !important;
+.ck.ck-editor__editable_inline > :last-child {
+  font-family: var(--mail-font-family) !important;
 }
-.ck-reset_all :not(.ck-reset_all-excluded *), .ck.ck-reset, .ck.ck-reset_all {
+.ck-reset_all :not(.ck-reset_all-excluded *),
+.ck.ck-reset,
+.ck.ck-reset_all {
   background: var(--light-background) !important;
   color: var(--bg-white) !important;
 }
-.ck.ck-editor__main>.ck-editor__editable {
+.ck.ck-editor__main > .ck-editor__editable {
   background: var(--light-background) !important;
 }
-.ck-rounded-corners .ck.ck-editor__editable:not(.ck-editor__nested-editable), 
-.ck.ck-editor__editable.ck-rounded-corners:not(.ck-editor__nested-editable){
+.ck-rounded-corners .ck.ck-editor__editable:not(.ck-editor__nested-editable),
+.ck.ck-editor__editable.ck-rounded-corners:not(.ck-editor__nested-editable) {
   padding: 20px !important;
 }
 
@@ -251,96 +265,102 @@ p {
 .border-radius {
   border-radius: 7px;
 }
-.p-10{
+.p-10 {
   padding: 10px;
 }
-.item-center{
+.item-center {
   align-items: center;
   justify-content: center;
 }
-.justify-end{
+.justify-end {
   justify-content: end;
 }
-.justify-sb{
+.justify-sb {
   justify-content: space-between;
 }
-.justify-ar{
+.justify-ar {
   justify-content: space-around;
 }
-.justify-center{
+.justify-center {
   justify-content: center;
 }
-.align-center{
+.align-center {
   align-items: center;
 }
-.align-top{
+.align-top {
   align-items: start;
 }
-.align-end{
+.align-end {
   align-items: end;
 }
-.justify-start{
+.justify-start {
   justify-content: start;
 }
-.flex-col{
+.flex-col {
   flex-direction: column;
 }
-.g-10{
+.g-10 {
   gap: 10px;
 }
-.bg-dark{
+.bg-dark {
   background-color: var(--bg-dark);
 }
-.bg-nav{
+.bg-nav {
   background-color: var(--bg-navbar) !important;
 }
-.bg-light{
+.bg-light {
   background-color: var(--light-background);
 }
-.bg-gold{
+.bg-gold {
   background-color: var(--gold-background) !important;
 }
-.bg-icon{
+.bg-icon {
   background-color: var(--bg-icon);
 }
-.bg-none{
+.bg-none {
   background-color: transparent !important;
 }
-.text-white{
-  color:  var(--bg-white)!important;
+.text-white {
+  color: var(--bg-white) !important;
 }
-.text-gold{
+.text-gold {
   color: var(--gold-background);
 }
-.pt-10{
+.pt-10 {
   padding: 10px;
 }
-.b-1{
-  border:1px solid var(--bg-icon) !important;
+.p-5 {
+  padding: 5px;
 }
-.b-bottom-1{
-  border-bottom:1px solid var(--bg-icon) ;
+.b-1 {
+  border: 1px solid var(--bg-icon) !important;
 }
-.filled{
+.b-bottom-1 {
+  border-bottom: 1px solid var(--bg-icon);
+}
+.filled {
   color: var(--gold-background);
 }
-.full-height{
+.full-height {
   height: 100%;
 }
-.flex-wrap{
+.flex-wrap {
   flex-wrap: wrap;
 }
-.m-10{
+.m-10 {
   margin: 10px;
 }
-.g-20{
+.g-20 {
   gap: 20px;
 }
-.g-15{
+.g-15 {
   gap: 15px;
 }
-.g-50{
+.g-50 {
   gap: 50px;
+}
+.pointer{
+  cursor: pointer;
 }
 
 @media (max-width: 430px) {
@@ -368,7 +388,6 @@ p {
   color: var(--danger);
 }
 
-
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -395,7 +414,6 @@ p {
 .mat-mdc-select-panel {
   max-height: 304px;
 }
-
 
 .border-shadow {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,

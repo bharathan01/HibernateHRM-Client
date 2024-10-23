@@ -1,24 +1,17 @@
-<section class="flex full-width flex-col bg-nav">
+<section class="flex full-width flex-col bg-nav g-10">
   <h2>Add Questions</h2>
   <form [formGroup]="customQuestionFrom" class="full-width flex flex-col">
-    <div class="full-width">
+    <div class="full-width flex flex-col g-10">
       <label for="type">Choose the type of Question</label>
-      <input
-        type="text"
-        placeholder="Pick one"
-        aria-label="Number"
-        class="p-10 b-1 bg-light text-white full-width"
-        [matAutocomplete]="auto"
+      <select
+        class="full-width p-10 bg-light text-white"
         formControlName="questionType"
-        tabindex="-1"
-      />
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option value="singleLine">Single Line</mat-option>
-        <mat-option value="multipleLine">Multiple Line</mat-option>
-        <mat-option value="Yes/No">Yes/No</mat-option>
-        <mat-option value="file">File</mat-option>
-        <mat-option value="multipleChoose">Multiple Choose</mat-option>
-      </mat-autocomplete>
+      >
+        <option value="">select from here</option>
+        <option *ngFor="let type of questionTypeArray" [value]="type[0]">
+          {{ type[0] }}
+        </option>
+      </select>
       <div
         *ngIf="
           customQuestionFromControlles['questionType'].touched &&
@@ -32,7 +25,7 @@
         >
       </div>
     </div>
-    <div class="full-width">
+    <div class="full-width flex flex-col g-10">
       <label for="question">Question</label>
       <input
         type="text"
@@ -53,33 +46,47 @@
           >Question is required.</small
         >
       </div>
+      <div class="full-width flex justify-end">
+        <mat-checkbox class="example-margin" formControlName="mandatory">Mandatory</mat-checkbox>
+      </div>
     </div>
-    <div>
-      <label>Enter Options</label>
+    <div
+      formArrayName="options"
+      *ngIf="
+        customQuestionFrom.controls['questionType'].value === 'Multiple Choose'
+      "
+    >
+      <div class="flex full-width justify-sb">
+        <label>Enter Options</label>
+        <span class="text-gold addOpetions" (click)="addMulipleOptionField()">
+          Add Options
+        </span>
+      </div>
+
       <div class="flex g-10 flex-col">
         <div
           class="flex g-10"
           *ngFor="let option of options.controls; let i = index"
           [formGroupName]="i"
         >
-          <span>
+          <span class="full-width">
             <label for="option{{ i }}">Option {{ i + 1 }}:</label>
-            <input
-              formControlName="optionText"
-              type="text"
-              id="option{{ i }}"
-              placeholder="Enter option"
-              class="p-10 b-1 bg-light text-white full-width"
-            />
+            <span class="flex g-10 full-width">
+              <input
+                formControlName="optionText"
+                type="text"
+                id="option{{ i }}"
+                placeholder="Enter option"
+                class="p-10 b-1 bg-light text-white full-width"
+              />
+              <button
+                class="b-1 bg-none text-white p-5"
+                (click)="removeOption(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </span>
           </span>
-          <span class="b-1 bg-none text-white p-10" (click)="removeOption(i)">
-            close
-          </span>
-        </div>
-        <div class="flex full-width justify-end">
-          <button class="bg-gold flex flex-center p-10 b-1">
-            <mat-icon (click)="addMulipleOptionField()"> add </mat-icon>
-          </button>
         </div>
       </div>
     </div>

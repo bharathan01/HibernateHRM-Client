@@ -6,7 +6,6 @@ import { JobsComponent } from './jobs/jobs.component';
 import { ReportsComponent } from './reports/reports.component';
 import { InsterviewComponent } from './insterview/insterview.component';
 import { TalentPoolComponent } from './talent-pool/talent-pool.component';
-import { ManageHiringTeamComponent } from './manage-hiring-team/manage-hiring-team.component';
 import { AddCandidateManuallyComponent } from 'src/app/shared/components/add-candidate-manually/add-candidate-manually.component';
 import { ImportResumeComponent } from 'src/app/shared/components/import-resume/import-resume.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -34,10 +33,6 @@ const routes: Routes = [
       {
         path: 'jobs',
         component: JobsComponent,
-      },
-      {
-        path: 'jobs/hiringteam',
-        component: ManageHiringTeamComponent,
       },
       {
         path: 'jobs/add-candidate',

@@ -9,8 +9,7 @@ section {
 }
 p,
 ul {
-  font-size: var(--font-size-xxs);
-  opacity: 0.9;
+  font-size: var(--font-size-md);
 }
 ul {
   padding-left: 30px;

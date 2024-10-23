@@ -1,0 +1,55 @@
+<section class="bg-nav flex flex-col align-center">
+  <div class="full-width justify-start">
+    <h2>Manage Hiring Team</h2>
+  </div>
+  <div class="flex g-10 add-input align-end">
+    <span class="flex flex-col g-10 full-width">
+      <label for="member-name">Select Member</label>
+      <input
+        type="text"
+        placeholder="select menber name"
+        class="p-10 b-1 bg-light text-white full-width"
+        [matAutocomplete]="auto"
+        tabindex="-1"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option [value]="member.name" *ngFor="let member of teamMembers">
+          {{ member.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </span>
+    <button mat-raised-button class="bg-gold">Add Member</button>
+  </div>
+  <div class="add-input flex flex-col g-10">
+    <span>
+      <h3>Your Team</h3>
+    </span>
+    <div class="flex flex-col g-10 team-list">
+      <div class="flex justify-sb align-center">
+        <div class="flex g-10 align-center">
+          <div class="profileImg flex flex-center">J</div>
+          <div>
+            <h3>John Doe</h3>
+            <h5>johndoe@gmail.com</h5>
+          </div>
+        </div>
+        <div>
+          <h3>Supper Admin</h3>
+        </div>
+        <div>
+          <h3 class="text-gold pointer">Leave</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-width flex justify-end g-10">
+    <button
+      mat-raised-button
+      class="b-1 bg-none text-white"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+    <button mat-raised-button class="bg-gold" (click)="onSave()">Save</button>
+  </div>
+</section>

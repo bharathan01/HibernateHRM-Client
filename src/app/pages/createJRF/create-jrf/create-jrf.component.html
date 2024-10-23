@@ -2,66 +2,55 @@
 <section class="full-width p-10">
   <div class="full-width flex justify-ar bg-nav b-bottom-1">
     <div
+      *ngFor="let stage of applicationStages"
       class="flex g-10 p-10 justify-center jd-stage"
-      [ngClass]="{ complete: stateForTheTracker.aboutJob.active }"
+      [ngClass]="{ complete: stage.stageState.currentStage }"
     >
       <span>
         <span class="flex align-center jd-stage-name">
-          <h3>About Job</h3>
-          <mat-icon [ngClass]="{ check: stateForTheTracker.aboutJob.completed }"
+          <h3>{{ stage.stageName }}</h3>
+          <mat-icon [ngClass]="{ check: stage.stageState.completed }"
             >check_circle</mat-icon
           >
         </span>
-        <h5>Create your job description based</h5>
+        <h5>{{ stage.satgeDescription }}</h5>
       </span>
       <span class="flex align-center">
         <mat-icon>arrow_forward_ios</mat-icon>
       </span>
     </div>
-    <div
-      class="flex g-10 p-10 justify-center jd-stage"
-      [ngClass]="{ complete: stateForTheTracker.applicationForm.active }"
-    >
-      <span>
-        <span class="flex align-center jd-stage-name">
-          <h3>Application Form</h3>
-          <mat-icon [ngClass]="{ check: stateForTheTracker.applicationForm.completed }">check_circle</mat-icon>
-        </span>
-        <h5>
-          Customize job application base on job<br />
-          recruitment
-        </h5>
-      </span>
-      <span class="flex align-center">
-        <mat-icon >arrow_forward_ios</mat-icon>
-      </span>
-    </div>
-    <div
-      class="flex g-10 p-10 justify-center jd-stage"
-      [ngClass]="{ complete: stateForTheTracker.hiringStages.active }"
-    >
-      <span>
-        <span class="flex align-center jd-stage-name">
-          <h3>Hiring Flow</h3>
-          <mat-icon [ngClass]="{ check: stateForTheTracker.hiringStages.completed }">check_circle</mat-icon>
-        </span>
-        <h5>Configure your hiring pipeline flow</h5>
-      </span>
-    </div>
   </div>
   <div class="application-from full-width bg-nav">
-    <ng-container *ngIf="applicationStep == 'aboutForm'">
+    <ng-container
+      *ngIf="
+        applicationStages[currentStageIndex].stageName ==
+        applicationStages[0].stageName
+      "
+    >
       <app-appliation-form
-        (proceed)="moveApplicationStage('applicationForm')"
+        (proceed)="moveApplicationStage()"
       ></app-appliation-form>
     </ng-container>
-    <ng-container *ngIf="applicationStep == 'applicationForm'">
+    <ng-container
+      *ngIf="
+        applicationStages[currentStageIndex].stageName ==
+        applicationStages[1].stageName
+      "
+    >
       <app-create-appliation-form
-        (proceed)="moveApplicationStage('hiringStages')" 
+        (proceed)="moveApplicationStage()"
+        (previous)="previousApplicationStage()"
       ></app-create-appliation-form>
     </ng-container>
-    <ng-container *ngIf="applicationStep == 'hiringStages'">
-      <app-hiring-flow></app-hiring-flow>
+    <ng-container
+      *ngIf="
+        applicationStages[currentStageIndex].stageName ==
+        applicationStages[2].stageName
+      "
+    >
+      <app-hiring-flow
+        (previous)="previousApplicationStage()"
+      ></app-hiring-flow>
     </ng-container>
   </div>
 </section>

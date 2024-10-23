@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CandidateProfileComponent } from 'src/app/shared/components/dialog-boxs/candidate-profile/candidate-profile.component';
+import { CreateHiringTeamComponent } from 'src/app/shared/components/dialog-boxs/create-hiring-team/create-hiring-team.component';
 import {
   applicationFormDetails,
   singleApplicationData,
@@ -128,10 +129,6 @@ export class ApplicationStagesComponent implements OnInit {
   /*---------------------------------------------------------------------------------------------------------------------- */
 
   
-
-
-
-
   openCandidatefrom(applicationId: number) {
     this.dialog.open(CandidateProfileComponent, {
       data: applicationId,
@@ -155,5 +152,12 @@ export class ApplicationStagesComponent implements OnInit {
         event.currentIndex
       );
     }
+  }
+
+  addHiringTeam() {
+    this.dialog.open(CreateHiringTeamComponent, {
+      width: 'auto',
+      height: 'auto',
+    });
   }
 }

@@ -32,3 +32,7 @@ export interface settingsMenu {
   icon: string;
   route:string
 }
+export interface questionTypes {
+  typeName: string;
+  type: string;
+}

@@ -11,8 +11,6 @@ import { InsterviewComponent } from './insterview/insterview.component';
 import { ReportsComponent } from './reports/reports.component';
 import { TalentPoolComponent } from './talent-pool/talent-pool.component';
 import { CoreModule } from 'src/app/core/core.module';
-import { SearchPipe } from 'src/app/core/pipe/searchpipe/search.pipe';
-import { ManageHiringTeamComponent } from './manage-hiring-team/manage-hiring-team.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -30,7 +28,6 @@ import { MailsComponent } from './mails/mails.component';
     InsterviewComponent,
     ReportsComponent,
     TalentPoolComponent,
-    ManageHiringTeamComponent,
     RegistrationComponent,
     SettingsComponent,
     UsersControllesComponent,

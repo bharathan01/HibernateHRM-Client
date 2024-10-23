@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateQuestionComponent } from '../dialog-boxs/create-question/create-question.component';
 
@@ -8,35 +8,42 @@ import { CreateQuestionComponent } from '../dialog-boxs/create-question/create-q
   templateUrl: './create-appliation-form.component.html',
   styleUrls: ['./create-appliation-form.component.css'],
 })
-export class CreateAppliationFormComponent implements OnInit {
+export class CreateAppliationFormComponent {
   readonly panelOpenState = signal(false);
   @Output() proceed: EventEmitter<boolean> = new EventEmitter();
+  @Output() previous: EventEmitter<boolean> = new EventEmitter();
   jobQuestions = [
     {
       fieldName: 'Personal Info',
       questions: [
-        { question: 'Marital Status', selected: 'off' },
-        { question: 'Date Of Birth', selected: 'off' },
-        { question: 'Gender', selected: 'off' },
-        { question: 'Address', selected: 'off' },
-        { question: 'Photo', selected: 'off' },
+        {
+          question: 'Marital Status',
+          selected: 'off',
+          type: 'radio',
+          option: ['Single', 'Married'],
+        },
+        { question: 'Date Of Birth', selected: 'off', type: 'date' },
+        {
+          question: 'Gender',
+          selected: 'off',
+          type: 'radio',
+          option: ['Male', 'Female'],
+        },
+        { question: 'Address', selected: 'off', type: 'text' },
+        { question: 'Photo', selected: 'off', type: 'file' },
       ],
     },
     {
       fieldName: 'Background Info',
       questions: [
-        { question: 'workExperience', selected: 'off' },
-        { question: 'skills', selected: 'off' },
-        { question: 'educationalDetails', selected: 'off' },
-        { question: 'workLink', selected: 'off' },
-        { question: 'noticePeriod', selected: 'off' },
+        { question: 'workExperience', selected: 'off', type: 'text' },
+        { question: 'skills', selected: 'off', type: 'text' },
+        { question: 'educationalDetails', selected: 'off', type: 'text' },
+        { question: 'workLink', selected: 'off', type: 'text' },
+        { question: 'noticePeriod', selected: 'off', type: 'text' },
       ],
     },
   ];
-  constructor(private dialog: MatDialog) {}
-
-  ngOnInit(): void {}
-
   applicationRequiredQuestion: any = {
     personalInfo: [
       {
@@ -64,26 +71,9 @@ export class CreateAppliationFormComponent implements OnInit {
         type: 'file',
         required: true,
       },
-      {
-        fieldName: 'Marital Status',
-        type: 'option',
-        required: true,
-        options: ['Single', 'Married'],
-      },
     ],
   };
-
-  createNewQuestion() {
-    const dialogRef = this.dialog.open(CreateQuestionComponent, {
-      width: 'auto',
-      height: 'auto',
-    });
-    dialogRef.afterClosed().subscribe((formData: any) => {
-      if (formData) {
-        console.log(formData);
-      }
-    });
-  }
+  constructor(private dialog: MatDialog) {}
 
   //funtion for check the question already present
   isQuestionPresent(option: any) {
@@ -105,15 +95,24 @@ export class CreateAppliationFormComponent implements OnInit {
       this.addNewFormField(option, selectedOption);
     }
   }
-  //add new custom questions
-  addNewQutions(questionDetails: FormData) {}
-
+  // Function to find the question object
+  findQuestion(questionName: string) {
+    for (const field of this.jobQuestions) {
+      const question = field.questions.find((q) => q.question === questionName);
+      if (question) {
+        return question; // Returns the found question object
+      }
+    }
+    return null;
+  }
   // Function to add a new form field
   addNewFormField(option: any, selectedOption: string, type: string = 'text') {
     const isPresentIndex = this.isQuestionPresent(option);
+    const selectedfield = this.findQuestion(option.question);
     const field = {
-      fieldName: option.question,
-      type: type,
+      fieldName: selectedfield?.question,
+      type: selectedfield?.type,
+      options: selectedfield?.option,
       required: selectedOption === 'mandatory',
     };
     if (
@@ -129,7 +128,39 @@ export class CreateAppliationFormComponent implements OnInit {
       this.applicationRequiredQuestion.personalInfo.push(field);
     }
   }
+  //add new custom questions
+  addNewCustomQutions(questionDetails: any) {
+    const isQuestionPresent = this.isQuestionPresent(questionDetails);
+    if (isQuestionPresent !== -1) {
+      alert('Question is already added');
+    } else {
+      //create new input field
+      const field = {
+        fieldName: questionDetails.question,
+        type: questionDetails.questionType,
+        options: questionDetails.options.map((item: any) => item.optionText),
+        required: questionDetails.mandatory ? questionDetails.mandatory : false,
+      };
+      console.log(field);
+      this.applicationRequiredQuestion.personalInfo.push(field);
+    }
+  }
+
+  createNewQuestion() {
+    const dialogRef = this.dialog.open(CreateQuestionComponent, {
+      width: 'auto',
+      height: 'auto',
+    });
+    dialogRef.afterClosed().subscribe((formData: any) => {
+      if (formData) {
+        this.addNewCustomQutions(formData);
+      }
+    });
+  }
   proceedToNextPage() {
     this.proceed.emit(true);
+  }
+  previousPage() {
+    this.previous.emit(true)
   }
 }

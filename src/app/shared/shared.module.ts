@@ -26,7 +26,6 @@ import { AddCandidateManuallyComponent } from './components/add-candidate-manual
 import { DragAndDropDirective } from '../core/directive/dragNDrop/drag-and-drop.directive';
 import { ImportResumeComponent } from './components/import-resume/import-resume.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
-import { ApplicationTableComponent } from './components/application-table/application-table.component';
 import { InviteMembersComponent } from './components/dialog-boxs/invite-members/invite-members.component';
 import { TalentPoolTableComponent } from './components/talent-pool-table/talent-pool-table.component';
 import { ScheduleInterviewComponent } from './components/dialog-boxs/schedule-interview/schedule-interview.component';
@@ -53,6 +52,7 @@ import { NotificationSettingsComponent } from './components/settingsComponents/n
 import { TemplateSettingsComponent } from './components/settingsComponents/template-settings/template-settings.component';
 import { CompanySettingsComponent } from './components/settingsComponents/company-settings/company-settings.component';
 import { ManageEmailTemplateComponent } from './components/dialog-boxs/manage-email-template/manage-email-template.component';
+import { CreateHiringTeamComponent } from './components/dialog-boxs/create-hiring-team/create-hiring-team.component';
 
 const components = [
   AsideNavBarComponent,
@@ -67,8 +67,7 @@ const components = [
   MultipleJobBoardsComponent,
   AddCandidateManuallyComponent,
   ImportResumeComponent,
-  FileUploaderComponent,
-  ApplicationTableComponent,
+  FileUploaderComponent,  
   TalentPoolTableComponent,
   ScheduleInterviewComponent,
   FeedbackFormComponent,
@@ -90,6 +89,7 @@ const components = [
   TemplateSettingsComponent,
   CompanySettingsComponent,
   ManageEmailTemplateComponent,
+  CreateHiringTeamComponent,
 ];
 
 @NgModule({

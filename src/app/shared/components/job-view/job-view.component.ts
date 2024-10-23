@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ShareJobDialogComponent } from '../dialog-boxs/share-job-dialog/share-job-dialog.component';
 import { JobApplicationDialogBoxComponent } from '../job-application-dialog-box/job-application-dialog-box.component';
 import { Router } from '@angular/router';
+import { CreateHiringTeamComponent } from '../dialog-boxs/create-hiring-team/create-hiring-team.component';
 
 @Component({
   selector: 'app-job-view',
@@ -13,8 +14,12 @@ import { Router } from '@angular/router';
 export class JobViewComponent {
   @Input() job!: Job;
   isOpenMoreMenu: boolean = false;
-  constructor(private dialog: MatDialog, private eRef: ElementRef,private router:Router) {}
- 
+  constructor(
+    private dialog: MatDialog,
+    private eRef: ElementRef,
+    private router: Router
+  ) {}
+
   /*@@ close the menu when clicks outside */
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
@@ -25,7 +30,6 @@ export class JobViewComponent {
   onMenuClick(event: Event) {
     event.stopPropagation();
   }
-
 
   toggleJobApplicationView() {
     this.dialog.open(JobApplicationDialogBoxComponent, {
@@ -41,7 +45,13 @@ export class JobViewComponent {
       height: 'auto',
     });
   }
-  openApplicationView(){
-    this.router.navigateByUrl(`/dashboard/application-stage/${this.job?.id}`)
+  openApplicationView() {
+    this.router.navigateByUrl(`/dashboard/application-stage/${this.job?.id}`);
+  }
+  addHiringTeam() {
+    this.dialog.open(CreateHiringTeamComponent, {
+      width: 'auto',
+      height: 'auto',
+    });
   }
 }

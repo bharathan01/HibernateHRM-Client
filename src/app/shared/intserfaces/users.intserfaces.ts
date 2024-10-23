@@ -90,3 +90,8 @@ export interface UsersInfo {
   emailId: string;
   profileImage: string; 
 }
+export interface Option {
+  name?: string;
+  role?: string;
+  profileImage?: string;
+}

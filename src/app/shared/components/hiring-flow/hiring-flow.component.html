@@ -1,8 +1,17 @@
 <section class="p-10 flex align-center flex-col">
   <div class="stage-container">
-    <div>
-      <h2>Product Manager</h2>
-      <p>Setup Your hiring flow base on your Job descriptions</p>
+    <div class="flex justify-sb">
+      <span>
+        <h2>Product Manager</h2>
+        <p>Setup Your hiring flow base on your Job descriptions</p>
+      </span>
+      <button
+        mat-raised-button
+        class="b-1 bg-none text-white"
+        (click)="openHirngTeamPage()"
+      >
+        Invite Team
+      </button>
     </div>
     <div class="flex full-width g-10 stages">
       <ng-container *ngFor="let stage of stages; let i = index">
@@ -18,16 +27,28 @@
                 <span></span>
               </div>
             </div>
-        </ng-container>
+          </ng-container>
         </div>
         <div class="add-new-stage" *ngIf="i != stages.length">
-            <mat-icon (click)="addNewStage(i)">add_circle</mat-icon>
+          <mat-icon (click)="addNewStage(i)">add_circle</mat-icon>
         </div>
       </ng-container>
     </div>
     <div class="full-width flex justify-end g-10">
-        <button mat-raised-button class="bg-none b-1 text-white">Back</button>
-       <button mat-raised-button class="bg-gold">Publish</button>
+      <button
+        mat-raised-button
+        class="bg-none b-1 text-white"
+        (click)="backToPreviousPage()"
+      >
+        Back
+      </button>
+      <button
+        mat-raised-button
+        class="bg-gold"
+        (click)="onFinishJobAppliaction()"
+      >
+        Finish
+      </button>
     </div>
   </div>
 </section>

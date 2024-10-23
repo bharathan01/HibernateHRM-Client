@@ -1,4 +1,4 @@
-<section class="flex flex-col p-10 full-width">
+<section class="flex flex-col p-10 full-width g-10">
   <div class="application-container flex justify-center">
     <div class="full-width flex g-10 flex-col">
       <h2>Suggested Fields</h2>
@@ -224,17 +224,24 @@
               </label>
               <mat-radio-group
                 aria-label="Select an option"
-                *ngIf="input.type === 'option'"
+                *ngIf="input?.type === 'radio'"
               >
-                <mat-radio-button value="1">Single</mat-radio-button>
-                <mat-radio-button value="2">Married</mat-radio-button>
+                <mat-radio-button
+                  [value]="option"
+                  *ngFor="let option of input?.options"
+                  >{{ option }}</mat-radio-button
+                >
               </mat-radio-group>
               <input
-                *ngIf="input.type == 'text' || input.type == 'file'"
+                *ngIf="
+                  input.type == 'text' ||
+                  input.type == 'file' ||
+                  input.type == 'date'
+                "
                 [type]="input.type"
                 [id]="input.fieldName"
                 [placeholder]="input.fieldName"
-                class="p-10 b-1 bg-light"
+                class="p-10 b-1 bg-light text-white"
               />
             </div>
           </ng-container>
@@ -243,7 +250,7 @@
     </div>
   </div>
   <div class="flex full-width justify-end g-10">
-    <button mat-raised-button class="bg-none b-1 text-white">Cancel</button>
+    <button mat-raised-button class="bg-none b-1 text-white" (click)="previousPage()">Back</button>
     <button mat-raised-button class="bg-gold" (click)="proceedToNextPage()">
       Next
     </button>
