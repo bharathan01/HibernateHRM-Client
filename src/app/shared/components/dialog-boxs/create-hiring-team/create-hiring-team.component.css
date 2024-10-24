@@ -1,6 +1,5 @@
 section{
     width: 50vw;
-    height: 80vh;
     padding: 20px;
     gap: 20px;
 }
@@ -20,4 +19,29 @@ section{
 }
 .team-list::-webkit-scrollbar{
     display: none;
+}
+@media(max-width:950px){
+    section{
+        width: 78vw;
+    }
+    .add-input{
+        width: 100%;
+    }
+}
+@media(max-width:500px){
+    .add-input{
+        flex-direction: column;
+    }
+    .access-type{
+        flex-direction: column;
+        align-items: end;
+        font-size: 14px;
+    }
+    h3{
+        font-size:var(--font-size-xxs);
+    }
+    .profileImg{
+        width: 30px;
+        height: 30px;
+    }
 }

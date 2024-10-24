@@ -6,7 +6,6 @@ import { DashboardComponent } from './dashboard.component';
 import { OverviewComponent } from './overview/overview.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { MaterialModule } from 'src/app/material/material.module';
-import { ApplicationsComponent } from './applications/applications.component';
 import { InsterviewComponent } from './insterview/insterview.component';
 import { ReportsComponent } from './reports/reports.component';
 import { TalentPoolComponent } from './talent-pool/talent-pool.component';
@@ -24,7 +23,6 @@ import { MailsComponent } from './mails/mails.component';
     DashboardComponent,
     OverviewComponent,
     JobsComponent,
-    ApplicationsComponent,
     InsterviewComponent,
     ReportsComponent,
     TalentPoolComponent,

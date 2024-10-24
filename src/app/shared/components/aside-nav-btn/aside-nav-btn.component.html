@@ -1,12 +1,16 @@
-<a *ngIf="buttonAction.route !== '/logout'; else logoutAction" 
-   [routerLink]="['/' + buttonAction.route]"  
-   routerLinkActive="active" 
-   [routerLinkActiveOptions]="{ exact: false }">
+<a
+  *ngIf="buttonAction.route !== '/logout'; else logoutAction"
+  [routerLink]="['/' + buttonAction.route]"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{
+    exact: buttonAction.route === 'dashboard'
+  }"
+>
   <button mat-raised-button class="menu-bar-btn">
     <mat-icon
       aria-hidden="false"
       aria-label="Example home icon"
-      fontIcon="{{buttonAction.logo}}"
+      fontIcon="{{ buttonAction.logo }}"
     ></mat-icon>
     {{ buttonAction.label }}
   </button>
@@ -17,7 +21,7 @@
     <mat-icon
       aria-hidden="false"
       aria-label="Example home icon"
-      fontIcon="{{buttonAction.logo}}"
+      fontIcon="{{ buttonAction.logo }}"
     ></mat-icon>
     {{ buttonAction.label }}
   </button>

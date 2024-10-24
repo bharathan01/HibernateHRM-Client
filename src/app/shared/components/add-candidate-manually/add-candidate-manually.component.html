@@ -1,203 +1,238 @@
-<section class="add-candidate-container">
-  <div class="add-candidate-heading">
+<section
+  class="add-candidate-container full-width flex flex-col align-center bg-nav"
+>
+  <div class="full-width flex justify-center">
     <h3>Candidates Appliation From</h3>
   </div>
-  <div class="add-candidate-title">
+  <div class="flex justify-start align-center full-width">
     <h3>SoftWare Engerneer</h3>
   </div>
-  <div class="add-candidate-form">
+  <div class=" flex flex-col g-10 full-width">
     <span>Personal Informations</span>
     <div>
-      <form [formGroup]="candidateDetailsForm">
-        <div class="candidates-form">
-          <div class="candidates-form-left">
-            <div class="candidates-form-input">
-              <span>First Name</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="firstName" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['firstName'].touched &&
-                    candidateFormControllers['firstName'].invalid
-                  "
+      <form [formGroup]="candidateDetailsForm" class="flex flex-col g-10">  
+        <div class="candidates-form flex full-width">
+          <div class="full-width flex flex-col g-10">
+            <div class="flex flex-col g-10">
+              <label for="firstName">First Name</label>
+              <input
+                formControlName="firstName"
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter first name"
+                id="firstName"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['firstName'].touched &&
+                  candidateFormControllers['firstName'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['firstName'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
                 >
-                  <small
-                    *ngIf="candidateFormControllers['firstName'].errors?.['required']"
-                    class="error-text"
-                    >First Name is required.</small
-                  >
-                </div>
-              </mat-form-field>
+              </div>
             </div>
-            <div class="candidates-form-input">
-              <span>Email</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="email" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['email'].touched &&
-                    candidateFormControllers['email'].invalid
-                  "
+            <div class="flex flex-col g-10">
+              <label for="email">Email</label>
+              <input
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter email"
+                id="email"
+                formControlName="email"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['email'].touched &&
+                  candidateFormControllers['email'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['email'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
                 >
-                  <small
-                    *ngIf="candidateFormControllers['email'].errors?.['required']"
-                    class="error-text"
-                    >Email Id is required.</small
-                  >
-                  <small
-                    *ngIf="candidateFormControllers['email']?.errors?.['email']"
-                    class="error-text"
-                    >Enter a valid email Id</small
-                  >
-                </div>
-              </mat-form-field>
+                <small
+                  *ngIf="candidateFormControllers['email']?.errors?.['email']"
+                  class="error-text"
+                  >Enter a valid email Id</small
+                >
+              </div>
             </div>
-            <div class="candidates-form-input">
-              <span>Experience(in years)</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="experience" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['experience'].touched &&
-                    candidateFormControllers['experience'].invalid
-                  "
+            <div class="flex flex-col g-10">
+              <label for="experience">Experience(in years)</label>
+              <input
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter experience"
+                id="experience"
+                formControlName="experience"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['experience'].touched &&
+                  candidateFormControllers['experience'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['experience'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
                 >
-                  <small
-                    *ngIf="candidateFormControllers['experience'].errors?.['required']"
-                    class="error-text"
-                    >Experience is required.</small
-                  >
-                </div>
-              </mat-form-field>
+              </div>
             </div>
-            <div class="candidates-form-input">
-              <span>Current CTC</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="currentCTC" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['currentCTC'].touched &&
-                    candidateFormControllers['currentCTC'].invalid
-                  "
+            <div class="flex flex-col g-10">
+              <label for="currentCTC">Current CTC</label>
+              <input
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter current CTC"
+                id="currentCTC"
+                formControlName="currentCTC"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['currentCTC'].touched &&
+                  candidateFormControllers['currentCTC'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['currentCTC'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
                 >
-                  <small
-                    *ngIf="candidateFormControllers['currentCTC'].errors?.['required']"
-                    class="error-text"
-                    >currentCTC is required.</small
-                  >
-                </div>
-              </mat-form-field>
+              </div>
             </div>
-            <div class="candidates-form-input">
-              <span>Educational Qualification</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="educationalQulification" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['educationalQulification']
-                      .touched &&
-                    candidateFormControllers['educationalQulification'].invalid
-                  "
+            <div class="flex flex-col g-10">
+              <label>Educational Qualification</label>
+
+              <input
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter first name"
+                id="firstName"
+                formControlName="educationalQulification"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['educationalQulification'].touched &&
+                  candidateFormControllers['educationalQulification'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['educationalQulification'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
                 >
-                  <small
-                    *ngIf="candidateFormControllers['educationalQulification'].errors?.['required']"
-                    class="error-text"
-                    >Qualification is required.</small
-                  >
-                </div>
-              </mat-form-field>
+              </div>
             </div>
           </div>
-          <div class="candidates-form-right">
-            <div class="candidates-form-input">
-              <span>Last Name</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="lastName" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['lastName'].touched &&
-                    candidateFormControllers['lastName'].invalid
-                  "
+          <div class="full-width flex flex-col g-10">
+            <div class="flex flex-col g-10">
+              <label>Last Name</label>
+
+              <input
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter first name"
+                id="firstName"
+                formControlName="lastName"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['lastName'].touched &&
+                  candidateFormControllers['lastName'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['lastName'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
                 >
-                  <small
-                    *ngIf="candidateFormControllers['lastName'].errors?.['required']"
-                    class="error-text"
-                    >Last Name is required.</small
-                  >
-                </div>
-              </mat-form-field>
-            </div>
-            <div class="candidates-form-input">
-              <span>Contact Number</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="contactNumber" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['contactNumber'].touched &&
-                    candidateFormControllers['contactNumber'].invalid
-                  "
-                >
-                  <small
-                    *ngIf="candidateFormControllers['contactNumber'].errors?.['required']"
-                    class="error-text"
-                    >Contact Number is required.</small
-                  >
-                </div>
-              </mat-form-field>
-            </div>
-            <div class="candidates-form-input">
-              <span>Notice Period(in days)</span>
-              <mat-form-field color="accent">
-                <input matInput formControlName="noticePeriod" />
-                <div
-                  *ngIf="
-                    candidateFormControllers['noticePeriod'].touched &&
-                    candidateFormControllers['noticePeriod'].invalid
-                  "
-                >
-                  <small
-                    *ngIf="candidateFormControllers['noticePeriod'].errors?.['required']"
-                    class="error-text"
-                    >Notice Period is required.</small
-                  >
-                </div>
-              </mat-form-field>
-            </div>
-            <div class="candidates-form-input candidates-form-input-flex">
-              <div class="candidates-form-ctc">
-                <span>Expected CTC</span>
-                <mat-form-field color="accent">
-                  <input matInput formControlName="ExpectedCTCFrom" />
-                  <div
-                    *ngIf="
-                      candidateFormControllers['ExpectedCTCFrom'].touched &&
-                      candidateFormControllers['ExpectedCTCFrom'].invalid
-                    "
-                  >
-                    <small
-                      *ngIf="candidateFormControllers['ExpectedCTCFrom'].errors?.['required']"
-                      class="error-text"
-                      >Expected CTC is required.</small
-                    >
-                  </div>
-                </mat-form-field>
               </div>
-              <div class="candidates-form-ctc">
-                <mat-form-field color="accent">
-                  <input matInput formControlName="ExpectedCTCTo" />
-                  <div
-                    *ngIf="
-                      candidateFormControllers['ExpectedCTCTo'].touched &&
-                      candidateFormControllers['ExpectedCTCTo'].invalid
-                    "
+            </div>
+            <div class="flex flex-col g-10">
+              <label for="contactNumber">Contact Number</label>
+
+              <input
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter contact number"
+                id="contactNumber"
+                formControlName="contactNumber"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['contactNumber'].touched &&
+                  candidateFormControllers['contactNumber'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['contactNumber'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
+                >
+              </div>
+            </div>
+            <div class="flex flex-col g-10">
+              <label for="notice">Notice Period(in days)</label>
+              <input
+                class="b-1 bg-light text-white p-10"
+                placeholder="enter notice period"
+                id="notice"
+                formControlName="noticePeriod"
+              />
+              <div
+                *ngIf="
+                  candidateFormControllers['noticePeriod'].touched &&
+                  candidateFormControllers['noticePeriod'].invalid
+                "
+              >
+                <small
+                  *ngIf="candidateFormControllers['noticePeriod'].errors?.['required']"
+                  class="error-text"
+                  >required.</small
+                >
+              </div>
+            </div>
+            <div class="flex flex-col g-10 candidates-form-input-flex">
+              <div class="flex flex-col full-width g-10">
+                <label for="Expected CTC">Expected CTC</label>
+
+                <input
+                  class="b-1 bg-light text-white p-10"
+                  placeholder="enter expected CTC"
+                  id="Expected CTC"
+                  formControlName="ExpectedCTCFrom"
+                />
+                <div
+                  *ngIf="
+                    candidateFormControllers['ExpectedCTCFrom'].touched &&
+                    candidateFormControllers['ExpectedCTCFrom'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="candidateFormControllers['ExpectedCTCFrom'].errors?.['required']"
+                    class="error-text"
+                    >required.</small
                   >
-                    <small
-                      *ngIf="candidateFormControllers['ExpectedCTCTo'].errors?.['required']"
-                      class="error-text"
-                      >Expected CTC is required.</small
-                    >
-                  </div>
-                </mat-form-field>
+                </div>
+              </div>
+              <div class="flex flex-col full-width g-10">
+                <input
+                  class="b-1 bg-light text-white p-10"
+                  placeholder="enter first name"
+                  id="firstName"
+                  formControlName="ExpectedCTCTo"
+                />
+                <div
+                  *ngIf="
+                    candidateFormControllers['ExpectedCTCTo'].touched &&
+                    candidateFormControllers['ExpectedCTCTo'].invalid
+                  "
+                >
+                  <small
+                    *ngIf="candidateFormControllers['ExpectedCTCTo'].errors?.['required']"
+                    class="error-text"
+                    >required.</small
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -205,8 +240,8 @@
         <app-file-uploader></app-file-uploader>
       </form>
     </div>
-    <div class="form-submit-btn">
-      <button mat-raised-button (click)="addCandidte()">
+    <div class="flex justify-end">
+      <button mat-raised-button class="bg-gold" (click)="addCandidte()">
         Add to Appliations
       </button>
     </div>

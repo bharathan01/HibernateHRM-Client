@@ -9,6 +9,7 @@ import { Option } from 'src/app/shared/intserfaces/users.intserfaces';
 })
 export class CreateHiringTeamComponent {
   constructor(public dialogRef: MatDialogRef<CreateHiringTeamComponent>) {}
+  filterTeamNames: any;
   teamMembers: Option[] = [
     { name: 'Arun Ajayakumar' },
     { name: 'Amrutha Thulasi' },
@@ -17,6 +18,17 @@ export class CreateHiringTeamComponent {
     { name: 'Mereena' },
     { name: 'Sujodh' },
   ];
+  onInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value.toLowerCase();
+    this.filterTheUserInput(inputValue)
+  }
+
+  filterTheUserInput(inputValue: string) {
+    this.filterTeamNames = this.teamMembers.filter((member: any) => {
+      return member.name.toLowerCase().includes(inputValue);
+    });
+  }
+
   onCancel() {
     this.dialogRef.close();
   }

@@ -246,7 +246,7 @@
           >Hide Salary Details From Candidate</label
         >
       </div>
-      <div class="flex g-10">
+      <div class="flex g-10 input-column">
         <div class="form-fields flex flex-col full-width">
           <span class="flex">
             <label for="emp-type">skills</label>
@@ -273,7 +273,7 @@
               *ngFor="let skillCtrl of skillsControls; let i = index"
             >
               <span
-                class="p-10 b-1 border-radius flex bg-light align-center g-10"
+                class=" b-1 border-radius flex bg-light align-center g-10"
                 >{{ skillCtrl.value }}
                 <mat-icon (click)="removeSkill(i)">cancel</mat-icon></span
               >

@@ -1,4 +1,4 @@
-<section class="flex dashboard-section">
+<!-- <section class="flex dashboard-section">
   <aside class="aside-nav-bar">
     <app-aside-nav-bar></app-aside-nav-bar>
   </aside>
@@ -7,6 +7,19 @@
       <app-header></app-header>
     </div>
     <div class="main full-width">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section> -->
+<section class="flex flex-col full-width dashboard-section">
+  <header class="">
+     <app-header-nav-bar></app-header-nav-bar>
+  </header>
+  <div class="main-container p-10">
+    <div class="header full-width">
+      <!-- <app-header></app-header> -->
+    </div>
+    <div class="main full-width ">
       <router-outlet></router-outlet>
     </div>
   </div>

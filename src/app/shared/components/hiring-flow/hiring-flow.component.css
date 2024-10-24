@@ -86,4 +86,7 @@ p {
   .stage-container{
     width: 90%;
   }
+  .title-direction{
+    flex-direction:column ;
+  }
 }

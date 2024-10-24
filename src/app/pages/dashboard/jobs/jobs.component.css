@@ -1,10 +1,12 @@
 .job-container {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 82vh;
+  height: 86vh;
   overflow: auto;
+}
+.filter-bar{
+  width: 200px;
+  min-width: 250px;
 }
 .job-c-overview {
   width: 100%;

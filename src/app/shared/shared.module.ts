@@ -8,7 +8,6 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { SingleNotificationComponent } from './components/single-notification/single-notification.component';
 import { StatusBarComponent } from './components/status-bar/status-bar.component';
-import { CandidatesChatComponent } from './components/candidates-chat/candidates-chat.component';
 import { UpcomingInterviewsTableComponent } from './components/upcoming-interviews-table/upcoming-interviews-table.component';
 import { JobViewComponent } from './components/job-view/job-view.component';
 
@@ -53,6 +52,8 @@ import { TemplateSettingsComponent } from './components/settingsComponents/templ
 import { CompanySettingsComponent } from './components/settingsComponents/company-settings/company-settings.component';
 import { ManageEmailTemplateComponent } from './components/dialog-boxs/manage-email-template/manage-email-template.component';
 import { CreateHiringTeamComponent } from './components/dialog-boxs/create-hiring-team/create-hiring-team.component';
+import { CandidatesChatComponent } from './components/candidates-chat/candidates-chat.component';
+import { HeaderNavBarComponent } from './components/header-nav-bar/header-nav-bar.component';
 
 const components = [
   AsideNavBarComponent,
@@ -67,7 +68,7 @@ const components = [
   MultipleJobBoardsComponent,
   AddCandidateManuallyComponent,
   ImportResumeComponent,
-  FileUploaderComponent,  
+  FileUploaderComponent,
   TalentPoolTableComponent,
   ScheduleInterviewComponent,
   FeedbackFormComponent,
@@ -90,6 +91,7 @@ const components = [
   CompanySettingsComponent,
   ManageEmailTemplateComponent,
   CreateHiringTeamComponent,
+  HeaderNavBarComponent,
 ];
 
 @NgModule({
@@ -105,6 +107,7 @@ const components = [
     LogoutComponent,
     SendMailComponent,
     MailListComponent,
+    
   ],
   imports: [
     CommonModule,

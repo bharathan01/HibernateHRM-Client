@@ -3,37 +3,30 @@
 }
 
 .chart-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   padding: 20px;
-  height: 100%;
   position: relative;
 }
-.chart-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.chart-content {
-  height: 100%;
-  display: flex;
-  align-items: center;
+canvas{
+  width: 700px !important;
+  height: 300px !important;
+  overflow: auto;
 }
 .chart-dropdown{
-  background-color: var(--light-background);
-  padding: 10px 10px;
   border-radius: 20px;
   text-align: center;
-  font-size: 1rem;
-  color: var(--bg-white);
+  font-size: var(--font-size-md);
 }
 option:hover{
   background-color: red;
 }
-@media(max-width:430px){
+@media(max-width:450px){
   .chart-dropdown{
     padding: 5px;
     font-size: var(--font-size-xs);
   }
+  .canvas-container{
+    width: 100%;
+    overflow: auto;
+  }
+
 }

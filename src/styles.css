@@ -265,6 +265,9 @@ p {
 .border-radius {
   border-radius: 7px;
 }
+.border-50{
+  border-radius: 50%;
+}
 .p-10 {
   padding: 10px;
 }

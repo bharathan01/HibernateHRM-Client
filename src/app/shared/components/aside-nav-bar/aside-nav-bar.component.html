@@ -1,29 +1,29 @@
 <section class="aside-container flex">
   <mat-drawer-container class="example-container drawer-container" autosize>
-    <mat-drawer #drawer class="example-sidenav drawer-mat" mode="side">
-      <div class="manu-list-container">
-        <div class="profile-container">
+    <mat-drawer #drawer class="example-sidenav bg-nav" mode="side">
+      <div class="flex flex-col justify-center p-10">
+        <div class="profile-container flex flex-col align-center g-10 p-10">
           <div>
             <img src="../../../../assets/images/Genrobotics.png" alt="log" />
           </div>
-          <div class="user-info">
+          <div class="flex align-center g-10">
             <div class="avathar">
               <img src="../../../../assets/images/avathar.jpg" alt="avatar" />
             </div>
-            <div class="username">
+            <div class="text-white">
               <h3>Vikram</h3>
               <span>Admin</span>
             </div>
           </div>
         </div>
         <mat-divider class="mat-divider"></mat-divider>
-        <div class="menu-bar">
-          <div class="menu-bar-btn-container">
+        <div class="menu-bar flex flex-col justify-sb g-10">
+          <div class="flex flex-col g-10">
             <ng-container *ngFor="let item of menuItemsTop">
               <app-aside-nav-btn [buttonAction]="item"></app-aside-nav-btn>
             </ng-container>
           </div>
-          <div class="menu-bar-btn-container">
+          <div class="flex flex-col g-10">
             <ng-container *ngFor="let item of menuItemsBottom">
               <app-aside-nav-btn [buttonAction]="item"></app-aside-nav-btn>
             </ng-container>
