@@ -19,10 +19,16 @@
         <a>
           <button (click)="addHiringTeam()">Add hiring team</button>
         </a>
-        <a routerLink="/dashboard/report"  [queryParams]="{ job: job.title }" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a
+          routerLink="/dashboard/report"
+          [queryParams]="{ job: job.title }"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <button>View Report</button>
         </a>
-        <button>Close job</button>
+        <button (click)="openPublishJob($event)">Publish Job</button>
+        <button (click)="onCloseJob($event)">Close job</button>
       </div>
     </ng-container>
   </div>

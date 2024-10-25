@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CreateHiringTeamComponent } from '../dialog-boxs/create-hiring-team/create-hiring-team.component';
+import { MultipleJobBoardsComponent } from '../dialog-boxs/multiple-job-boards/multiple-job-boards.component';
 
 @Component({
   selector: 'app-hiring-flow',
@@ -23,7 +24,11 @@ export class HiringFlowComponent {
     this.previous.emit(true);
   }
   onFinishJobAppliaction() {
-    this.router.navigateByUrl('dashboard/jobs');
+    this.dialog.open(MultipleJobBoardsComponent, {
+      width: 'auto',
+      height: 'auto',
+    });
+    // this.router.navigateByUrl('dashboard/jobs');
   }
   openHirngTeamPage() {
     this.dialog.open(CreateHiringTeamComponent, {

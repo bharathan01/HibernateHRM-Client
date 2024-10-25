@@ -54,6 +54,7 @@ import { ManageEmailTemplateComponent } from './components/dialog-boxs/manage-em
 import { CreateHiringTeamComponent } from './components/dialog-boxs/create-hiring-team/create-hiring-team.component';
 import { CandidatesChatComponent } from './components/candidates-chat/candidates-chat.component';
 import { HeaderNavBarComponent } from './components/header-nav-bar/header-nav-bar.component';
+import { ToastComponent } from './components/dialog-boxs/toast/toast.component';
 
 const components = [
   AsideNavBarComponent,
@@ -92,6 +93,7 @@ const components = [
   ManageEmailTemplateComponent,
   CreateHiringTeamComponent,
   HeaderNavBarComponent,
+  ToastComponent,
 ];
 
 @NgModule({
@@ -107,7 +109,6 @@ const components = [
     LogoutComponent,
     SendMailComponent,
     MailListComponent,
-    
   ],
   imports: [
     CommonModule,

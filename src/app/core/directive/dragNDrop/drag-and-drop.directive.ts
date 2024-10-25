@@ -1,12 +1,11 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
-import { DomSanitizer, } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { FileHandle } from 'src/app/shared/intserfaces/layout.interfaces';
 
 @Directive({
   selector: '[appDragAndDrop]',
 })
 export class DragAndDropDirective {
-  
   constructor(private sanitizer: DomSanitizer) {}
   @Output() selectedFiles: EventEmitter<FileHandle[]> = new EventEmitter();
   @HostListener('dragover', ['$event']) public onDragOver(evt: DragEvent) {
@@ -26,12 +25,11 @@ export class DragAndDropDirective {
       return;
     }
 
-    let files: FileHandle[] = [];
+    let files: any[] = [];
 
     for (let i = 0; i < evt.dataTransfer.files.length; i++) {
       const file = evt.dataTransfer.files[i];
-      const url = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file));
-      files.push({ file, url });
+      files.push(file);
     }
 
     if (files.length > 0) {

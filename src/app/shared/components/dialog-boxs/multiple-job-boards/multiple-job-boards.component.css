@@ -1,20 +1,6 @@
-:host {
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-navbar);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .publish-job {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--bg-white);
-  padding: 20px;
-  width: 100%;
-  gap: 20px;
+  width: 50vw;
+  height: 100%;
 }
 
 .publish-job ul {
@@ -24,16 +10,48 @@
   list-style: none;
   gap: 20px;
 }
-.publish-job ul li {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: var(--light-background);
-  border-radius: 12px;
+
+table tr td {
+  padding: 10px;
 }
-.publish-job button{
-    width: 100%;
-    height: 50px;
-    background: var( --backgound-gradient);
+.scrollable-tbody {
+  height: 400px;
+}
+.scrollable-tbody tbody {
+  height: 400px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+}
+.scrollable-tbody tbody::-webkit-scrollbar{
+  display: none;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.scrollable-tbody table {
+  border-collapse: collapse;
+}
+
+@media(max-width:800px){
+  .publish-job{
+    width: 80vw;
+    overflow: auto;
+  }
+  .scrollable-tbody tbody {
+    height: 300px;
+    min-width: 400px;
+  }
 }

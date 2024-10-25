@@ -27,7 +27,7 @@ export interface Job {
   totalApplication: number;
   newApplication: number;
   activeApplication: number;
-  status: 'new' | 'closed';
+  status: 'new' | 'closed' |'published';
   responsibilities: string[];
   skills: string[];
   qualification: string;

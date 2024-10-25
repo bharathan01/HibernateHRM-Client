@@ -1,10 +1,10 @@
-<section class="file-uploader">
+<section class="full-width flex flex-col justify-center align-center g-10">
   <div class="candidates-form-file">
     <div
       class="filed-drop-zone"
       appDragAndDrop
       (selectedFiles)="selectedFile($event)"
-      (click)="openFile()"
+      (click)="openFileSelector()"
     >
       <mat-icon>cloud_upload</mat-icon>
       <span>Click/Drag and Drop File</span>
@@ -14,13 +14,50 @@
         type="file"
         hidden
         #InputImageFiled
-        (change)="onSelectedChanges($event)"
+        (change)="onFilesSelected($event)"
         accept=".png,.jpg,.jpeg,.pdf,.doc,.docx"
+        multiple="true"
       />
     </div>
+
+    <!-- for selecting folders -->
+    <input
+      type="file"
+      hidden
+      #folderInput
+      (change)="onFilesSelected($event)"
+      webkitdirectory
+    />
   </div>
-  <div class="selected-file" *ngIf="filePreviews[0]">
-    <h3>{{ filePreviews[0].name }}</h3>
-    <span><mat-icon (click)="removeSelectedFile()">close</mat-icon></span>
+
+  <ng-container *ngIf="filePreviews.length > 0">
+    <div class="full-width flex justify-end">
+      <h3 >Number of File Selected {{ filePreviews.length }}</h3>
+    </div>
+    <div
+      class="full-width p-10 bg-light flex justify-sb align-center"
+      *ngFor="let file of filePreviews; let i = index"
+    >
+      <h3>
+        {{ file.name }}
+      </h3>
+      <span
+        class="p-10 flex flex-center remove-file-btn"
+        (click)="removeSelectedFile(i)"
+      >
+        <mat-icon>close</mat-icon>
+      </span>
+    </div>
+  </ng-container>
+  <div class="full-width flex justify-end">
+    <button
+      class="p-10 b-1 text-white flex align-center g-5 folder-btn"
+      (click)="openFolderSelector()"
+    >
+      <mat-icon>drive_folder_upload</mat-icon> Select folder
+    </button>
+  </div>
+  <div class="full-width flex justify-end">
+    <button mat-raised-button class="bg-gold">upload</button>
   </div>
 </section>

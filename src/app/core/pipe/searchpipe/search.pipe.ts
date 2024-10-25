@@ -5,17 +5,25 @@ import { Job } from 'src/app/shared/intserfaces/users.intserfaces';
   name: 'search',
 })
 export class SearchPipe implements PipeTransform {
-  transform(jobs: Job[], searchTerm: string): Job[] {
-    if (!jobs) {
-      return [];
+  transform(jobs: Job[], jobFilterTerm: string): Job[] {
+    if (!jobs || !jobFilterTerm) {
+      return jobs;
     }
 
-    if (searchTerm === 'new' || searchTerm === 'closed') {
-      return jobs.filter((job) => job.status === searchTerm);
-    }
+    const searchTerm = jobFilterTerm.toLowerCase();
 
-    return jobs.filter((job) =>
-      job.title.toLowerCase().includes(searchTerm.toLowerCase())
+    return jobs.filter(
+      (job) =>
+        job.title.toLowerCase().includes(searchTerm) ||
+        job.status.toLowerCase().includes(searchTerm) ||
+        job.experience.toLowerCase().includes(searchTerm) ||
+        job.qualification.toLowerCase().includes(searchTerm) ||
+        job.responsibilities.some((resp: string) =>
+          resp.toLowerCase().includes(searchTerm)
+        ) ||
+        job.skills.some((skill: string) =>
+          skill.toLowerCase().includes(searchTerm)
+        )
     );
   }
 }

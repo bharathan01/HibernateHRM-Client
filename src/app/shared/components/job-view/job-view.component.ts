@@ -5,6 +5,7 @@ import { ShareJobDialogComponent } from '../dialog-boxs/share-job-dialog/share-j
 import { JobApplicationDialogBoxComponent } from '../job-application-dialog-box/job-application-dialog-box.component';
 import { Router } from '@angular/router';
 import { CreateHiringTeamComponent } from '../dialog-boxs/create-hiring-team/create-hiring-team.component';
+import { MultipleJobBoardsComponent } from '../dialog-boxs/multiple-job-boards/multiple-job-boards.component';
 
 @Component({
   selector: 'app-job-view',
@@ -53,5 +54,17 @@ export class JobViewComponent {
       width: 'auto',
       height: 'auto',
     });
+  }
+  openPublishJob(event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.dialog.open(MultipleJobBoardsComponent, {
+      width: 'auto',
+      height: 'auto',
+    });
+  }
+  onCloseJob(event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
   }
 }

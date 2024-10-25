@@ -721,7 +721,7 @@ export const jobs: Job[] = [
     totalApplication: 10,
     newApplication: 3,
     activeApplication: 2,
-    status: 'new',
+    status: 'published',
     experience: '3-5 years',
     qualification: 'M.Tech in AI/ML or related field',
     responsibilities: [
@@ -767,7 +767,7 @@ export const jobs: Job[] = [
     totalApplication: 8,
     newApplication: 4,
     activeApplication: 2,
-    status: 'new',
+    status:'published',
     experience: '1-2 years',
     qualification: 'B-Tech in Computer Science or related field',
     responsibilities: [
@@ -790,7 +790,7 @@ export const jobs: Job[] = [
     totalApplication: 12,
     newApplication: 6,
     activeApplication: 3,
-    status: 'new',
+    status:'published',
     experience: '2-3 years',
     qualification: 'B-Tech in Computer Science or related field',
     responsibilities: [

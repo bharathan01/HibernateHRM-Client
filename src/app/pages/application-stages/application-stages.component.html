@@ -2,16 +2,16 @@
 <section class="application-stages">
   <div
     class="filter-container"
-    [ngClass]="{ 'filter-active': !isFilterManuOpen }"
+    [ngClass]="{ 'filter-active': !isFilterMenuOpen }"
   >
     <div class="filter-tiltle">
       <h3>Filter</h3>
-      <span (click)="isFilterManuOpen = !isFilterManuOpen">
+      <span (click)="isFilterMenuOpen = !isFilterMenuOpen">
         <mat-icon>filter_list</mat-icon>
       </span>
     </div>
     <mat-divider></mat-divider>
-    <div class="filters" *ngIf="isFilterManuOpen">
+    <div class="filters" *ngIf="isFilterMenuOpen">
       <div class="filter-field">
         <label>Keyword</label>
         <input type="text" placeholder="enter search key" />

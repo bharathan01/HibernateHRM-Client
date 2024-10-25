@@ -1,4 +1,10 @@
-<section class="publish-job">
+<section
+  class="publish-job flex justify-center text-white full-width p-10 g-10 bg-nav flex-col"
+>
+  <div>
+    <h2>Punlish Your job</h2>
+    <h5>Punlish your job on different Job boards</h5>
+  </div>
   <ul>
     <li>
       <mat-checkbox
@@ -11,16 +17,45 @@
       </mat-checkbox>
     </li>
   </ul>
-
-  <ul>
-    <li *ngFor="let subtask of subtasks.controls; let i = index">
-      <mat-checkbox
-        [checked]="subtask.value.completed"
-        (change)="updateSubtask($event.checked, i)"
-      >
-        {{ subtask.value.name }}
-      </mat-checkbox>
-    </li>
-  </ul>
-  <button mat-raised-button (click)="onHandlePublish()">Publish</button>
+  <table class="scrollable-tbody">
+    <thead class="bg-light">
+      <tr>
+        <td>Job Boards</td>
+        <td>Type</td>
+        <td>Status</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subtask of subtasks.controls; let i = index">
+        <td>
+          <mat-checkbox
+            [checked]="subtask.value.completed"
+            (change)="updateSubtask($event.checked, i)"
+          >
+            <span [innerHTML]="subtask.get('icon')?.value"></span>{{ subtask.value.name }}
+          </mat-checkbox>
+        </td>
+        <td>{{ subtask.get("type")?.value }}</td>
+        <td>{{ subtask.get("status")?.value }}</td>
+        <td>
+          <span>
+            {{ subtask.get("action")?.value }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="full-width flex g-10 justify-end">
+    <button
+      mat-raised-button
+      (click)="onHandlePublish('save')"
+      class="bg-none b-1 text-white"
+    >
+      Save & Publish Later
+    </button>
+    <button mat-raised-button (click)="onHandlePublish('publish')" class="bg-gold">
+      Publish
+    </button>
+  </div>
 </section>

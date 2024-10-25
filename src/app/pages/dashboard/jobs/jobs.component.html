@@ -1,9 +1,76 @@
-<section class="job-container">
-  <div class="filter-bar bg-nav">
-    
+<section class="job-container flex g-10">
+  <div
+    class="filter-bar bg-nav flex flex-col g-10 p-10"
+    [ngClass]="{ 'filter-active': isSearchAndFilterOpen }"
+  >
+    <div class="flex full-width justify-sb">
+      <h3>Search & Filter</h3>
+      <ng-container *ngIf="isSearchAndFilterOpen; else close">
+        <mat-icon (click)="isSearchAndFilterOpen = !isSearchAndFilterOpen"
+          >tune</mat-icon
+        >
+      </ng-container>
+      <ng-template #close>
+        <mat-icon (click)="isSearchAndFilterOpen = !isSearchAndFilterOpen"
+          >close</mat-icon
+        >
+      </ng-template>
+    </div>
+    <ul class="flex flex-col full-width g-10">
+      <li>
+        <button
+        (click)="OpenCreateJrf()"
+        mat-raised-button
+          class="full-width flex align-center text-white g-5 bg-gold"
+        >
+          <mat-icon>assignment_add</mat-icon>
+          Create new JRF
+        </button>
+      </li>
+      <li>
+        <mat-radio-group (input)="onChangeInputValue($event)" aria-label="Select an option flex flex-col">
+          <mat-radio-button value="new">Open Jobs</mat-radio-button><br />
+          <mat-radio-button value="published">Published</mat-radio-button><br />
+          <mat-radio-button value="closed">Closed Jobs</mat-radio-button>
+        </mat-radio-group>
+      </li>
+      <li>
+        <span class="flex flex-col g-5">
+          <label for="search">Search by key word</label>
+          <input
+            type="text"
+            placeholder=" search tearm"
+            class="full-width p-10 bg-light text-white b-1"
+            (input)="onChangeInputValue($event)"
+          />
+        </span>
+      </li>
+      <li class="flex flex-col g-5">
+        <label>Created date range:</label>
+        <span class="flex flex-col g-5">
+          <label for="from">From</label>
+          <input
+            type="date"
+            id="form"
+            placeholder="from"
+            class="full-width p-10 bg-light text-white b-1"
+           
+          />
+        </span>
+        <span class="flex flex-col g-5">
+          <label for="to">To</label>
+          <input
+            type="date"
+            id="to"
+            placeholder="To"
+            class="full-width p-10 bg-light text-white b-1"
+          />
+        </span>
+      </li>
+    </ul>
   </div>
   <div class="job-c-overview">
-    <ng-container *ngFor="let job of jobs | search:jobFilterTerm">
+    <ng-container *ngFor="let job of jobs | search : jobFilterTerm">
       <app-job-view [job]="job"></app-job-view>
     </ng-container>
   </div>

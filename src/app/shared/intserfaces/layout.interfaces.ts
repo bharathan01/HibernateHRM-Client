@@ -7,7 +7,7 @@ export interface MenuBar {
 }
 export interface FileHandle {
   file: File;
-  url: SafeUrl;
+  url?: SafeUrl;
 }
 
 export interface FilePreview {

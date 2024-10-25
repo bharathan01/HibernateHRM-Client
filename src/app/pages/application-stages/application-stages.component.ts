@@ -24,7 +24,7 @@ import {
   styleUrls: ['./application-stages.component.css'],
 })
 export class ApplicationStagesComponent implements OnInit {
-  isFilterManuOpen: boolean = true;
+  isFilterMenuOpen: boolean = true;
   singleApplicationData: any = singleApplicationData; // avoid any when intergration
   isOpenAddCandidate: boolean = false;
   //container where the stages name stored for drage and drop
@@ -47,9 +47,9 @@ export class ApplicationStagesComponent implements OnInit {
       .observe(['(max-width: 900px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          this.isFilterManuOpen = false;
+          this.isFilterMenuOpen = false;
         } else {
-          this.isFilterManuOpen = true;
+          this.isFilterMenuOpen = true;
         }
       });
     this.cdr.detectChanges();
