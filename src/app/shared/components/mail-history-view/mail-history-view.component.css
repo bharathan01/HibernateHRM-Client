@@ -73,3 +73,8 @@
 .mail-profile {
   gap: 5px;
 }
+@media(max-width:800px){
+  .mail-body-preview{
+    display: none;
+  }
+}

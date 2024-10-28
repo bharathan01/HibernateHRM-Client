@@ -1,6 +1,8 @@
 <section class="full-width flex bg-nav">
   <div class="controller flex flex-col p-10">
-    <span class="flex align-center p-10 bg-icon g-10" (click)="openMailBox()"
+    <span
+      class="flex align-center p-10 b-1 g-10 mt-5 mb-5"
+      (click)="openMailBox()"
       ><mat-icon> draw </mat-icon>
       <h3>Compose</h3>
     </span>
@@ -21,7 +23,17 @@
       <h3>Starred</h3></span
     >
   </div>
-  <div class="flex flex-col align-center full-width">
+  <div class="flex flex-col align-center full-width mail-list">
+    <div class="flex full-width justify-end p-10">
+      <span class="p-10 bg-gold">
+        <mat-icon>search</mat-icon>
+      </span>
+      <input
+        type="text"
+        class="p-10 bg-light text-white b-1"
+        placeholder="Search..."
+      />
+    </div>
     <router-outlet></router-outlet>
   </div>
 </section>

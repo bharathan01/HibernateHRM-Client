@@ -1,5 +1,5 @@
 section {
-  height: 82vh;
+  height: 87vh;
 }
 .controller {
   width: 250px;
@@ -7,13 +7,17 @@ section {
   border-right: 1px solid var(--bg-icon);
 }
 .controller span:hover {
-  background-color: var(--gold-background);
+  background-color: var(--bg-icon);
   cursor: pointer;
+}
+.active {
+  background-color: var(--gold-background);
 }
 @media (max-width: 600px) {
   .controller {
     min-width: 50px;
     align-items: center;
+    width: 50px;
   }
   .controller span {
     align-items: center;
@@ -21,5 +25,9 @@ section {
   }
   .controller h3 {
     display: none;
+  }
+  .interview-header{
+    flex-direction: column;
+    align-items: center;
   }
 }

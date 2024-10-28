@@ -1,4 +1,4 @@
-<app-create-jrf-header></app-create-jrf-header>
+<app-header-nav-bar></app-header-nav-bar>
 <section class="application-stages">
   <div
     class="filter-container"
@@ -14,16 +14,16 @@
     <div class="filters" *ngIf="isFilterMenuOpen">
       <div class="filter-field">
         <label>Keyword</label>
-        <input type="text" placeholder="enter search key" />
+        <input type="text" placeholder="enter search key" class="b-1 bg-light p-10 text-white" />
       </div>
       <div class="filter-field">
         <label>Experience</label>
         <div class="experience-input">
           <span>
-            <input type="number" name="" id="" placeholder="Min" />
+            <input type="number" name="" id="" placeholder="Min" class="b-1 bg-light p-10 text-white" />
           </span>
           <span>
-            <input type="number" name="" id="" placeholder="Max" />
+            <input type="number" name="" id="" placeholder="Max" class="b-1 bg-light p-10 text-white"/>
           </span>
         </div>
       </div>
@@ -46,10 +46,10 @@
         <label>Current CTC</label>
         <div class="experience-input">
           <span>
-            <input type="number" placeholder="Min" />
+            <input type="number" placeholder="Min" class="b-1 bg-light p-10 text-white"/>
           </span>
           <span>
-            <input type="number" placeholder="Max" />
+            <input type="number" placeholder="Max" class="b-1 bg-light p-10 text-white"/>
           </span>
         </div>
       </div>
@@ -57,10 +57,10 @@
         <label>Expected CTC</label>
         <div class="experience-input">
           <span>
-            <input type="number" name="" id="" placeholder="Min" />
+            <input type="number" name="" id="" placeholder="Min" class="b-1 bg-light p-10 text-white"/>
           </span>
           <span>
-            <input type="number" name="" id="" placeholder="Max" />
+            <input type="number" name="" id="" placeholder="Max" class="b-1 bg-light p-10 text-white" />
           </span>
         </div>
       </div>
@@ -72,7 +72,9 @@
         <h3>73 Candidates</h3>
       </div>
       <div class="stage-btn">
-        <button mat-raised-button (click)="addHiringTeam()">Manage Hiring Team</button>
+        <button mat-raised-button (click)="addHiringTeam()">
+          Manage Hiring Team
+        </button>
         <button mat-raised-button (click)="onMenuClick($event)">
           Add Candidate
         </button>

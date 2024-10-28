@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class HeaderNavBarComponent {
   isNotificationsTabOpen: boolean = false;
   isOpenSettingsMenu: boolean = false;
-  isSideMenuOpen:boolean = false
+  isSideMenuOpen: boolean = false;
 
   constructor(private dialog: MatDialog) {}
 
@@ -37,7 +37,7 @@ export class HeaderNavBarComponent {
     this.isNotificationsTabOpen = true;
     this.dialog
       .open(NotificationDialogComponent, {
-        position: { top: '60px', right: '245px' },
+        position: { top: '60px', right: '30px' },
         width: '500px',
         height: '70%',
       })
@@ -50,10 +50,14 @@ export class HeaderNavBarComponent {
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
     this.isOpenSettingsMenu = false;
+    this.isSideMenuOpen = false;
+  }
+  toggleSidemenuBar(event:Event) {
+    event.stopPropagation();
+    this.isSideMenuOpen = !this.isSideMenuOpen;
   }
   toggleSettingsOptions(event: Event) {
     this.isOpenSettingsMenu = !this.isOpenSettingsMenu;
     event.stopPropagation();
   }
-
 }

@@ -31,7 +31,7 @@ section {
     width: 80vw;
     padding: 10px;
     overflow-y: auto;
-    height: 100vh;
+    height:80vh
   }
   .input-fields {
     flex-direction: column;

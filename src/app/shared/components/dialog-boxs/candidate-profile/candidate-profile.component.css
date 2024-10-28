@@ -98,7 +98,6 @@
 .candidate-details {
   width: 100%;
   background-color: var(--bg-navbar);
-  height: 100%;
   overflow: auto;
   padding: 10px 20px;
 }
@@ -112,6 +111,9 @@
   display: flex;
   list-style: none;
   gap: 20px;
+}
+.candidate-details ul li{
+  white-space: nowrap;
 }
 
 .candidate-details ul li:hover {
@@ -301,13 +303,25 @@
   align-items: center;
   justify-content: space-between;
 }
+.profile-nav {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+.profile-actions{
+  width: 100%;
+  display: flex;
+}
 
 @media (max-width: 950px) {
-  .candidate-profile,
   .profile {
     flex-direction: column;
     gap: 10px;
     align-items: center;
+  }
+  .profile-actions{
+   flex-direction: column;
   }
 
   .profile-img,
@@ -316,6 +330,7 @@
   .profile-btn {
     align-items: center;
   }
+  .contact-info,
   .form-field-f,
   .duration-field {
     flex-direction: column;
@@ -327,4 +342,28 @@
   p {
     font-size: var(--font-size-sm);
   }
+  @media (max-width: 450px) {
+    .profile-img{
+      width: 60px;
+      height: 60px;
+    }
+   .candidate-details{
+    padding: 5px;
+   }
+   .candidate-info{
+    overflow: auto;
+    scrollbar-width: none;
+   }
+   .candidate-details{
+    overflow: visible;
+   }
+    .control-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+}
+.candidate-info::-webkit-scrollbar{
+  display: none;
 }

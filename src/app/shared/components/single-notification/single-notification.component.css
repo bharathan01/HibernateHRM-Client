@@ -1,66 +1,9 @@
-.single-n-section {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding: 0px 10px;
-  gap: 10px;
-}
-.single-n-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 5px 5px;
-  border-radius: 50%;
-  background-color: var(--text-light);
-}
-.single-n-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 5px;
-}
-.single-n-message {
-  font-size: var(--font-size-xs);
-}
-.single-n-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.single-n-data {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-.single-n-content span{
-    color: var(--text-light);
-    font-size: var(--font-size-xxs);
-}
-.single-n-btn button{
-  background-color: var(--text-light);
-  padding: 5px 10px;
-  border-radius: 10px;
-  border: none;
-  color: var(--bg-white);
-}
-.single-n-section:hover .single-n-btn button,
-.single-n-section:hover .single-n-icon {
-  background-color: var(--gold-background);
+.notifications:hover{
+  background-color: var(--light-background);
   cursor: pointer;
 }
-.single-n-section:hover .single-n-btn button{
-  color: var(--bg-dark);
+.notification-text{
+  font-size: var(--font-size-sm);
 }
-@media (max-width:430px){
-  .single-n-content{
-    gap: 0px;
-  }
-  .single-n-btn button{
-    font-size: var(--font-size-xxs);
-  }
-  .single-n-info{
-    display: block;
-  }
-}
+
+

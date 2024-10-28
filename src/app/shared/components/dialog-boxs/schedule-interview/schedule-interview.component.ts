@@ -7,7 +7,15 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { filter, map, Observable, of, startWith } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  Observable,
+  of,
+  startWith,
+} from 'rxjs';
 import { interviewDetails } from 'src/app/utils/demoData';
 
 @Component({
@@ -64,16 +72,15 @@ export class ScheduleInterviewComponent implements OnInit {
     'Behavioral Interview',
     'Coding Interview',
   ];
-  filteredField: Observable<string[]> | undefined;
   constructor(
     private fb: FormBuilder,
     private router: Router,
     public dialogRef: MatDialogRef<ScheduleInterviewComponent>,
     private datePipe: DatePipe
   ) {}
-  filteredJob!: Observable<string[]>;
-  filteredInterview!: Observable<string[]>;
-  filteredInterviewType!: Observable<string[]>;
+  filteredJob: string[] = [];
+  filteredInterviewer: string[] = [];
+  filteredInterviewType: string[] = [];
 
   ngOnInit(): void {
     this.interviewDetailsForm = this.fb.group({
@@ -82,20 +89,24 @@ export class ScheduleInterviewComponent implements OnInit {
       candidateMail: [''],
       interviewer: [''],
     });
-
-    // Setting up filtering for each field 
-    // **Issue - everytime all the methodes are calling(bug)
-    this.filteredInterviewType = this.createFilteredObservable('interviewType');
-    this.filteredInterview = this.createFilteredObservable('interviewer');
-    this.filteredJob = this.createFilteredObservable('jobTitle');
-  }
-
-  // Generic method to create filtered observable
-  createFilteredObservable(controlName: string): Observable<string[]> {
-    return this.interviewDetailsForm.get(controlName)!.valueChanges.pipe(
-      startWith(''),
-      map((value) => this.filter(value || '', controlName))
-    );
+    this.interviewDetailsForm
+      .get('interviewType')
+      ?.valueChanges.pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe((value) => {
+        this.filter(value, 'interviewType');
+      });
+    this.interviewDetailsForm
+      .get('interviewer')
+      ?.valueChanges.pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe((value) => {
+        this.filter(value, 'interviewer');
+      });
+    this.interviewDetailsForm
+      .get('jobTitle')
+      ?.valueChanges.pipe(debounceTime(300), distinctUntilChanged())
+      .subscribe((value) => {
+        this.filter(value, 'jobTitle');
+      });
   }
 
   // Method to normalize the input
@@ -103,31 +114,30 @@ export class ScheduleInterviewComponent implements OnInit {
     return value.toLowerCase();
   }
 
+  filterByFieldName(valueObject: string[], filterValue: string) {
+    const value = this._normalizeValue(filterValue);
+    return valueObject.filter((item: string) =>
+      this._normalizeValue(item).includes(value)
+    );
+  }
+
   // Filtering the list based on input
-  filter(value: string, controlName: string): string[] {
-    const filterValue = this._normalizeValue(value);
+  filter(value: string, controlName: string): any {
     if (controlName == 'jobTitle') {
-      return this.jobTiltes.filter((street) =>
-        this._normalizeValue(street).includes(filterValue)
-      );
+      this.filteredJob = this.filterByFieldName(this.jobTiltes, value);
     }
     if (controlName == 'interviewer') {
-      return this.interviewer.filter((street) =>
-        this._normalizeValue(street).includes(filterValue)
+      this.filteredInterviewer = this.filterByFieldName(
+        this.interviewer,
+        value
       );
     }
     if (controlName === 'interviewType') {
-      return this.streets.filter((street) =>
-        this._normalizeValue(street).includes(filterValue)
-      );
+      this.filteredInterviewType = this.filterByFieldName(this.streets, value);
     }
-    return []
-    // return this.interviewer.filter((street) =>
-    //   this._normalizeValue(street).includes(filterValue)
-    // );
   }
 
   scheduleInterview() {
-    this.dialogRef.close()
+    this.dialogRef.close();
   }
 }

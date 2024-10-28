@@ -1,9 +1,10 @@
 section{
     overflow-y: auto;
+    scrollbar-width: none;
 }
 .profile-info {
     width: 80%;
-    height: 75vh;
+    height: 79vh;
     scrollbar-width: none;
   }
   .profile-image {

@@ -26,5 +26,31 @@
         <h3>{{ mail.date }}</h3>
       </span>
     </div></a>
+    <a [routerLink]="['view-mail', mail.id]"><div
+      class="full-width p-10 flex justify-sb align-center bg-light mail-view"
+      
+    >
+      <span class="flex align-center g-10 mail-name">
+        <mat-icon
+          (click)="toggleStar(mail)"
+          [ngStyle]="{ color: mail.starred ? 'yellow' : 'gray' }"
+        >
+          grade
+        </mat-icon>
+        <h3>{{ mail.name }}</h3>
+      </span>
+      <span class="mail-subject">
+        <h3>
+          {{
+            mail.subject.length > 100
+              ? (mail.subject | slice : 0 : 70) + "..."
+              : mail.subject
+          }}
+        </h3>
+      </span>
+      <span>
+        <h3>{{ mail.date }}</h3>
+      </span>
+    </div></a>
   </ng-container>
 </section>

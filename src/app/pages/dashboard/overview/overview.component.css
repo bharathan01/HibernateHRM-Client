@@ -3,7 +3,7 @@
   align-items: center;
   flex-direction: column;
   gap: 15px;
-  height: 86vh;
+  height: 87vh;
   overflow: auto;
 }
 .over-view-fa {
@@ -25,10 +25,9 @@
 .upcoming-in-header {
   width: 100%;
 }
-.upcoming-in-heading{
-    margin-bottom: 5px;
+.upcoming-in-heading {
+  margin-bottom: 5px;
 }
-
 
 @media (max-width: 630px) {
   .over-view-fa {

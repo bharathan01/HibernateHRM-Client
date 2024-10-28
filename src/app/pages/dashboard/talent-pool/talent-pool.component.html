@@ -1,30 +1,46 @@
-<section class="full-width p-10 flex g-10 flex-wrap">
-  <ng-container *ngFor="let folder of folders">
-    <a
-      [routerLink]="['talent-folder']"
-      [queryParams]="{ folderName: folder.folderName }"
-    >
-      <div
-        class="p-10 talent-folder b-1 bg-nav border-radius flex justify-ar flex-col g-10"
+<section class="full-width p-10 flex g-10 flex-col">
+  <div class="full-width flex justify-sb talent-header">
+    <h2>Talent Pool Folders</h2>
+    <div class="flex">
+      <span class="p-10 bg-gold">
+        <mat-icon>search</mat-icon>
+      </span>
+      <input
+        type="text"
+        class="p-10 bg-light text-white b-1"
+        placeholder="Search..."
+      />
+    </div>
+  </div>
+  <div class="flex full-width flex-wrap g-10">
+    <ng-container *ngFor="let folder of folders">
+      <a
+        [routerLink]="['talent-folder']"
+        [queryParams]="{ folderName: folder.folderName }"
       >
-        <input
-          type="text"
-          value="Default Folder"
-          (click)="addText($event)"
-          [value]="folder.folderName"
-        />
-        <textarea
-          value=""
-          [value]="folder.folderDiscription"
-          (click)="addText($event)"
-        ></textarea>
-        <mat-divider></mat-divider>
-        <h3>{{ folder.candidateCount }}</h3>
-      </div>
-    </a>
-  </ng-container>
-  <div class="p-10 talent-folder add-folder b-1 border-radius flex-center g-10">
-    <mat-icon (click)="addNewFolder()">add</mat-icon>
+        <div
+          class="p-10 talent-folder b-1 bg-light border-radius flex justify-ar flex-col g-10"
+        >
+          <input
+            type="text"
+            value="Default Folder"
+            (click)="addText($event)"
+            [value]="folder.folderName"
+          />
+          <textarea
+            value=""
+            [value]="folder.folderDiscription"
+            (click)="addText($event)"
+          ></textarea>
+          <mat-divider></mat-divider>
+          <h3>{{ folder.candidateCount }} Profiles</h3>
+        </div>
+      </a>
+    </ng-container>
+    <div
+      class="p-10 talent-folder add-folder b-1 border-radius flex-center g-10"
+    >
+      <mat-icon (click)="addNewFolder()">add</mat-icon>
+    </div>
   </div>
 </section>
-

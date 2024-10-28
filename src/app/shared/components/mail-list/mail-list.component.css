@@ -1,6 +1,10 @@
 :host{
     width: 100%;
 }
+section{
+  /* height: 80vh;
+  overflow-x: auto; */
+}
 .mail-view {
   border-bottom: 1px solid var(--bg-icon);
   transition: all 0.2s;

@@ -1,6 +1,17 @@
-<section class="import-resume">
+<section class="import-resume full-width flex flex-col g-20 bg-nav">
   <div class="import-resume-heading">
     <h3>Import Resume</h3>
   </div>
   <app-file-uploader></app-file-uploader>
+  <div class="full-width flex justify-end">
+    <button
+      class="p-10 b-1 text-white flex align-center bg-none g-5 folder-btn"
+      (click)="triggerOpenFolderSelector()"
+    >
+      <mat-icon>drive_folder_upload</mat-icon> Select folder
+    </button>
+  </div>
+  <div class="full-width flex justify-end">
+    <button mat-raised-button class="bg-gold">Upload Applications</button>
+  </div>
 </section>

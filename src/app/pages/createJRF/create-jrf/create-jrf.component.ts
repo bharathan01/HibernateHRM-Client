@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CreateJrfComponent implements AfterViewInit {
   @ViewChild('contentToCopy', { static: false }) contentToCopy!: ElementRef;
-  currentStageIndex: number = 2;
+  currentStageIndex: number = 0;
   // trak the state/progress of the form steps
   applicationStages: any[] = [
     {

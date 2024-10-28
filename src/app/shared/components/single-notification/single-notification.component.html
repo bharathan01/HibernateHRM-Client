@@ -1,23 +1,18 @@
-<section class="single-n-section">
-  <div class="single-n-icon">
-    <mat-icon>notifications</mat-icon>
-  </div>
-  <div class="single-n-content">
-    <div class="single-n-message">
-      <p>
-        {{ notification.message }}
-      </p>
-    </div>
-    <div class="single-n-info">
-      <div class="single-n-data">
-        <span>
-          {{ notification.user }}
-        </span>
-        <span>{{ notification.time }} </span>
-        <span>{{ notification.date }}</span>
+<section class="flex full-width notifications">
+  <div class="flex full-width g-5 align-center">
+    <span>
+      <mat-icon>notifications</mat-icon>
+    </span>
+    <div class="flex flex-col g-5">
+      <div>
+        <p class="notification-text">
+          {{ notification.message }}
+        </p>
       </div>
-      <div class="single-n-btn">
-        <button>{{ notification.button }}</button>
+      <div class="flex justify-sb">
+        <h5 class="op-7">{{ notification.user }}</h5>
+        <h5 class="op-7">{{ notification.time }}</h5>
+        <h5 class="op-7">{{ notification.date }}</h5>
       </div>
     </div>
   </div>

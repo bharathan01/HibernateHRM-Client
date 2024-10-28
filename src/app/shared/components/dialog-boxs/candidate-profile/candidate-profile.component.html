@@ -3,49 +3,53 @@
     <span (click)="gotToApplications('previous')">
       <mat-icon>arrow_back_ios</mat-icon>
     </span>
-    <div class="profile">
-      <div class="profile-img">JD</div>
-      <div class="profile-info">
-        <span>
-          <h2>
-            {{
-              this.candidateAppliationfrom?.personalInfo.firstName +
-                this.candidateAppliationfrom?.personalInfo.lastName
-            }}
-          </h2>
-        </span>
-        <div class="contact-info">
+    <div class="profile-actions">
+      <div class="profile">
+        <div class="profile-img">JD</div>
+        <div class="profile-info">
           <span>
-            <mat-icon>alternate_email</mat-icon>
-            <h5>{{ this.candidateAppliationfrom?.personalInfo.email }}</h5>
+            <h2>
+              {{
+                this.candidateAppliationfrom?.personalInfo.firstName +
+                  this.candidateAppliationfrom?.personalInfo.lastName
+              }}
+            </h2>
           </span>
-          <span>
-            <mat-icon>call</mat-icon>
-            <h5>{{ this.candidateAppliationfrom?.personalInfo.phone }}</h5>
-          </span>
+          <div class="contact-info">
+            <span>
+              <mat-icon>alternate_email</mat-icon>
+              <h5>{{ this.candidateAppliationfrom?.personalInfo.email }}</h5>
+            </span>
+            <span>
+              <mat-icon>call</mat-icon>
+              <h5>{{ this.candidateAppliationfrom?.personalInfo.phone }}</h5>
+            </span>
+          </div>
+          <span> Source:Indeed </span>
         </div>
-        <span> Source:Indeed </span>
       </div>
-    </div>
-    <div class="profile-btn">
-      <div class="status">
-        <h5>Current Stage:Applied</h5>
-      </div>
-      <div class="feedback-btn">
-        <span title="Send mail" (click)="openMailBox()"
-          ><mat-icon>mail</mat-icon></span
-        >
-        <button mat-raised-button (click)="addFeedback()">Add Feedback</button>
-      </div>
-      <div class="control-btn">
-        <button (click)="scheduleInterview()">Schedule Interview</button>
-        <button (click)="isOpenMoveCandidateMenu = !isOpenMoveCandidateMenu">
-          Move Candidate
-        </button>
-        <button>Reject</button>
-        <div class="move-candidate" *ngIf="isOpenMoveCandidateMenu">
-          <span>Move to talent poll</span>
-          <span>Move Stage</span>
+      <div class="profile-btn">
+        <div class="status">
+          <h5>Current Stage:Applied</h5>
+        </div>
+        <div class="feedback-btn">
+          <span title="Send mail" (click)="openMailBox()"
+            ><mat-icon>mail</mat-icon></span
+          >
+          <button mat-raised-button (click)="addFeedback()">
+            Add Feedback
+          </button>
+        </div>
+        <div class="control-btn">
+          <button (click)="scheduleInterview()">Schedule Interview</button>
+          <button (click)="isOpenMoveCandidateMenu = !isOpenMoveCandidateMenu">
+            Move Candidate
+          </button>
+          <button>Reject</button>
+          <div class="move-candidate" *ngIf="isOpenMoveCandidateMenu">
+            <span>Move to talent poll</span>
+            <span>Move Stage</span>
+          </div>
         </div>
       </div>
     </div>

@@ -93,7 +93,7 @@ const components = [
   ManageEmailTemplateComponent,
   CreateHiringTeamComponent,
   HeaderNavBarComponent,
-  ToastComponent,
+  ToastComponent, 
 ];
 
 @NgModule({

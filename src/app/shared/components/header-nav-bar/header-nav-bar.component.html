@@ -1,5 +1,5 @@
 <section class="full-width p-10 flex justify-sb bg-nav align-center">
-  <div class="menu-container" (click)="isSideMenuOpen = !isSideMenuOpen">
+  <div class="menu-container" (click)="toggleSidemenuBar($event)">
     <ng-container *ngIf="!isSideMenuOpen; else close">
       <mat-icon>menu</mat-icon>
     </ng-container>
@@ -12,7 +12,10 @@
       <img src="../../../../assets/images/Genrobotics.png" alt="" />
     </div>
 
-    <div class="menu-list aside-manubar" [ngClass]="{'open-menu':isSideMenuOpen}">
+    <div
+      class="menu-list aside-manubar"
+      [ngClass]="{ 'open-menu': isSideMenuOpen }"
+    >
       <ul class="flex g-10 align-center">
         <ng-container *ngFor="let menu of menuItemsTop">
           <a
@@ -29,21 +32,10 @@
     </div>
   </div>
   <div class="flex align-center g-10">
-    <span
-      class="p-10 bg-light border-50 flex flex-center notifications"
-      (click)="toggleNotifications()"
-    >
-      <ng-container *ngIf="!isNotificationsTabOpen; else close">
-        <mat-icon> notifications </mat-icon>
-      </ng-container>
-      <ng-template #close>
-        <mat-icon> close </mat-icon>
-      </ng-template>
-    </span>
     <div class="profile-img" (click)="toggleSettingsOptions($event)">
       <span class="flex align-center g-10">
         <img src="../../../../assets/images/avathar.jpg" alt="" />
-        <h3>Some ones</h3>
+        <h3>julia roberts</h3>
         <mat-icon>keyboard_arrow_down</mat-icon>
       </span>
       <ng-container *ngIf="isOpenSettingsMenu">
@@ -63,5 +55,16 @@
         </div>
       </ng-container>
     </div>
+    <span
+      class="p-10 bg-light border-50 flex flex-center notifications"
+      (click)="toggleNotifications()"
+    >
+      <ng-container *ngIf="!isNotificationsTabOpen; else close">
+        <mat-icon> notifications </mat-icon>
+      </ng-container>
+      <ng-template #close>
+        <mat-icon> close </mat-icon>
+      </ng-template>
+    </span>
   </div>
 </section>
