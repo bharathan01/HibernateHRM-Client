@@ -1,51 +1,30 @@
-.feedback-form {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+section{
+  width: 30vw;
   padding: 20px;
-  background-color: var(--bg-dark);
 }
-.interview-details {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.interview-info {
-  display: flex;
-  width: 100%;
-  gap: 10px;
-}
-.interview-info span {
-  display: flex;
-  align-items: center;
-}
-.remarks {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-mat-form-field {
-  width: 400px;
-}
-.Submit-btn {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.Submit-btn button{
-  width: 100%;
-    background-color: var(--gold-background);
+textarea{
+  min-height: 200px;
 }
 
-.rating:hover{
-  cursor: pointer;
-}
-@media(max-width:550px) {
-  .remarks mat-form-field {
-    width: 100%;
+@media(max-width:1200px) {
+  section {
+    width: 50vw;
   }
-}
+} 
+@media(max-width:700px) {
+  section {
+    width: 80vw;
+  }
+} 
+@media(max-width:450px) {
+  section {
+    padding: 20px 5px;
+  }
+  .skills{
+    flex-direction: column;
+    gap: 5px;
+  }
+  .evaluate{
+    font-size: var(--font-size-xxs);
+  }
+} 

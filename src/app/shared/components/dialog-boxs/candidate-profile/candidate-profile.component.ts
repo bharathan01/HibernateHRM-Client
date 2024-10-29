@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  HostListener,
   Inject,
   OnInit,
   signal,
@@ -23,20 +24,21 @@ import { SendMailComponent } from '../send-mail/send-mail.component';
 })
 export class CandidateProfileComponent implements OnInit {
   isOpenMoveCandidateMenu: boolean = false;
-  selectedTab: string = 'Application Form';
+  selectedTab: string = 'Resume';
   candidateAppliationfrom: any;
   isFormEnabled: boolean = false;
   // create an interface for actual data
   interviewDetails: any = interviewDetails;
   applicationFromMenu: applicationMenu[] = [
-    { name: 'Application Form' },
     { name: 'Resume' },
+    { name: 'Application Form' },
     { name: 'Inital Screening' },
     { name: 'Interviews' },
     { name: 'Feedback' },
     { name: 'Mail' },
     { name: 'Time Line' },
   ];
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public applicationId: number,
     private dialog: MatDialog,
@@ -211,5 +213,13 @@ export class CandidateProfileComponent implements OnInit {
     this.education.clear();
     this.workExperience.clear();
     this.ngOnInit();
+  }
+  toggleMoveCandidate(event: Event) {
+    event.stopPropagation();
+    this.isOpenMoveCandidateMenu = !this.isOpenMoveCandidateMenu;
+  }
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    this.isOpenMoveCandidateMenu = false;
   }
 }

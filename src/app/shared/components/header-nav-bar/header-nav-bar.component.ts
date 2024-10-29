@@ -2,6 +2,8 @@ import { Component, HostListener } from '@angular/core';
 import { MenuBar } from '../../intserfaces/layout.interfaces';
 import { NotificationDialogComponent } from '../dialog-boxs/notification-dialog/notification-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LogoutComponent } from '../dialog-boxs/logout/logout.component';
+import { menuItemsTop } from 'src/app/utils/app-data';
 
 @Component({
   selector: 'app-header-nav-bar',
@@ -12,27 +14,9 @@ export class HeaderNavBarComponent {
   isNotificationsTabOpen: boolean = false;
   isOpenSettingsMenu: boolean = false;
   isSideMenuOpen: boolean = false;
+  menuItemsTop: MenuBar[] = menuItemsTop;
 
   constructor(private dialog: MatDialog) {}
-
-  menuItemsTop: MenuBar[] = [
-    { label: 'Dashboard', route: 'dashboard', logo: 'dashboard' },
-    { label: 'Jobs', route: 'dashboard/jobs', logo: 'work' },
-    {
-      label: 'Talent Pool',
-      route: 'dashboard/talent-pool',
-      logo: 'data_thresholding',
-    },
-    { label: 'Interview', route: 'dashboard/interview', logo: 'groups' },
-    { label: 'Reports', route: 'dashboard/report', logo: 'summarize' },
-    { label: 'Mails', route: 'dashboard/mails-box', logo: 'mail' },
-  ];
-
-  menuItemsBottom: MenuBar[] = [
-    { label: 'Settings', route: 'dashboard/settings', logo: 'settings' },
-    { label: 'Log Out', route: '/logout', logo: 'logout' },
-  ];
-
   toggleNotifications() {
     this.isNotificationsTabOpen = true;
     this.dialog
@@ -52,12 +36,18 @@ export class HeaderNavBarComponent {
     this.isOpenSettingsMenu = false;
     this.isSideMenuOpen = false;
   }
-  toggleSidemenuBar(event:Event) {
+  toggleSidemenuBar(event: Event) {
     event.stopPropagation();
     this.isSideMenuOpen = !this.isSideMenuOpen;
   }
   toggleSettingsOptions(event: Event) {
     this.isOpenSettingsMenu = !this.isOpenSettingsMenu;
     event.stopPropagation();
+  }
+  openLogoutDialog() {
+    this.dialog.open(LogoutComponent, {
+      width: 'auto',
+      height: 'auto',
+    });
   }
 }

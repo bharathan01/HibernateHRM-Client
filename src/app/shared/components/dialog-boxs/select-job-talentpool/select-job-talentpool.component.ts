@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class SelectJobTalentpoolComponent {
   constructor(private router:Router, private dialog:MatDialog){}
   addApplication(){
-    this.router.navigateByUrl('dashboard/interview')
     this.dialog.closeAll()
   }
 }

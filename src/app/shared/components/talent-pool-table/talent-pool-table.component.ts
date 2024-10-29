@@ -3,6 +3,7 @@ import { jobApplicants } from 'src/app/utils/demoData';
 import { ApplicationDetail } from '../../intserfaces/users.intserfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { SelectJobTalentpoolComponent } from '../dialog-boxs/select-job-talentpool/select-job-talentpool.component';
+import { CandidateProfileComponent } from '../dialog-boxs/candidate-profile/candidate-profile.component';
 
 @Component({
   selector: 'app-talent-pool-table',
@@ -65,6 +66,11 @@ export class TalentPoolTableComponent implements OnInit {
       width: 'auto',
       height: 'auto',
     })
+  }
+  openCandidatefrom(applicationId: number) {
+    this.dialog.open(CandidateProfileComponent, {
+      data: applicationId,
+    });
   }
 
 }

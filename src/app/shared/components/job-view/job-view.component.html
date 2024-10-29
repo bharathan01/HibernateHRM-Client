@@ -17,7 +17,7 @@
     <ng-container *ngIf="isOpenMoreMenu">
       <div class="job-more-menu">
         <a>
-          <button (click)="addHiringTeam()">Add hiring team</button>
+          <button (click)="addHiringTeam($event)">Add hiring team</button>
         </a>
         <a
           routerLink="/dashboard/report"

@@ -41,16 +41,19 @@
       <ng-container *ngIf="isOpenSettingsMenu">
         <div class="profile-options full-width">
           <ul class="flex flex-col flex-center">
-            <ng-container *ngFor="let menu of menuItemsBottom">
-              <a
-                [routerLink]="['/' + menu.route]"
-                class="text-white full-width flex justify-center"
-              >
-                <li class="p-10 flex align-center g-10">
-                  <mat-icon> {{ menu.logo }} </mat-icon>{{ menu.label }}
-                </li>
-              </a>
-            </ng-container>
+            <a class="text-white full-width flex justify-center" routerLink="/dashboard/settings">
+              <li class="p-10 flex align-center g-10">
+                <mat-icon> settings </mat-icon>Settings
+              </li>
+            </a>
+            <a
+              class="text-white full-width flex justify-center"
+              (click)="openLogoutDialog()"
+            >
+              <li class="p-10 flex align-center g-10">
+                <mat-icon> logout </mat-icon>Logout
+              </li>
+            </a>
           </ul>
         </div>
       </ng-container>

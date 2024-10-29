@@ -28,8 +28,8 @@ a.active .manu-icons {
 }
 @media (max-width: 900px) {
   .settings-nav-bar {
-    min-width: 80px;
-    width: 80px;
+    min-width: 65px;
+    width: 65px;
     align-items: center;
   }
   .manu-icons h3 {

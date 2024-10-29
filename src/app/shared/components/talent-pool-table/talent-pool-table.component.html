@@ -58,8 +58,7 @@
               (change)="OnChangeCheckBox()"
             ></mat-checkbox>
           </td>
-          <a
-            [routerLink]="['/dashboard/candidate-application', application.id]"
+          <a (click)="openCandidatefrom(123)"
           > 
             <td *ngFor="let header of applicationTableHeader">
               {{ application[header] }}

@@ -1,82 +1,73 @@
-<section class="feedback-form">
-  <div class="interview-details">
-    <form [formGroup]="feedbackForm">
-      <div class="interview-info">
-        <mat-form-field>
-          <mat-label>Select Interview</mat-label>
-          <mat-select formControlName="interview">
-            <mat-option value="Task Interview">Assessment - 2</mat-option>
-            <mat-option value="face to face Interview"
-              >Assessment - 2</mat-option
-            >
-            <mat-option value="face to face Interview"
-              >Face to Face Round - 1</mat-option
-            >
-            <mat-option value="face to face Interview"
-              >Face to Face Round - 2</mat-option
-            >
-            <mat-option value="face to face Interview">HR Round</mat-option>
-          </mat-select>
-          <div
-            *ngIf="
-              FeedbackFormController['interview'].touched &&
-              FeedbackFormController['interview'].invalid
-            "
-          >
-            <small class="error-text">interview is required.</small>
-          </div>
-        </mat-form-field>
-      </div>
-      <div class="interview-info">
-        <mat-form-field>
-          <mat-label>Select Interviewer</mat-label>
-          <mat-select formControlName="interviewer">
-            <mat-option value="Task Interview">Anaya</mat-option>
-            <mat-option value="Task Interview">Asher</mat-option>
-            <mat-option value="Task Interview">Olivia</mat-option>
-            <mat-option value="Task Interview">Evelyn</mat-option>
-          </mat-select>
-          <div
-            *ngIf="
-              FeedbackFormController['interviewer'].touched &&
-              FeedbackFormController['interviewer'].invalid
-            "
-          >
-            <small class="error-text">interviewer is required.</small>
-          </div>
-        </mat-form-field>
-      </div>
-      <div class="interview-info">
-        <span>Rate:</span>
-        <span>
-          <ng-container *ngFor="let star of ratingStar">
-            <mat-icon
-              (click)="setRating(star)"
-              [ngClass]="{ filled: star <= currentSelectedStar }"
-              class="rating"
-              >star</mat-icon
-            >
-          </ng-container>
-        </span>
-      </div>
-      <div class="remarks">
-        <span>Remarks</span>
-        <mat-form-field>
-          <mat-label>Feedback</mat-label>
-          <textarea matInput formControlName="remarks"></textarea>
-          <div
-            *ngIf="
-              FeedbackFormController['remarks'].touched &&
-              FeedbackFormController['remarks'].invalid
-            "
-          >
-            <small class="error-text">remarks is required.</small>
-          </div>
-        </mat-form-field>
-      </div>
-      <div class="Submit-btn">
-        <button mat-raised-button (click)="onSubmitFeedback()">Submit</button>
-      </div>
-    </form>
+<section class="bg-nav flex flex-col">
+  <div class="full-width">
+    <h3>Give Your Feedback</h3>
   </div>
+  <form [formGroup]="feedbackForm" class="full-width flex flex-col g-10">
+    <div class="flex flex-col g-5" formArrayName="skillRating">
+      <label>Skills</label>
+
+      <div
+        *ngFor="let skill of skillRating.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <div class="flex full-width justify-sb skills">
+          <input
+            formControlName="skill"
+            type="text"
+            placeholder="Enter Skill"
+            class="b-1 bg-light text-white p-10"
+          />
+
+          <span>
+            <ng-container *ngFor="let star of ratingStar">
+              <mat-icon
+                (click)="setRating(skill, star)"
+                [ngClass]="{ filled: star <= skill.get('rating')?.value }"
+                class="rating pointer"
+                >star</mat-icon
+              >
+            </ng-container>
+          </span>
+        </div>
+      </div>
+      <span class="text-gold pointer" (click)="addSkillRating()">Add+</span>
+    </div>
+
+    <div class="full-width flex flex-col">
+      <label for="evaluate">Evaluate</label>
+      <div class="flex g-5 evaluate">
+        <span
+          class="p-10 b-1 pointer bg-light flex align-center justify-center g-5 text-gold"
+          ><mat-icon> thumb_up </mat-icon> Definitely</span
+        >
+        <span
+          class="p-10 b-1 pointer flex align-center justify-center g-5 text-green"
+          ><mat-icon> check </mat-icon> Yes</span
+        >
+        <span
+          class="p-10 b-1 pointer flex align-center justify-center g-5 text-danger"
+          ><mat-icon> thumb_down </mat-icon> No</span
+        >
+        <span
+          class="p-10 b-1 pointer flex align-center justify-center g-5 text-white bg-gold"
+        >
+          <mat-icon> thumbs_up_down</mat-icon> Not Sure</span
+        >
+      </div>
+    </div>
+    <!-- Remarks Section -->
+    <div class="flex flex-col">
+      <label for="remarks">Remarks</label>
+      <textarea
+        formControlName="remarks"
+        id="remarks"
+        class="bg-light p-10"
+      ></textarea>
+    </div>
+
+    <div class="full-width flex justify-end g-5">
+      <button mat-raised-button class="bg-none b-1 text-white" (click)="onCancelFeedback()">Cancel</button>
+      <button mat-raised-button class="bg-gold" (click)="onSubmitFeedback()">Submit Feedback</button>
+    </div>
+  </form>
 </section>

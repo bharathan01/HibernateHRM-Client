@@ -48,15 +48,16 @@
             <h3>Invited/Approvals</h3>
           </span>
         </div>
+
         <ng-container *ngIf="selectedMemberTable === 'currentMembers'">
           <div class="table-container">
             <table>
               <thead>
                 <tr>
-                  <td>Name</td>
-                  <td>Email ID</td>
-                  <td>Access Type</td>
-                  <td>Action</td>
+                  <th>Name</th>
+                  <th>Email ID</th>
+                  <th>Access Type</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -64,27 +65,84 @@
                   <td>johnDoe</td>
                   <td>johnDoe@gmail.com</td>
                   <td>Super Admin</td>
-                  <td class="flex g-10">
-                    <span> <mat-icon> edit_square </mat-icon></span>
-                    <span><mat-icon> cancel </mat-icon> </span>
+                  <td>
+                    <div class="action-cell">
+                      <button class="action-button" aria-label="Edit user">
+                        <svg
+                          class="edit-icon"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
+                          />
+                        </svg>
+                      </button>
+                      <button class="action-button" aria-label="Delete user">
+                        <svg
+                          class="delete-icon"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <line x1="18" y1="6" x2="6" y2="18" />
+                          <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                      </button>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td>johnDoe</td>
                   <td>johnDoe@gmail.com</td>
                   <td>Super Admin</td>
-                  <td class="flex g-10">
-                    <span> <mat-icon> edit_square </mat-icon></span>
-                    <span><mat-icon> cancel </mat-icon> </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>johnDoe</td>
-                  <td>johnDoe@gmail.com</td>
-                  <td>Super Admin</td>
-                  <td class="flex g-10">
-                    <span> <mat-icon> edit_square </mat-icon></span>
-                    <span><mat-icon> cancel </mat-icon> </span>
+                  <td>
+                    <div class="action-cell">
+                      <button class="action-button" aria-label="Edit user">
+                        <svg
+                          class="edit-icon"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
+                          />
+                        </svg>
+                      </button>
+                      <button class="action-button" aria-label="Delete user">
+                        <svg
+                          class="delete-icon"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <line x1="18" y1="6" x2="6" y2="18" />
+                          <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>

@@ -45,27 +45,6 @@ section {
   border-bottom: 1px solid var(--gold-background);
   color: var(--gold-background);
 }
-.table-container::-webkit-scrollbar {
-  display: none;
-}
-.table-container {
-  width: 100%;
-  overflow-x: auto;
-}
-.table-container table {
-}
-.table-center table thead {
-  min-width: 450px;
-}
-.table-container table tr td {
-  width: 150px;
-}
-.table-container table tr {
-  display: flex;
-  padding: 10px;
-  border-bottom: 1px solid var(--bg-icon);
-}
-
 @media (max-width: 1400px) {
   .members-container {
     width: 100%;
@@ -76,17 +55,11 @@ section {
     flex-direction: column;
     gap: 10px;
   }
-  .table-header-col {
-    flex-direction: column;
-  }
   .member-input select {
     width: 100%;
   }
   .member-control {
     flex-direction: column;
-  }
-  .table-center {
-    align-items: center;
   }
   .members-container {
     padding: 0px;
@@ -94,3 +67,87 @@ section {
 }
 @media (max-width: 400px) {
 }
+
+
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+thead {
+  background-color: #f9fafb;
+}
+
+th {
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4b5563;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 16px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.action-cell {
+  display: flex;
+  gap: 16px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #f3f4f6;
+}
+
+.edit-icon {
+  color: #4b5563;
+}
+
+.delete-icon {
+  color: #dc2626;
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 640px) {
+  .table-container {
+      margin: 10px;
+      border-radius: 4px;
+  }
+
+  th, td {
+      padding: 12px;
+  }
+}
+

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { linkedln } from 'src/app/utils/svg';
+
 import {
   MatSnackBar,
   MatSnackBarAction,
@@ -35,7 +35,6 @@ export class MultipleJobBoardsComponent {
           type: 'free',
           status: 'not Published',
           action: 'publish',
-          icon: linkedln,
           completed: [false],
         }),
         this.fb.group({

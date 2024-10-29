@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CreateJrfComponent } from './createJRF/create-jrf/create-jrf.component';
-import { CandidateApplicationComponent } from './candidate-application/candidate-application.component';
 import { ApplicationStagesComponent } from './application-stages/application-stages.component';
 
 
@@ -20,10 +19,6 @@ const routes: Routes = [
   {
     path: 'dashboard/creat-jrf',
     component: CreateJrfComponent,
-  },
-  {
-    path: 'dashboard/candidate-application/:id',
-    component: CandidateApplicationComponent,
   },
   {
     path: 'dashboard/application-stage/:id',

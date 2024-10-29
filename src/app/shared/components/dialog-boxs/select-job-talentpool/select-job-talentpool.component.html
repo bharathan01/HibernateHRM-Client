@@ -1,36 +1,37 @@
-<section class="job-details">
-    <h3>Select Interview Details</h3>
-    <div class="job-details-form">
-      <form >
-        <div>
-          <mat-form-field class="example-full-width">
-            <mat-label>Enter Job ID</mat-label>
-            <input matInput />
-            <!-- <div
-              *ngIf="
-                scheduledInterviewDetailsControl['time'].touched &&
-                scheduledInterviewDetailsControl['time'].invalid
-              "
-            >
-              <small class="error-text">time is required.</small>
-            </div> -->
-          </mat-form-field>
-        </div>
-          <div>
-            <mat-form-field>
-              <mat-label>Select Job Name</mat-label>
-              <mat-select>
-                <mat-option value="food.value">food.viewValue</mat-option>
-                <mat-option value="food.value">food.viewValue</mat-option>
-                <mat-option value="food.value">food.viewValue</mat-option>
-                <mat-option value="food.value">food.viewValue</mat-option>
-                <mat-option value="food.value">food.viewValue</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        <div class="add-application-btn">
-          <button mat-raised-button (click)="addApplication()">Add Application</button>
-        </div>
-      </form>
+
+<section class="flex bg-nav p-10 g-20 flex-col">
+  <div class="full-width flex">
+    <h3>Select Job Details</h3>
+  </div>
+  <form class="full-width flex flex-col g-10">
+    <div class="flex flex-col">
+      <label for="jobId">Enter Job ID</label>
+      <input
+        class="b-1 bg-light text-white p-10 "
+        id="jobId"
+        placeholder="enter Job Id"
+      />
     </div>
+    <div class="flex flex-col">
+      <label for="jobName">Enter Job Name</label>
+      <input
+        class="b-1 bg-light text-white p-10"
+        id="jobName"
+        placeholder="Enter Job Name"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option value="option">option</mat-option>
+        <mat-option value="option">option</mat-option>
+        <mat-option value="option">option</mat-option>
+        <mat-option value="option">option</mat-option>
+        <mat-option value="option">option</mat-option>
+      </mat-autocomplete>
+    </div>
+    <div class="add-application-btn">
+      <button mat-raised-button (click)="addApplication()">
+        Add Application
+      </button>
+    </div>
+  </form>
 </section>

@@ -326,12 +326,20 @@ p {
 .bg-none {
   background-color: transparent !important;
 }
+
 .text-white {
   color: var(--bg-white) !important;
 }
 .text-gold {
   color: var(--gold-background);
 }
+.text-green{
+  color: var(--bg-whatsapp);
+}
+.text-danger{
+  color: var(--danger);
+}
+
 .pt-10 {
   padding: 10px;
 }

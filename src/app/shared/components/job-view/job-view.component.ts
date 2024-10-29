@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, Input } from '@angular/core';
 import { Job } from '../../intserfaces/users.intserfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { ShareJobDialogComponent } from '../dialog-boxs/share-job-dialog/share-job-dialog.component';
-import { JobApplicationDialogBoxComponent } from '../job-application-dialog-box/job-application-dialog-box.component';
+import { JobApplicationDialogBoxComponent } from '../dialog-boxs/job-application-dialog-box/job-application-dialog-box.component';
 import { Router } from '@angular/router';
 import { CreateHiringTeamComponent } from '../dialog-boxs/create-hiring-team/create-hiring-team.component';
 import { MultipleJobBoardsComponent } from '../dialog-boxs/multiple-job-boards/multiple-job-boards.component';
@@ -49,7 +49,8 @@ export class JobViewComponent {
   openApplicationView() {
     this.router.navigateByUrl(`/dashboard/application-stage/${this.job?.id}`);
   }
-  addHiringTeam() {
+  addHiringTeam(event:Event) {
+    event.stopPropagation();
     this.dialog.open(CreateHiringTeamComponent, {
       width: 'auto',
       height: 'auto',
