@@ -1,70 +1,7 @@
 <app-header-nav-bar></app-header-nav-bar>
 <section class="application-stages">
-  <div
-    class="filter-container"
-    [ngClass]="{ 'filter-active': !isFilterMenuOpen }"
-  >
-    <div class="filter-tiltle">
-      <h3>Filter</h3>
-      <span (click)="isFilterMenuOpen = !isFilterMenuOpen">
-        <mat-icon>filter_list</mat-icon>
-      </span>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="filters" *ngIf="isFilterMenuOpen">
-      <div class="filter-field">
-        <label>Keyword</label>
-        <input type="text" placeholder="enter search key" class="b-1 bg-light p-10 text-white" />
-      </div>
-      <div class="filter-field">
-        <label>Experience</label>
-        <div class="experience-input">
-          <span>
-            <input type="number" name="" id="" placeholder="Min" class="b-1 bg-light p-10 text-white" />
-          </span>
-          <span>
-            <input type="number" name="" id="" placeholder="Max" class="b-1 bg-light p-10 text-white"/>
-          </span>
-        </div>
-      </div>
-      <div class="filter-field">
-        <label>Notice Period</label>
-        <div class="experience-input">
-          <mat-slider
-            min="0"
-            max="60"
-            step="1"
-            showTickMarks
-            discrete
-            [displayWith]="formatLabel"
-          >
-            <input matSliderThumb />
-          </mat-slider>
-        </div>
-      </div>
-      <div class="filter-field">
-        <label>Current CTC</label>
-        <div class="experience-input">
-          <span>
-            <input type="number" placeholder="Min" class="b-1 bg-light p-10 text-white"/>
-          </span>
-          <span>
-            <input type="number" placeholder="Max" class="b-1 bg-light p-10 text-white"/>
-          </span>
-        </div>
-      </div>
-      <div class="filter-field">
-        <label>Expected CTC</label>
-        <div class="experience-input">
-          <span>
-            <input type="number" name="" id="" placeholder="Min" class="b-1 bg-light p-10 text-white"/>
-          </span>
-          <span>
-            <input type="number" name="" id="" placeholder="Max" class="b-1 bg-light p-10 text-white" />
-          </span>
-        </div>
-      </div>
-    </div>
+  <div class="flex flex-col align-center g-10">
+    <app-filter-application></app-filter-application>
   </div>
   <div class="stages-container">
     <div class="stage-header">

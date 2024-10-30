@@ -19,6 +19,9 @@
         <a>
           <button (click)="addHiringTeam($event)">Add hiring team</button>
         </a>
+        <a routerLink="/dashboard/creat-jrf">
+          <button >Edit JD</button>
+        </a>
         <a
           routerLink="/dashboard/report"
           [queryParams]="{ job: job.title }"

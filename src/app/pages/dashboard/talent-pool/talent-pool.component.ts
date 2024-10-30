@@ -25,4 +25,10 @@ export class TalentPoolComponent {
     event.stopPropagation();
     event.preventDefault();
   }
+  onDeletdFolder(folderIndex: number,event:Event) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.folders.splice(folderIndex,1)
+
+  }
 }

@@ -67,14 +67,7 @@ export class ApplicationStagesComponent implements OnInit {
     event.stopPropagation();
   }
 
-  /*@@ notice period slider value calcuate  */
-  formatLabel(value: number): string {
-    if (value >= 1) {
-      return Math.round(value / 1) + 'Days';
-    }
-
-    return `${value}`;
-  }
+  
 
   /*@@ create a unique stage name
       @@ for identify the darg and drop cintainer*/

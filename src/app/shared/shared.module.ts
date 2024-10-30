@@ -52,6 +52,7 @@ import { CreateHiringTeamComponent } from './components/dialog-boxs/create-hirin
 import { CandidatesChatComponent } from './components/candidates-chat/candidates-chat.component';
 import { HeaderNavBarComponent } from './components/header-nav-bar/header-nav-bar.component';
 import { ToastComponent } from './components/dialog-boxs/toast/toast.component';
+import { FilterApplicationComponent } from './components/filter-application/filter-application.component';
 
 const components = [
   AsideNavBarComponent,
@@ -87,7 +88,8 @@ const components = [
   ManageEmailTemplateComponent,
   CreateHiringTeamComponent,
   HeaderNavBarComponent,
-  ToastComponent, 
+  ToastComponent,
+  FilterApplicationComponent,
 ];
 
 @NgModule({

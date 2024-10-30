@@ -1,44 +1,9 @@
 <section class="talent-pool-container">
-  <div class="filter-container">
-    <div class="filter-heading">
-      <h3>Filter By</h3>
-    </div>
-    <div class="filter-by">
-      <mat-form-field>
-        <mat-label>Job Roles</mat-label>
-        <mat-select>
-          <mat-option value="software engineer">Software Engineer </mat-option>
-          <mat-option value="Marketing Coordinator"> Marketing Coordinator</mat-option>
-          <mat-option value="Web Designer"> Web Designer </mat-option>
-          <mat-option value="Project Manager"> Project Manager </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Experience</mat-label>
-        <mat-select>
-          <mat-option value="0-2"> 0-2 years </mat-option>
-          <mat-option value="3-5"> 3-5 years </mat-option>
-          <mat-option value="5-7"> 5-7 years </mat-option>
-          <mat-option value="10-years above"> 10-years above </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Skills</mat-label>
-        <mat-select>
-          <mat-option value=" Circuit design"> Circuit design </mat-option>
-          <mat-option value="Python"> Python </mat-option>
-          <mat-option value="AI & ML"> AI & ML </mat-option>
-          <mat-option value="C & C++"> C & C++ </mat-option>
-          <mat-option value="UI & UX"> UI & UX</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div
-      class="add-candidate-btn"
-      *ngIf="selectedCandidateApplication.length > 0"
-    >
-      <button mat-raised-button (click)="addApplicationPopUp()">Add To Applications</button>
-    </div>
+  <div class="flex flex-col align-center g-10">
+    <app-filter-application></app-filter-application>
+    <!-- <button mat-raised-button (click)="addApplicationPopUp()">
+      Add To Applications
+    </button> -->
   </div>
   <div class="table-container">
     <table>
@@ -58,8 +23,7 @@
               (change)="OnChangeCheckBox()"
             ></mat-checkbox>
           </td>
-          <a (click)="openCandidatefrom(123)"
-          > 
+          <a (click)="openCandidatefrom(123)">
             <td *ngFor="let header of applicationTableHeader">
               {{ application[header] }}
             </td>

@@ -1,0 +1,104 @@
+<section class="full-width">
+  <div
+    class="filter-container"
+    [ngClass]="{ 'filter-active': !isFilterMenuOpen }"
+  >
+    <div class="filter-tiltle">
+      <h3>Filter</h3>
+      <span (click)="isFilterMenuOpen = !isFilterMenuOpen">
+        <mat-icon>filter_list</mat-icon>
+      </span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="full-width flex flex-col g-10" *ngIf="isFilterMenuOpen">
+      <div class="filter-field">
+        <label>Keyword</label>
+        <input
+          type="text"
+          placeholder="enter search key"
+          class="b-1 bg-light p-10 text-white"
+        />
+      </div>
+      <div class="filter-field">
+        <label>Experience</label>
+        <div class="flex justify-sb g-10">
+          <span>
+            <input
+              type="number"
+              name=""
+              id=""
+              placeholder="Min"
+              class="b-1 full-width bg-light p-10 text-white"
+            />
+          </span>
+          <span>
+            <input
+              type="number"
+              name=""
+              id=""
+              placeholder="Max"
+              class="b-1 bg-light full-width p-10 text-white"
+            />
+          </span>
+        </div>
+      </div>
+      <div class="filter-field">
+        <label>Notice Period</label>
+        <div class="flex justify-sb">
+          <mat-slider
+            min="0"
+            max="60"
+            step="1"
+            showTickMarks
+            discrete
+            [displayWith]="formatLabel"
+          >
+            <input matSliderThumb />
+          </mat-slider>
+        </div>
+      </div>
+      <div class="filter-field">
+        <label>Current CTC</label>
+        <div class="flex justify-sb g-10">
+          <span>
+            <input
+              type="number"
+              placeholder="Min"
+              class="b-1 bg-light full-width p-10 text-white"
+            />
+          </span>
+          <span>
+            <input
+              type="number"
+              placeholder="Max"
+              class="b-1 bg-light full-width p-10 text-white"
+            />
+          </span>
+        </div>
+      </div>
+      <div class="filter-field">
+        <label>Expected CTC</label>
+        <div class="flex justify-sb g-10">
+          <span>
+            <input
+              type="number"
+              name=""
+              id=""
+              placeholder="Min"
+              class="b-1 full-width bg-light p-10 text-white"
+            />
+          </span>
+          <span>
+            <input
+              type="number"
+              name=""
+              id=""
+              placeholder="Max"
+              class="b-1 full-width bg-light p-10 text-white"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -12,8 +12,8 @@
       />
     </div>
   </div>
-  <div class="flex full-width flex-wrap g-10">
-    <ng-container *ngFor="let folder of folders">
+  <div class="flex full-width flex-wrap g-10 talent-box-container">
+    <ng-container *ngFor="let folder of folders let i = index">
       <a
         [routerLink]="['talent-folder']"
         [queryParams]="{ folderName: folder.folderName }"
@@ -33,7 +33,12 @@
             (click)="addText($event)"
           ></textarea>
           <mat-divider></mat-divider>
-          <h3>{{ folder.candidateCount }} Profiles</h3>
+          <div class="flex full-width justify-sb">
+            <h3>{{ folder.candidateCount }} Profiles</h3>
+            <span class="p-10 " (click)="onDeletdFolder(i,$event)">
+              <mat-icon>delete</mat-icon>
+            </span>
+          </div>
         </div>
       </a>
     </ng-container>

@@ -44,18 +44,28 @@ textarea {
 .talent-folder p {
   color: rgba(112, 112, 112, 0.818);
 }
-@media (max-width: 1200px) {
-  section {
+.talent-box-container {
+  overflow: scroll;
+  scrollbar-width: none;
+  padding: 10px;
+}
+.talent-box-container::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width: 900px) {
+  .talent-box-container {
     justify-content: center;
   }
 }
+
 @media (max-width: 600px) {
   section {
     justify-content: center;
   }
-  @media (max-width: 460px) {
-    .talent-header{
-      flex-direction: column;
-    }
+}
+
+@media (max-width: 460px) {
+  .talent-header {
+    flex-direction: column;
   }
 }
