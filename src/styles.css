@@ -333,10 +333,10 @@ p {
 .text-gold {
   color: var(--gold-background);
 }
-.text-green{
+.text-green {
   color: var(--bg-whatsapp);
 }
-.text-danger{
+.text-danger {
   color: var(--danger);
 }
 
@@ -364,10 +364,10 @@ p {
 .m-10 {
   margin: 10px;
 }
-.mb-5{
+.mb-5 {
   margin-bottom: 5px;
 }
-.mt-5{
+.mt-5 {
   margin-top: 5px;
 }
 .g-5 {
@@ -446,6 +446,6 @@ p {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.op-7{
+.op-7 {
   opacity: 0.7;
 }

@@ -2,9 +2,10 @@
 <section class="full-width p-10">
   <div class="full-width flex justify-ar bg-nav b-bottom-1">
     <div
-      *ngFor="let stage of applicationStages"
+      *ngFor="let stage of applicationStages; let i = index"
       class="flex g-10 p-10 justify-center jd-stage"
-      [ngClass]="{ complete: stage.stageState.currentStage }"
+      [ngClass]="{ complete: stage.stageState.currentStage }" 
+      (click)="moveStageManually(i)"
     >
       <span>
         <span class="flex align-center jd-stage-name">

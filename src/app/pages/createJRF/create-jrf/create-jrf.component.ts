@@ -1,7 +1,5 @@
 import { DatePipe } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-jrf',
@@ -9,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./create-jrf.component.css'],
   providers: [DatePipe],
 })
-export class CreateJrfComponent implements AfterViewInit {
+export class CreateJrfComponent {
   @ViewChild('contentToCopy', { static: false }) contentToCopy!: ElementRef;
   currentStageIndex: number = 0;
   // trak the state/progress of the form steps
@@ -40,14 +38,10 @@ export class CreateJrfComponent implements AfterViewInit {
     },
   ];
 
-  constructor(
-    private fb: FormBuilder,
-    private dialog: MatDialog,
-    private datePipe: DatePipe,
-    private dialogBox: MatDialog
-  ) {}
-
-  ngAfterViewInit(): void {}
+  moveStageManually(stageIndex: number) {
+    this.currentStageIndex = stageIndex;
+    this.applicationStages[stageIndex].stageState.currentStage = true; 
+  }
 
   moveApplicationStage() {
     this.applicationStages[this.currentStageIndex].stageState.completed = true;

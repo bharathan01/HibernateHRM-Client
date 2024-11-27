@@ -1,7 +1,7 @@
 section {
   width: 100%;
   height: 100%;
-  min-height: 80vh;
+  min-height: 78vh;
 }
 .single-stage{
   transform: scale(0.5);
@@ -18,6 +18,7 @@ section {
 }
 .stages {
   overflow-x: auto;
+  padding: 10px 0px 20px 0px;
 }
 .stage-container {
   width: 60%;
@@ -53,8 +54,29 @@ p {
   font-weight: lighter;
 }
 .stages::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
+
+.stages::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.stages::-webkit-scrollbar-track {
+  background: transparent
+}
+
+/* Handle */
+.stages::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.stages::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .add-new-stage{
   width: 20px;
   min-width: 20px;

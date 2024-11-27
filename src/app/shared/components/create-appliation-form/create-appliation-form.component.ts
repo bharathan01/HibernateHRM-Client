@@ -12,6 +12,13 @@ export class CreateAppliationFormComponent {
   readonly panelOpenState = signal(false);
   @Output() proceed: EventEmitter<boolean> = new EventEmitter();
   @Output() previous: EventEmitter<boolean> = new EventEmitter();
+
+  /*imp: send the questions have changes that 
+  means sent the custom and optional qustions 
+  buz other qustions are default */
+
+
+
   jobQuestions = [
     {
       fieldName: 'Personal Info',
@@ -161,6 +168,6 @@ export class CreateAppliationFormComponent {
     this.proceed.emit(true);
   }
   previousPage() {
-    this.previous.emit(true)
+    this.previous.emit(true);
   }
 }
