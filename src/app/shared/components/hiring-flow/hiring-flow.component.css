@@ -54,10 +54,6 @@ p {
   font-weight: lighter;
 }
 .stages::-webkit-scrollbar {
-  /* display: none; */
-}
-
-.stages::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
